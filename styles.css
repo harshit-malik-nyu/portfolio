@@ -354,6 +354,10 @@ input[type="range"]::-moz-range-thumb {
 
 /* ---------------- footer ---------------- */
 
+/* The masthead is sticky, so an anchor jump would land the target underneath
+   it. scroll-margin-top reserves that height on anything linked to. */
+#work, #experience, #contact { scroll-margin-top: 4rem; }
+
 .footer { border-top: 1px solid var(--rule); padding: 2.5rem 0 3.5rem; }
 .footer-inner { display: grid; gap: 1.2rem; }
 @media (min-width: 46rem) {
