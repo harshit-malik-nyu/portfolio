@@ -294,7 +294,44 @@ function initCitations() {
     </div>`).join("");
 }
 
+/* Navigation without fragments.
+   Clicking a nav link used to put "#contact" in the address bar. Copying that
+   URL into a profile means every future visitor lands at the footer instead of
+   the top. Scrolling in script keeps the URL clean, so whatever gets copied is
+   always the plain address. */
+function initNav() {
+  const header = document.querySelector(".masthead");
+  const offset = header ? header.offsetHeight + 8 : 64;
+
+  document.querySelectorAll('.masthead-nav a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: smooth ? "smooth" : "auto"
+      });
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });   // keyboard focus follows the jump
+    });
+  });
+}
+
+/* Any URL already carrying a fragment — a link shared before the fix — opens
+   at the top and the address is cleaned, so it stops propagating. */
+function normaliseEntry() {
+  if (!window.location.hash) return;
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+  window.scrollTo(0, 0);
+  // Some browsers restore the fragment scroll after load; override it once.
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  normaliseEntry();
+  initNav();
   initHero();
   initResolution();
   initScreening();

@@ -12,6 +12,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>
+  /* Runs before paint: stops the browser restoring an old scroll position and
+     stops a fragment in the URL jumping the page before the stylesheet lands. */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (window.location.hash) window.scrollTo(0, 0);
+</script>
 </head>
 <body>
 
