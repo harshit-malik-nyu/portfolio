@@ -360,4 +360,7 @@ input[type="range"]::-moz-range-thumb {
   .footer-inner { grid-template-columns: 1fr auto; align-items: end; }
 }
 .footer-line { margin: 0; font-size: .9rem; color: var(--ink-faint); max-width: 30rem; }
-.footer-links { display: flex; gap: 1.4rem; margin: 0; font-size: .92rem; }
+.footer-links {
+  display: flex; flex-wrap: wrap; gap: .6rem 1.4rem;
+  margin: 0; font-size: .92rem;
+}
