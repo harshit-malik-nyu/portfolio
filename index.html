@@ -22,6 +22,7 @@
     <span class="masthead-name">Harshit Malik</span>
     <nav class="masthead-nav">
       <a href="#work">Work</a>
+      <a href="#leadership">Leadership</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -145,6 +146,32 @@
       </div>
     </div>
 
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To a lab choosing what to ship</p>
+          <p class="worth-what">A regression detector fires on noise or misses
+            real degradation depending on a threshold nobody has calibrated. A
+            missed two-point regression costs roughly <b>$8,400</b> in degraded
+            output before anything else surfaces it; investigating a false alarm
+            costs <b>$4,500</b> in engineering time. The ratio is about two to
+            one, not the orders of magnitude the field assumes.</p>
+        </div>
+        <div>
+          <p class="worth-who">To anyone buying on benchmark scores</p>
+          <p class="worth-what">Procurement and capability claims rest on
+            differences the instrument cannot resolve. The check runs in a build
+            pipeline with no model calls and <b>exits non-zero</b> when a
+            reported improvement exceeds what the benchmark can measure.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> run every benchmark in your
+        eval suite through the size check. Any that cannot resolve the
+        differences you report on them should carry an interval, or be
+        replaced.</p>
+    </div>
+
     <p class="project-note">
       Partway through, I found concurrent work that does this more rigorously
       and says so on the front page. It also showed my own measurement
@@ -254,6 +281,63 @@
       </div>
     </div>
 
+    <div class="tool">
+      <h3 class="tool-title">What the threshold costs to run</h3>
+      <p class="tool-intro">
+        Alert rates measured against live OFAC data. Review cost and analyst
+        time are published benchmarks — $15–25 per alert at 20–45 minutes each —
+        not assumptions of mine.
+      </p>
+      <div class="tool-body">
+        <div class="controls">
+          <label class="control">
+            <span class="control-label">Screening events per year</span>
+            <input type="range" id="cost-volume" min="1" max="60" step="1" value="6">
+            <output id="cost-volume-out" class="control-value">6.0m</output>
+          </label>
+          <label class="control">
+            <span class="control-label">Alert threshold</span>
+            <input type="range" id="cost-threshold" min="52" max="98" step="2" value="84">
+            <output id="cost-threshold-out" class="control-value">84</output>
+          </label>
+        </div>
+
+        <dl class="stats stats-4">
+          <div><dt>Alerts a year</dt><dd id="cost-alerts">—</dd></div>
+          <div><dt>Analysts needed</dt><dd id="cost-fte">—</dd></div>
+          <div><dt>Annual review cost</dt><dd id="cost-spend">—</dd></div>
+          <div><dt>Variants still caught</dt><dd id="cost-recall">—</dd></div>
+        </dl>
+
+        <p class="readout" id="cost-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To the head of financial crime compliance</p>
+          <p class="worth-what">At a mid-tier bank's volume, the threshold
+            decides a swing of <b>$15.6m to $90k</b> in annual review cost, and
+            <b>159 analysts to one</b>. That range is the real decision, and it
+            is currently made by judgement with no measurement behind it.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever signs the technology budget</p>
+          <p class="worth-what">Vendor spend on better fuzzy matching buys
+            movement along a frontier that stops at 75.9% recall. <b>15.1% of
+            published aliases are unreachable by any name-matching method</b>,
+            so that money is capped by construction. Identifier capture moves
+            the frontier; matching software does not.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> stop the threshold
+        review. Price mandatory date-of-birth and registration-number capture at
+        onboarding instead, and measure the alert reduction before renewing the
+        screening vendor.</p>
+    </div>
+
     <p class="project-note">
       IRISL is the Islamic Republic of Iran Shipping Lines. IRIS Marine
       Services is an unrelated Indian company. The recommendation the study
@@ -306,6 +390,31 @@
       </p>
     </div>
 
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To a firm's risk and quality partner</p>
+          <p class="worth-what">One retracted report costs roughly
+            <b>A$732,000</b> — fee refund, remediation, and the commercial drag
+            of a public correction. Running this check across every deliverable
+            costs about <b>A$35,000 a year</b>. The case does not need the
+            incident rate to be high; it needs it to be non-zero.</p>
+        </div>
+        <div>
+          <p class="worth-who">To an engagement manager before delivery</p>
+          <p class="worth-what">A 13% base rate means three unresolvable
+            references in a report is <b>normal, not alarming</b> — which is the
+            number that tells you when to worry and when not to. Without it,
+            every finding looks like a scandal or gets waved through.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> require a DOI or stable
+        identifier at the point of writing. Deposited references fail at 0.0%
+        against 13% for described ones — the control belongs upstream, not in
+        review.</p>
+    </div>
+
     <p class="project-note">
       The headline moved four times while I built it: 37.9%, then 52.3%, then
       57.3%, then 75.9%. Every intermediate figure looked reasonable. Each
@@ -347,6 +456,57 @@
           answer.</p>
       </div>
     </div>
+    <p class="method-foot">
+      Three projects on one theme is a deliberate choice, and it has a cost: it
+      shows depth rather than range. What it does show is the same judgement
+      applied to a capital-allocation question, an operational-risk question
+      and a professional-liability question — and reaching a different
+      recommendation in each.
+    </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LEADERSHIP ============================ -->
+<section class="leadership" id="leadership">
+  <div class="wrap">
+    <p class="exhibit">President, Graduate Student Council · New York University · Apr 2025 – May 2026</p>
+    <h2 class="project-title">Running a council of 5,000 people</h2>
+    <div class="scqa">
+      <p class="answer"><b>I was elected, not appointed.</b> Graduate students
+      across every NYU school voted me in to represent them, and I sit on the
+      two university-wide committees that decide how their money is spent.</p>
+    </div>
+
+    <div class="lead-grid">
+      <div class="lead-item">
+        <p class="lead-figure">5,000+</p>
+        <p class="lead-text">graduate students represented across every school
+          in the university, on a mandate won from peers rather than handed
+          down.</p>
+      </div>
+      <div class="lead-item">
+        <p class="lead-figure">2</p>
+        <p class="lead-text">university-wide committees — Organization &amp;
+          Governance, and Financial Affairs, where student funding is
+          allocated between competing claims.</p>
+      </div>
+      <div class="lead-item">
+        <p class="lead-figure">13</p>
+        <p class="lead-text">months in office, negotiating between student
+          constituencies who want different things and an administration
+          working under its own constraints.</p>
+      </div>
+    </div>
+
+    <p class="project-note">
+      The committee work is the closest thing on this page to the job: a fixed
+      budget, more claims on it than it covers, incomplete information about
+      who needs what, and a decision that has to be defended to people it
+      disadvantages. It is also where the interest in measuring what is
+      actually true — rather than what the loudest constituency asserts —
+      started.
+    </p>
   </div>
 </section>
 
@@ -369,23 +529,6 @@
           <li>Built churn-risk models and standardised the experiment workflow,
             <b>cutting setup-to-readout by 35%</b> so product, design and
             leadership argued from one evidence base instead of three.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="role">
-      <div class="role-when">Apr 2025 – May 2026</div>
-      <div class="role-what">
-        <h3>President, Graduate Student Council</h3>
-        <p class="role-org">New York University</p>
-        <ul>
-          <li>Elected by peers to represent <b>5,000+</b> graduate students —
-            a mandate rather than an appointment.</li>
-          <li>Sit on the university-wide Organization &amp; Governance and
-            Financial Affairs committees, which decide how student funding is
-            allocated across schools.</li>
-          <li>Lead cross-campus policy work, negotiating between student
-            constituencies and an administration with its own constraints.</li>
         </ul>
       </div>
     </div>

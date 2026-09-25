@@ -368,3 +368,53 @@ input[type="range"]::-moz-range-thumb {
   display: flex; flex-wrap: wrap; gap: .6rem 1.4rem;
   margin: 0; font-size: .92rem;
 }
+
+
+/* ---------------- business case blocks ---------------- */
+
+.worth {
+  border-top: 2px solid var(--ink);
+  padding-top: 1.3rem;
+  margin: 2.2rem 0 0;
+}
+.worth-title {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
+  margin: 0 0 1.2rem;
+}
+.worth-grid { display: grid; gap: 1.8rem; margin-bottom: 1.4rem; }
+@media (min-width: 46rem) { .worth-grid { grid-template-columns: 1fr 1fr; } }
+.worth-who {
+  font-size: .84rem; color: var(--ink-faint); margin: 0 0 .45rem;
+}
+.worth-what { margin: 0; font-size: .96rem; }
+.worth-what b { font-family: var(--mono); font-weight: 500; font-size: .95em; }
+.worth-action {
+  margin: 0; padding: .9rem 1.1rem; background: var(--paper-2);
+  border-left: 3px solid var(--signal); font-size: .96rem;
+}
+
+.stats-4 { gap: 1.6rem 2.2rem; }
+
+/* ---------------- leadership ---------------- */
+
+.leadership { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--rule); }
+.lead-grid {
+  display: grid; gap: 1.6rem; margin: 0 0 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+.lead-item { border-top: 2px solid var(--ink); padding-top: .85rem; }
+.lead-figure {
+  font-family: var(--mono); font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -.03em;
+  margin: 0 0 .4rem; line-height: 1;
+}
+.lead-text { margin: 0; font-size: .93rem; color: var(--ink-soft); }
+
+.method-foot {
+  max-width: 44rem; margin: 1.8rem 0 0; font-size: .95rem;
+  color: color-mix(in srgb, var(--paper) 70%, transparent);
+  padding-top: 1.3rem;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+}
+
+#leadership { scroll-margin-top: 4rem; }

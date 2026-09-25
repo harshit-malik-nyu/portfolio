@@ -99,6 +99,78 @@ const CITEAUDIT_RATES = [
   { corpus: "Wikipedia, scholarly citations",     writer: "non-expert authors", rate: 0.1392, lo: 0.1009, hi: 0.1891, n: 237 }
 ];
 
+/* ---------- 4. Sanctions operating cost (sanctions-triage) ----------
+   Threshold sweep measured against live OFAC data: 9,973 designated entities,
+   8,000 real registered companies, 6,000 held-out aliases. Cost inputs are
+   published benchmarks, not assumptions — $15-25 per alert review, 20-45
+   minutes each.                                                            */
+
+const SWEEP = [{"t": 50.0, "recall": 0.77417, "fp": 0.675466}, {"t": 52.0, "recall": 0.75867, "fp": 0.625422}, {"t": 54.0, "recall": 0.743, "fp": 0.580883}, {"t": 56.0, "recall": 0.7265, "fp": 0.537595}, {"t": 58.0, "recall": 0.71, "fp": 0.485175}, {"t": 60.0, "recall": 0.69667, "fp": 0.445515}, {"t": 62.0, "recall": 0.67617, "fp": 0.397848}, {"t": 64.0, "recall": 0.656, "fp": 0.355311}, {"t": 66.0, "recall": 0.63367, "fp": 0.318779}, {"t": 68.0, "recall": 0.60883, "fp": 0.275241}, {"t": 70.0, "recall": 0.58667, "fp": 0.236332}, {"t": 72.0, "recall": 0.56317, "fp": 0.197798}, {"t": 74.0, "recall": 0.53067, "fp": 0.162767}, {"t": 76.0, "recall": 0.49917, "fp": 0.129739}, {"t": 78.0, "recall": 0.4695, "fp": 0.100963}, {"t": 80.0, "recall": 0.44333, "fp": 0.082197}, {"t": 82.0, "recall": 0.39917, "fp": 0.049794}, {"t": 84.0, "recall": 0.36867, "fp": 0.032153}, {"t": 86.0, "recall": 0.32583, "fp": 0.016765}, {"t": 88.0, "recall": 0.28633, "fp": 0.009884}, {"t": 90.0, "recall": 0.2475, "fp": 0.004254}, {"t": 92.0, "recall": 0.203, "fp": 0.000751}, {"t": 94.0, "recall": 0.16717, "fp": 0.0005}, {"t": 96.0, "recall": 0.115, "fp": 0.00025}, {"t": 98.0, "recall": 0.04733, "fp": 0.000125}, {"t": 100.0, "recall": 0.03433, "fp": 0.000125}];
+
+const COST_PER_ALERT = 20;      // published: $15-25 direct review cost
+const MINUTES_PER_ALERT = 22;   // published: 20-45 min per Level 1 review
+const HOURS_PER_FTE_YEAR = 1800;
+const PENALTY_P90 = 12027066;   // OFAC 90th percentile, 180 published actions
+
+function atThreshold(t) {
+  let best = SWEEP[0];
+  for (const row of SWEEP) {
+    if (Math.abs(row.t - t) < Math.abs(best.t - t)) best = row;
+  }
+  return best;
+}
+
+function operatingCost(screenings, threshold) {
+  const row = atThreshold(threshold);
+  const alerts = row.fp * screenings;
+  const reviewCost = alerts * COST_PER_ALERT;
+  const fte = (alerts * MINUTES_PER_ALERT) / 60 / HOURS_PER_FTE_YEAR;
+  return { alerts, reviewCost, fte, recall: row.recall, threshold: row.t };
+}
+
+const usd = n =>
+  n >= 1e6 ? `$${(n / 1e6).toFixed(1)}m`
+  : n >= 1e3 ? `$${Math.round(n / 1e3)}k`
+  : `$${Math.round(n)}`;
+
+function initCostCase() {
+  const vol = $("#cost-volume"), thr = $("#cost-threshold");
+  if (!vol) return;
+
+  const render = () => {
+    const screenings = +vol.value * 1e6;
+    const r = operatingCost(screenings, +thr.value);
+
+    $("#cost-volume-out").textContent = `${(+vol.value).toFixed(1)}m`;
+    $("#cost-threshold-out").textContent = r.threshold.toFixed(0);
+    $("#cost-alerts").textContent = Math.round(r.alerts).toLocaleString();
+    $("#cost-fte").textContent = r.fte < 1 ? r.fte.toFixed(1) : Math.round(r.fte).toLocaleString();
+    $("#cost-spend").textContent = usd(r.reviewCost);
+    $("#cost-recall").textContent = pct(r.recall);
+
+    // What the same book costs at the other end of the range.
+    const tight = operatingCost(screenings, 92);
+    const saving = r.reviewCost - tight.reviewCost;
+    const recallLost = r.recall - tight.recall;
+
+    const v = $("#cost-verdict");
+    if (r.threshold >= 92) {
+      v.className = "readout is-alarm";
+      v.innerHTML = `Cheap to run and <b>${pct(r.recall)} recall</b>. Defensible
+        as an operating choice, indefensible as a detection claim — it should
+        be adopted alongside compensating controls, not as the control.`;
+    } else {
+      v.className = "readout";
+      v.innerHTML = `Tightening to 92 would save <b>${usd(saving)} a year</b> in
+        review cost and give up <b>${pct(recallLost)}</b> of recall. That is the
+        trade the committee is actually making.`;
+    }
+  };
+
+  [vol, thr].forEach(el => el.addEventListener("input", render));
+  render();
+}
+
 /* ---------- Page wiring ---------- */
 
 const $ = sel => document.querySelector(sel);
@@ -227,4 +299,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initResolution();
   initScreening();
   initCitations();
+  initCostCase();
 });
