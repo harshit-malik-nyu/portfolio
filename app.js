@@ -171,6 +171,56 @@ function initCostCase() {
   render();
 }
 
+/* ---------- 5. Agent unit economics (agentcost) ----------
+   Token counts from 102 real contracts in CUAD, annotated by practising
+   lawyers. Review cost and analyst time are estimates, labelled as such in
+   the repository.                                                          */
+
+const MEAN_TOKENS = 11712;       // measured: mean contract length in CUAD test
+const CLAUSES = 41;
+const PRICE_IN = 0.80, PRICE_OUT = 4.00;   // $/1M tokens, mid-tier list price
+const OUT_PER_CLAUSE = 150;
+const FULL_REVIEW_USD = 33.75;   // 45 min at $45/hr
+const VERIFY_USD = 9.00;         // 12 min at $45/hr
+
+function agentCostPerContract(reviewRate, perQuestion) {
+  const passes = perQuestion ? CLAUSES : 1;
+  const inference = (MEAN_TOKENS * passes / 1e6) * PRICE_IN
+                  + (CLAUSES * OUT_PER_CLAUSE / 1e6) * PRICE_OUT;
+  const review = reviewRate * VERIFY_USD;
+  return { inference, review, total: inference + review };
+}
+
+function initAgentCost() {
+  const rev = $("#ac-review"), arch = $("#ac-arch");
+  if (!rev) return;
+
+  const render = () => {
+    const r = +rev.value / 100;
+    const perQ = arch.checked;
+    const c = agentCostPerContract(r, perQ);
+    const saving = (FULL_REVIEW_USD - c.total) / FULL_REVIEW_USD;
+
+    $("#ac-review-out").textContent = `${(r * 100).toFixed(0)}%`;
+    $("#ac-inference").textContent = `$${c.inference.toFixed(4)}`;
+    $("#ac-reviewcost").textContent = `$${c.review.toFixed(2)}`;
+    $("#ac-total").textContent = `$${c.total.toFixed(2)}`;
+    $("#ac-share").textContent = `${(100 * c.inference / c.total).toFixed(2)}%`;
+
+    const v = $("#ac-verdict");
+    v.className = `readout ${saving > 0 ? "is-ok" : "is-alarm"}`;
+    v.innerHTML = saving > 0
+      ? `<b>${(saving * 100).toFixed(0)}% cheaper</b> than a human doing it from
+         scratch ($${FULL_REVIEW_USD.toFixed(2)}). Inference is
+         <b>${(100 * c.inference / c.total).toFixed(2)}%</b> of the bill — the
+         model price is a rounding error.`
+      : `No saving at this review rate.`;
+  };
+
+  [rev, arch].forEach(el => el.addEventListener("input", render));
+  render();
+}
+
 /* ---------- Page wiring ---------- */
 
 const $ = sel => document.querySelector(sel);
@@ -337,4 +387,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initScreening();
   initCitations();
   initCostCase();
+  initAgentCost();
 });

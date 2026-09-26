@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data analyst</title>
-<meta name="description" content="Data analyst in New York. Three projects on measurement integrity, each with working tools you can run on this page.">
+<meta name="description" content="Data analyst in New York. Four projects on measurement and decision quality, each with working tools you can run on this page.">
 <meta property="og:title" content="Harshit Malik — data analyst">
-<meta property="og:description" content="Three projects on measurement integrity, each with working tools you can run in the page.">
+<meta property="og:description" content="Four projects on measurement and decision quality, each with working tools you can run in the page.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 <section class="hero">
   <div class="wrap">
     <p class="hero-kicker">Harshit Malik · data, business and product analysis · New York</p>
-    <h1 class="hero-title">Three times I checked a number<br>everyone had accepted.</h1>
+    <h1 class="hero-title">Four times I checked a number<br>everyone had accepted.</h1>
     <p class="hero-standfirst">
       Each time it was wrong, and each time the error changed what a
       decision-maker should do. Start with one you have probably read.
@@ -55,11 +55,11 @@
     </div>
 
     <p class="hero-lede">
-      Below: whether a bank's sanctions filter can work at all, whether a
-      consulting report's citations exist, and whether anyone can tell when an
-      AI model gets worse. Each one ends in a recommendation. Each has a working
-      tool on this page running the real code, so nothing here has to be taken
-      on trust.
+      Below: whether anyone can tell when an AI model gets worse, whether a
+      bank's sanctions filter can work at all, what an AI agent really costs to
+      run a process, and whether a consulting report's citations exist. Each
+      ends in a recommendation. Each has a working tool on this page running the
+      real code, so nothing here has to be taken on trust.
     </p>
   </div>
 </section>
@@ -354,11 +354,125 @@
   </div>
 </article>
 
-<!-- ---------------------------- citeaudit ---------------------------- -->
+
+<!-- ---------------------------- agentcost ---------------------------- -->
 <article class="project">
   <div class="wrap">
     <header class="project-head">
-      <p class="exhibit">Project three · professional services risk</p>
+      <p class="exhibit">Project three · automation economics</p>
+      <h2 class="project-title">What does an AI agent actually cost to run?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Every large organisation is now costing AI
+        automation of back-office document work — contract review, claims
+        triage, invoice matching. The comparison is almost always framed as
+        model capability against price per token.</p>
+        <p><b>Complication.</b> Nobody publishes the unit economics. The
+        vendor pitch optimises the one term that turns out not to matter, and
+        the term that does matter is not accuracy.</p>
+        <p><b>Question.</b> What does the work actually cost per document, and
+        which lever moves it?</p>
+        <p class="answer"><b>Answer: inference is 0.38% of the bill.</b> Human
+        review is the rest. And the review rate is set by whether the agent can
+        tell when it is wrong — not by how often it is right. A 95%-accurate
+        agent that cannot rank its own errors costs six times more to run than
+        an 85%-accurate agent that can.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/agentcost">Code</a>
+        <span>63 tests · 96% coverage · CUAD, annotated by practising lawyers</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">0.38%</p>
+        <p class="finding-text">of total cost is inference. Across every
+          published price tier. Choosing a cheaper model moves a rounding
+          error.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">6&times;</p>
+        <p class="finding-text">cheaper to run a worse model that knows when
+          it is wrong than a better one that does not.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">47%</p>
+        <p class="finding-text">of deployments where a threshold tuned on
+          validation data exceeds its own error target. Replaced with a
+          distribution-free guarantee.</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">Where the money goes, per contract</h3>
+      <p class="tool-intro">
+        Token counts measured from 102 real commercial contracts. Review cost
+        is an estimate, labelled as one in the repository.
+      </p>
+      <div class="tool-body">
+        <label class="control">
+          <span class="control-label">Share of documents a human checks</span>
+          <input type="range" id="ac-review" min="0" max="100" step="5" value="100">
+          <output id="ac-review-out" class="control-value">100%</output>
+        </label>
+
+        <label class="control control-inline" style="display:flex;gap:.6rem;align-items:center">
+          <input type="checkbox" id="ac-arch" style="width:auto">
+          <span class="control-label" style="margin:0">Resend the contract for
+            each of the 41 clause types (the naive implementation)</span>
+        </label>
+
+        <dl class="stats stats-4" style="margin-top:1.4rem">
+          <div><dt>Inference</dt><dd id="ac-inference">—</dd></div>
+          <div><dt>Human review</dt><dd id="ac-reviewcost">—</dd></div>
+          <div><dt>Total per contract</dt><dd id="ac-total">—</dd></div>
+          <div><dt>Inference share</dt><dd id="ac-share">—</dd></div>
+        </dl>
+
+        <p class="readout" id="ac-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To whoever is building the automation case</p>
+          <p class="worth-what">The business case is almost never about the
+            model. Even reviewing <b>every single output</b> still saves 73%,
+            because verifying a highlighted answer is roughly four times faster
+            than finding it. An agent does not need blind trust to pay for
+            itself.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever has to sign off on the risk</p>
+          <p class="worth-what">A review threshold tuned on validation data
+            exceeds its own error target in <b>47%</b> of deployments. A
+            distribution-free construction holds at the nominal rate — and for
+            a weakly calibrated agent it needs <b>60% review against the 37%</b>
+            the naive method implies. That gap is the cost of a guarantee.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> stop evaluating vendors on
+        price per token. Ask instead whether their confidence scores rank
+        errors — and make them show you the curve.</p>
+    </div>
+
+    <p class="project-note">
+      The statistical machinery is standard: selective prediction, conformal
+      risk control, Clopper-Pearson bounds. The repository says so and cites
+      the literature. What is assembled is the join — risk control aimed at a
+      human-review budget rather than at prediction-set size, so the output is
+      a staffing decision with a guarantee attached.
+    </p>
+  </div>
+</article>
+
+<!-- ---------------------------- citeaudit ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project four · professional services risk</p>
       <h2 class="project-title">Do the citations in this report exist?</h2>
       <div class="scqa">
         <p><b>Situation.</b> Deloitte, EY and KPMG have each had work retracted
@@ -436,7 +550,7 @@
 <!-- ============================ METHOD ============================ -->
 <section class="method">
   <div class="wrap">
-    <h2 class="section-title">What the three have in common</h2>
+    <h2 class="section-title">What they have in common</h2>
     <p class="method-lede">
       Different industries, the same failure. In each case a number was being
       used to make decisions, it looked reasonable, and it was wrong in a way
@@ -463,11 +577,11 @@
       </div>
     </div>
     <p class="method-foot">
-      Three projects on one theme is a deliberate choice, and it has a cost: it
+      Four projects on one theme is a deliberate choice, and it has a cost: it
       shows depth rather than range. What it does show is the same judgement
-      applied to a capital-allocation question, an operational-risk question
-      and a professional-liability question — and reaching a different
-      recommendation in each.
+      applied to a capital-allocation question, an operational-risk question,
+      an automation business case and a professional-liability question —
+      reaching a different recommendation in each.
     </p>
   </div>
 </section>
