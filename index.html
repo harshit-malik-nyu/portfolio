@@ -38,12 +38,26 @@
 <!-- ============================ HERO ============================ -->
 <section class="hero">
   <div class="wrap">
-    <p class="hero-kicker">Harshit Malik · data, business and product analysis · New York</p>
-    <h1 class="hero-title">Four times I checked a number<br>everyone had accepted.</h1>
-    <p class="hero-standfirst">
-      Each time it was wrong, and each time the error changed what a
-      decision-maker should do. Start with one you have probably read.
+
+    <div class="identity">
+      <div>
+        <h1 class="hero-name">Harshit Malik</h1>
+        <p class="hero-role">Data, business and product analysis · New York</p>
+      </div>
+      <div class="availability">
+        <p class="avail-line"><b>Open to analyst roles</b></p>
+        <p class="avail-detail">Available May 2026 · NYC or hybrid<br>
+          Work authorisation: F-1 with OPT</p>
+      </div>
+    </div>
+
+    <p class="credentials">
+      M.S. Technology Management, NYU &nbsp;·&nbsp;
+      <b>Elected President</b>, Graduate Student Council, NYU Tandon &nbsp;·&nbsp;
+      <b>CUNY–NYU AI Graduate Leadership Fellow</b>, one of two from Tandon
     </p>
+
+    <h2 class="hero-title">I find the numbers<br>that don't hold up.</h2>
 
     <div class="claim">
       <p class="claim-source">From a model announcement:</p>
@@ -54,24 +68,438 @@
       <div class="verdict" id="hero-verdict" hidden></div>
     </div>
 
-    <p class="hero-lede">
-      Below: whether anyone can tell when an AI model gets worse, whether a
-      bank's sanctions filter can work at all, what an AI agent really costs to
-      run a process, and whether a consulting report's citations exist. Each
-      ends in a recommendation. Each has a working tool on this page running the
-      real code, so nothing here has to be taken on trust.
-    </p>
+    <div class="summary">
+      <p class="summary-lead">Four projects. Each began with a number an
+        organisation was already acting on. Each one was wrong, and the error
+        changed what a decision-maker should do.</p>
+      <div class="summary-grid">
+        <div class="sum-item">
+          <p class="sum-figure">$15.6m</p>
+          <p class="sum-text">annual swing a bank's sanctions threshold
+            decides — and nobody had measured it</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">0.38%</p>
+          <p class="sum-text">of an AI automation budget is the model. The
+            vendor conversation optimises the wrong term</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">13%</p>
+          <p class="sum-text">of citations in honest professional work don't
+            resolve — the base rate nobody had</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">6 of 9</p>
+          <p class="sum-text">AI benchmarks can't detect the improvements
+            announced on them</p>
+        </div>
+      </div>
+      <p class="summary-foot">Every figure below is computed from public data,
+        and four working tools on this page run the real code — so nothing here
+        has to be taken on trust.</p>
+    </div>
+
   </div>
 </section>
 
 <!-- ============================ WORK ============================ -->
 <main id="work">
 
-<!-- ---------------------------- evaldrift ---------------------------- -->
+<!-- ---------------------------- sanctions-triage ---------------------------- -->
 <article class="project">
   <div class="wrap">
     <header class="project-head">
-      <p class="exhibit">Project one · AI evaluation</p>
+      <p class="exhibit">Project one · financial crime compliance</p>
+      <h2 class="project-title">Where should a bank set its sanctions threshold?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Every customer and payment at a large bank is
+        screened against sanctions lists. Published benchmarks put 90–95% of
+        the resulting alerts in the false-positive column, each costing roughly
+        twenty minutes of analyst time.</p>
+        <p><b>Complication.</b> The threshold controlling that volume is set by
+        judgement. Lower it and the queue becomes unstaffable; raise it and
+        designated parties pass through. No public measurement exists of the
+        trade-off, because the ground truth is confidential.</p>
+        <p><b>Question.</b> What is the defensible operating point, and what
+        does being wrong cost in each direction?</p>
+        <p class="answer"><b>Answer: there isn't one — and that is the
+        finding.</b> No threshold makes name-only screening both staffable and
+        adequately sensitive, because 15% of published aliases share no
+        characters with any other name for the same party. The investment case
+        is secondary identifiers, not threshold tuning or better matching
+        software.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/sanctions-triage">Code</a>
+        <a href="https://harshit-malik-nyu.github.io/sanctions-triage/">Decision brief</a>
+        <span>125 tests · 91% coverage · live OFAC data</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">15.1%</p>
+        <p class="finding-text">of published aliases share no characters with
+          any other name for the same party. No amount of tuning reaches them.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">19.1%</p>
+        <p class="finding-text">of recall given up by running one threshold
+          across companies and people, who fail in different ways.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">$12.0m</p>
+        <p class="finding-text">ninetieth-percentile penalty across 180
+          published OFAC enforcement actions — the anchor for what a miss
+          costs.</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">Screen a name against the list</h3>
+      <p class="tool-intro">
+        This runs the matching algorithm from the project, ported exactly. Try
+        the real pairs below, or type your own.
+      </p>
+      <div class="tool-body">
+        <div class="presets">
+          <button class="chip" type="button" aria-pressed="true"
+            data-pair="IRIS MARINE SERVICES PRIVATE LIMITED||IRISL MARINE SERVICES">
+            One letter apart</button>
+          <button class="chip" type="button" aria-pressed="false"
+            data-pair="BANCO NACIONAL DE CUBA||NATIONAL BANK OF CUBA">
+            Same party, translated</button>
+          <button class="chip" type="button" aria-pressed="false"
+            data-pair="APPLE INC||APPLE BANK FOR SAVINGS">
+            Shares a word only</button>
+          <button class="chip" type="button" aria-pressed="false"
+            data-pair="CUBANACAN, S.A.||CUBANACAN SA">
+            Same party, punctuation</button>
+        </div>
+
+        <div class="fields">
+          <label class="field">
+            <span class="control-label">Customer or payment name</span>
+            <input type="text" id="scr-a" value="IRIS MARINE SERVICES PRIVATE LIMITED">
+            <span class="field-norm">compared as <b id="scr-norm-a">—</b></span>
+          </label>
+          <label class="field">
+            <span class="control-label">Name on the sanctions list</span>
+            <input type="text" id="scr-b" value="IRISL MARINE SERVICES">
+            <span class="field-norm">compared as <b id="scr-norm-b">—</b></span>
+          </label>
+        </div>
+
+        <div class="dial">
+          <span class="dial-score" id="scr-score">—</span>
+          <span class="dial-track"><span class="dial-fill" id="scr-dial-fill"></span></span>
+        </div>
+
+        <label class="control control-inline">
+          <span class="control-label">Alert threshold</span>
+          <input type="range" id="scr-threshold" min="50" max="100" step="1" value="84">
+          <output id="scr-threshold-out" class="control-value">84</output>
+        </label>
+
+        <p class="readout" id="scr-verdict">—</p>
+      </div>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 640 300" class="chart" role="img"
+  aria-label="As the sanctions threshold rises from 52 to 100, the alert rate falls from 63% to almost zero while recall falls from 76% to 3%. At threshold 84 the alert rate is 3.2% and recall is 37%.">
+  <style>
+    .g{stroke:var(--rule-soft);stroke-width:1}
+    .ax{stroke:var(--rule);stroke-width:1}
+    .yl,.xl{fill:var(--ink-faint);font:400 11px var(--mono)}
+    .yl{text-anchor:end} .xl{text-anchor:middle}
+    .ln{fill:none;stroke-width:2.2;stroke-linejoin:round}
+    .rec{stroke:var(--signal)} .alr{stroke:var(--alarm)}
+    .lab{font:500 12px var(--sans)}
+    .mk{stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3}
+    .mkt{fill:var(--ink);font:500 11px var(--mono);text-anchor:middle}
+  </style>
+  <line x1="52" y1="260.0" x2="624" y2="260.0" class="g"/><text x="44" y="264.0" class="yl">0%</text><line x1="52" y1="199.5" x2="624" y2="199.5" class="g"/><text x="44" y="203.5" class="yl">25%</text><line x1="52" y1="139.0" x2="624" y2="139.0" class="g"/><text x="44" y="143.0" class="yl">50%</text><line x1="52" y1="78.5" x2="624" y2="78.5" class="g"/><text x="44" y="82.5" class="yl">75%</text><line x1="52" y1="18.0" x2="624" y2="18.0" class="g"/><text x="44" y="22.0" class="yl">100%</text>
+  <line x1="52" y1="18" x2="52" y2="260" class="ax"/>
+  <line x1="433.3" y1="18" x2="433.3" y2="260" class="mk"/>
+  <text x="433.3" y="14" class="mkt">84</text>
+  <polyline points="28.2,96.5 52.0,108.6 75.8,119.4 99.7,129.9 123.5,142.6 147.3,152.2 171.2,163.7 195.0,174.0 218.8,182.9 242.7,193.4 266.5,202.8 290.3,212.1 314.2,220.6 338.0,228.6 361.8,235.6 385.7,240.1 409.5,247.9 433.3,252.2 457.2,255.9 481.0,257.6 504.8,259.0 528.7,259.8 552.5,259.9 576.3,259.9 600.2,260.0 624.0,260.0" class="ln alr"/>
+  <polyline points="28.2,72.7 52.0,76.4 75.8,80.2 99.7,84.2 123.5,88.2 147.3,91.4 171.2,96.4 195.0,101.2 218.8,106.7 242.7,112.7 266.5,118.0 290.3,123.7 314.2,131.6 338.0,139.2 361.8,146.4 385.7,152.7 409.5,163.4 433.3,170.8 457.2,181.1 481.0,190.7 504.8,200.1 528.7,210.9 552.5,219.5 576.3,232.2 600.2,248.5 624.0,251.7" class="ln rec"/>
+  <text x="123.5" y="114.8" class="lab" fill="var(--alarm)">alerts to review</text>
+  <text x="266.5" y="85.8" class="lab" fill="var(--signal)">variants caught</text>
+  <text x="52.0" y="278" class="xl">52</text><text x="195.0" y="278" class="xl">64</text><text x="338.0" y="278" class="xl">76</text><text x="481.0" y="278" class="xl">88</text><text x="624.0" y="278" class="xl">100</text>
+  <text x="338.0" y="296" class="xl">alert threshold</text>
+</svg>
+      <figcaption>Measured against live OFAC data: 9,973 designated entities,
+        8,000 real registered companies, 6,000 held-out aliases. The two curves
+        fall together — every alert removed costs coverage. There is no knee.</figcaption>
+    </figure>
+
+    <div class="tool">
+      <h3 class="tool-title">What the threshold costs to run</h3>
+      <p class="tool-intro">
+        Alert rates measured against live OFAC data. Review cost and analyst
+        time are published benchmarks — $15–25 per alert at 20–45 minutes each —
+        not assumptions of mine.
+      </p>
+      <div class="tool-body">
+        <div class="controls">
+          <label class="control">
+            <span class="control-label">Screening events per year</span>
+            <input type="range" id="cost-volume" min="1" max="60" step="1" value="6">
+            <output id="cost-volume-out" class="control-value">6.0m</output>
+          </label>
+          <label class="control">
+            <span class="control-label">Alert threshold</span>
+            <input type="range" id="cost-threshold" min="52" max="98" step="2" value="84">
+            <output id="cost-threshold-out" class="control-value">84</output>
+          </label>
+        </div>
+
+        <dl class="stats stats-4">
+          <div><dt>Alerts a year</dt><dd id="cost-alerts">—</dd></div>
+          <div><dt>Analysts needed</dt><dd id="cost-fte">—</dd></div>
+          <div><dt>Annual review cost</dt><dd id="cost-spend">—</dd></div>
+          <div><dt>Variants still caught</dt><dd id="cost-recall">—</dd></div>
+        </dl>
+
+        <p class="readout" id="cost-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To the head of financial crime compliance</p>
+          <p class="worth-what">At a mid-tier bank's volume, the threshold
+            decides a swing of <b>$15.6m to $90k</b> in annual review cost, and
+            <b>159 analysts to one</b>. That range is the real decision, and it
+            is currently made by judgement with no measurement behind it.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever signs the technology budget</p>
+          <p class="worth-what">Vendor spend on better fuzzy matching buys
+            movement along a frontier that stops at 75.9% recall. <b>15.1% of
+            published aliases are unreachable by any name-matching method</b>,
+            so that money is capped by construction. Identifier capture moves
+            the frontier; matching software does not.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> stop the threshold
+        review. Price mandatory date-of-birth and registration-number capture at
+        onboarding instead, and measure the alert reduction before renewing the
+        screening vendor.</p>
+    </div>
+
+    <p class="project-note">
+      IRISL is the Islamic Republic of Iran Shipping Lines. IRIS Marine
+      Services is an unrelated Indian company. The recommendation the study
+      reaches is not a threshold: it is that no threshold makes name-only
+      screening both affordable and safe, and the money belongs in better
+      identifiers.
+    </p>
+  </div>
+</article>
+
+
+
+<!-- ---------------------------- agentcost ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project two · AI automation economics</p>
+      <h2 class="project-title">What does an AI agent actually cost to run?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Every large organisation is now costing AI
+        automation of back-office document work — contract review, claims
+        triage, invoice matching. The comparison is almost always framed as
+        model capability against price per token.</p>
+        <p><b>Complication.</b> Nobody publishes the unit economics. The
+        vendor pitch optimises the one term that turns out not to matter, and
+        the term that does matter is not accuracy.</p>
+        <p><b>Question.</b> What does the work actually cost per document, and
+        which lever moves it?</p>
+        <p class="answer"><b>Answer: inference is 0.38% of the bill.</b> Human
+        review is the rest. And the review rate is set by whether the agent can
+        tell when it is wrong — not by how often it is right. A 95%-accurate
+        agent that cannot rank its own errors costs six times more to run than
+        an 85%-accurate agent that can.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/agentcost">Code</a>
+        <span>63 tests · 96% coverage · CUAD, annotated by practising lawyers</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">0.38%</p>
+        <p class="finding-text">of total cost is inference. Across every
+          published price tier. Choosing a cheaper model moves a rounding
+          error.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">6&times;</p>
+        <p class="finding-text">cheaper to run a worse model that knows when
+          it is wrong than a better one that does not.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">47%</p>
+        <p class="finding-text">of deployments where a threshold tuned on
+          validation data exceeds its own error target. Replaced with a
+          distribution-free guarantee.</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">Where the money goes, per contract</h3>
+      <p class="tool-intro">
+        Token counts measured from 102 real commercial contracts. Review cost
+        is an estimate, labelled as one in the repository.
+      </p>
+      <div class="tool-body">
+        <label class="control">
+          <span class="control-label">Share of documents a human checks</span>
+          <input type="range" id="ac-review" min="0" max="100" step="5" value="100">
+          <output id="ac-review-out" class="control-value">100%</output>
+        </label>
+
+        <label class="control control-inline" style="display:flex;gap:.6rem;align-items:center">
+          <input type="checkbox" id="ac-arch" style="width:auto">
+          <span class="control-label" style="margin:0">Resend the contract for
+            each of the 41 clause types (the naive implementation)</span>
+        </label>
+
+        <dl class="stats stats-4" style="margin-top:1.4rem">
+          <div><dt>Inference</dt><dd id="ac-inference">—</dd></div>
+          <div><dt>Human review</dt><dd id="ac-reviewcost">—</dd></div>
+          <div><dt>Total per contract</dt><dd id="ac-total">—</dd></div>
+          <div><dt>Inference share</dt><dd id="ac-share">—</dd></div>
+        </dl>
+
+        <p class="readout" id="ac-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To whoever is building the automation case</p>
+          <p class="worth-what">The business case is almost never about the
+            model. Even reviewing <b>every single output</b> still saves 73%,
+            because verifying a highlighted answer is roughly four times faster
+            than finding it. An agent does not need blind trust to pay for
+            itself.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever has to sign off on the risk</p>
+          <p class="worth-what">A review threshold tuned on validation data
+            exceeds its own error target in <b>47%</b> of deployments. A
+            distribution-free construction holds at the nominal rate — and for
+            a weakly calibrated agent it needs <b>60% review against the 37%</b>
+            the naive method implies. That gap is the cost of a guarantee.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> stop evaluating vendors on
+        price per token. Ask instead whether their confidence scores rank
+        errors — and make them show you the curve.</p>
+    </div>
+
+    <p class="project-note">
+      The statistical machinery is standard: selective prediction, conformal
+      risk control, Clopper-Pearson bounds. The repository says so and cites
+      the literature. What is assembled is the join — risk control aimed at a
+      human-review budget rather than at prediction-set size, so the output is
+      a staffing decision with a guarantee attached.
+    </p>
+  </div>
+</article>
+
+
+<!-- ---------------------------- citeaudit ---------------------------- -->
+<article class="project">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project three · professional services risk</p>
+      <h2 class="project-title">Do the citations in this report exist?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Deloitte, EY and KPMG have each had work retracted
+        or refunded after reports were found to cite papers that were never
+        written. The reputational exposure runs well past the fee.</p>
+        <p><b>Complication.</b> Nobody knew how often citations fail to resolve
+        in ordinary, honest work — so a firm finding three bad references had no
+        way to know whether that was alarming or normal.</p>
+        <p><b>Question.</b> What is the base rate, and what does it take to
+        catch a fabrication against it?</p>
+        <p class="answer"><b>Answer: 13% of author-written citations do not
+        resolve, and the rate does not depend on who wrote them.</b> Experts and
+        non-experts fail identically; machine-deposited references fail at
+        0.0%. The control that works is requiring an identifier at the point of
+        writing, not reviewing harder afterwards.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/citeaudit">Code</a>
+        <a href="https://harshit-malik-nyu.github.io/citeaudit/">Live report</a>
+        <span>323 tests · four studies · live Crossref and OpenAlex</span>
+      </p>
+    </header>
+
+    <div class="chart-block">
+      <h3 class="tool-title">How often does a citation fail to resolve?</h3>
+      <p class="tool-intro">
+        Base rates measured across four corpora. Bars show the 95% interval;
+        the mark is the estimate.
+      </p>
+      <div class="cite-chart" id="cite-chart"></div>
+      <p class="chart-note">
+        A tenfold gap, and it does not depend on who wrote the reference.
+        Experts and non-experts fail at the same rate. What separates them is
+        whether anything checked the citation on the way in.
+      </p>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To a firm's risk and quality partner</p>
+          <p class="worth-what">One retracted report costs roughly
+            <b>A$732,000</b> — fee refund, remediation, and the commercial drag
+            of a public correction. Running this check across every deliverable
+            costs about <b>A$35,000 a year</b>. The case does not need the
+            incident rate to be high; it needs it to be non-zero.</p>
+        </div>
+        <div>
+          <p class="worth-who">To an engagement manager before delivery</p>
+          <p class="worth-what">A 13% base rate means three unresolvable
+            references in a report is <b>normal, not alarming</b> — which is the
+            number that tells you when to worry and when not to. Without it,
+            every finding looks like a scandal or gets waved through.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> require a DOI or stable
+        identifier at the point of writing. Deposited references fail at 0.0%
+        against 13% for described ones — the control belongs upstream, not in
+        review.</p>
+    </div>
+
+    <p class="project-note">
+      The headline moved four times while I built it: 37.9%, then 52.3%, then
+      57.3%, then 75.9%. Every intermediate figure looked reasonable. Each
+      correction came from reading individual rows rather than the summary,
+      which is the only method in any of this work that reliably found anything.
+    </p>
+  </div>
+</article>
+
+
+<!-- ---------------------------- evaldrift ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project four · AI evaluation</p>
       <h2 class="project-title">Can anyone tell when a model gets worse?</h2>
       <div class="scqa">
         <p><b>Situation.</b> Billions in capital allocation, procurement and
@@ -183,363 +611,6 @@
       and says so on the front page. It also showed my own measurement
       instrument was aimed at the least consequential source of error. Both are
       written up in the repository.
-    </p>
-  </div>
-</article>
-
-<!-- ---------------------------- sanctions-triage ---------------------------- -->
-<article class="project project-alt">
-  <div class="wrap">
-    <header class="project-head">
-      <p class="exhibit">Project two · financial crime compliance</p>
-      <h2 class="project-title">Where should a bank set its sanctions threshold?</h2>
-      <div class="scqa">
-        <p><b>Situation.</b> Every customer and payment at a large bank is
-        screened against sanctions lists. Published benchmarks put 90–95% of
-        the resulting alerts in the false-positive column, each costing roughly
-        twenty minutes of analyst time.</p>
-        <p><b>Complication.</b> The threshold controlling that volume is set by
-        judgement. Lower it and the queue becomes unstaffable; raise it and
-        designated parties pass through. No public measurement exists of the
-        trade-off, because the ground truth is confidential.</p>
-        <p><b>Question.</b> What is the defensible operating point, and what
-        does being wrong cost in each direction?</p>
-        <p class="answer"><b>Answer: there isn't one — and that is the
-        finding.</b> No threshold makes name-only screening both staffable and
-        adequately sensitive, because 15% of published aliases share no
-        characters with any other name for the same party. The investment case
-        is secondary identifiers, not threshold tuning or better matching
-        software.</p>
-      </div>
-      <p class="project-meta">
-        <a href="https://github.com/harshit-malik-nyu/sanctions-triage">Code</a>
-        <a href="https://harshit-malik-nyu.github.io/sanctions-triage/">Decision brief</a>
-        <span>125 tests · 91% coverage · live OFAC data</span>
-      </p>
-    </header>
-
-    <div class="findings">
-      <div class="finding">
-        <p class="finding-figure">15.1%</p>
-        <p class="finding-text">of published aliases share no characters with
-          any other name for the same party. No amount of tuning reaches them.</p>
-      </div>
-      <div class="finding">
-        <p class="finding-figure">19.1%</p>
-        <p class="finding-text">of recall given up by running one threshold
-          across companies and people, who fail in different ways.</p>
-      </div>
-      <div class="finding">
-        <p class="finding-figure">$12.0m</p>
-        <p class="finding-text">ninetieth-percentile penalty across 180
-          published OFAC enforcement actions — the anchor for what a miss
-          costs.</p>
-      </div>
-    </div>
-
-    <div class="tool">
-      <h3 class="tool-title">Screen a name against the list</h3>
-      <p class="tool-intro">
-        This runs the matching algorithm from the project, ported exactly. Try
-        the real pairs below, or type your own.
-      </p>
-      <div class="tool-body">
-        <div class="presets">
-          <button class="chip" type="button" aria-pressed="true"
-            data-pair="IRIS MARINE SERVICES PRIVATE LIMITED||IRISL MARINE SERVICES">
-            One letter apart</button>
-          <button class="chip" type="button" aria-pressed="false"
-            data-pair="BANCO NACIONAL DE CUBA||NATIONAL BANK OF CUBA">
-            Same party, translated</button>
-          <button class="chip" type="button" aria-pressed="false"
-            data-pair="APPLE INC||APPLE BANK FOR SAVINGS">
-            Shares a word only</button>
-          <button class="chip" type="button" aria-pressed="false"
-            data-pair="CUBANACAN, S.A.||CUBANACAN SA">
-            Same party, punctuation</button>
-        </div>
-
-        <div class="fields">
-          <label class="field">
-            <span class="control-label">Customer or payment name</span>
-            <input type="text" id="scr-a" value="IRIS MARINE SERVICES PRIVATE LIMITED">
-            <span class="field-norm">compared as <b id="scr-norm-a">—</b></span>
-          </label>
-          <label class="field">
-            <span class="control-label">Name on the sanctions list</span>
-            <input type="text" id="scr-b" value="IRISL MARINE SERVICES">
-            <span class="field-norm">compared as <b id="scr-norm-b">—</b></span>
-          </label>
-        </div>
-
-        <div class="dial">
-          <span class="dial-score" id="scr-score">—</span>
-          <span class="dial-track"><span class="dial-fill" id="scr-dial-fill"></span></span>
-        </div>
-
-        <label class="control control-inline">
-          <span class="control-label">Alert threshold</span>
-          <input type="range" id="scr-threshold" min="50" max="100" step="1" value="84">
-          <output id="scr-threshold-out" class="control-value">84</output>
-        </label>
-
-        <p class="readout" id="scr-verdict">—</p>
-      </div>
-    </div>
-
-    <div class="tool">
-      <h3 class="tool-title">What the threshold costs to run</h3>
-      <p class="tool-intro">
-        Alert rates measured against live OFAC data. Review cost and analyst
-        time are published benchmarks — $15–25 per alert at 20–45 minutes each —
-        not assumptions of mine.
-      </p>
-      <div class="tool-body">
-        <div class="controls">
-          <label class="control">
-            <span class="control-label">Screening events per year</span>
-            <input type="range" id="cost-volume" min="1" max="60" step="1" value="6">
-            <output id="cost-volume-out" class="control-value">6.0m</output>
-          </label>
-          <label class="control">
-            <span class="control-label">Alert threshold</span>
-            <input type="range" id="cost-threshold" min="52" max="98" step="2" value="84">
-            <output id="cost-threshold-out" class="control-value">84</output>
-          </label>
-        </div>
-
-        <dl class="stats stats-4">
-          <div><dt>Alerts a year</dt><dd id="cost-alerts">—</dd></div>
-          <div><dt>Analysts needed</dt><dd id="cost-fte">—</dd></div>
-          <div><dt>Annual review cost</dt><dd id="cost-spend">—</dd></div>
-          <div><dt>Variants still caught</dt><dd id="cost-recall">—</dd></div>
-        </dl>
-
-        <p class="readout" id="cost-verdict">—</p>
-      </div>
-    </div>
-
-    <div class="worth">
-      <h3 class="worth-title">What it's worth, and to whom</h3>
-      <div class="worth-grid">
-        <div>
-          <p class="worth-who">To the head of financial crime compliance</p>
-          <p class="worth-what">At a mid-tier bank's volume, the threshold
-            decides a swing of <b>$15.6m to $90k</b> in annual review cost, and
-            <b>159 analysts to one</b>. That range is the real decision, and it
-            is currently made by judgement with no measurement behind it.</p>
-        </div>
-        <div>
-          <p class="worth-who">To whoever signs the technology budget</p>
-          <p class="worth-what">Vendor spend on better fuzzy matching buys
-            movement along a frontier that stops at 75.9% recall. <b>15.1% of
-            published aliases are unreachable by any name-matching method</b>,
-            so that money is capped by construction. Identifier capture moves
-            the frontier; matching software does not.</p>
-        </div>
-      </div>
-      <p class="worth-action"><b>Do this Monday:</b> stop the threshold
-        review. Price mandatory date-of-birth and registration-number capture at
-        onboarding instead, and measure the alert reduction before renewing the
-        screening vendor.</p>
-    </div>
-
-    <p class="project-note">
-      IRISL is the Islamic Republic of Iran Shipping Lines. IRIS Marine
-      Services is an unrelated Indian company. The recommendation the study
-      reaches is not a threshold: it is that no threshold makes name-only
-      screening both affordable and safe, and the money belongs in better
-      identifiers.
-    </p>
-  </div>
-</article>
-
-
-<!-- ---------------------------- agentcost ---------------------------- -->
-<article class="project">
-  <div class="wrap">
-    <header class="project-head">
-      <p class="exhibit">Project three · automation economics</p>
-      <h2 class="project-title">What does an AI agent actually cost to run?</h2>
-      <div class="scqa">
-        <p><b>Situation.</b> Every large organisation is now costing AI
-        automation of back-office document work — contract review, claims
-        triage, invoice matching. The comparison is almost always framed as
-        model capability against price per token.</p>
-        <p><b>Complication.</b> Nobody publishes the unit economics. The
-        vendor pitch optimises the one term that turns out not to matter, and
-        the term that does matter is not accuracy.</p>
-        <p><b>Question.</b> What does the work actually cost per document, and
-        which lever moves it?</p>
-        <p class="answer"><b>Answer: inference is 0.38% of the bill.</b> Human
-        review is the rest. And the review rate is set by whether the agent can
-        tell when it is wrong — not by how often it is right. A 95%-accurate
-        agent that cannot rank its own errors costs six times more to run than
-        an 85%-accurate agent that can.</p>
-      </div>
-      <p class="project-meta">
-        <a href="https://github.com/harshit-malik-nyu/agentcost">Code</a>
-        <span>63 tests · 96% coverage · CUAD, annotated by practising lawyers</span>
-      </p>
-    </header>
-
-    <div class="findings">
-      <div class="finding">
-        <p class="finding-figure">0.38%</p>
-        <p class="finding-text">of total cost is inference. Across every
-          published price tier. Choosing a cheaper model moves a rounding
-          error.</p>
-      </div>
-      <div class="finding">
-        <p class="finding-figure">6&times;</p>
-        <p class="finding-text">cheaper to run a worse model that knows when
-          it is wrong than a better one that does not.</p>
-      </div>
-      <div class="finding">
-        <p class="finding-figure">47%</p>
-        <p class="finding-text">of deployments where a threshold tuned on
-          validation data exceeds its own error target. Replaced with a
-          distribution-free guarantee.</p>
-      </div>
-    </div>
-
-    <div class="tool">
-      <h3 class="tool-title">Where the money goes, per contract</h3>
-      <p class="tool-intro">
-        Token counts measured from 102 real commercial contracts. Review cost
-        is an estimate, labelled as one in the repository.
-      </p>
-      <div class="tool-body">
-        <label class="control">
-          <span class="control-label">Share of documents a human checks</span>
-          <input type="range" id="ac-review" min="0" max="100" step="5" value="100">
-          <output id="ac-review-out" class="control-value">100%</output>
-        </label>
-
-        <label class="control control-inline" style="display:flex;gap:.6rem;align-items:center">
-          <input type="checkbox" id="ac-arch" style="width:auto">
-          <span class="control-label" style="margin:0">Resend the contract for
-            each of the 41 clause types (the naive implementation)</span>
-        </label>
-
-        <dl class="stats stats-4" style="margin-top:1.4rem">
-          <div><dt>Inference</dt><dd id="ac-inference">—</dd></div>
-          <div><dt>Human review</dt><dd id="ac-reviewcost">—</dd></div>
-          <div><dt>Total per contract</dt><dd id="ac-total">—</dd></div>
-          <div><dt>Inference share</dt><dd id="ac-share">—</dd></div>
-        </dl>
-
-        <p class="readout" id="ac-verdict">—</p>
-      </div>
-    </div>
-
-    <div class="worth">
-      <h3 class="worth-title">What it's worth, and to whom</h3>
-      <div class="worth-grid">
-        <div>
-          <p class="worth-who">To whoever is building the automation case</p>
-          <p class="worth-what">The business case is almost never about the
-            model. Even reviewing <b>every single output</b> still saves 73%,
-            because verifying a highlighted answer is roughly four times faster
-            than finding it. An agent does not need blind trust to pay for
-            itself.</p>
-        </div>
-        <div>
-          <p class="worth-who">To whoever has to sign off on the risk</p>
-          <p class="worth-what">A review threshold tuned on validation data
-            exceeds its own error target in <b>47%</b> of deployments. A
-            distribution-free construction holds at the nominal rate — and for
-            a weakly calibrated agent it needs <b>60% review against the 37%</b>
-            the naive method implies. That gap is the cost of a guarantee.</p>
-        </div>
-      </div>
-      <p class="worth-action"><b>Do this Monday:</b> stop evaluating vendors on
-        price per token. Ask instead whether their confidence scores rank
-        errors — and make them show you the curve.</p>
-    </div>
-
-    <p class="project-note">
-      The statistical machinery is standard: selective prediction, conformal
-      risk control, Clopper-Pearson bounds. The repository says so and cites
-      the literature. What is assembled is the join — risk control aimed at a
-      human-review budget rather than at prediction-set size, so the output is
-      a staffing decision with a guarantee attached.
-    </p>
-  </div>
-</article>
-
-<!-- ---------------------------- citeaudit ---------------------------- -->
-<article class="project project-alt">
-  <div class="wrap">
-    <header class="project-head">
-      <p class="exhibit">Project four · professional services risk</p>
-      <h2 class="project-title">Do the citations in this report exist?</h2>
-      <div class="scqa">
-        <p><b>Situation.</b> Deloitte, EY and KPMG have each had work retracted
-        or refunded after reports were found to cite papers that were never
-        written. The reputational exposure runs well past the fee.</p>
-        <p><b>Complication.</b> Nobody knew how often citations fail to resolve
-        in ordinary, honest work — so a firm finding three bad references had no
-        way to know whether that was alarming or normal.</p>
-        <p><b>Question.</b> What is the base rate, and what does it take to
-        catch a fabrication against it?</p>
-        <p class="answer"><b>Answer: 13% of author-written citations do not
-        resolve, and the rate does not depend on who wrote them.</b> Experts and
-        non-experts fail identically; machine-deposited references fail at
-        0.0%. The control that works is requiring an identifier at the point of
-        writing, not reviewing harder afterwards.</p>
-      </div>
-      <p class="project-meta">
-        <a href="https://github.com/harshit-malik-nyu/citeaudit">Code</a>
-        <a href="https://harshit-malik-nyu.github.io/citeaudit/">Live report</a>
-        <span>323 tests · four studies · live Crossref and OpenAlex</span>
-      </p>
-    </header>
-
-    <div class="chart-block">
-      <h3 class="tool-title">How often does a citation fail to resolve?</h3>
-      <p class="tool-intro">
-        Base rates measured across four corpora. Bars show the 95% interval;
-        the mark is the estimate.
-      </p>
-      <div class="cite-chart" id="cite-chart"></div>
-      <p class="chart-note">
-        A tenfold gap, and it does not depend on who wrote the reference.
-        Experts and non-experts fail at the same rate. What separates them is
-        whether anything checked the citation on the way in.
-      </p>
-    </div>
-
-    <div class="worth">
-      <h3 class="worth-title">What it's worth, and to whom</h3>
-      <div class="worth-grid">
-        <div>
-          <p class="worth-who">To a firm's risk and quality partner</p>
-          <p class="worth-what">One retracted report costs roughly
-            <b>A$732,000</b> — fee refund, remediation, and the commercial drag
-            of a public correction. Running this check across every deliverable
-            costs about <b>A$35,000 a year</b>. The case does not need the
-            incident rate to be high; it needs it to be non-zero.</p>
-        </div>
-        <div>
-          <p class="worth-who">To an engagement manager before delivery</p>
-          <p class="worth-what">A 13% base rate means three unresolvable
-            references in a report is <b>normal, not alarming</b> — which is the
-            number that tells you when to worry and when not to. Without it,
-            every finding looks like a scandal or gets waved through.</p>
-        </div>
-      </div>
-      <p class="worth-action"><b>Do this Monday:</b> require a DOI or stable
-        identifier at the point of writing. Deposited references fail at 0.0%
-        against 13% for described ones — the control belongs upstream, not in
-        review.</p>
-    </div>
-
-    <p class="project-note">
-      The headline moved four times while I built it: 37.9%, then 52.3%, then
-      57.3%, then 75.9%. Every intermediate figure looked reasonable. Each
-      correction came from reading individual rows rather than the summary,
-      which is the only method in any of this work that reliably found anything.
     </p>
   </div>
 </article>
