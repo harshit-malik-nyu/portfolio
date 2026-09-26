@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harshit Malik — data analyst</title>
+<meta name="description" content="Data analyst in New York. Four projects on measurement and decision quality, each with working tools you can run on this page.">
+<meta property="og:title" content="Harshit Malik — data analyst">
+<meta property="og:description" content="Four projects on measurement and decision quality, each with working tools you can run in the page.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* Runs before paint: stops the browser restoring an old scroll position and
+     stops a fragment in the URL jumping the page before the stylesheet lands. */
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (window.location.hash) window.scrollTo(0, 0);
+</script>
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to the work</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <span class="masthead-name">Harshit Malik</span>
+    <nav class="masthead-nav">
+      <a href="#work">Work</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-kicker">Harshit Malik · data, business and product analysis · New York</p>
+    <h1 class="hero-title">Four times I checked a number<br>everyone had accepted.</h1>
+    <p class="hero-standfirst">
+      Each time it was wrong, and each time the error changed what a
+      decision-maker should do. Start with one you have probably read.
+    </p>
+
+    <div class="claim">
+      <p class="claim-source">From a model announcement:</p>
+      <blockquote class="claim-text">
+        “Scores two points higher on GPQA&nbsp;Diamond.”
+      </blockquote>
+      <button class="btn" id="hero-check" type="button">Check whether that's measurable</button>
+      <div class="verdict" id="hero-verdict" hidden></div>
+    </div>
+
+    <p class="hero-lede">
+      Below: whether anyone can tell when an AI model gets worse, whether a
+      bank's sanctions filter can work at all, what an AI agent really costs to
+      run a process, and whether a consulting report's citations exist. Each
+      ends in a recommendation. Each has a working tool on this page running the
+      real code, so nothing here has to be taken on trust.
+    </p>
+  </div>
+</section>
+
+<!-- ============================ WORK ============================ -->
+<main id="work">
+
+<!-- ---------------------------- evaldrift ---------------------------- -->
+<article class="project">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project one · AI evaluation</p>
+      <h2 class="project-title">Can anyone tell when a model gets worse?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Billions in capital allocation, procurement and
+        safety certification now rest on benchmark scores. Model announcements
+        quote improvements of one to three points as evidence of progress.</p>
+        <p><b>Complication.</b> A benchmark is a measuring instrument with a
+        resolution, set almost entirely by how many questions it asks. Below
+        that resolution it returns noise. Nobody publishes the resolution.</p>
+        <p><b>Question.</b> Which benchmarks can actually support the claims
+        being made on them?</p>
+        <p class="answer"><b>Answer: most cannot.</b> Six of nine widely quoted
+        benchmarks cannot separate a two-point change from noise. Correct for
+        the fact that questions cluster by subject, and none of them can. The
+        implication is not better tuning — it is that a large share of reported
+        model progress is unmeasurable at the sample sizes in use.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/evaldrift">Code</a>
+        <a href="https://harshit-malik-nyu.github.io/evaldrift/">Findings</a>
+        <span>106 tests · 98% coverage · no dependencies</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">6&nbsp;of&nbsp;9</p>
+        <p class="finding-text">widely quoted benchmarks cannot separate a
+          two-point change from noise. Computed from published split sizes, so
+          it holds whichever model is measured.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">373</p>
+        <p class="finding-text">effective questions in MMLU, not 14,042. Items
+          cluster by subject, and correcting for that collapses the sample by a
+          factor of 38.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">4.5%</p>
+        <p class="finding-text">score swing from rewording the prompt alone,
+          reported by the benchmark's own authors. Frontier models sit within
+          2–4% of each other.</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">What can a benchmark of this size actually detect?</h3>
+      <div class="tool-body">
+        <div class="controls">
+          <label class="control">
+            <span class="control-label">Questions in the benchmark</span>
+            <input type="range" id="res-items" min="50" max="15000" step="10" value="198">
+            <output id="res-items-out" class="control-value">198</output>
+          </label>
+          <label class="control">
+            <span class="control-label">Improvement being claimed</span>
+            <input type="range" id="res-effect" min="1" max="150" step="1" value="20">
+            <output id="res-effect-out" class="control-value">2.0%</output>
+          </label>
+        </div>
+
+        <div class="gauge">
+          <div class="gauge-row">
+            <span class="gauge-name">Claimed improvement</span>
+            <span class="gauge-track"><span class="gauge-fill is-claim" id="res-bar-claim"></span></span>
+          </div>
+          <div class="gauge-row">
+            <span class="gauge-name">Noise floor of the benchmark</span>
+            <span class="gauge-track"><span class="gauge-fill is-noise" id="res-bar-noise"></span></span>
+          </div>
+        </div>
+
+        <dl class="stats">
+          <div><dt>Smallest detectable difference</dt><dd id="res-mde">—</dd></div>
+          <div><dt>Interval on a single score</dt><dd id="res-interval">—</dd></div>
+        </dl>
+
+        <p class="readout" id="res-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To a lab choosing what to ship</p>
+          <p class="worth-what">A regression detector fires on noise or misses
+            real degradation depending on a threshold nobody has calibrated. A
+            missed two-point regression costs roughly <b>$8,400</b> in degraded
+            output before anything else surfaces it; investigating a false alarm
+            costs <b>$4,500</b> in engineering time. The ratio is about two to
+            one, not the orders of magnitude the field assumes.</p>
+        </div>
+        <div>
+          <p class="worth-who">To anyone buying on benchmark scores</p>
+          <p class="worth-what">Procurement and capability claims rest on
+            differences the instrument cannot resolve. The check runs in a build
+            pipeline with no model calls and <b>exits non-zero</b> when a
+            reported improvement exceeds what the benchmark can measure.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> run every benchmark in your
+        eval suite through the size check. Any that cannot resolve the
+        differences you report on them should carry an interval, or be
+        replaced.</p>
+    </div>
+
+    <p class="project-note">
+      Partway through, I found concurrent work that does this more rigorously
+      and says so on the front page. It also showed my own measurement
+      instrument was aimed at the least consequential source of error. Both are
+      written up in the repository.
+    </p>
+  </div>
+</article>
+
+<!-- ---------------------------- sanctions-triage ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project two · financial crime compliance</p>
+      <h2 class="project-title">Where should a bank set its sanctions threshold?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Every customer and payment at a large bank is
+        screened against sanctions lists. Published benchmarks put 90–95% of
+        the resulting alerts in the false-positive column, each costing roughly
+        twenty minutes of analyst time.</p>
+        <p><b>Complication.</b> The threshold controlling that volume is set by
+        judgement. Lower it and the queue becomes unstaffable; raise it and
+        designated parties pass through. No public measurement exists of the
+        trade-off, because the ground truth is confidential.</p>
+        <p><b>Question.</b> What is the defensible operating point, and what
+        does being wrong cost in each direction?</p>
+        <p class="answer"><b>Answer: there isn't one — and that is the
+        finding.</b> No threshold makes name-only screening both staffable and
+        adequately sensitive, because 15% of published aliases share no
+        characters with any other name for the same party. The investment case
+        is secondary identifiers, not threshold tuning or better matching
+        software.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/sanctions-triage">Code</a>
+        <a href="https://harshit-malik-nyu.github.io/sanctions-triage/">Decision brief</a>
+        <span>125 tests · 91% coverage · live OFAC data</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">15.1%</p>
+        <p class="finding-text">of published aliases share no characters with
+          any other name for the same party. No amount of tuning reaches them.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">19.1%</p>
+        <p class="finding-text">of recall given up by running one threshold
+          across companies and people, who fail in different ways.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">$12.0m</p>
+        <p class="finding-text">ninetieth-percentile penalty across 180
+          published OFAC enforcement actions — the anchor for what a miss
+          costs.</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">Screen a name against the list</h3>
+      <p class="tool-intro">
+        This runs the matching algorithm from the project, ported exactly. Try
+        the real pairs below, or type your own.
+      </p>
+      <div class="tool-body">
+        <div class="presets">
+          <button class="chip" type="button" aria-pressed="true"
+            data-pair="IRIS MARINE SERVICES PRIVATE LIMITED||IRISL MARINE SERVICES">
+            One letter apart</button>
+          <button class="chip" type="button" aria-pressed="false"
+            data-pair="BANCO NACIONAL DE CUBA||NATIONAL BANK OF CUBA">
+            Same party, translated</button>
+          <button class="chip" type="button" aria-pressed="false"
+            data-pair="APPLE INC||APPLE BANK FOR SAVINGS">
+            Shares a word only</button>
+          <button class="chip" type="button" aria-pressed="false"
+            data-pair="CUBANACAN, S.A.||CUBANACAN SA">
+            Same party, punctuation</button>
+        </div>
+
+        <div class="fields">
+          <label class="field">
+            <span class="control-label">Customer or payment name</span>
+            <input type="text" id="scr-a" value="IRIS MARINE SERVICES PRIVATE LIMITED">
+            <span class="field-norm">compared as <b id="scr-norm-a">—</b></span>
+          </label>
+          <label class="field">
+            <span class="control-label">Name on the sanctions list</span>
+            <input type="text" id="scr-b" value="IRISL MARINE SERVICES">
+            <span class="field-norm">compared as <b id="scr-norm-b">—</b></span>
+          </label>
+        </div>
+
+        <div class="dial">
+          <span class="dial-score" id="scr-score">—</span>
+          <span class="dial-track"><span class="dial-fill" id="scr-dial-fill"></span></span>
+        </div>
+
+        <label class="control control-inline">
+          <span class="control-label">Alert threshold</span>
+          <input type="range" id="scr-threshold" min="50" max="100" step="1" value="84">
+          <output id="scr-threshold-out" class="control-value">84</output>
+        </label>
+
+        <p class="readout" id="scr-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">What the threshold costs to run</h3>
+      <p class="tool-intro">
+        Alert rates measured against live OFAC data. Review cost and analyst
+        time are published benchmarks — $15–25 per alert at 20–45 minutes each —
+        not assumptions of mine.
+      </p>
+      <div class="tool-body">
+        <div class="controls">
+          <label class="control">
+            <span class="control-label">Screening events per year</span>
+            <input type="range" id="cost-volume" min="1" max="60" step="1" value="6">
+            <output id="cost-volume-out" class="control-value">6.0m</output>
+          </label>
+          <label class="control">
+            <span class="control-label">Alert threshold</span>
+            <input type="range" id="cost-threshold" min="52" max="98" step="2" value="84">
+            <output id="cost-threshold-out" class="control-value">84</output>
+          </label>
+        </div>
+
+        <dl class="stats stats-4">
+          <div><dt>Alerts a year</dt><dd id="cost-alerts">—</dd></div>
+          <div><dt>Analysts needed</dt><dd id="cost-fte">—</dd></div>
+          <div><dt>Annual review cost</dt><dd id="cost-spend">—</dd></div>
+          <div><dt>Variants still caught</dt><dd id="cost-recall">—</dd></div>
+        </dl>
+
+        <p class="readout" id="cost-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To the head of financial crime compliance</p>
+          <p class="worth-what">At a mid-tier bank's volume, the threshold
+            decides a swing of <b>$15.6m to $90k</b> in annual review cost, and
+            <b>159 analysts to one</b>. That range is the real decision, and it
+            is currently made by judgement with no measurement behind it.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever signs the technology budget</p>
+          <p class="worth-what">Vendor spend on better fuzzy matching buys
+            movement along a frontier that stops at 75.9% recall. <b>15.1% of
+            published aliases are unreachable by any name-matching method</b>,
+            so that money is capped by construction. Identifier capture moves
+            the frontier; matching software does not.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> stop the threshold
+        review. Price mandatory date-of-birth and registration-number capture at
+        onboarding instead, and measure the alert reduction before renewing the
+        screening vendor.</p>
+    </div>
+
+    <p class="project-note">
+      IRISL is the Islamic Republic of Iran Shipping Lines. IRIS Marine
+      Services is an unrelated Indian company. The recommendation the study
+      reaches is not a threshold: it is that no threshold makes name-only
+      screening both affordable and safe, and the money belongs in better
+      identifiers.
+    </p>
+  </div>
+</article>
+
+
+<!-- ---------------------------- agentcost ---------------------------- -->
+<article class="project">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project three · automation economics</p>
+      <h2 class="project-title">What does an AI agent actually cost to run?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Every large organisation is now costing AI
+        automation of back-office document work — contract review, claims
+        triage, invoice matching. The comparison is almost always framed as
+        model capability against price per token.</p>
+        <p><b>Complication.</b> Nobody publishes the unit economics. The
+        vendor pitch optimises the one term that turns out not to matter, and
+        the term that does matter is not accuracy.</p>
+        <p><b>Question.</b> What does the work actually cost per document, and
+        which lever moves it?</p>
+        <p class="answer"><b>Answer: inference is 0.38% of the bill.</b> Human
+        review is the rest. And the review rate is set by whether the agent can
+        tell when it is wrong — not by how often it is right. A 95%-accurate
+        agent that cannot rank its own errors costs six times more to run than
+        an 85%-accurate agent that can.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/agentcost">Code</a>
+        <span>63 tests · 96% coverage · CUAD, annotated by practising lawyers</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">0.38%</p>
+        <p class="finding-text">of total cost is inference. Across every
+          published price tier. Choosing a cheaper model moves a rounding
+          error.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">6&times;</p>
+        <p class="finding-text">cheaper to run a worse model that knows when
+          it is wrong than a better one that does not.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">47%</p>
+        <p class="finding-text">of deployments where a threshold tuned on
+          validation data exceeds its own error target. Replaced with a
+          distribution-free guarantee.</p>
+      </div>
+    </div>
+
+    <div class="tool">
+      <h3 class="tool-title">Where the money goes, per contract</h3>
+      <p class="tool-intro">
+        Token counts measured from 102 real commercial contracts. Review cost
+        is an estimate, labelled as one in the repository.
+      </p>
+      <div class="tool-body">
+        <label class="control">
+          <span class="control-label">Share of documents a human checks</span>
+          <input type="range" id="ac-review" min="0" max="100" step="5" value="100">
+          <output id="ac-review-out" class="control-value">100%</output>
+        </label>
+
+        <label class="control control-inline" style="display:flex;gap:.6rem;align-items:center">
+          <input type="checkbox" id="ac-arch" style="width:auto">
+          <span class="control-label" style="margin:0">Resend the contract for
+            each of the 41 clause types (the naive implementation)</span>
+        </label>
+
+        <dl class="stats stats-4" style="margin-top:1.4rem">
+          <div><dt>Inference</dt><dd id="ac-inference">—</dd></div>
+          <div><dt>Human review</dt><dd id="ac-reviewcost">—</dd></div>
+          <div><dt>Total per contract</dt><dd id="ac-total">—</dd></div>
+          <div><dt>Inference share</dt><dd id="ac-share">—</dd></div>
+        </dl>
+
+        <p class="readout" id="ac-verdict">—</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To whoever is building the automation case</p>
+          <p class="worth-what">The business case is almost never about the
+            model. Even reviewing <b>every single output</b> still saves 73%,
+            because verifying a highlighted answer is roughly four times faster
+            than finding it. An agent does not need blind trust to pay for
+            itself.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever has to sign off on the risk</p>
+          <p class="worth-what">A review threshold tuned on validation data
+            exceeds its own error target in <b>47%</b> of deployments. A
+            distribution-free construction holds at the nominal rate — and for
+            a weakly calibrated agent it needs <b>60% review against the 37%</b>
+            the naive method implies. That gap is the cost of a guarantee.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> stop evaluating vendors on
+        price per token. Ask instead whether their confidence scores rank
+        errors — and make them show you the curve.</p>
+    </div>
+
+    <p class="project-note">
+      The statistical machinery is standard: selective prediction, conformal
+      risk control, Clopper-Pearson bounds. The repository says so and cites
+      the literature. What is assembled is the join — risk control aimed at a
+      human-review budget rather than at prediction-set size, so the output is
+      a staffing decision with a guarantee attached.
+    </p>
+  </div>
+</article>
+
+<!-- ---------------------------- citeaudit ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project four · professional services risk</p>
+      <h2 class="project-title">Do the citations in this report exist?</h2>
+      <div class="scqa">
+        <p><b>Situation.</b> Deloitte, EY and KPMG have each had work retracted
+        or refunded after reports were found to cite papers that were never
+        written. The reputational exposure runs well past the fee.</p>
+        <p><b>Complication.</b> Nobody knew how often citations fail to resolve
+        in ordinary, honest work — so a firm finding three bad references had no
+        way to know whether that was alarming or normal.</p>
+        <p><b>Question.</b> What is the base rate, and what does it take to
+        catch a fabrication against it?</p>
+        <p class="answer"><b>Answer: 13% of author-written citations do not
+        resolve, and the rate does not depend on who wrote them.</b> Experts and
+        non-experts fail identically; machine-deposited references fail at
+        0.0%. The control that works is requiring an identifier at the point of
+        writing, not reviewing harder afterwards.</p>
+      </div>
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/citeaudit">Code</a>
+        <a href="https://harshit-malik-nyu.github.io/citeaudit/">Live report</a>
+        <span>323 tests · four studies · live Crossref and OpenAlex</span>
+      </p>
+    </header>
+
+    <div class="chart-block">
+      <h3 class="tool-title">How often does a citation fail to resolve?</h3>
+      <p class="tool-intro">
+        Base rates measured across four corpora. Bars show the 95% interval;
+        the mark is the estimate.
+      </p>
+      <div class="cite-chart" id="cite-chart"></div>
+      <p class="chart-note">
+        A tenfold gap, and it does not depend on who wrote the reference.
+        Experts and non-experts fail at the same rate. What separates them is
+        whether anything checked the citation on the way in.
+      </p>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">What it's worth, and to whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To a firm's risk and quality partner</p>
+          <p class="worth-what">One retracted report costs roughly
+            <b>A$732,000</b> — fee refund, remediation, and the commercial drag
+            of a public correction. Running this check across every deliverable
+            costs about <b>A$35,000 a year</b>. The case does not need the
+            incident rate to be high; it needs it to be non-zero.</p>
+        </div>
+        <div>
+          <p class="worth-who">To an engagement manager before delivery</p>
+          <p class="worth-what">A 13% base rate means three unresolvable
+            references in a report is <b>normal, not alarming</b> — which is the
+            number that tells you when to worry and when not to. Without it,
+            every finding looks like a scandal or gets waved through.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Do this Monday:</b> require a DOI or stable
+        identifier at the point of writing. Deposited references fail at 0.0%
+        against 13% for described ones — the control belongs upstream, not in
+        review.</p>
+    </div>
+
+    <p class="project-note">
+      The headline moved four times while I built it: 37.9%, then 52.3%, then
+      57.3%, then 75.9%. Every intermediate figure looked reasonable. Each
+      correction came from reading individual rows rather than the summary,
+      which is the only method in any of this work that reliably found anything.
+    </p>
+  </div>
+</article>
+
+</main>
+
+<!-- ============================ EXPERIENCE ============================ -->
+<!-- ============================ METHOD ============================ -->
+<section class="method">
+  <div class="wrap">
+    <h2 class="section-title">What they have in common</h2>
+    <p class="method-lede">
+      Different industries, the same failure. In each case a number was being
+      used to make decisions, it looked reasonable, and it was wrong in a way
+      the summary statistics could not show.
+    </p>
+    <div class="method-grid">
+      <div class="method-item">
+        <h3>The aggregate never revealed it</h3>
+        <p>Every error was found by reading individual rows. Four corrections
+          to one headline — 37.9%, 52.3%, 57.3%, 75.9% — and not one of the
+          intermediate figures looked suspicious.</p>
+      </div>
+      <div class="method-item">
+        <h3>Ground truth came from construction</h3>
+        <p>None of the three relies on labelled data or on my judgement. The
+          labels follow from how the data was assembled, so a reader can check
+          them without trusting me.</p>
+      </div>
+      <div class="method-item">
+        <h3>Each argues against itself</h3>
+        <p>Every repository contains a document making the strongest case
+          against its own conclusion, including the objections I could not
+          answer.</p>
+      </div>
+    </div>
+    <p class="method-foot">
+      Four projects on one theme is a deliberate choice, and it has a cost: it
+      shows depth rather than range. What it does show is the same judgement
+      applied to a capital-allocation question, an operational-risk question,
+      an automation business case and a professional-liability question —
+      reaching a different recommendation in each.
+    </p>
+  </div>
+</section>
+
+<!-- ============================ LEADERSHIP ============================ -->
+<section class="leadership" id="leadership">
+  <div class="wrap">
+    <p class="exhibit">President, Graduate Student Council · NYU Tandon School of Engineering · Apr 2025 – May 2026</p>
+    <h2 class="project-title">Running a council of 5,000 people</h2>
+    <div class="scqa">
+      <p class="answer"><b>I was elected, not appointed.</b> Graduate students
+      at NYU Tandon voted me in to lead their council, and the role puts me on
+      two university-wide committees that decide how student money is
+      spent.</p>
+    </div>
+
+    <div class="lead-grid">
+      <div class="lead-item">
+        <p class="lead-figure">5,000+</p>
+        <p class="lead-text">graduate students at NYU Tandon represented, on a
+          mandate won from peers rather than handed down.</p>
+      </div>
+      <div class="lead-item">
+        <p class="lead-figure">2</p>
+        <p class="lead-text">university-wide committees — Organization &amp;
+          Governance, and Financial Affairs, where student funding is
+          allocated between competing claims.</p>
+      </div>
+      <div class="lead-item">
+        <p class="lead-figure">13</p>
+        <p class="lead-text">months in office, negotiating between student
+          constituencies who want different things and an administration
+          working under its own constraints.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="wrap">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="role">
+      <div class="role-when">May – Dec 2025</div>
+      <div class="role-what">
+        <h3>Product Data Science Intern</h3>
+        <p class="role-org">Evovance, San Jose</p>
+        <ul>
+          <li>Rebuilt the weekly cohort reporting pipeline end to end, cutting
+            <b>10 hours of manual work to 6</b> and returning a day a week to
+            the analytics function.</li>
+          <li>Shipped targeted in-app interventions off the back of it:
+            <b>7-day habit-streak engagement rose 15 percentage points</b>, the
+            product's central retention metric.</li>
+          <li>Built churn-risk models and standardised the experiment workflow,
+            <b>cutting setup-to-readout by 35%</b> so product, design and
+            leadership argued from one evidence base instead of three.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-when">May – Aug 2022</div>
+      <div class="role-what">
+        <h3>Data Analyst Intern</h3>
+        <p class="role-org">SSG Pharma, Ghaziabad</p>
+        <ul>
+          <li>Reworked pricing strategy and supply-chain workflows in a
+            regulated manufacturer: <b>revenue up 12%</b>, production delays
+            <b>down 15%</b>, time-to-market <b>down 10%</b>.</li>
+          <li>Deployed forecasting models at <b>80% accuracy</b> and automated
+            the SQL reporting layer beneath executive decisions, replacing a
+            manual monthly cycle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-when">Jul – Aug 2022</div>
+      <div class="role-what">
+        <h3>Data Analyst Research Trainee</h3>
+        <p class="role-org">Avon Food Lab, Delhi</p>
+        <ul>
+          <li>Statistical analysis of product-nutrition datasets, raising
+            <b>data accuracy by 30%</b> and making the underlying figures usable
+            for leadership decisions.</li>
+          <li>Built the Tableau dashboards and regression sales forecasts that
+            fed launch strategy, <b>improving launch decisions by 25%</b> on the
+            team's own measure.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-when">May 2019 – Nov 2020</div>
+      <div class="role-what">
+        <h3>Trainee Research Associate</h3>
+        <p class="role-org">Godfrey Phillips India, Ghaziabad</p>
+        <ul>
+          <li>Built health-risk models at <b>90% accuracy</b> supporting
+            product-safety decisions under CDSCO and FSSAI regulation — where
+            being wrong is a recall, not a dashboard error.</li>
+          <li>Analysed large SQL datasets guiding product reformulation, making
+            products measurably safer and materially shortening the path to
+            regulatory approval.</li>
+          <li>Eighteen months inside a regulated consumer-health manufacturer,
+            which is where the interest in verifiable measurement started.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DETAILS ============================ -->
+<section class="details">
+  <div class="wrap details-grid">
+    <div>
+      <h2 class="section-title">Education</h2>
+      <p class="detail-line"><b>M.S., Technology/Engineering Management</b><br>
+        New York University, 2024–2026</p>
+      <p class="detail-line"><b>B.Tech. Computation &amp; Mathematics</b><br>
+        Mahindra University, 2020–2024</p>
+    </div>
+    <div>
+      <h2 class="section-title">Tools</h2>
+      <p class="detail-line"><b>Analysis</b><br>SQL, Python, Tableau, Power BI, Excel</p>
+      <p class="detail-line"><b>Business</b><br>KPIs, A/B testing, forecasting, financial modelling</p>
+      <p class="detail-line"><b>Engineering</b><br>ETL, AWS, Snowflake, BigQuery, Spark</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="wrap footer-inner">
+    <p class="footer-line">
+      Every figure on this page comes from code in the linked repositories.
+      The tools above run the real implementations.
+    </p>
+    <p class="footer-links">
+      <a href="mailto:harshitmalik356@gmail.com">harshitmalik356@gmail.com</a>
+      <a href="tel:+16466443861">+1 (646) 644-3861</a>
+      <a href="https://linkedin.com/in/harshit-malik-nyu">LinkedIn</a>
+      <a href="https://github.com/harshit-malik-nyu">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
