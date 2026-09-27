@@ -93,7 +93,7 @@ a:hover { text-decoration-color: var(--signal); }
 
 /* ---------------- hero ---------------- */
 
-.hero { padding: clamp(3rem, 9vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.hero { padding: clamp(3.5rem, 10vw, 7rem) 0 clamp(3rem, 7vw, 5rem); }
 
 .hero-kicker {
   font-family: var(--mono); font-size: .8rem; color: var(--ink-faint);
@@ -426,7 +426,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* ---------------- identity, ask, credentials ---------------- */
 
-.identity-who { display: flex; align-items: center; gap: 1.1rem; }
+.identity-who { display: flex; align-items: center; gap: 1.25rem; }
 .portrait {
   width: 84px; height: 84px; border-radius: 50%;
   object-fit: cover; flex-shrink: 0;
@@ -435,19 +435,18 @@ input[type="range"]::-moz-range-thumb {
 @media (min-width: 44rem) { .portrait { width: 96px; height: 96px; } }
 
 .identity {
-  display: grid; gap: 1.2rem; align-items: center;
-  padding-bottom: 1.4rem; margin-bottom: 1.4rem;
+  padding-bottom: 1.5rem; margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--rule);
-}
-@media (min-width: 44rem) {
-  .identity { grid-template-columns: 1fr auto; gap: 2rem; }
 }
 .hero-name {
   font-family: var(--serif); font-weight: 600;
-  font-size: clamp(2rem, 5vw, 2.9rem); letter-spacing: -.025em;
-  margin: 0 0 .25rem; line-height: 1;
+  font-size: clamp(1.75rem, 4.2vw, 2.4rem); letter-spacing: -.02em;
+  margin: 0 0 .3rem; line-height: 1;
 }
-.hero-role { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+.hero-role {
+  margin: 0; color: var(--ink-faint); font-size: .95rem;
+  letter-spacing: .01em;
+}
 
 .availability {
   border-left: 3px solid var(--signal); padding-left: 1rem;
@@ -457,14 +456,14 @@ input[type="range"]::-moz-range-thumb {
 .avail-detail { margin: 0; font-size: .85rem; color: var(--ink-faint); line-height: 1.5; }
 
 .credentials {
-  font-size: .9rem; color: var(--ink-soft); margin: 0 0 2.4rem;
-  line-height: 1.7;
+  font-size: .9rem; color: var(--ink-soft); margin: 0 0 3rem;
+  line-height: 1.7; letter-spacing: .005em;
 }
 .credentials b { color: var(--ink); font-weight: 600; }
 
 /* ---------------- scannable summary ---------------- */
 
-.summary { margin-top: 2.4rem; }
+.summary { margin-top: 3.2rem; }
 .summary-lead {
   font-family: var(--serif); font-size: clamp(1.05rem, 2.2vw, 1.22rem);
   line-height: 1.45; max-width: 40rem; margin: 0 0 1.8rem;
@@ -488,8 +487,8 @@ input[type="range"]::-moz-range-thumb {
 
 .hero-title {
   font-family: var(--serif); font-weight: 600;
-  font-size: clamp(1.9rem, 4.6vw, 3rem); line-height: 1.08;
-  letter-spacing: -.022em; margin: 0 0 1.8rem; max-width: 18ch;
+  font-size: clamp(2.1rem, 5.2vw, 3.4rem); line-height: 1.06;
+  letter-spacing: -.025em; margin: 0 0 2.4rem; max-width: 17ch;
 }
 
 
