@@ -426,8 +426,16 @@ input[type="range"]::-moz-range-thumb {
 
 /* ---------------- identity, ask, credentials ---------------- */
 
+.identity-who { display: flex; align-items: center; gap: 1.1rem; }
+.portrait {
+  width: 84px; height: 84px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  border: 1px solid var(--rule);
+}
+@media (min-width: 44rem) { .portrait { width: 96px; height: 96px; } }
+
 .identity {
-  display: grid; gap: 1.2rem; align-items: start;
+  display: grid; gap: 1.2rem; align-items: center;
   padding-bottom: 1.4rem; margin-bottom: 1.4rem;
   border-bottom: 1px solid var(--rule);
 }
