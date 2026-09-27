@@ -109,6 +109,17 @@
     <header class="project-head">
       <p class="exhibit">Project one · financial crime compliance</p>
       <h2 class="project-title">Where should a bank set its sanctions threshold?</h2>
+    <div class="opening">
+      <p class="opening-figure">$15.6m</p>
+      <p class="opening-caption">the annual swing a single threshold decides</p>
+      <p class="opening-answer"><b>there isn't one — and that is the
+        finding.</b> No threshold makes name-only screening both staffable and
+        adequately sensitive, because 15% of published aliases share no
+        characters with any other name for the same party. The investment case
+        is secondary identifiers, not threshold tuning or better matching
+        software.</p>
+    </div>
+
       <div class="scqa">
         <p><b>Situation.</b> Every customer and payment at a large bank is
         screened against sanctions lists. Published benchmarks put 90–95% of
@@ -120,12 +131,6 @@
         trade-off, because the ground truth is confidential.</p>
         <p><b>Question.</b> What is the defensible operating point, and what
         does being wrong cost in each direction?</p>
-        <p class="answer"><b>Answer: there isn't one — and that is the
-        finding.</b> No threshold makes name-only screening both staffable and
-        adequately sensitive, because 15% of published aliases share no
-        characters with any other name for the same party. The investment case
-        is secondary identifiers, not threshold tuning or better matching
-        software.</p>
       </div>
       <p class="project-meta">
         <a href="https://github.com/harshit-malik-nyu/sanctions-triage">Code</a>
@@ -160,6 +165,10 @@
         the real pairs below, or type your own.
       </p>
       <div class="tool-body">
+        <p class="readout" id="scr-verdict">—</p>
+
+        <p class="adjust">Adjust the assumptions</p>
+
         <div class="presets">
           <button class="chip" type="button" aria-pressed="true"
             data-pair="IRIS MARINE SERVICES PRIVATE LIMITED||IRISL MARINE SERVICES">
@@ -198,8 +207,6 @@
           <input type="range" id="scr-threshold" min="50" max="100" step="1" value="84">
           <output id="scr-threshold-out" class="control-value">84</output>
         </label>
-
-        <p class="readout" id="scr-verdict">—</p>
       </div>
     </div>
 
@@ -238,7 +245,11 @@
       <p class="tool-intro">
         Alert rates measured against live OFAC data. Review cost and analyst
         time are published benchmarks — $15–25 per alert at 20–45 minutes each —
-        not assumptions of mine.
+        not assumpt
+        <p class="readout" id="cost-verdict">—</p>
+
+        <p class="adjust">Adjust the assumptions</p>
+ions of mine.
       </p>
       <div class="tool-body">
         <div class="controls">
@@ -260,8 +271,6 @@
           <div><dt>Annual review cost</dt><dd id="cost-spend">—</dd></div>
           <div><dt>Variants still caught</dt><dd id="cost-recall">—</dd></div>
         </dl>
-
-        <p class="readout" id="cost-verdict">—</p>
       </div>
     </div>
 
@@ -308,6 +317,16 @@
     <header class="project-head">
       <p class="exhibit">Project two · AI automation economics</p>
       <h2 class="project-title">What does an AI agent actually cost to run?</h2>
+    <div class="opening">
+      <p class="opening-figure">0.38%</p>
+      <p class="opening-caption">of an AI automation budget is the model</p>
+      <p class="opening-answer"><b>inference is 0.38% of the bill.</b> Human
+        review is the rest. And the review rate is set by whether the agent can
+        tell when it is wrong — not by how often it is right. A 95%-accurate
+        agent that cannot rank its own errors costs six times more to run than
+        an 85%-accurate agent that can.</p>
+    </div>
+
       <div class="scqa">
         <p><b>Situation.</b> Every large organisation is now costing AI
         automation of back-office document work — contract review, claims
@@ -318,11 +337,6 @@
         the term that does matter is not accuracy.</p>
         <p><b>Question.</b> What does the work actually cost per document, and
         which lever moves it?</p>
-        <p class="answer"><b>Answer: inference is 0.38% of the bill.</b> Human
-        review is the rest. And the review rate is set by whether the agent can
-        tell when it is wrong — not by how often it is right. A 95%-accurate
-        agent that cannot rank its own errors costs six times more to run than
-        an 85%-accurate agent that can.</p>
       </div>
       <p class="project-meta">
         <a href="https://github.com/harshit-malik-nyu/agentcost">Code</a>
@@ -353,7 +367,11 @@
     <div class="tool">
       <h3 class="tool-title">Where the money goes, per contract</h3>
       <p class="tool-intro">
-        Token counts measured from 102 real commercial contracts. Review cost
+        Token counts measured from 102 real commercial contracts. Rev
+        <p class="readout" id="ac-verdict">—</p>
+
+        <p class="adjust">Adjust the assumptions</p>
+iew cost
         is an estimate, labelled as one in the repository.
       </p>
       <div class="tool-body">
@@ -375,8 +393,6 @@
           <div><dt>Total per contract</dt><dd id="ac-total">—</dd></div>
           <div><dt>Inference share</dt><dd id="ac-share">—</dd></div>
         </dl>
-
-        <p class="readout" id="ac-verdict">—</p>
       </div>
     </div>
 
@@ -422,6 +438,16 @@
     <header class="project-head">
       <p class="exhibit">Project three · professional services risk</p>
       <h2 class="project-title">Do the citations in this report exist?</h2>
+    <div class="opening">
+      <p class="opening-figure">13%</p>
+      <p class="opening-caption">of citations in honest professional work do not resolve</p>
+      <p class="opening-answer"><b>13% of author-written citations do not
+        resolve, and the rate does not depend on who wrote them.</b> Experts and
+        non-experts fail identically; machine-deposited references fail at
+        0.0%. The control that works is requiring an identifier at the point of
+        writing, not reviewing harder afterwards.</p>
+    </div>
+
       <div class="scqa">
         <p><b>Situation.</b> Deloitte, EY and KPMG have each had work retracted
         or refunded after reports were found to cite papers that were never
@@ -431,11 +457,6 @@
         way to know whether that was alarming or normal.</p>
         <p><b>Question.</b> What is the base rate, and what does it take to
         catch a fabrication against it?</p>
-        <p class="answer"><b>Answer: 13% of author-written citations do not
-        resolve, and the rate does not depend on who wrote them.</b> Experts and
-        non-experts fail identically; machine-deposited references fail at
-        0.0%. The control that works is requiring an identifier at the point of
-        writing, not reviewing harder afterwards.</p>
       </div>
       <p class="project-meta">
         <a href="https://github.com/harshit-malik-nyu/citeaudit">Code</a>
@@ -499,6 +520,16 @@
     <header class="project-head">
       <p class="exhibit">Project four · AI evaluation</p>
       <h2 class="project-title">Can anyone tell when a model gets worse?</h2>
+    <div class="opening">
+      <p class="opening-figure">6 of 9</p>
+      <p class="opening-caption">benchmarks cannot detect the gains announced on them</p>
+      <p class="opening-answer"><b>most cannot.</b> Six of nine widely quoted
+        benchmarks cannot separate a two-point change from noise. Correct for
+        the fact that questions cluster by subject, and none of them can. The
+        implication is not better tuning — it is that a large share of reported
+        model progress is unmeasurable at the sample sizes in use.</p>
+    </div>
+
       <div class="scqa">
         <p><b>Situation.</b> Billions in capital allocation, procurement and
         safety certification now rest on benchmark scores. Model announcements
@@ -508,11 +539,6 @@
         that resolution it returns noise. Nobody publishes the resolution.</p>
         <p><b>Question.</b> Which benchmarks can actually support the claims
         being made on them?</p>
-        <p class="answer"><b>Answer: most cannot.</b> Six of nine widely quoted
-        benchmarks cannot separate a two-point change from noise. Correct for
-        the fact that questions cluster by subject, and none of them can. The
-        implication is not better tuning — it is that a large share of reported
-        model progress is unmeasurable at the sample sizes in use.</p>
       </div>
       <p class="project-meta">
         <a href="https://github.com/harshit-malik-nyu/evaldrift">Code</a>
@@ -539,6 +565,10 @@
         <p class="finding-text">score swing from rewording the prompt alone,
           reported by the benchmark's own authors. Frontier models sit within
           2–4% of each other.</p>
+
+        <p class="readout" id="res-verdict">—</p>
+
+        <p class="adjust">Adjust the assumptions</p>
       </div>
     </div>
 
@@ -573,8 +603,6 @@
           <div><dt>Smallest detectable difference</dt><dd id="res-mde">—</dd></div>
           <div><dt>Interval on a single score</dt><dd id="res-interval">—</dd></div>
         </dl>
-
-        <p class="readout" id="res-verdict">—</p>
       </div>
     </div>
 
@@ -661,10 +689,6 @@
     <p class="exhibit">President, Graduate Student Council · NYU Tandon School of Engineering · Apr 2025 – May 2026</p>
     <h2 class="project-title">Running a council of 5,000 people</h2>
     <div class="scqa">
-      <p class="answer"><b>I was elected, not appointed.</b> Graduate students
-      at NYU Tandon voted me in to lead their council, and the role puts me on
-      two university-wide committees that decide how student money is
-      spent.</p>
     </div>
 
     <div class="lead-grid">

@@ -171,6 +171,8 @@ a:hover { text-decoration-color: var(--brass); }
 .scqa { max-width: 39rem; margin: 0 0 clamp(2.2rem, 5vw, 3.2rem); }
 .scqa p { margin: 0 0 1.05rem; }
 .scqa p:last-child { margin-bottom: 0; }
+/* Retained: the answer moved into the opening exhibit, but leaving the rule
+   costs nothing and keeps the class usable if a project needs it inline. */
 .scqa .answer { border-left: 2px solid var(--brass); padding: .2rem 0 .2rem 1.6rem;
   font-size: 1.1rem; margin-top: 1.7rem; }
 
@@ -181,7 +183,7 @@ a:hover { text-decoration-color: var(--brass); }
   border-bottom: 1px solid var(--rule); }
 .project-meta a { color: var(--navy); text-decoration-color: var(--rule); }
 
-.findings { display: grid; gap: 2.4rem;
+.findings { display: grid; gap: clamp(2.4rem, 5vw, 3.2rem);
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   margin: 0 0 clamp(2.5rem, 6vw, 3.5rem); }
 .finding { border-top: 1px solid var(--navy); padding-top: 1rem; }
@@ -190,15 +192,62 @@ a:hover { text-decoration-color: var(--brass); }
   margin: 0 0 .6rem; line-height: 1; color: var(--brass); }
 .finding-text { margin: 0; font-size: .97rem; color: var(--navy-2); line-height: 1.55; }
 
+/* ---------------- the opening exhibit ----------------
+   Each project earns one uninterrupted moment before the supporting
+   material begins: the number that carries it, and the recommendation.
+   A skimmer can stop here and still leave with the argument; an
+   evaluator scrolls into the evidence underneath. The two audiences
+   are served by sequence rather than by choosing between them. */
+
+.opening {
+  margin: 0 0 clamp(3rem, 9vw, 6rem);
+  padding: clamp(2rem, 5vw, 3rem) 0 clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--navy);
+  border-bottom: 1px solid var(--rule);
+  max-width: 48rem;
+}
+.opening-figure {
+  font-family: var(--mono); font-weight: 400;
+  font-size: clamp(3.4rem, 12vw, 7rem); letter-spacing: -.055em;
+  line-height: .92; margin: 0 0 1.1rem; color: var(--brass);
+}
+.opening-caption {
+  font-family: var(--sans); font-size: .78rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 clamp(1.8rem, 4vw, 2.6rem); max-width: 30rem; line-height: 1.6;
+}
+.opening-answer {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem); line-height: 1.48;
+  margin: 0; max-width: 36rem; letter-spacing: -.006em;
+}
+.opening-answer b { font-weight: 500; }
+
 /* ---------------- exhibits ---------------- */
 
-.tool, .chart-block { border-top: 1px solid var(--rule); padding-top: 2.2rem;
-  margin: 0 0 clamp(2.2rem, 5vw, 3.2rem); }
+.tool, .chart-block { border-top: 1px solid var(--rule);
+  padding-top: clamp(2.2rem, 5vw, 3.2rem);
+  margin: clamp(2.5rem, 6vw, 4rem) 0 clamp(2.5rem, 6vw, 4rem); }
 .tool-title { font-family: var(--serif); font-weight: 500; font-size: 1.22rem;
   margin: 0 0 .7rem; letter-spacing: -.005em; }
 .tool-intro { margin: 0 0 2rem; color: var(--muted); font-size: .97rem;
   max-width: var(--measure); }
 .tool-body { }
+
+/* The answer is stated before anything can be adjusted. Opening with a
+   control panel asks the reader to work; opening with the result and
+   offering the controls underneath makes interaction a privilege. */
+.adjust {
+  font-family: var(--sans); font-size: .68rem; font-weight: 500;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+  margin: 2.6rem 0 1.4rem; padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-2);
+}
+
+.tool .readout:first-child {
+  border-top: 0; padding-top: 0; font-size: 1.12rem;
+  color: var(--navy); max-width: 42rem;
+}
 
 .controls { display: grid; gap: 2rem; margin-bottom: 2.2rem; }
 @media (min-width: 42rem) { .controls { grid-template-columns: 1fr 1fr; } }
@@ -295,8 +344,9 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px;
 
 /* ---------------- value blocks ---------------- */
 
-.worth { border-top: 1px solid var(--navy); padding-top: 2.1rem;
-  margin: clamp(2.2rem, 5vw, 3.2rem) 0 0; }
+.worth { border-top: 1px solid var(--navy);
+  padding-top: clamp(2.2rem, 5vw, 3.2rem);
+  margin: clamp(3rem, 7vw, 4.5rem) 0 0; }
 .worth-title { font-family: var(--sans); font-size: .7rem; font-weight: 500;
   letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
   margin: 0 0 1.9rem; }
