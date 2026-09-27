@@ -97,7 +97,7 @@ a:hover { text-decoration-color: var(--brass); }
 
 .hero { padding: clamp(4rem, 12vw, 8.5rem) 0 var(--band); }
 
-.identity { margin-bottom: clamp(2.5rem, 7vw, 4rem); }
+.identity { margin-bottom: clamp(3rem, 8vw, 4.5rem); }
 .identity-who { display: flex; align-items: center; gap: 1.4rem; }
 .portrait { width: 76px; height: 76px; border-radius: 50%; object-fit: cover;
   flex-shrink: 0; filter: saturate(.94); }
@@ -109,6 +109,8 @@ a:hover { text-decoration-color: var(--brass); }
 .hero-role { font-family: var(--sans); font-size: .74rem; font-weight: 500;
   letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0; }
 
+/* Retained though currently unused: the identity line carries the page
+   alone, and a credential strip would dilute it. */
 .credentials { font-size: .96rem; color: var(--muted);
   margin: 1.6rem 0 clamp(3rem, 8vw, 4.5rem); line-height: 1.8; max-width: 42rem; }
 .credentials b { color: var(--navy-2); font-weight: 500; }
