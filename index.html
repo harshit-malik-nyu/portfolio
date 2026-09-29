@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data, business and product analysis</title>
-<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Four projects with working tools you can run in the page.">
+<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Five projects with working tools you can run in the page.">
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
-<meta property="og:description" content="Four projects, four working tools you can run in the page.">
+<meta property="og:description" content="Five projects, four working tools you can run in the page.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Harshit Malik — I find the numbers that don't hold up. Four findings: $15.6m threshold swing, 0.38% inference cost, 13% citation base rate, 6 of 9 benchmarks blind.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshit Malik — I find the numbers that don't hold up">
-<meta name="twitter:description" content="Four projects, four working tools you can run in the page.">
+<meta name="twitter:description" content="Five projects, four working tools you can run in the page.">
 <meta name="twitter:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -77,7 +77,7 @@
     </div>
 
     <div class="summary">
-      <p class="summary-lead">Four engagements, each beginning with a figure an
+      <p class="summary-lead">Five engagements, each beginning with a figure an
         organisation was already acting on. In each, the evidence did not
         support the decision being taken — and the correction changed what
         should be done about it.</p>
@@ -101,6 +101,11 @@
           <p class="sum-figure">6 of 9</p>
           <p class="sum-text">AI benchmarks can't detect the improvements
             announced on them</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">832k</p>
+          <p class="sum-text">manual reviews a year caused by an accountability
+            rule, not by the model</p>
         </div>
       </div>
       <p class="summary-foot">Every figure is derived from public evidence, and
@@ -652,6 +657,97 @@ iew cost
   </div>
 </article>
 
+
+<!-- ---------------------------- knowing-when-to-doubt ---------------------------- -->
+<article class="project">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project five · organisational design and AI risk</p>
+      <h2 class="project-title">How you evaluate reviewers decides what your AI gets wrong</h2>
+
+      <div class="opening">
+        <p class="opening-figure">832,000</p>
+        <p class="opening-caption">manual reviews per million decisions, caused by
+          an accountability rule rather than by the model</p>
+        <p class="opening-answer"><b>Outcome-based accountability does not merely
+          break the safety guarantee — it destroys the automation case.</b> When
+          reviewers are judged on whether anything went wrong, they check the
+          cases the model is confident about, and the statistical correction
+          restores the error rate while leaving throughput gone.</p>
+      </div>
+
+      <div class="scqa">
+        <p><b>Situation.</b> Organisations deploying AI with human oversight
+        calibrate a confidence threshold: above it, decisions pass automatically;
+        below it, a person reviews.</p>
+        <p><b>Complication.</b> The reviewer sees that same confidence score, and
+        what they choose to check changes which cases reach production. The
+        guarantee is calibrated on a population the deployment then alters.</p>
+        <p><b>Question.</b> Does the guarantee survive contact with the people
+        it was built for?</p>
+      </div>
+
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/knowing-when-to-doubt">Code</a>
+        <span>88 tests · 96% coverage · a joint research design</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">90%</p>
+        <p class="finding-text">of deployments where a guarantee calibrated at
+          5% is violated, once reviewers route on the confidence signal.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">11%</p>
+        <p class="finding-text">actual power of the study design I first
+          proposed. Computing what I had asserted broke my own experiment and
+          rebuilt it.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">800</p>
+        <p class="finding-text">effective observations from two million
+          decisions. The binding resource is reviewers, not data.</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">The impact, and for whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To an operations leader deploying AI oversight</p>
+          <p class="worth-what">The threshold is not the lever. How reviewers
+            are evaluated changes deployed error rate and throughput by more
+            than any model choice — <b>89%</b> of volume automated under one
+            accountability rule against <b>17%</b> under another, same model,
+            same cases, same people.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever signs off on the risk</p>
+          <p class="worth-what">A guarantee measured in the lab fails in
+            <b>90%</b> of deployments once humans are in the loop. The
+            correction works and has a boundary: past a point it stops failing
+            visibly and starts quietly refusing to automate anything, so
+            monitoring belongs on throughput, not on error rate.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Immediate action:</b> before tuning a
+        confidence threshold, find out what your reviewers actually check and
+        how they are appraised. The second question changes the answer more
+        than the first.</p>
+    </div>
+
+    <p class="project-note">
+      A research design rather than a completed study: the behavioural half
+      needs a partner organisation and is pre-registered in full, before any
+      data exists. The most useful thing in it is the power calculation, which
+      showed my own proposed design had 11% power rather than 80% and forced a
+      different study.
+    </p>
+  </div>
+</article>
+
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -660,7 +756,7 @@ iew cost
   <div class="wrap">
     <h2 class="section-title">How the work was done</h2>
     <p class="method-lede">
-      Four sectors, one failure. In each, a figure was carrying a decision, it
+      Five sectors, one failure. In each, a figure was carrying a decision, it
       appeared sound, and it was wrong in a way no summary could surface.
     </p>
     <div class="method-grid">
@@ -683,12 +779,12 @@ iew cost
       </div>
     </div>
     <p class="method-foot">
-      Four engagements on one theme is a deliberate choice and it carries a
+      Five engagements on one theme is a deliberate choice and it carries a
       cost: it demonstrates depth rather than breadth. What it does demonstrate
       is one standard of judgement brought to a capital-allocation question, an
-      operational-risk question, an automation business case and a
-      professional-liability exposure — and a different recommendation reached
-      in each.
+      operational-risk question, an automation business case, a
+      professional-liability exposure and a question of organisational design —
+      and a different recommendation reached in each.
     </p>
   </div>
 </section>
