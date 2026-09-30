@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data, business and product analysis</title>
-<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Five projects with working tools you can run in the page.">
+<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Six projects with working tools you can run in the page.">
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
-<meta property="og:description" content="Five projects, four working tools you can run in the page.">
+<meta property="og:description" content="Six projects, four working tools you can run in the page.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Harshit Malik — I find the numbers that don't hold up. Four findings: $15.6m threshold swing, 0.38% inference cost, 13% citation base rate, 6 of 9 benchmarks blind.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshit Malik — I find the numbers that don't hold up">
-<meta name="twitter:description" content="Five projects, four working tools you can run in the page.">
+<meta name="twitter:description" content="Six projects, four working tools you can run in the page.">
 <meta name="twitter:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -77,7 +77,7 @@
     </div>
 
     <div class="summary">
-      <p class="summary-lead">Five engagements, each beginning with a figure an
+      <p class="summary-lead">Six engagements, each beginning with a figure an
         organisation was already acting on. In each, the evidence did not
         support the decision being taken — and the correction changed what
         should be done about it.</p>
@@ -106,6 +106,11 @@
           <p class="sum-figure">832k</p>
           <p class="sum-text">manual reviews a year caused by an accountability
             rule, not by the model</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">62.5%</p>
+          <p class="sum-text">of undecidable cases a frontier AI agent answered
+            anyway, rather than asking</p>
         </div>
       </div>
       <p class="summary-foot">Every figure is derived from public evidence, and
@@ -748,6 +753,97 @@ iew cost
   </div>
 </article>
 
+
+<!-- ---------------------------- underdetermined ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project six · AI agents in public benefits</p>
+      <h2 class="project-title">Does the agent know when it cannot decide?</h2>
+
+      <div class="opening">
+        <p class="opening-figure">62.5%</p>
+        <p class="opening-caption">of undecidable benefits cases a frontier
+          model answered anyway &mdash; measured, not estimated</p>
+        <p class="opening-answer"><b>Accuracy alone recommends the worst
+          policy.</b> The strategy scoring highest also re-requests documents it
+          has been told are unreadable in 40% of cases. On a benchmark that
+          reports only accuracy, you would deploy it.</p>
+      </div>
+
+      <div class="scqa">
+        <p><b>Situation.</b> Most benefit denials are never challenged, yet
+        <b>67%</b> of appealed prior-authorisation denials are overturned in
+        Medicare Advantage. The bottleneck is not the decision &mdash; it is the
+        paperwork, which is exactly what an AI agent could absorb.</p>
+        <p><b>Complication.</b> A wrong filing can trigger fraud exposure or
+        burn a claimant's one appeal window. The error cost falls hardest on
+        people least able to absorb it, so the capability that decides
+        deployability is not accuracy. It is whether the agent knows when to
+        stop and ask.</p>
+        <p><b>Question.</b> Can that be measured, and does a frontier model
+        have it?</p>
+      </div>
+
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/underdetermined">Code</a>
+        <a href="https://claude.ai/artifact/8rn6WxAXdUSexC8xfCCefj">Run it yourself</a>
+        <span>59 tests · two environments · live rules engine</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">14/15</p>
+        <p class="finding-text">cases where the model opened with the same
+          question regardless of the case &mdash; a habit, not reasoning.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">7/16</p>
+        <p class="finding-text">cases where it requested information it had
+          already been given in the opening line.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">3/16</p>
+        <p class="finding-text">cases where it spent its whole budget and never
+          returned an answer at all.</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">The impact, and for whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To anyone buying an AI agent for document work</p>
+          <p class="worth-what">Vendor evaluations quote accuracy. On this
+            benchmark the highest-accuracy strategy is also the one that sends
+            applicants to fetch documents that cannot change the answer, in
+            <b>40%</b> of cases. Ask instead what the agent does when it does
+            not know.</p>
+        </div>
+        <div>
+          <p class="worth-who">To whoever owns the claimant experience</p>
+          <p class="worth-what">Abandonment is the dominant failure in benefits
+            intake. Perfect information-seeking resolves a case in <b>1.67</b>
+            questions; asking for everything takes <b>3.00</b> and wastes
+            <b>44%</b> of them. That gap is the burden an agent removes, or
+            doubles.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Immediate action:</b> before piloting an agent
+        on any intake process, measure what it does with an undecidable case.
+        If it answers, the pilot is generating filings built on guesses.</p>
+    </div>
+
+    <p class="project-note">
+      The labels are computed, not annotated: remove a field from a household,
+      sweep it across the values it plausibly could have taken, and see whether
+      the answer moves. Nobody is asked whether a case is decidable &mdash; the
+      rules engine is, and it answers the same way every time.
+    </p>
+  </div>
+</article>
+
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -756,7 +852,7 @@ iew cost
   <div class="wrap">
     <h2 class="section-title">How the work was done</h2>
     <p class="method-lede">
-      Five sectors, one failure. In each, a figure was carrying a decision, it
+      Six sectors, one failure. In each, a figure was carrying a decision, it
       appeared sound, and it was wrong in a way no summary could surface.
     </p>
     <div class="method-grid">
@@ -779,12 +875,13 @@ iew cost
       </div>
     </div>
     <p class="method-foot">
-      Five engagements on one theme is a deliberate choice and it carries a
+      Six engagements on one theme is a deliberate choice and it carries a
       cost: it demonstrates depth rather than breadth. What it does demonstrate
       is one standard of judgement brought to a capital-allocation question, an
       operational-risk question, an automation business case, a
-      professional-liability exposure and a question of organisational design —
-      and a different recommendation reached in each.
+      professional-liability exposure, a question of organisational design and
+      a question of who bears the cost when an AI system is wrong — and a
+      different recommendation reached in each.
     </p>
   </div>
 </section>
