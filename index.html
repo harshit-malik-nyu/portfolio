@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data, business and product analysis</title>
-<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Six projects with working tools you can run in the page.">
+<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Seven projects with working tools you can run in the page.">
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
-<meta property="og:description" content="Six projects, four working tools you can run in the page.">
+<meta property="og:description" content="Seven projects, four working tools you can run in the page.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Harshit Malik — I find the numbers that don't hold up. Four findings: $15.6m threshold swing, 0.38% inference cost, 13% citation base rate, 6 of 9 benchmarks blind.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshit Malik — I find the numbers that don't hold up">
-<meta name="twitter:description" content="Six projects, four working tools you can run in the page.">
+<meta name="twitter:description" content="Seven projects, four working tools you can run in the page.">
 <meta name="twitter:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -77,7 +77,7 @@
     </div>
 
     <div class="summary">
-      <p class="summary-lead">Six engagements, each beginning with a figure an
+      <p class="summary-lead">Seven engagements, each beginning with a figure an
         organisation was already acting on. In each, the evidence did not
         support the decision being taken — and the correction changed what
         should be done about it.</p>
@@ -111,6 +111,11 @@
           <p class="sum-figure">62.5%</p>
           <p class="sum-text">of undecidable cases a frontier AI agent answered
             anyway, rather than asking</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">4,895&times;</p>
+          <p class="sum-text">costlier to find a fabricated comment campaign
+            than to create one</p>
         </div>
       </div>
       <p class="summary-foot">Every figure is derived from public evidence, and
@@ -844,6 +849,100 @@ iew cost
   </div>
 </article>
 
+
+<!-- ---------------------------- floodcheck ---------------------------- -->
+<article class="project">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project seven · regulatory process risk</p>
+      <h2 class="project-title">What can you prove about a record nobody can read?</h2>
+
+      <div class="opening">
+        <p class="opening-figure">4,895&times;</p>
+        <p class="opening-caption">more expensive to find a fabricated comment
+          campaign than to create one</p>
+        <p class="opening-answer"><b>The detectable cases are the ones that did
+          not need detecting.</b> A flood that swamps a docket announces
+          itself. A campaign sized to be the largest bloc without being
+          conspicuous costs 36 cents to produce and roughly $1,800 of audit
+          time to find — and that gap widens as it gets smaller.</p>
+      </div>
+
+      <div class="scqa">
+        <p><b>Situation.</b> A federal agency proposing a rule must consider
+        the public comments it receives. In 2017 the FCC's net neutrality
+        docket drew 22.1 million; the New York Attorney General later found
+        roughly 18 million were fabricated, filed under names of people who had
+        not submitted them.</p>
+        <p><b>Complication.</b> Regulations.gov allows 1,000 requests an hour
+        and comment text costs one request each. Reading a million-comment
+        docket in full is forty days of continuous polling. <b>Nobody reads
+        these dockets</b> — not journalists, not researchers, not the agency.</p>
+        <p><b>Question.</b> What can be established from a sample an auditor
+        can actually afford, and what cannot be at any budget?</p>
+      </div>
+
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/floodcheck">Code</a>
+        <a href="https://claude.ai/artifact/KgWMhM6Jxt7qNPpT4Q7LQF">Explore the limits</a>
+        <span>88 tests · four findings · published constraints only</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">14,039</p>
+        <p class="finding-text">comments: below this, on a million-comment
+          docket, finding a campaign costs more than creating it.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">100%</p>
+        <p class="finding-text">duplicate rate for a lawful advocacy campaign.
+          The statistic every analysis reports cannot tell legal coordination
+          from fraud.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">0.5%</p>
+        <p class="finding-text">response rate that catches a 1,000-comment
+          campaign — if you ask the people named instead of sampling the
+          record.</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">The impact, and for whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To an agency relying on a comment record</p>
+          <p class="worth-what">The duplicate rate is not evidence of fraud.
+            Coordination is lawful, and a membership campaign and a fabricated
+            one both report <b>100%</b>. What distinguishes them is
+            misattribution, which no amount of reading the record reveals.</p>
+        </div>
+        <div>
+          <p class="worth-who">To anyone citing comment volume as evidence</p>
+          <p class="worth-what">Every published claim about a docket's
+            integrity rests on a sample, usually without saying so. A one-hour
+            audit cannot see a campaign below <b>104,889</b> comments on a
+            docket the size of the FCC's — through any text-based method.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Immediate action:</b> stop treating duplicate
+        rate as a fraud metric. The question is whether the named people filed
+        these comments, and only they can answer it.</p>
+    </div>
+
+    <p class="project-note">
+      The work corrected itself three times. The claim that metadata is 250&times;
+      cheaper was true only for titles and timing; names and geography cost
+      what comment text costs. A geography threshold sat below the sampling
+      noise floor and could never fire. And the adversary built to defeat the
+      detector was, on the one axis that mattered, less careful than the lawful
+      campaign it was meant to imitate.
+    </p>
+  </div>
+</article>
+
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -852,7 +951,7 @@ iew cost
   <div class="wrap">
     <h2 class="section-title">How the work was done</h2>
     <p class="method-lede">
-      Six sectors, one failure. In each, a figure was carrying a decision, it
+      Seven sectors, one failure. In each, a figure was carrying a decision, it
       appeared sound, and it was wrong in a way no summary could surface.
     </p>
     <div class="method-grid">
@@ -875,13 +974,14 @@ iew cost
       </div>
     </div>
     <p class="method-foot">
-      Six engagements on one theme is a deliberate choice and it carries a
+      Seven engagements on one theme is a deliberate choice and it carries a
       cost: it demonstrates depth rather than breadth. What it does demonstrate
       is one standard of judgement brought to a capital-allocation question, an
       operational-risk question, an automation business case, a
-      professional-liability exposure, a question of organisational design and
-      a question of who bears the cost when an AI system is wrong — and a
-      different recommendation reached in each.
+      professional-liability exposure, a question of organisational design, a
+      question of who bears the cost when an AI system is wrong, and a question
+      of what can be known at all — and a different recommendation reached in
+      each.
     </p>
   </div>
 </section>
