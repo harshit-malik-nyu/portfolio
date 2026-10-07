@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data, business and product analysis</title>
-<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Eight projects with working tools you can run in the page.">
+<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Nine projects with working tools you can run in the page.">
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
-<meta property="og:description" content="Eight projects, four working tools you can run in the page.">
+<meta property="og:description" content="Nine projects, four working tools you can run in the page.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Harshit Malik — I find the numbers that don't hold up. Four findings: $15.6m threshold swing, 0.38% inference cost, 13% citation base rate, 6 of 9 benchmarks blind.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshit Malik — I find the numbers that don't hold up">
-<meta name="twitter:description" content="Eight projects, four working tools you can run in the page.">
+<meta name="twitter:description" content="Nine projects, four working tools you can run in the page.">
 <meta name="twitter:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -77,7 +77,7 @@
     </div>
 
     <div class="summary">
-      <p class="summary-lead">Eight engagements, each beginning with a figure an
+      <p class="summary-lead">Nine engagements, each beginning with a figure an
         organisation was already acting on. In each, the evidence did not
         support the decision being taken — and the correction changed what
         should be done about it.</p>
@@ -111,6 +111,11 @@
           <p class="sum-figure">62.5%</p>
           <p class="sum-text">of undecidable cases a frontier AI agent answered
             anyway, rather than asking</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">1 in 1,723</p>
+          <p class="sum-text">model rankings that reverse when the benchmark is
+            swapped for a held-out replica</p>
         </div>
         <div class="sum-item">
           <p class="sum-figure">22 pts</p>
@@ -1040,6 +1045,100 @@ iew cost
   </div>
 </article>
 
+
+<!-- ---------------------------- ranksafe ---------------------------- -->
+<article class="project">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project nine &middot; AI benchmark validity</p>
+      <h2 class="project-title">The leaderboard holds. Except where it doesn't.</h2>
+
+      <div class="opening">
+        <p class="opening-figure">1 in 1,723</p>
+        <p class="opening-caption">model rankings that reverse when the
+          benchmark is swapped for a held-out replica</p>
+        <p class="opening-answer"><b>Leaderboards are more robust than the
+          contamination debate suggests &mdash; and the exceptions are not
+          random.</b> Across 63 models from twenty labs, only one ordering
+          separated by five points or more flips. The largest is a model losing
+          a 7.2-point lead and finishing behind, an 8.2-point swing that holds
+          at p = 0.0001.</p>
+      </div>
+
+      <div class="scqa">
+        <p><b>Situation.</b> Companies choose models from leaderboards.
+        Procurement, architecture, and standardisation decisions all trace back
+        to a benchmark table.</p>
+        <p><b>Complication.</b> The research literature asks whether a model is
+        contaminated &mdash; unanswerable from outside, and a 2026 result found
+        ten detection methods scoring near chance on reasoning models.</p>
+        <p><b>Question.</b> Ask the decision-grade version instead: not whether
+        a score is inflated, but whether the <i>ranking</i> survives. If the
+        table reorders, whose training data caused it stops mattering.</p>
+      </div>
+
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/ranksafe">Code</a>
+        <a href="https://claude.ai/artifact/N1AX7QhhzJspFTqZ9rKhU8">Run the benchmark</a>
+        <span>97 tests &middot; 787 verified problem pairs &middot; 63 models analysed</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">p=0.089</p>
+        <p class="finding-text">after correcting a result I first reported at
+          p=0.014. One model's six reversals are one observation, not six.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">0.022</p>
+        <p class="finding-text">arithmetic imbalance after fixing a control
+          that, when measured, turned out to make the problems harder.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">15,700</p>
+        <p class="finding-text">problems needed to detect the frontier-model
+          effect &mdash; computed before building, so the limit was known
+          rather than discovered.</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">The impact, and for whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To anyone choosing a model from a benchmark table</p>
+          <p class="worth-what">The ordering is largely safe. Where it is not,
+            it fails between a model suspected of memorising the benchmark and
+            one that was not &mdash; so the pairs worth re-checking are
+            identifiable in advance, rather than requiring every score to be
+            distrusted.</p>
+        </div>
+        <div>
+          <p class="worth-who">To anyone running an evaluation</p>
+          <p class="worth-what">A rank change is an <b>interaction</b> and
+            needs roughly four times the sample of a score change the same
+            size. Most published comparisons are powered for the second and
+            quoted for the first.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Immediate action:</b> before accepting a
+        leaderboard gap, check whether the pair you care about is separated by
+        more than twice the standard error. Below that they were never ranked,
+        and the ordering is a coin landing.</p>
+    </div>
+
+    <p class="project-note">
+      The benchmark changes the numbers in each question and recomputes the
+      answer through the dataset's own arithmetic, so every variant is correct
+      by construction rather than by argument. Nine findings were corrected
+      during the work and three were withdrawn entirely &mdash; including the
+      one that looked strongest, which rested on treating one model's six
+      reversals as six independent observations.
+    </p>
+  </div>
+</article>
+
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -1048,7 +1147,7 @@ iew cost
   <div class="wrap">
     <h2 class="section-title">How the work was done</h2>
     <p class="method-lede">
-      Eight sectors, one failure. In each, a figure was carrying a decision, it
+      Nine sectors, one failure. In each, a figure was carrying a decision, it
       appeared sound, and it was wrong in a way no summary could surface.
     </p>
     <div class="method-grid">
@@ -1071,7 +1170,7 @@ iew cost
       </div>
     </div>
     <p class="method-foot">
-      Eight engagements on one theme is a deliberate choice and it carries a
+      Nine engagements on one theme is a deliberate choice and it carries a
       cost: it demonstrates depth rather than breadth. What it does demonstrate
       is one standard of judgement brought to a capital-allocation question, an
       operational-risk question, an automation business case, a
