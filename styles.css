@@ -1,0 +1,434 @@
+/* ==================================================================
+   Harshit Malik
+   Institutional rather than instrumental: bone stock, navy ink, a
+   single brass accent. Serif carries the page; sans appears only
+   where data demands it. Space is the primary material.
+
+   Nothing is removed. Every class the page used before is styled
+   here — the change is in materials and in the room things are
+   given, not in what survives.
+   ================================================================== */
+
+:root {
+  --bone:     #F7F5F0;
+  --bone-2:   #F0ECE4;
+  --navy:     #131F2B;
+  --navy-2:   #33404E;
+  --muted:    #6B7684;
+  --rule:     #DFD9CE;
+  --rule-2:   #EBE6DC;
+  --brass:    #8A6D3B;
+
+  /* Aliases kept so the inline SVG chart and any older rule still
+     resolve. Renaming a variable silently blanks whatever referenced it. */
+  --paper: var(--bone);
+  --paper-2: var(--bone-2);
+  --ink: var(--navy);
+  --ink-soft: var(--navy-2);
+  --ink-faint: var(--muted);
+  --rule-soft: var(--rule-2);
+  --signal: var(--navy);
+  --alarm: var(--brass);
+  --accent: var(--brass);
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans:  "Inter", system-ui, -apple-system, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --measure: 33rem;
+  --gutter: clamp(1.5rem, 6vw, 4rem);
+  --band: clamp(4.5rem, 12vw, 9rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone:   #0F1720;
+    --bone-2: #151F29;
+    --navy:   #EFEBE3;
+    --navy-2: #C3CBD4;
+    --muted:  #8A96A4;
+    --rule:   #26313D;
+    --rule-2: #1D2731;
+    --brass:  #C9A867;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0; background: var(--bone); color: var(--navy);
+  font: 400 18px/1.68 var(--serif);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+
+.wrap { max-width: 66rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px;
+    text-decoration-color: var(--rule); transition: text-decoration-color .2s; }
+a:hover { text-decoration-color: var(--brass); }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; }
+
+.skip { position: absolute; left: -9999px; background: var(--navy);
+        color: var(--bone); padding: .7rem 1.2rem; z-index: 10; }
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* ---------------- masthead ---------------- */
+
+.masthead { position: sticky; top: 0; z-index: 5;
+  background: color-mix(in srgb, var(--bone) 94%, transparent);
+  backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule-2); }
+.masthead-inner { display: flex; align-items: baseline;
+  justify-content: space-between; gap: 2rem;
+  padding-top: 1.1rem; padding-bottom: 1.1rem; }
+.masthead-name { font-family: var(--serif); font-weight: 500;
+  font-size: 1rem; letter-spacing: .01em; }
+.masthead-nav { display: flex; gap: clamp(1.1rem, 3vw, 2rem); }
+.masthead-nav a { font-family: var(--sans); font-size: .72rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  text-decoration: none; }
+.masthead-nav a:hover { color: var(--navy); }
+
+/* ---------------- hero ---------------- */
+
+.hero { padding: clamp(4rem, 12vw, 8.5rem) 0 var(--band); }
+
+.identity { margin-bottom: clamp(3rem, 8vw, 4.5rem); }
+.identity-who { display: flex; align-items: center; gap: 1.4rem; }
+.portrait { width: 76px; height: 76px; border-radius: 50%; object-fit: cover;
+  flex-shrink: 0; filter: saturate(.94); }
+@media (min-width: 46rem) { .portrait { width: 86px; height: 86px; } }
+
+.hero-name { font-family: var(--serif); font-weight: 500;
+  font-size: clamp(1.35rem, 3vw, 1.7rem); letter-spacing: .005em;
+  margin: 0 0 .35rem; line-height: 1.1; }
+.hero-role { font-family: var(--sans); font-size: .74rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0; }
+
+/* Retained though currently unused: the identity line carries the page
+   alone, and a credential strip would dilute it. */
+.credentials { font-size: .96rem; color: var(--muted);
+  margin: 1.6rem 0 clamp(3rem, 8vw, 4.5rem); line-height: 1.8; max-width: 42rem; }
+.credentials b { color: var(--navy-2); font-weight: 500; }
+
+.hero-title { font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 4.8rem); line-height: 1.04;
+  letter-spacing: -.021em; margin: 0 0 clamp(2.5rem, 7vw, 4rem); max-width: 15ch; }
+
+.claim { border-top: 1px solid var(--navy); padding-top: 2rem; max-width: 46rem; }
+.claim-source { font-family: var(--sans); font-size: .7rem; font-weight: 500;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 1.3rem; }
+.claim-text { font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.35rem, 3.3vw, 1.95rem); line-height: 1.32;
+  margin: 0 0 2rem; letter-spacing: -.01em; }
+.verdict { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); }
+.verdict-line { margin: 0 0 .9rem; font-size: 1.02rem; max-width: var(--measure); }
+.verdict-line b { font-family: var(--mono); font-weight: 400; font-size: .93em;
+  color: var(--brass); }
+.verdict-close { color: var(--muted); margin-bottom: 0; }
+
+.btn { font: 500 .74rem/1 var(--sans); letter-spacing: .12em;
+  text-transform: uppercase; background: transparent; color: var(--navy);
+  border: 1px solid var(--navy); border-radius: 0; padding: 1rem 1.9rem;
+  cursor: pointer; transition: background .2s, color .2s; }
+.btn:hover { background: var(--navy); color: var(--bone); }
+.btn:disabled { opacity: .35; cursor: default; background: transparent; color: var(--navy); }
+
+/* ---------------- summary ---------------- */
+
+.summary { margin-top: clamp(3.5rem, 9vw, 6rem); }
+.summary-lead { font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.2rem, 2.7vw, 1.6rem); line-height: 1.46;
+  max-width: 35rem; margin: 0 0 clamp(2.5rem, 6vw, 3.5rem);
+  letter-spacing: -.008em; }
+.summary-grid { display: grid; gap: 2.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  margin-bottom: 2.4rem; }
+.sum-item { border-top: 1px solid var(--navy); padding-top: 1rem; }
+.sum-figure { font-family: var(--mono); font-weight: 400;
+  font-size: clamp(1.7rem, 3.6vw, 2.3rem); letter-spacing: -.035em;
+  margin: 0 0 .6rem; line-height: 1; color: var(--brass); }
+.sum-text { margin: 0; font-size: .95rem; color: var(--navy-2); line-height: 1.55; }
+.summary-foot { margin: 0; font-size: .95rem; color: var(--muted);
+  max-width: var(--measure); padding-top: 1.6rem; border-top: 1px solid var(--rule-2); }
+
+/* ---------------- projects ---------------- */
+
+.project { padding: var(--band) 0; border-top: 1px solid var(--rule); }
+.project-alt { background: var(--bone-2); }
+.project-head { }
+
+.exhibit { font-family: var(--sans); font-size: .7rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 1.6rem; }
+.project-title { font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.85rem, 4.4vw, 2.9rem); line-height: 1.12;
+  letter-spacing: -.017em; margin: 0 0 clamp(1.8rem, 4vw, 2.6rem); max-width: 20ch; }
+
+.scqa { max-width: 39rem; margin: 0 0 clamp(2.2rem, 5vw, 3.2rem); }
+.scqa p { margin: 0 0 1.05rem; }
+.scqa p:last-child { margin-bottom: 0; }
+/* Retained: the answer moved into the opening exhibit, but leaving the rule
+   costs nothing and keeps the class usable if a project needs it inline. */
+.scqa .answer { border-left: 2px solid var(--brass); padding: .2rem 0 .2rem 1.6rem;
+  font-size: 1.1rem; margin-top: 1.7rem; }
+
+.project-meta { display: flex; flex-wrap: wrap; gap: .8rem 2rem;
+  align-items: baseline; font-family: var(--sans); font-size: .76rem;
+  letter-spacing: .04em; color: var(--muted);
+  margin: 0 0 clamp(2.5rem, 6vw, 3.5rem); padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule); }
+.project-meta a { color: var(--navy); text-decoration-color: var(--rule); }
+
+.findings { display: grid; gap: clamp(2.4rem, 5vw, 3.2rem);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  margin: 0 0 clamp(2.5rem, 6vw, 3.5rem); }
+.finding { border-top: 1px solid var(--navy); padding-top: 1rem; }
+.finding-figure { font-family: var(--mono); font-weight: 400;
+  font-size: clamp(2rem, 4.4vw, 2.7rem); letter-spacing: -.04em;
+  margin: 0 0 .6rem; line-height: 1; color: var(--brass); }
+.finding-text { margin: 0; font-size: .97rem; color: var(--navy-2); line-height: 1.55; }
+
+/* ---------------- the opening exhibit ----------------
+   Each project earns one uninterrupted moment before the supporting
+   material begins: the number that carries it, and the recommendation.
+   A skimmer can stop here and still leave with the argument; an
+   evaluator scrolls into the evidence underneath. The two audiences
+   are served by sequence rather than by choosing between them. */
+
+.opening {
+  margin: 0 0 clamp(3rem, 9vw, 6rem);
+  padding: clamp(2rem, 5vw, 3rem) 0 clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--navy);
+  border-bottom: 1px solid var(--rule);
+  max-width: 48rem;
+}
+.opening-figure {
+  font-family: var(--mono); font-weight: 400;
+  font-size: clamp(3.4rem, 12vw, 7rem); letter-spacing: -.055em;
+  line-height: .92; margin: 0 0 1.1rem; color: var(--brass);
+}
+.opening-caption {
+  font-family: var(--sans); font-size: .78rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 clamp(1.8rem, 4vw, 2.6rem); max-width: 30rem; line-height: 1.6;
+}
+.opening-answer {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem); line-height: 1.48;
+  margin: 0; max-width: 36rem; letter-spacing: -.006em;
+}
+.opening-answer b { font-weight: 500; }
+
+/* ---------------- exhibits ---------------- */
+
+.tool, .chart-block { border-top: 1px solid var(--rule);
+  padding-top: clamp(2.2rem, 5vw, 3.2rem);
+  margin: clamp(2.5rem, 6vw, 4rem) 0 clamp(2.5rem, 6vw, 4rem); }
+.tool-title { font-family: var(--serif); font-weight: 500; font-size: 1.22rem;
+  margin: 0 0 .7rem; letter-spacing: -.005em; }
+.tool-intro { margin: 0 0 2rem; color: var(--muted); font-size: .97rem;
+  max-width: var(--measure); }
+.tool-body { }
+
+/* The answer is stated before anything can be adjusted. Opening with a
+   control panel asks the reader to work; opening with the result and
+   offering the controls underneath makes interaction a privilege. */
+.adjust {
+  font-family: var(--sans); font-size: .68rem; font-weight: 500;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+  margin: 2.6rem 0 1.4rem; padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-2);
+}
+
+.tool .readout:first-child {
+  border-top: 0; padding-top: 0; font-size: 1.12rem;
+  color: var(--navy); max-width: 42rem;
+}
+
+.controls { display: grid; gap: 2rem; margin-bottom: 2.2rem; }
+@media (min-width: 42rem) { .controls { grid-template-columns: 1fr 1fr; } }
+.control { display: grid; gap: .65rem; }
+.control-inline { margin-top: 1.7rem; }
+.control-label { font-family: var(--sans); font-size: .7rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.control-value { font-family: var(--mono); font-size: 1.12rem; color: var(--navy); }
+
+input[type="range"] { -webkit-appearance: none; appearance: none;
+  width: 100%; height: 1px; background: var(--rule); cursor: pointer; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none;
+  appearance: none; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--navy); border: 0; cursor: pointer; }
+input[type="range"]::-moz-range-thumb { width: 14px; height: 14px;
+  border-radius: 50%; background: var(--navy); border: 0; cursor: pointer; }
+
+.gauge { display: grid; gap: 1.1rem; margin-bottom: 2.1rem; }
+.gauge-row { display: grid; grid-template-columns: minmax(0, 13rem) 1fr;
+  gap: 1.2rem; align-items: center; }
+.gauge-name { font-family: var(--sans); font-size: .76rem; color: var(--muted); }
+.gauge-track { height: 2px; background: var(--rule); position: relative; }
+.gauge-fill { position: absolute; inset: 0 auto 0 0; height: 2px;
+  transition: width .15s linear; }
+.is-claim { background: var(--navy); }
+.is-noise { background: var(--brass); }
+
+.stats { display: flex; flex-wrap: wrap; gap: 2.4rem; margin: 0 0 2.1rem; }
+.stats-4 { gap: 2rem 2.4rem; }
+.stats div { display: grid; gap: .4rem; }
+.stats dt { font-family: var(--sans); font-size: .68rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.stats dd { margin: 0; font-family: var(--mono); font-size: 1.45rem;
+  letter-spacing: -.025em; }
+
+.readout { margin: 0; padding: 1.3rem 0 0; font-size: 1rem;
+  border-top: 1px solid var(--rule); max-width: 41rem; color: var(--navy-2); }
+.readout b { font-weight: 500; color: var(--navy); }
+.readout.is-ok { border-top-color: var(--navy); }
+.readout.is-alarm { border-top-color: var(--brass); }
+.readout.is-alarm b { color: var(--brass); }
+
+.presets { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 2rem; }
+.chip { font: 500 .72rem var(--sans); letter-spacing: .05em;
+  background: transparent; color: var(--muted); border: 1px solid var(--rule);
+  border-radius: 0; padding: .55rem 1rem; cursor: pointer; transition: all .18s; }
+.chip:hover { border-color: var(--navy-2); color: var(--navy); }
+.chip[aria-pressed="true"] { background: var(--navy); color: var(--bone);
+  border-color: var(--navy); }
+
+.fields { display: grid; gap: 1.7rem; margin-bottom: 2rem; }
+@media (min-width: 42rem) { .fields { grid-template-columns: 1fr 1fr; } }
+.field { display: grid; gap: .55rem; }
+.field input[type="text"] { font: 400 1rem var(--serif); background: transparent;
+  color: var(--navy); border: 0; border-bottom: 1px solid var(--rule);
+  border-radius: 0; padding: .55rem 0; width: 100%; }
+.field input[type="text"]:focus { border-bottom-color: var(--brass); outline: none; }
+.field-norm { font-family: var(--sans); font-size: .7rem; color: var(--muted); }
+.field-norm b { font-family: var(--mono); font-weight: 400; }
+
+.dial { display: flex; align-items: baseline; gap: 1.3rem; margin-bottom: .7rem; }
+.dial-score { font-family: var(--mono); font-size: clamp(2.2rem, 5.5vw, 3.1rem);
+  letter-spacing: -.04em; min-width: 5rem; }
+.dial-track { flex: 1; height: 2px; background: var(--rule); position: relative; }
+.dial-fill { position: absolute; inset: 0 auto 0 0; height: 2px;
+  background: var(--navy); transition: width .15s linear; }
+
+/* ---------------- figures ---------------- */
+
+.figure { margin: 0 0 clamp(2.2rem, 5vw, 3.2rem); }
+.chart { width: 100%; height: auto; display: block; }
+.figure figcaption { font-size: .94rem; color: var(--muted); margin-top: 1.1rem;
+  max-width: var(--measure); line-height: 1.6; }
+
+.cite-chart { display: grid; gap: 1.5rem; margin-bottom: 1.7rem; }
+.cite-row { display: grid; gap: .55rem; align-items: center; }
+@media (min-width: 48rem) {
+  .cite-row { grid-template-columns: minmax(0, 18rem) 1fr auto; gap: 1.6rem; }
+}
+.cite-label { display: grid; gap: .15rem; }
+.cite-corpus { font-size: 1rem; }
+.cite-writer { font-family: var(--sans); font-size: .7rem; color: var(--muted); }
+.cite-track { position: relative; height: 22px; border-bottom: 1px solid var(--rule); }
+.cite-interval { position: absolute; top: 10px; height: 1px; background: var(--muted); }
+.cite-point { position: absolute; top: 6px; width: 2px; height: 10px; background: var(--brass); }
+.cite-value { font-family: var(--mono); font-size: 1.02rem; display: flex;
+  gap: .7rem; align-items: baseline; }
+.cite-n { font-size: .72rem; color: var(--muted); }
+.chart-note { margin: 0; font-size: .95rem; color: var(--muted); max-width: var(--measure); }
+
+.project-note { max-width: var(--measure); color: var(--muted); font-size: .97rem;
+  margin: clamp(1.8rem, 4vw, 2.6rem) 0 0; padding-left: 1.6rem;
+  border-left: 1px solid var(--rule); }
+
+/* ---------------- value blocks ---------------- */
+
+.worth { border-top: 1px solid var(--navy);
+  padding-top: clamp(2.2rem, 5vw, 3.2rem);
+  margin: clamp(3rem, 7vw, 4.5rem) 0 0; }
+.worth-title { font-family: var(--sans); font-size: .7rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 1.9rem; }
+.worth-grid { display: grid; gap: 2.4rem; margin-bottom: 2rem; }
+@media (min-width: 48rem) { .worth-grid { grid-template-columns: 1fr 1fr; } }
+.worth-who { font-family: var(--sans); font-size: .72rem; letter-spacing: .06em;
+  color: var(--muted); margin: 0 0 .65rem; }
+.worth-what { margin: 0; font-size: 1.01rem; }
+.worth-what b { font-family: var(--mono); font-weight: 400; font-size: .92em;
+  color: var(--brass); }
+.worth-action { margin: 0; padding-left: 1.6rem; border-left: 2px solid var(--brass);
+  font-size: 1.01rem; max-width: 41rem; }
+
+/* ---------------- method ---------------- */
+
+.method { padding: var(--band) 0; border-top: 1px solid var(--rule);
+  background: var(--navy); color: var(--bone); }
+.method .section-title { color: color-mix(in srgb, var(--bone) 62%, transparent); }
+.method-lede { font-family: var(--serif); font-size: clamp(1.2rem, 2.7vw, 1.6rem);
+  line-height: 1.46; max-width: 35rem; margin: 0 0 clamp(2.8rem, 6vw, 4rem);
+  color: color-mix(in srgb, var(--bone) 93%, transparent); }
+.method-grid { display: grid; gap: 2.6rem; }
+@media (min-width: 48rem) { .method-grid { grid-template-columns: repeat(3, 1fr); } }
+.method-item h3 { font-family: var(--serif); font-size: 1.13rem; font-weight: 500;
+  margin: 0 0 .75rem; color: var(--bone); }
+.method-item p { margin: 0; font-size: .97rem;
+  color: color-mix(in srgb, var(--bone) 70%, transparent); }
+.method-foot { max-width: 41rem; margin: clamp(2.8rem, 6vw, 4rem) 0 0;
+  font-size: .97rem; color: color-mix(in srgb, var(--bone) 66%, transparent);
+  padding-top: 1.9rem;
+  border-top: 1px solid color-mix(in srgb, var(--bone) 18%, transparent); }
+
+/* ---------------- leadership, experience, details ---------------- */
+
+.leadership, .experience, .details { padding: var(--band) 0;
+  border-top: 1px solid var(--rule); }
+.section-title { font-family: var(--sans); font-size: .7rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 clamp(2.2rem, 5vw, 3rem); }
+
+.lead-grid { display: grid; gap: 2.4rem; margin: 0;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.lead-item { border-top: 1px solid var(--navy); padding-top: 1rem; }
+.lead-figure { font-family: var(--mono); font-weight: 400;
+  font-size: clamp(2rem, 4.4vw, 2.7rem); letter-spacing: -.04em;
+  margin: 0 0 .6rem; line-height: 1; color: var(--brass); }
+.lead-text { margin: 0; font-size: .97rem; color: var(--navy-2); line-height: 1.55; }
+
+.role { display: grid; gap: .8rem; padding: 2.2rem 0;
+  border-top: 1px solid var(--rule-2); }
+.role:first-of-type { border-top: 0; padding-top: 0; }
+@media (min-width: 48rem) { .role { grid-template-columns: 12rem 1fr; gap: 3rem; } }
+.role-when { font-family: var(--sans); font-size: .72rem; letter-spacing: .05em;
+  color: var(--muted); padding-top: .45rem; }
+.role-what h3 { font-family: var(--serif); font-size: 1.22rem; margin: 0 0 .25rem;
+  font-weight: 500; }
+.role-org { margin: 0 0 1rem; color: var(--muted); font-family: var(--sans);
+  font-size: .8rem; letter-spacing: .04em; }
+.role-what ul { margin: 0; padding-left: 1.2rem; }
+.role-what li { margin-bottom: .75rem; max-width: var(--measure); font-size: 1rem; }
+.role-what li b { font-family: var(--mono); font-weight: 400; font-size: .9em;
+  color: var(--brass); }
+
+.details-grid { display: grid; gap: 3.2rem; }
+@media (min-width: 48rem) { .details-grid { grid-template-columns: 1fr 1fr; } }
+.detail-line { margin: 0 0 1.5rem; font-size: 1rem; color: var(--navy-2); }
+.detail-line b { color: var(--navy); font-weight: 500; }
+
+/* ---------------- footer ---------------- */
+
+.footer { border-top: 1px solid var(--rule);
+  padding: clamp(3.2rem, 7vw, 4.5rem) 0 clamp(3.5rem, 8vw, 5.5rem); }
+.footer-inner { display: grid; gap: 2rem; }
+@media (min-width: 48rem) {
+  .footer-inner { grid-template-columns: 1fr auto; align-items: end; }
+}
+.footer-line { margin: 0; font-size: .94rem; color: var(--muted);
+  max-width: 31rem; line-height: 1.7; }
+.footer-line b { color: var(--navy); font-weight: 500; }
+.footer-links { display: flex; flex-wrap: wrap; gap: .8rem 2rem; margin: 0;
+  font-family: var(--sans); font-size: .8rem; letter-spacing: .03em; }
+
+#work, #leadership, #experience, #contact { scroll-margin-top: 5rem; }
