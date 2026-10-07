@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data, business and product analysis</title>
-<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Seven projects with working tools you can run in the page.">
+<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Eight projects with working tools you can run in the page.">
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
-<meta property="og:description" content="Seven projects, four working tools you can run in the page.">
+<meta property="og:description" content="Eight projects, four working tools you can run in the page.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Harshit Malik — I find the numbers that don't hold up. Four findings: $15.6m threshold swing, 0.38% inference cost, 13% citation base rate, 6 of 9 benchmarks blind.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshit Malik — I find the numbers that don't hold up">
-<meta name="twitter:description" content="Seven projects, four working tools you can run in the page.">
+<meta name="twitter:description" content="Eight projects, four working tools you can run in the page.">
 <meta name="twitter:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -77,7 +77,7 @@
     </div>
 
     <div class="summary">
-      <p class="summary-lead">Seven engagements, each beginning with a figure an
+      <p class="summary-lead">Eight engagements, each beginning with a figure an
         organisation was already acting on. In each, the evidence did not
         support the decision being taken — and the correction changed what
         should be done about it.</p>
@@ -111,6 +111,11 @@
           <p class="sum-figure">62.5%</p>
           <p class="sum-text">of undecidable cases a frontier AI agent answered
             anyway, rather than asking</p>
+        </div>
+        <div class="sum-item">
+          <p class="sum-figure">22 pts</p>
+          <p class="sum-text">of AI ecosystem concentration available purely by
+            choosing a sampling depth</p>
         </div>
         <div class="sum-item">
           <p class="sum-figure">4,895&times;</p>
@@ -943,6 +948,98 @@ iew cost
   </div>
 </article>
 
+
+<!-- ---------------------------- lineage ---------------------------- -->
+<article class="project project-alt">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Project eight &middot; AI supply chain</p>
+      <h2 class="project-title">The same data says 68% or 46%. You pick.</h2>
+
+      <div class="opening">
+        <p class="opening-figure">22 pts</p>
+        <p class="opening-caption">of concentration available to an analyst
+          purely by choosing how deep to sample</p>
+        <p class="opening-answer"><b>Every claim about open-model concentration
+          is a claim about a sampling depth.</b> Collect the top 100 models and
+          three organisations control 68% of them. Collect 1,200 and it is 46%.
+          Both are honest readings of one dataset, and almost no published
+          claim states which it used.</p>
+      </div>
+
+      <div class="scqa">
+        <p><b>Situation.</b> Open-weight AI is the live policy fight — EU AI
+        Act exemptions, export controls, sovereign AI programmes. Every side
+        argues from an assumption about how concentrated the ecosystem is.</p>
+        <p><b>Complication.</b> Nobody has measured it. Models declare their
+        ancestry in metadata, so the dependency tree is walkable, but the
+        answer turns out to depend on where you cut the sample.</p>
+        <p><b>Question.</b> What is actually inside the model you deployed, and
+        which claims about it survive being attacked?</p>
+      </div>
+
+      <p class="project-meta">
+        <a href="https://github.com/harshit-malik-nyu/lineage">Code</a>
+        <a href="https://claude.ai/artifact/BC2C8oBCcejyPRdkocoZUe">Explore it</a>
+        <span>2,700 chains walked &middot; 113 tests &middot; live HuggingFace data</span>
+      </p>
+    </header>
+
+    <div class="findings">
+      <div class="finding">
+        <p class="finding-figure">53%</p>
+        <p class="finding-text">of models inherit through an intermediary &mdash;
+          a third party's re-upload whose name is nowhere in the deploying
+          decision.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">1.7%</p>
+        <p class="finding-text">actual licence conflicts, against a 23% raw
+          mismatch rate. The difference is reading the licences rather than
+          comparing strings.</p>
+      </div>
+      <div class="finding">
+        <p class="finding-figure">49.5%</p>
+        <p class="finding-text">of one sample's downloads sat in a single
+          model &mdash; which is why a headline finding was withdrawn.</p>
+      </div>
+    </div>
+
+    <div class="worth">
+      <h3 class="worth-title">The impact, and for whom</h3>
+      <div class="worth-grid">
+        <div>
+          <p class="worth-who">To anyone citing ecosystem concentration</p>
+          <p class="worth-what">Both sentences the policy debate relies on
+            &mdash; <i>a handful of labs control this</i> and <i>hundreds of
+            organisations publish base models</i> &mdash; are supportable from
+            one dataset. A concentration figure without its sampling depth is
+            not a finding.</p>
+        </div>
+        <div>
+          <p class="worth-who">To anyone deploying an open model</p>
+          <p class="worth-what"><b>53%</b> of these models reach their base
+            through an intermediary. You inherit from parties you did not
+            evaluate, and the licence on the model card may not be the one its
+            ancestor granted.</p>
+        </div>
+      </div>
+      <p class="worth-action"><b>Immediate action:</b> before quoting any
+        download-weighted figure, remove the three largest contributors and
+        look again. On one of these samples that moved the answer by twenty
+        points.</p>
+    </div>
+
+    <p class="project-note">
+      The work corrected itself six times and the last one removed a finding
+      rather than qualifying it. A 25.7-point gap between two samples had
+      passed a significance test at 8.3 standard deviations &mdash; and rested
+      almost entirely on one model. The test was sound and measured the wrong
+      thing, because resampling preserves the tail that carries the result.
+    </p>
+  </div>
+</article>
+
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -951,7 +1048,7 @@ iew cost
   <div class="wrap">
     <h2 class="section-title">How the work was done</h2>
     <p class="method-lede">
-      Seven sectors, one failure. In each, a figure was carrying a decision, it
+      Eight sectors, one failure. In each, a figure was carrying a decision, it
       appeared sound, and it was wrong in a way no summary could surface.
     </p>
     <div class="method-grid">
@@ -974,7 +1071,7 @@ iew cost
       </div>
     </div>
     <p class="method-foot">
-      Seven engagements on one theme is a deliberate choice and it carries a
+      Eight engagements on one theme is a deliberate choice and it carries a
       cost: it demonstrates depth rather than breadth. What it does demonstrate
       is one standard of judgement brought to a capital-allocation question, an
       operational-risk question, an automation business case, a
