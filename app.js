@@ -19,11 +19,11 @@ function normalise(name) {
   if (!name) return "";
   // Fold diacritics: what makes MUÑOZ and MUNOZ comparable, and the single
   // most load-bearing step for transliterated names.
-  let t = name.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  let t = name.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/ß/g, "ss").replace(/ς/g, "σ");
   // Collapse dotted abbreviations (S.A. -> sa) before splitting on punctuation,
   // or the legal form stops being recognisable.
   t = t.replace(/\b(?:[a-z]\.){2,}/g, m => m.replace(/\./g, ""));
-  t = t.replace(/[^\w\s]/g, " ");
+  t = t.replace(/[^\p{L}\p{N}_\s]/gu, " ");
   const tokens = t.split(/\s+/).filter(Boolean);
   const kept = tokens.filter(x => !LEGAL_SUFFIXES.has(x) && !STOPWORDS.has(x));
   // Never normalise a name out of existence: "CO LTD" must not become "".
@@ -32,6 +32,7 @@ function normalise(name) {
 
 // Longest common subsequence length, iterative to avoid recursion limits.
 function lcsLength(a, b) {
+  a = Array.from(a); b = Array.from(b);
   const m = a.length, n = b.length;
   if (!m || !n) return 0;
   let prev = new Uint16Array(n + 1), cur = new Uint16Array(n + 1);
@@ -48,7 +49,7 @@ function lcsLength(a, b) {
 function ratio(a, b) {
   if (!a.length && !b.length) return 100;
   if (!a.length || !b.length) return 0;
-  return (200 * lcsLength(a, b)) / (a.length + b.length);
+  return (200 * lcsLength(a, b)) / (Array.from(a).length + Array.from(b).length);
 }
 
 /* token_sort_ratio, chosen by measurement rather than preference.
@@ -237,12 +238,11 @@ function initHero() {
     const need = itemsRequired(0.02, 0.70);
     out.innerHTML =
       `<p class="verdict-line">That benchmark has 198 questions. The smallest
-       difference it can separate from noise is <b>${pct(mde)}</b>.</p>
-       <p class="verdict-line">Showing a two-point difference would take
+       difference targeted at 80% planning power is <b>${pct(mde)}</b>.</p>
+       <p class="verdict-line">Planning for a two-point difference at that power takes
        <b>${need.toLocaleString()}</b> questions &mdash;
        <b>${Math.round(need / 198)} times</b> its size.</p>
-       <p class="verdict-line verdict-close">The claim isn't wrong. It's
-       unmeasurable, and nobody checked.</p>`;
+       <p class="verdict-line verdict-close">This is sample-size planning. Testing an observed change requires paired item outcomes; this calculation cannot refute it.</p>`;
     out.hidden = false;
     btn.disabled = true;
     btn.textContent = "Checked";
@@ -269,8 +269,8 @@ function initResolution() {
     const v = $("#res-verdict");
     v.className = `readout ${ok ? "is-ok" : "is-alarm"}`;
     v.innerHTML = ok
-      ? `A ${pct(e)} difference is <b>measurable</b> here.`
-      : `A ${pct(e)} difference is <b>not measurable</b> here. It would take
+      ? `A ${pct(e)} difference <b>meets the 80% planning-power target</b> under independent-proportion assumptions.`
+      : `A ${pct(e)} difference <b>does not meet the 80% planning-power target</b>. Planning would require
          <b>${need.toLocaleString()}</b> questions.`;
 
     const bar = $("#res-bar-claim");
@@ -380,7 +380,7 @@ function normaliseEntry() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  normaliseEntry();
+  // Preserve deep links so reviewers can share an exact case study.
   initNav();
   initHero();
   initResolution();
@@ -389,3 +389,38 @@ document.addEventListener("DOMContentLoaded", () => {
   initCostCase();
   initAgentCost();
 });
+
+
+// Optional local measurement. No network, persistence, raw inputs or visitor IDs.
+function createLocalMetrics() {
+  let enabled = false, events = [], counter = 0;
+  return {
+    enable() { enabled = true; },
+    clear() { enabled = false; events = []; counter = 0; },
+    record(success = true) {
+      if (!enabled) return;
+      const id = `local-${++counter}`;
+      events.push({event_id:`${id}-0`,session_id:id,event:'started',elapsed_ms:0,source:'local_opt_in'});
+      events.push({event_id:`${id}-1`,session_id:id,event:success?'completed':'failed',elapsed_ms:0,source:'local_opt_in'});
+    },
+    export() { return events.map(e => JSON.stringify(e)).join('\n'); }
+  };
+}
+if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', () => {
+  const metrics=createLocalMetrics();
+  const enable=document.querySelector('#metrics-enable');
+  if (!enable) return;
+  enable.addEventListener('click',()=>{metrics.enable();enable.textContent='Local QA recording enabled';});
+  document.querySelector('#metrics-clear').addEventListener('click',()=>{metrics.clear();enable.textContent='Enable local QA recording';});
+  document.querySelector('#metrics-export').addEventListener('click',()=>{
+    const url=URL.createObjectURL(new Blob([metrics.export()],{type:'application/x-ndjson'}));
+    const a=document.createElement('a');a.href=url;a.download='portfolio-local-events.jsonl';a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  // These handlers execute after the calculators' synchronous render handlers.
+  for (const id of ['hero-check','res-items','res-effect','cost-volume','cost-threshold']) {
+    const el=document.getElementById(id);
+    if(el) el.addEventListener(id==='hero-check'?'click':'input',()=>metrics.record());
+  }
+});
+if (typeof module !== 'undefined') module.exports={normalise,score,wilson,minDetectableEffect,itemsRequired,operatingCost,createLocalMetrics};

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Harshit Malik — data, business and product analysis</title>
-<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Nine projects with working tools you can run in the page.">
+<meta name="description" content="Harshit Malik — data, business and product analysis, New York. Ten case studies with working tools you can run in the page.">
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
-<meta property="og:description" content="Nine projects, four working tools you can run in the page.">
+<meta property="og:description" content="Ten case studies, four working tools you can run in the page.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Harshit Malik — I find the numbers that don't hold up. Four findings: $15.6m threshold swing, 0.38% inference cost, 13% citation base rate, 6 of 9 benchmarks blind.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Harshit Malik — I find the numbers that don't hold up">
-<meta name="twitter:description" content="Nine projects, four working tools you can run in the page.">
+<meta name="twitter:description" content="Ten case studies, four working tools you can run in the page.">
 <meta name="twitter:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
@@ -72,15 +72,13 @@
       <blockquote class="claim-text">
         “Scores two points higher on GPQA&nbsp;Diamond.”
       </blockquote>
-      <button class="btn" id="hero-check" type="button">Check whether that's measurable</button>
+      <button class="btn" id="hero-check" type="button">Check the planning sample size</button>
       <div class="verdict" id="hero-verdict" hidden></div>
     </div>
 
     <div class="summary">
-      <p class="summary-lead">Nine engagements, each beginning with a figure an
-        organisation was already acting on. In each, the evidence did not
-        support the decision being taken — and the correction changed what
-        should be done about it.</p>
+      <p class="summary-lead">Ten self-directed analytical case studies, plus this portfolio. Each investigates a decision using code and traceable evidence. Financial figures are modeled scenarios; these projects do not claim client engagements or realized savings.</p>
+      <p><b>Evidence update · October 2026.</b> Corrected threshold-search inference, contract leakage and source-coverage claims. Each repository includes a current decision brief, SQL analysis and offline validation. Simulated validation is labeled separately from observed data.</p>
       <div class="summary-grid">
         <div class="sum-item">
           <p class="sum-figure">$15.6m</p>
@@ -99,8 +97,7 @@
         </div>
         <div class="sum-item">
           <p class="sum-figure">6 of 9</p>
-          <p class="sum-text">AI benchmarks can't detect the improvements
-            announced on them</p>
+          <p class="sum-text">AI benchmarks miss a 2-point effect at the specified planning power</p>
         </div>
         <div class="sum-item">
           <p class="sum-figure">832k</p>
@@ -139,6 +136,18 @@
 <!-- ============================ WORK ============================ -->
 <main id="work">
 
+<article class="project project-alt" id="abstain">
+  <div class="wrap">
+    <header class="project-head">
+      <p class="exhibit">Additional case study · calibrated decision stopping</p>
+      <h2 class="project-title">When should an intake assistant stop asking?</h2>
+      <p>Abstain tests whether a decision is supported by the information gathered. The frozen development evidence contains 672 households and 10,752 information states. States within one household are dependent.</p>
+      <p>The certified entry point adjusts for every threshold searched. If no threshold satisfies the risk bound, it reports infeasible. Historical uncorrected experiments remain exploratory.</p>
+      <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/abstain">Code and evidence</a><a href="https://github.com/harshit-malik-nyu/abstain/blob/main/docs/decision-brief.md">Decision brief</a></p>
+    </header>
+  </div>
+</article>
+
 <!-- ---------------------------- sanctions-triage ---------------------------- -->
 <article class="project">
   <div class="wrap">
@@ -150,8 +159,7 @@
       <p class="opening-caption">the annual swing a single threshold decides</p>
       <p class="opening-answer"><b>there isn't one — and that is the
         finding.</b> No threshold makes name-only screening both staffable and
-        adequately sensitive, because 15% of published aliases share no
-        characters with any other name for the same party. The investment case
+        adequately sensitive, in this historical blocked-matcher evaluation. Zero-score aliases require a retrieval audit before interpreting their limits. The investment case
         is secondary identifiers, not threshold tuning or better matching
         software.</p>
     </div>
@@ -177,9 +185,8 @@
 
     <div class="findings">
       <div class="finding">
-        <p class="finding-figure">15.1%</p>
-        <p class="finding-text">of published aliases share no characters with
-          any other name for the same party. No amount of tuning reaches them.</p>
+        <p class="finding-figure">15.2%</p>
+        <p class="finding-text">of held-out aliases received zero scores from this blocked matcher. This is not a universal name-matching ceiling.</p>
       </div>
       <div class="finding">
         <p class="finding-figure">19.1%</p>
@@ -197,7 +204,7 @@
     <div class="tool">
       <h3 class="tool-title">Screen a name against the list</h3>
       <p class="tool-intro">
-        This runs the matching algorithm from the project, ported exactly. Try
+        This demonstrates the matching calculation, including Unicode names. Try
         the real pairs below, or type your own.
       </p>
       <div class="tool-body">
@@ -311,7 +318,7 @@ ions of mine.
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To the head of financial crime compliance</p>
@@ -323,8 +330,8 @@ ions of mine.
         <div>
           <p class="worth-who">To whoever signs the technology budget</p>
           <p class="worth-what">Vendor spend on better fuzzy matching buys
-            movement along a frontier that stops at 75.9% recall. <b>15.1% of
-            published aliases are unreachable by any name-matching method</b>,
+            movement along a frontier that stops at 77.4% recall. <b>15.2% of
+            published aliases received zero scores in the evaluated blocked pipeline</b>,
             so that money is capped by construction. Identifier capture moves
             the frontier; matching software does not.</p>
         </div>
@@ -433,7 +440,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To whoever is building the automation case</p>
@@ -516,7 +523,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To a firm's risk and quality partner</p>
@@ -542,7 +549,7 @@ iew cost
 
     <p class="project-note">
       The headline moved four times while I built it: 37.9%, then 52.3%, then
-      57.3%, then 75.9%. Every intermediate figure looked reasonable. Each
+      57.3%, then 77.4%. Every intermediate figure looked reasonable. Each
       correction came from reading individual rows rather than the summary,
       which is the only method in any of this work that reliably found anything.
     </p>
@@ -563,7 +570,7 @@ iew cost
         benchmarks cannot separate a two-point change from noise. Correct for
         the fact that questions cluster by subject, and none of them can. The
         implication is not better tuning — it is that a large share of reported
-        model progress is unmeasurable at the sample sizes in use.</p>
+        many small effects miss an 80% planning-power target. Observed significance requires item-level comparisons.</p>
     </div>
 
       <div class="scqa">
@@ -643,7 +650,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To a lab choosing what to ship</p>
@@ -733,7 +740,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To an operations leader deploying AI oversight</p>
@@ -826,7 +833,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To anyone buying an AI agent for document work</p>
@@ -920,7 +927,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To an agency relying on a comment record</p>
@@ -1011,7 +1018,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To anyone citing ecosystem concentration</p>
@@ -1058,11 +1065,9 @@ iew cost
         <p class="opening-caption">model rankings that reverse when the
           benchmark is swapped for a held-out replica</p>
         <p class="opening-answer"><b>Leaderboards are more robust than the
-          contamination debate suggests &mdash; and the exceptions are not
-          random.</b> Across 63 models from twenty labs, only one ordering
+          contamination debate suggests &mdash; under the selected accuracy margins.</b> Across 63 models from twenty labs, only one ordering
           separated by five points or more flips. The largest is a model losing
-          a 7.2-point lead and finishing behind, an 8.2-point swing that holds
-          at p = 0.0001.</p>
+          a 7.2-point lead and finishing behind, an 8.2-point descriptive swing. None of the nine selected inversions survives the full 1,953-pair Holm correction; aggregate tests lack paired covariance.</p>
       </div>
 
       <div class="scqa">
@@ -1104,7 +1109,7 @@ iew cost
     </div>
 
     <div class="worth">
-      <h3 class="worth-title">The impact, and for whom</h3>
+      <h3 class="worth-title">Decision implications</h3>
       <div class="worth-grid">
         <div>
           <p class="worth-who">To anyone choosing a model from a benchmark table</p>
@@ -1139,6 +1144,13 @@ iew cost
   </div>
 </article>
 
+<section class="project" aria-labelledby="metrics-heading"><div class="wrap">
+<h2 id="metrics-heading">Inspect the tools locally</h2>
+<p>Optional QA recording counts calculation interactions in this tab only. Nothing is sent or saved automatically. Input values and names are never recorded. These events measure tool renders, not hiring interest or comprehension.</p>
+<button class="btn" id="metrics-enable" type="button">Enable local QA recording</button>
+<button class="btn" id="metrics-export" type="button">Export local events</button>
+<button class="btn" id="metrics-clear" type="button">Clear and stop</button>
+</div></section>
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -1154,7 +1166,7 @@ iew cost
       <div class="method-item">
         <h3>The aggregate never surfaced it</h3>
         <p>Every error was found by reading individual records.
-          One headline was corrected four times — 37.9%, 52.3%, 57.3%, 75.9% —
+          One headline was corrected four times — 37.9%, 52.3%, 57.3%, 77.4% —
           and not one intermediate figure invited scrutiny.</p>
       </div>
       <div class="method-item">
@@ -1170,7 +1182,7 @@ iew cost
       </div>
     </div>
     <p class="method-foot">
-      Nine engagements on one theme is a deliberate choice and it carries a
+      Ten self-directed case studies on one theme is a deliberate choice and it carries a
       cost: it demonstrates depth rather than breadth. What it does demonstrate
       is one standard of judgement brought to a capital-allocation question, an
       operational-risk question, an automation business case, a
