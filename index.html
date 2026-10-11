@@ -8,7 +8,8 @@
 <meta property="og:title" content="Harshit Malik — I find the numbers that do not hold up">
 <meta property="og:description" content="Ten case studies, four working tools you can run in the page.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://harshit-malik-nyu.github.io/portfolio/">
+<link rel="canonical" href="https://portfolio-lac-five-10.vercel.app/">
+<meta property="og:url" content="https://portfolio-lac-five-10.vercel.app/">
 <meta property="og:image" content="https://harshit-malik-nyu.github.io/portfolio/share-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,7 +30,11 @@
   /* Runs before paint: stops the browser restoring an old scroll position and
      stops a fragment in the URL jumping the page before the stylesheet lands. */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  if (window.location.hash) window.scrollTo(0, 0);
+  // Old contact links should open the homepage and leave a clean share URL.
+  if (window.location.hash.toLowerCase() === "#contact") {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+  }
 </script>
 </head>
 <body>
