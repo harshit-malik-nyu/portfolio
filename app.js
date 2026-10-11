@@ -103,7 +103,7 @@ const CITEAUDIT_RATES = [
 /* ---------- 4. Sanctions operating cost (sanctions-triage) ----------
    Threshold sweep measured against live OFAC data: 9,973 designated entities,
    8,000 real registered companies, 6,000 held-out aliases. Cost inputs are
-   published benchmarks, not assumptions — $15-25 per alert review, 20-45
+   published benchmarks, not assumptions :  $15-25 per alert review, 20-45
    minutes each.                                                            */
 
 const SWEEP = [{"t": 50.0, "recall": 0.77417, "fp": 0.675466}, {"t": 52.0, "recall": 0.75867, "fp": 0.625422}, {"t": 54.0, "recall": 0.743, "fp": 0.580883}, {"t": 56.0, "recall": 0.7265, "fp": 0.537595}, {"t": 58.0, "recall": 0.71, "fp": 0.485175}, {"t": 60.0, "recall": 0.69667, "fp": 0.445515}, {"t": 62.0, "recall": 0.67617, "fp": 0.397848}, {"t": 64.0, "recall": 0.656, "fp": 0.355311}, {"t": 66.0, "recall": 0.63367, "fp": 0.318779}, {"t": 68.0, "recall": 0.60883, "fp": 0.275241}, {"t": 70.0, "recall": 0.58667, "fp": 0.236332}, {"t": 72.0, "recall": 0.56317, "fp": 0.197798}, {"t": 74.0, "recall": 0.53067, "fp": 0.162767}, {"t": 76.0, "recall": 0.49917, "fp": 0.129739}, {"t": 78.0, "recall": 0.4695, "fp": 0.100963}, {"t": 80.0, "recall": 0.44333, "fp": 0.082197}, {"t": 82.0, "recall": 0.39917, "fp": 0.049794}, {"t": 84.0, "recall": 0.36867, "fp": 0.032153}, {"t": 86.0, "recall": 0.32583, "fp": 0.016765}, {"t": 88.0, "recall": 0.28633, "fp": 0.009884}, {"t": 90.0, "recall": 0.2475, "fp": 0.004254}, {"t": 92.0, "recall": 0.203, "fp": 0.000751}, {"t": 94.0, "recall": 0.16717, "fp": 0.0005}, {"t": 96.0, "recall": 0.115, "fp": 0.00025}, {"t": 98.0, "recall": 0.04733, "fp": 0.000125}, {"t": 100.0, "recall": 0.03433, "fp": 0.000125}];
@@ -157,14 +157,12 @@ function initCostCase() {
     const v = $("#cost-verdict");
     if (r.threshold >= 92) {
       v.className = "readout is-alarm";
-      v.innerHTML = `Cheap to run and <b>${pct(r.recall)} recall</b>. Defensible
-        as an operating choice, indefensible as a detection claim — it should
-        be adopted alongside compensating controls, not as the control.`;
+      v.innerHTML = `Historical blocked-matcher recall is <b>${pct(r.recall)}</b> at this threshold.
+        Lower workload does not establish acceptable detection. Audit retrieval and review capacity before selecting a policy.`;
     } else {
       v.className = "readout";
-      v.innerHTML = `Tightening to 92 would save <b>${usd(saving)} a year</b> in
-        review cost and give up <b>${pct(recallLost)}</b> of recall. That is the
-        trade the committee is actually making.`;
+      v.innerHTML = `In this planning scenario, tightening to 92 reduces modeled annual review cost by <b>${usd(saving)}</b>
+        and historical recall by <b>${pct(recallLost)}</b>. These are conditional estimates, not realized savings.`;
     }
   };
 
@@ -211,10 +209,9 @@ function initAgentCost() {
     const v = $("#ac-verdict");
     v.className = `readout ${saving > 0 ? "is-ok" : "is-alarm"}`;
     v.innerHTML = saving > 0
-      ? `<b>${(saving * 100).toFixed(0)}% cheaper</b> than a human doing it from
+      ? `<b>${(saving * 100).toFixed(0)}% lower modeled cost</b> than the assumed manual baseline doing it from
          scratch ($${FULL_REVIEW_USD.toFixed(2)}). Inference is
-         <b>${(100 * c.inference / c.total).toFixed(2)}%</b> of the bill — the
-         model price is a rounding error.`
+         <b>${(100 * c.inference / c.total).toFixed(2)}%</b> of modeled cost. Review assumptions determine the result.`
       : `No saving at this review rate.`;
   };
 
@@ -240,7 +237,7 @@ function initHero() {
       `<p class="verdict-line">That benchmark has 198 questions. The smallest
        difference targeted at 80% planning power is <b>${pct(mde)}</b>.</p>
        <p class="verdict-line">Planning for a two-point difference at that power takes
-       <b>${need.toLocaleString()}</b> questions &mdash;
+       <b>${need.toLocaleString()}</b> questions : 
        <b>${Math.round(need / 198)} times</b> its size.</p>
        <p class="verdict-line verdict-close">This is sample-size planning. Testing an observed change requires paired item outcomes; this calculation cannot refute it.</p>`;
     out.hidden = false;
@@ -295,14 +292,14 @@ function initScreening() {
 
     $("#scr-score").textContent = s.toFixed(1);
     $("#scr-threshold-out").textContent = t;
-    $("#scr-norm-a").textContent = normalise(a.value) || "—";
-    $("#scr-norm-b").textContent = normalise(b.value) || "—";
+    $("#scr-norm-a").textContent = normalise(a.value) || ": ";
+    $("#scr-norm-b").textContent = normalise(b.value) || ": ";
 
     const v = $("#scr-verdict");
     v.className = `readout ${alerts ? "is-alarm" : "is-ok"}`;
     v.innerHTML = alerts
-      ? `<b>Alert.</b> An analyst reviews this by hand, at roughly twenty minutes.`
-      : `<b>No alert.</b> This pair passes without review.`;
+      ? `<b>Above the illustrative threshold.</b> This flags a pair for review; it does not establish identity.`
+      : `<b>Below the illustrative threshold.</b> This is not evidence that the identities differ.`;
 
     const dial = $("#scr-dial-fill");
     if (dial) dial.style.width = `${s}%`;
@@ -369,7 +366,7 @@ function initNav() {
   });
 }
 
-/* Any URL already carrying a fragment — a link shared before the fix — opens
+/* Any URL already carrying a fragment :  a link shared before the fix :  opens
    at the top and the address is cleaned, so it stops propagating. */
 function normaliseEntry() {
   if (!window.location.hash) return;
