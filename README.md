@@ -1,5 +1,8 @@
 # harshit-malik-nyu.github.io — portfolio
 
+> **Validation update (2026-10-10):** Unicode name comparison preserves non-Latin letters; self-directed work is labeled and the missing abstain case study is added. See the [current decision brief](docs/decision-brief.md) and [reproducible analysis](analysis/README.md). Historical evidence and figures retain their original run context; this update supersedes conflicting claims below.
+
+
 Static site. No build step, no dependencies, no framework.
 
 ## Deploying
