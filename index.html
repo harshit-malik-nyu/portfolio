@@ -141,6 +141,20 @@
 <!-- ============================ WORK ============================ -->
 <main id="work">
 
+<section class="role-paths" aria-labelledby="role-paths-heading">
+  <div class="wrap">
+    <p class="exhibit">Choose a reading path</p>
+    <h2 id="role-paths-heading" class="section-title">Start with the decision you need to assess.</h2>
+    <div class="role-path-grid">
+      <div><h3>Data analysis</h3><p>Check the denominator, uncertainty, and reproducibility.</p><p><a href="#sanctions-triage">Retrieval diagnostics</a> · <a href="#evaldrift">Experiment design</a> · <a href="#abstain">Calibrated stopping</a></p></div>
+      <div><h3>Business analysis</h3><p>Compare alternatives, costs, capacity, and the conditions that change the recommendation.</p><p><a href="#agentcost">Automation economics</a> · <a href="#sanctions-triage">Review operations</a> · <a href="#lineage">Review prioritization</a></p></div>
+      <div><h3>Product analysis</h3><p>Inspect workflow funnels, cohort denominators, and a launch decision that respects quality.</p><p><a href="#citeaudit">Evidence review</a> · <a href="#agentcost">Human review workflow</a> · <a href="#evaldrift">Release decisions</a></p></div>
+    </div>
+    <p class="role-evidence-note">Self-directed studies. Domain evidence, illustrative economics, and synthetic product QA are labeled separately. Synthetic journeys demonstrate analysis methods, not real adoption or business impact.</p>
+  </div>
+</section>
+
+
 <article class="project project-alt" id="abstain">
   <div class="wrap">
     <header class="project-head">
@@ -149,12 +163,13 @@
       <p>Abstain tests whether a decision is supported by the information gathered. The frozen development evidence contains 672 households and 10,752 information states. States within one household are dependent.</p>
       <p>The certified entry point adjusts for every threshold searched. If no threshold satisfies the risk bound, it reports infeasible. Historical uncorrected experiments remain exploratory.</p>
       <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/abstain">Code and evidence</a><a href="https://github.com/harshit-malik-nyu/abstain/blob/main/docs/decision-brief.md">Decision brief</a></p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/abstain/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/abstain/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
   </div>
 </article>
 
 <!-- ---------------------------- sanctions-triage ---------------------------- -->
-<article class="project">
+<article class="project" id="sanctions-triage">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project one · financial crime compliance</p>
@@ -165,8 +180,7 @@
       <p class="opening-answer"><b>there isn't one — and that is the
         finding.</b> No threshold makes name-only screening both staffable and
         adequately sensitive, in this historical blocked-matcher evaluation. Zero-score aliases require a retrieval audit before interpreting their limits. The investment case
-        is secondary identifiers, not threshold tuning or better matching
-        software.</p>
+        starts with retrieval diagnostics and secondary identifiers, rather than threshold tuning alone.</p>
     </div>
 
       <div class="scqa">
@@ -186,6 +200,7 @@
         <a href="https://harshit-malik-nyu.github.io/sanctions-triage/">Decision brief</a>
         <span>125 tests · 91% coverage · live OFAC data</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/sanctions-triage/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/sanctions-triage/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -360,7 +375,7 @@ ions of mine.
 
 
 <!-- ---------------------------- agentcost ---------------------------- -->
-<article class="project project-alt">
+<article class="project project-alt" id="agentcost">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project two · AI automation economics</p>
@@ -390,6 +405,7 @@ ions of mine.
         <a href="https://github.com/harshit-malik-nyu/agentcost">Code</a>
         <span>63 tests · 96% coverage · CUAD, annotated by practising lawyers</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/agentcost/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/agentcost/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -481,7 +497,7 @@ iew cost
 
 
 <!-- ---------------------------- citeaudit ---------------------------- -->
-<article class="project">
+<article class="project" id="citeaudit">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project three · professional services risk</p>
@@ -511,6 +527,7 @@ iew cost
         <a href="https://harshit-malik-nyu.github.io/citeaudit/">Live report</a>
         <span>323 tests · four studies · live Crossref and OpenAlex</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/citeaudit/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/citeaudit/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="chart-block">
@@ -563,7 +580,7 @@ iew cost
 
 
 <!-- ---------------------------- evaldrift ---------------------------- -->
-<article class="project project-alt">
+<article class="project project-alt" id="evaldrift">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project four · AI evaluation</p>
@@ -593,6 +610,7 @@ iew cost
         <a href="https://harshit-malik-nyu.github.io/evaldrift/">Findings</a>
         <span>106 tests · 98% coverage · no dependencies</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/evaldrift/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/evaldrift/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -691,7 +709,7 @@ iew cost
 
 
 <!-- ---------------------------- knowing-when-to-doubt ---------------------------- -->
-<article class="project">
+<article class="project" id="knowing-when-to-doubt">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project five · organisational design and AI risk</p>
@@ -723,6 +741,7 @@ iew cost
         <a href="https://github.com/harshit-malik-nyu/knowing-when-to-doubt">Code</a>
         <span>88 tests · 96% coverage · a joint research design</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/knowing-when-to-doubt/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/knowing-when-to-doubt/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -782,7 +801,7 @@ iew cost
 
 
 <!-- ---------------------------- underdetermined ---------------------------- -->
-<article class="project project-alt">
+<article class="project project-alt" id="underdetermined">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project six · AI agents in public benefits</p>
@@ -817,6 +836,7 @@ iew cost
         <a href="https://claude.ai/artifact/8rn6WxAXdUSexC8xfCCefj">Run it yourself</a>
         <span>59 tests · two environments · live rules engine</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/underdetermined/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/underdetermined/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -873,7 +893,7 @@ iew cost
 
 
 <!-- ---------------------------- floodcheck ---------------------------- -->
-<article class="project">
+<article class="project" id="floodcheck">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project seven · regulatory process risk</p>
@@ -909,6 +929,7 @@ iew cost
         <a href="https://claude.ai/artifact/KgWMhM6Jxt7qNPpT4Q7LQF">Explore the limits</a>
         <span>88 tests · four findings · published constraints only</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/floodcheck/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/floodcheck/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -967,7 +988,7 @@ iew cost
 
 
 <!-- ---------------------------- lineage ---------------------------- -->
-<article class="project project-alt">
+<article class="project project-alt" id="lineage">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project eight &middot; AI supply chain</p>
@@ -1000,6 +1021,7 @@ iew cost
         <a href="https://claude.ai/artifact/BC2C8oBCcejyPRdkocoZUe">Explore it</a>
         <span>2,700 chains walked &middot; 113 tests &middot; live HuggingFace data</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/lineage/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/lineage/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
@@ -1059,7 +1081,7 @@ iew cost
 
 
 <!-- ---------------------------- ranksafe ---------------------------- -->
-<article class="project">
+<article class="project" id="ranksafe">
   <div class="wrap">
     <header class="project-head">
       <p class="exhibit">Project nine &middot; AI benchmark validity</p>
@@ -1092,6 +1114,7 @@ iew cost
         <a href="https://claude.ai/artifact/N1AX7QhhzJspFTqZ9rKhU8">Run the benchmark</a>
         <span>97 tests &middot; 787 verified problem pairs &middot; 63 models analysed</span>
       </p>
+    <p class="project-meta"><a href="https://github.com/harshit-malik-nyu/ranksafe/blob/main/analysis/output/decision_lab/executive-summary.md">Executive decision summary</a><a href="https://github.com/harshit-malik-nyu/ranksafe/blob/main/analysis/README.md#decision-laboratory">Economics and product-analysis methods</a></p>
     </header>
 
     <div class="findings">
