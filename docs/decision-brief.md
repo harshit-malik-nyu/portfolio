@@ -59,3 +59,7 @@ The synthetic A/B decision uses intention-to-treat activation, an incident-rate 
 3. Use opt-in local QA to validate event mechanics; do not introduce visitor tracking just to fill an analytics chart.
 
 The workflow-activation experiment is an adoption-mechanics study; it does not replace the domain quality metric above. The synthetic fixture deliberately includes a harmful treatment segment. Its hold result is a validation success, not evidence that a real product failed.
+
+## Decision robustness and domain measurement
+
+The [decision-assurance review](../analysis/output/assurance/decision-assurance.md) reports feasibility across stressed assumptions, conditional cost regret, missing-outcome identification bounds, cluster-budget sensitivity, and a project-specific domain measurement contract. Domain quality is separate from synthetic activation. An unmeasured required quality gate means HOLD.

@@ -1,0 +1,23 @@
+{
+  "decision": "Help a reviewer find and understand the most relevant evidence with minimal friction.",
+  "primary_outcome": "Successful completion of a predefined evidence-finding task and correct interpretation of its main limitation.",
+  "denominator": "All consenting assigned review tasks, including noncompletion; page views and return visits are separate proxies.",
+  "independence_unit": "Reviewer; repeated tasks from one reviewer are dependent.",
+  "quality_guardrail": "Broken links, misleading outcome claims, accessibility barriers and privacy.",
+  "minimum_data": "Consented anonymous task assignment, completion/timeout, comprehension response, timing and page/version; no resume or contact data in analytics.",
+  "failure_handling": "Keep timeouts and noncompletion. Missing comprehension answers remain unknown; optional local events do not measure production engagement.",
+  "release_rule": "Local checks can establish link/calculation correctness. Claim improved reviewer comprehension only after a valid task comparison; synthetic returns cannot support recruiter-interest claims.",
+  "reversal": "Role navigation increases confusion, hides evidence limitations, or requires unnecessary tracking.",
+  "project": "portfolio",
+  "status": "PROPOSED MEASUREMENT CONTRACT; NOT AN EXECUTED DOMAIN EXPERIMENT",
+  "defense": [
+    [
+      "Is the website itself proof of analytical impact?",
+      "It demonstrates communication and implementation. The substantive evidence is in the linked projects, and the site has no measured hiring conversion effect."
+    ],
+    [
+      "Why not add extensive tracking?",
+      "Tracking adds privacy and implementation costs. First define a decision that needs the data and use consented minimal task measurements."
+    ]
+  ]
+}
