@@ -432,3 +432,13 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px;
   font-family: var(--sans); font-size: .8rem; letter-spacing: .03em; }
 
 #work, #leadership, #experience, #contact { scroll-margin-top: 5rem; }
+
+/* Role-based evidence navigation; inherits the existing typography and palette. */
+.role-paths { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+.role-path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.role-path-grid h3 { font-size: 1.05rem; margin-bottom: .7rem; }
+.role-path-grid p { margin-bottom: .8rem; }
+.role-path-grid a { text-underline-offset: .2em; }
+.role-evidence-note { margin-top: 1.5rem; font-size: .85rem; max-width: 80ch; }
+.role-paths a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (max-width: 760px) { .role-path-grid { grid-template-columns: 1fr; gap: 1rem; } }

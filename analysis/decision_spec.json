@@ -1,0 +1,127 @@
+{
+  "project": "portfolio",
+  "title": "Help a reviewer find defensible evidence with minimal maintenance burden",
+  "decision_owner": "Portfolio owner",
+  "observed_evidence": "Ten self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.",
+  "executive_recommendation": "Prioritize role-specific navigation and short decision summaries. Judge the site by evidence discoverability and correctness, not invented interview conversions or visitor counts.",
+  "priorities": [
+    "Lead each role path with three relevant projects and their actual evidence limits.",
+    "Keep contact URLs clean and keyboard navigation usable.",
+    "Use opt-in local QA to validate event mechanics; do not introduce visitor tracking just to fill an analytics chart."
+  ],
+  "reversal": "If added navigation raises maintenance cost without reducing task difficulty, keep the simpler index. Any incorrect claim or privacy violation blocks release.",
+  "uncertainty": "Synthetic repeat visits cannot measure recruiter interest. The site creates presentation value; avoided reviewer minutes are not cash revenue.",
+  "economics": {
+    "evidence_status": "ILLUSTRATIVE ASSUMPTIONS, NOT MEASURED COSTS OR RISK",
+    "period": "one planning year",
+    "volume": 2400,
+    "review_capacity_hours": 100,
+    "loss_per_incident_usd": 0,
+    "max_incident_rate": 0.002,
+    "options": [
+      {
+        "name": "Static case-study index",
+        "fixed_usd": 200,
+        "incident_rate": 0.001,
+        "activities": [
+          {
+            "name": "Hosting",
+            "unit": "visit",
+            "units_per_case": 1,
+            "usd_per_unit": 0.002,
+            "cash": true
+          },
+          {
+            "name": "Amortized content maintenance",
+            "unit": "reviewer_hour",
+            "units_per_case": 0.004166666666666667,
+            "usd_per_unit": 60,
+            "cash": false
+          }
+        ]
+      },
+      {
+        "name": "Guided role navigation with concise evidence",
+        "fixed_usd": 1200,
+        "incident_rate": 0.0015,
+        "activities": [
+          {
+            "name": "Hosting",
+            "unit": "visit",
+            "units_per_case": 1,
+            "usd_per_unit": 0.003,
+            "cash": true
+          },
+          {
+            "name": "Amortized QA and maintenance",
+            "unit": "reviewer_hour",
+            "units_per_case": 0.0025,
+            "usd_per_unit": 60,
+            "cash": false
+          }
+        ]
+      },
+      {
+        "name": "Complex personalized tracking stack",
+        "fixed_usd": 5000,
+        "incident_rate": 0.015,
+        "activities": [
+          {
+            "name": "Analytics and hosting",
+            "unit": "visit",
+            "units_per_case": 1,
+            "usd_per_unit": 0.05,
+            "cash": true
+          },
+          {
+            "name": "Tracking and consent maintenance",
+            "unit": "reviewer_hour",
+            "units_per_case": 0.008333333333333333,
+            "usd_per_unit": 60,
+            "cash": false
+          }
+        ]
+      }
+    ]
+  },
+  "product": {
+    "seed": 741,
+    "randomization_unit": "synthetic reviewer only; no persistent production visitor identifier",
+    "stages": [
+      "landing_opened",
+      "case_study_reviewed",
+      "evidence_link_opened"
+    ],
+    "incident_definition": "broken or materially misleading evidence link",
+    "retention_interpretation": "repeat evidence review, diagnostic only; one successful visit may be sufficient",
+    "observation_day": 56,
+    "minimum_activation_lift": 0.02,
+    "maximum_incident_increase": 0.005,
+    "planning_baseline": 0.45,
+    "minimum_detectable_effect": 0.05,
+    "segments": [
+      {
+        "name": "data_role_reviewer",
+        "start_probability": 0.9,
+        "control_activation": 0.64,
+        "treatment_delta": 0.18,
+        "apply_probability": 0.88,
+        "control_incident": 0.004,
+        "treatment_incident": 0.004,
+        "return7": 0.55,
+        "return28": 0.35
+      },
+      {
+        "name": "business_product_reviewer",
+        "start_probability": 0.8200000000000001,
+        "control_activation": 0.52,
+        "treatment_delta": -0.03,
+        "apply_probability": 0.8,
+        "control_incident": 0.01,
+        "treatment_incident": 0.064,
+        "return7": 0.43000000000000005,
+        "return28": 0.24999999999999997
+      }
+    ]
+  }
+}

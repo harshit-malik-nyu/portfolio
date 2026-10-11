@@ -16,9 +16,11 @@ Node regression tests and local synthetic event validation exercise the measurem
 
 ## Economics and sensitivity
 
-`analysis/business_case.py` executes a transparent planning model. Inputs in `analysis/assumptions.json` are illustrative: 1,000 cases per period, 10 baseline minutes, 5 assisted minutes, $60 per hour and $5,000 fixed cost. Net period value equals cases × [(baseline − assisted minutes) × hourly cost / 60 − quality-loss cost per case] − fixed cost. The committed output shows assisted time at 0.5×, 1× and 1.5× and calculates break-even volume. A nonpositive unit benefit has no finite break-even. Labor capacity released is not cash savings unless staffing or spend changes.
+The current [executive decision summary](../analysis/output/decision_lab/executive-summary.md) compares **Static case-study index**, **Guided role navigation with concise evidence**, and **Complex personalized tracking stack**. The model separates Amortized QA and maintenance, Amortized content maintenance, Analytics and hosting, Hosting, Tracking and consent maintenance.
 
-The zero quality-loss-cost input is an explicit scenario assumption. It must not erase the project's primary risk. Prefer an option only if it passes the safety/quality criteria and remains economical under plausible adverse assumptions. Do not monetize false positives, missed harms or causal business impact using unsupported point estimates.
+The [assumption register](../analysis/decision_spec.json) labels all quantities, unit costs, incident rates and risk ceilings as planning assumptions. A 27-scenario grid varies volume, activity costs and incident risk. Risk and reviewer-capacity gates can veto the cheapest alternative. Expected-loss scenarios, salaried capacity and actual cash outlay are reported separately. The older `business_case.json` is a simple illustrative baseline, superseded for option selection by this richer model.
+
+**Decision reversal:** If added navigation raises maintenance cost without reducing task difficulty, keep the simpler index. Any incorrect claim or privacy violation blocks release.
 
 ## Product measurement
 
@@ -41,3 +43,19 @@ For the delivered offline version, acceptance means all available offline regres
 ## Interview walkthrough
 
 Explain the business decision first, then trace one result through the SQL to its source. Demonstrate the failure case that motivated the correction. Change an economic input and describe the decision boundary. Close by separating measured retrospective evidence, simulated validation and what remains unknown. This demonstrates data, business and product analysis without implying experience or outcomes the repository cannot establish.
+
+## Product analysis and experiment decision
+
+The decision laboratory supplies 2,560 explicitly synthetic assigned units across eight weekly cohorts and two project-specific segments. Its stage funnel uses all assigned units, including non-starters. D28 retention excludes immature cohorts; it never treats unobserved returns as failures. Segment results are exploratory.
+
+**Stages:** landing_opened → case_study_reviewed → evidence_link_opened. **Guardrail incident:** broken or materially misleading evidence link. **Unit:** synthetic reviewer only; no persistent production visitor identifier. **Repeat-use interpretation:** repeat evidence review, diagnostic only; one successful visit may be sufficient.
+
+The synthetic A/B decision uses intention-to-treat activation, an incident-rate guardrail, Wilson/Newcombe uncertainty, allocation diagnostics and a fixed-horizon sample-size plan. A primary metric win is insufficient when the guardrail fails. There is no real-world causal or adoption claim. Confirmatory rollout would require a prespecified population, meaningful minimum effect, acceptable incident margin and an appropriate cluster design; these are defined as requirements, not fabricated approvals.
+
+**Prioritized next decisions:**
+
+1. Lead each role path with three relevant projects and their actual evidence limits.
+2. Keep contact URLs clean and keyboard navigation usable.
+3. Use opt-in local QA to validate event mechanics; do not introduce visitor tracking just to fill an analytics chart.
+
+The workflow-activation experiment is an adoption-mechanics study; it does not replace the domain quality metric above. The synthetic fixture deliberately includes a harmful treatment segment. Its hold result is a validation success, not evidence that a real product failed.

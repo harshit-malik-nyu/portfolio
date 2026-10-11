@@ -1,0 +1,5 @@
+segment,arm,assigned,activated,activation_itt,incidents,incident_itt
+business_product_reviewer,control,640,209,0.3265625,1,0.0015625
+business_product_reviewer,treatment,640,190,0.296875,20,0.03125
+data_role_reviewer,control,640,298,0.465625,1,0.0015625
+data_role_reviewer,treatment,640,407,0.6359375,1,0.0015625

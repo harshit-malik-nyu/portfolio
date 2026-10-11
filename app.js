@@ -353,7 +353,7 @@ function initNav() {
   const header = document.querySelector(".masthead");
   const offset = header ? header.offsetHeight + 8 : 64;
 
-  document.querySelectorAll('.masthead-nav a[href^="#"]').forEach(link => {
+  document.querySelectorAll('.masthead-nav a[href^="#"], .role-paths a[href^="#"]').forEach(link => {
     link.addEventListener("click", e => {
       const target = document.querySelector(link.getAttribute("href"));
       if (!target) return;

@@ -2,8 +2,8 @@
   "case_studies": 10,
   "input_sha256": {
     "analysis/questions.sql": "67c1349dd91bd50c9f17a02805cb6fb68295b63d879a3a328c3547f48f2d7908",
-    "app.js": "b8d14085614a8d9f626a40a259231b1ed553c816a07c144963eb79f170c258dc",
-    "index.html": "06fa7f6bdd8e1c06f724f3975c62fd3a7e366b999757b3865d0c74f5dd169d4d"
+    "app.js": "b00ae36f5602ad95e8bb59e19035b14eadbc7ecf342bf9ea237179e8b3447a9e",
+    "index.html": "0222932f3609f0bae242f42f0e2b8eaf847e82f3677f861a44e4b4b7e95d7d2f"
   },
   "output_sha256": "2bc3308e022253490d92d382e392becf95df9c0add3462feb6239342f0cf77c0",
   "portfolio_is_separate_project": true,

@@ -1,0 +1,2599 @@
+{
+  "base_case": {
+    "cost_factor": 1.0,
+    "options": [
+      {
+        "capacity_gate_pass": true,
+        "cash_outlay_usd": 204.8,
+        "components": [
+          {
+            "activity": "Hosting",
+            "cash_outlay_usd": 4.8,
+            "economic_cost_usd": 4.8,
+            "quantity": 2400.0,
+            "unit": "visit"
+          },
+          {
+            "activity": "Amortized content maintenance",
+            "cash_outlay_usd": 0.0,
+            "economic_cost_usd": 600.0,
+            "quantity": 10.0,
+            "unit": "reviewer_hour"
+          }
+        ],
+        "economic_cost_usd": 804.8,
+        "expected_incidents": 2.4,
+        "feasible": true,
+        "option": "Static case-study index",
+        "reviewer_hours": 10.0,
+        "risk_gate_pass": true,
+        "scenario_loss_usd": 0.0,
+        "volume": 2400.0
+      },
+      {
+        "capacity_gate_pass": true,
+        "cash_outlay_usd": 1207.2,
+        "components": [
+          {
+            "activity": "Hosting",
+            "cash_outlay_usd": 7.2,
+            "economic_cost_usd": 7.2,
+            "quantity": 2400.0,
+            "unit": "visit"
+          },
+          {
+            "activity": "Amortized QA and maintenance",
+            "cash_outlay_usd": 0.0,
+            "economic_cost_usd": 360.0,
+            "quantity": 6.0,
+            "unit": "reviewer_hour"
+          }
+        ],
+        "economic_cost_usd": 1567.2,
+        "expected_incidents": 3.6,
+        "feasible": true,
+        "option": "Guided role navigation with concise evidence",
+        "reviewer_hours": 6.0,
+        "risk_gate_pass": true,
+        "scenario_loss_usd": 0.0,
+        "volume": 2400.0
+      },
+      {
+        "capacity_gate_pass": true,
+        "cash_outlay_usd": 5120.0,
+        "components": [
+          {
+            "activity": "Analytics and hosting",
+            "cash_outlay_usd": 120.0,
+            "economic_cost_usd": 120.0,
+            "quantity": 2400.0,
+            "unit": "visit"
+          },
+          {
+            "activity": "Tracking and consent maintenance",
+            "cash_outlay_usd": 0.0,
+            "economic_cost_usd": 1200.0,
+            "quantity": 20.0,
+            "unit": "reviewer_hour"
+          }
+        ],
+        "economic_cost_usd": 6320.0,
+        "expected_incidents": 36.0,
+        "feasible": false,
+        "option": "Complex personalized tracking stack",
+        "reviewer_hours": 20.0,
+        "risk_gate_pass": false,
+        "scenario_loss_usd": 0.0,
+        "volume": 2400.0
+      }
+    ],
+    "recommended_if_assumptions_hold": "Static case-study index",
+    "risk_factor": 1.0,
+    "volume_factor": 1.0
+  },
+  "break_even": [
+    {
+      "additional_fixed_usd": 1000,
+      "minimum_integer_volume_to_break_even": 10102,
+      "option": "Guided role navigation with concise evidence",
+      "qualification": "Positive unit advantage required; risk and capacity gates still apply.",
+      "relative_to": "Static case-study index",
+      "unit_economic_advantage_usd": 0.099
+    },
+    {
+      "additional_fixed_usd": 4800,
+      "minimum_integer_volume_to_break_even": null,
+      "option": "Complex personalized tracking stack",
+      "qualification": "Positive unit advantage required; risk and capacity gates still apply.",
+      "relative_to": "Static case-study index",
+      "unit_economic_advantage_usd": -0.298
+    }
+  ],
+  "evidence_status": "ILLUSTRATIVE PLANNING ASSUMPTIONS; NOT OBSERVED ROI",
+  "scenarios": [
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 201.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 1.7999999999999998,
+              "economic_cost_usd": 1.7999999999999998,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 225.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 426.8,
+          "expected_incidents": 1.2,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1202.7,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 2.7,
+              "economic_cost_usd": 2.7,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 135.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1337.7,
+          "expected_incidents": 1.8,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5045.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 45.0,
+              "economic_cost_usd": 45.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5495.0,
+          "expected_incidents": 18.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 201.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 1.7999999999999998,
+              "economic_cost_usd": 1.7999999999999998,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 225.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 426.8,
+          "expected_incidents": 2.4,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1202.7,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 2.7,
+              "economic_cost_usd": 2.7,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 135.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1337.7,
+          "expected_incidents": 3.6,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5045.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 45.0,
+              "economic_cost_usd": 45.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5495.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 201.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 1.7999999999999998,
+              "economic_cost_usd": 1.7999999999999998,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 225.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 426.8,
+          "expected_incidents": 4.8,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1202.7,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 2.7,
+              "economic_cost_usd": 2.7,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 135.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1337.7,
+          "expected_incidents": 7.2,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5045.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 45.0,
+              "economic_cost_usd": 45.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5495.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 202.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 2.4,
+              "economic_cost_usd": 2.4,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 300.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 502.4,
+          "expected_incidents": 1.2,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.6,
+              "economic_cost_usd": 3.6,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1383.6,
+          "expected_incidents": 1.8,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5060.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 60.0,
+              "economic_cost_usd": 60.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 600.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5660.0,
+          "expected_incidents": 18.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 202.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 2.4,
+              "economic_cost_usd": 2.4,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 300.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 502.4,
+          "expected_incidents": 2.4,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.6,
+              "economic_cost_usd": 3.6,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1383.6,
+          "expected_incidents": 3.6,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5060.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 60.0,
+              "economic_cost_usd": 60.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 600.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5660.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 202.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 2.4,
+              "economic_cost_usd": 2.4,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 300.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 502.4,
+          "expected_incidents": 4.8,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.6,
+              "economic_cost_usd": 3.6,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1383.6,
+          "expected_incidents": 7.2,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5060.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 60.0,
+              "economic_cost_usd": 60.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 600.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5660.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.5999999999999996,
+              "economic_cost_usd": 3.5999999999999996,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 653.6,
+          "expected_incidents": 1.2,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1205.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 5.4,
+              "economic_cost_usd": 5.4,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1475.4,
+          "expected_incidents": 1.8,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5090.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 90.0,
+              "economic_cost_usd": 90.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5990.0,
+          "expected_incidents": 18.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.5999999999999996,
+              "economic_cost_usd": 3.5999999999999996,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 653.6,
+          "expected_incidents": 2.4,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1205.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 5.4,
+              "economic_cost_usd": 5.4,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1475.4,
+          "expected_incidents": 3.6,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5090.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 90.0,
+              "economic_cost_usd": 90.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5990.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.5999999999999996,
+              "economic_cost_usd": 3.5999999999999996,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 5.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 653.6,
+          "expected_incidents": 4.8,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 5.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1205.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 5.4,
+              "economic_cost_usd": 5.4,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 3.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1475.4,
+          "expected_incidents": 7.2,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 3.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5090.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 90.0,
+              "economic_cost_usd": 90.0,
+              "quantity": 1200.0,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5990.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 1200.0
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 0.5
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.5999999999999996,
+              "economic_cost_usd": 3.5999999999999996,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 653.6,
+          "expected_incidents": 2.4,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1205.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 5.4,
+              "economic_cost_usd": 5.4,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1475.4,
+          "expected_incidents": 3.6,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5090.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 90.0,
+              "economic_cost_usd": 90.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5990.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.5999999999999996,
+              "economic_cost_usd": 3.5999999999999996,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 653.6,
+          "expected_incidents": 4.8,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1205.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 5.4,
+              "economic_cost_usd": 5.4,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1475.4,
+          "expected_incidents": 7.2,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5090.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 90.0,
+              "economic_cost_usd": 90.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5990.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 203.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 3.5999999999999996,
+              "economic_cost_usd": 3.5999999999999996,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 450.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 653.6,
+          "expected_incidents": 9.6,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1205.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 5.4,
+              "economic_cost_usd": 5.4,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 270.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1475.4,
+          "expected_incidents": 14.4,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5090.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 90.0,
+              "economic_cost_usd": 90.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 5990.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 204.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 4.8,
+              "economic_cost_usd": 4.8,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 600.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 804.8,
+          "expected_incidents": 2.4,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.2,
+              "economic_cost_usd": 7.2,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 360.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1567.2,
+          "expected_incidents": 3.6,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5120.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 120.0,
+              "economic_cost_usd": 120.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1200.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6320.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 204.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 4.8,
+              "economic_cost_usd": 4.8,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 600.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 804.8,
+          "expected_incidents": 4.8,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.2,
+              "economic_cost_usd": 7.2,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 360.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1567.2,
+          "expected_incidents": 7.2,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5120.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 120.0,
+              "economic_cost_usd": 120.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1200.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6320.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 204.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 4.8,
+              "economic_cost_usd": 4.8,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 600.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 804.8,
+          "expected_incidents": 9.6,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.2,
+              "economic_cost_usd": 7.2,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 360.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1567.2,
+          "expected_incidents": 14.4,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5120.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 120.0,
+              "economic_cost_usd": 120.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1200.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6320.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.199999999999999,
+              "economic_cost_usd": 7.199999999999999,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1107.2,
+          "expected_incidents": 2.4,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1210.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 10.8,
+              "economic_cost_usd": 10.8,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1750.8,
+          "expected_incidents": 3.6,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5180.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 180.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6980.0,
+          "expected_incidents": 36.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.199999999999999,
+              "economic_cost_usd": 7.199999999999999,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1107.2,
+          "expected_incidents": 4.8,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1210.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 10.8,
+              "economic_cost_usd": 10.8,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1750.8,
+          "expected_incidents": 7.2,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5180.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 180.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6980.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.199999999999999,
+              "economic_cost_usd": 7.199999999999999,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 10.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1107.2,
+          "expected_incidents": 9.6,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 10.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1210.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 10.8,
+              "economic_cost_usd": 10.8,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 6.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1750.8,
+          "expected_incidents": 14.4,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 6.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5180.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 180.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 2400,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6980.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 2400
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 1
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.199999999999999,
+              "economic_cost_usd": 7.199999999999999,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1107.2,
+          "expected_incidents": 4.8,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1210.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 10.8,
+              "economic_cost_usd": 10.8,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1750.8,
+          "expected_incidents": 7.2,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5180.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 180.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6980.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.199999999999999,
+              "economic_cost_usd": 7.199999999999999,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1107.2,
+          "expected_incidents": 9.6,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1210.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 10.8,
+              "economic_cost_usd": 10.8,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1750.8,
+          "expected_incidents": 14.4,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5180.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 180.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6980.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 0.75,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 207.2,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 7.199999999999999,
+              "economic_cost_usd": 7.199999999999999,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 900.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1107.2,
+          "expected_incidents": 19.2,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1210.8,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 10.8,
+              "economic_cost_usd": 10.8,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 540.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1750.8,
+          "expected_incidents": 28.8,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5180.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 180.0,
+              "economic_cost_usd": 180.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 6980.0,
+          "expected_incidents": 288.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 209.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 9.6,
+              "economic_cost_usd": 9.6,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1200.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1409.6,
+          "expected_incidents": 4.8,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1214.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 14.4,
+              "economic_cost_usd": 14.4,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 720.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1934.4,
+          "expected_incidents": 7.2,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5240.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 240.0,
+              "economic_cost_usd": 240.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 2400.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 7640.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 209.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 9.6,
+              "economic_cost_usd": 9.6,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1200.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1409.6,
+          "expected_incidents": 9.6,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1214.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 14.4,
+              "economic_cost_usd": 14.4,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 720.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1934.4,
+          "expected_incidents": 14.4,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5240.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 240.0,
+              "economic_cost_usd": 240.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 2400.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 7640.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 209.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 9.6,
+              "economic_cost_usd": 9.6,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1200.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1409.6,
+          "expected_incidents": 19.2,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1214.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 14.4,
+              "economic_cost_usd": 14.4,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 720.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 1934.4,
+          "expected_incidents": 28.8,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5240.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 240.0,
+              "economic_cost_usd": 240.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 2400.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 7640.0,
+          "expected_incidents": 288.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 214.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 14.399999999999999,
+              "economic_cost_usd": 14.399999999999999,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 2014.4,
+          "expected_incidents": 4.8,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1221.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 21.6,
+              "economic_cost_usd": 21.6,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1080.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 2301.6,
+          "expected_incidents": 7.2,
+          "feasible": true,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5360.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 360.0,
+              "economic_cost_usd": 360.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 3600.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 8960.0,
+          "expected_incidents": 72.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 1,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 214.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 14.399999999999999,
+              "economic_cost_usd": 14.399999999999999,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 2014.4,
+          "expected_incidents": 9.6,
+          "feasible": true,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": true,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1221.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 21.6,
+              "economic_cost_usd": 21.6,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1080.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 2301.6,
+          "expected_incidents": 14.4,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5360.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 360.0,
+              "economic_cost_usd": 360.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 3600.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 8960.0,
+          "expected_incidents": 144.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": "Static case-study index",
+      "risk_factor": 2,
+      "volume_factor": 2
+    },
+    {
+      "cost_factor": 1.5,
+      "options": [
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 214.4,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 14.399999999999999,
+              "economic_cost_usd": 14.399999999999999,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized content maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1800.0,
+              "quantity": 20.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 2014.4,
+          "expected_incidents": 19.2,
+          "feasible": false,
+          "option": "Static case-study index",
+          "reviewer_hours": 20.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 1221.6,
+          "components": [
+            {
+              "activity": "Hosting",
+              "cash_outlay_usd": 21.6,
+              "economic_cost_usd": 21.6,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Amortized QA and maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 1080.0,
+              "quantity": 12.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 2301.6,
+          "expected_incidents": 28.8,
+          "feasible": false,
+          "option": "Guided role navigation with concise evidence",
+          "reviewer_hours": 12.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        },
+        {
+          "capacity_gate_pass": true,
+          "cash_outlay_usd": 5360.0,
+          "components": [
+            {
+              "activity": "Analytics and hosting",
+              "cash_outlay_usd": 360.0,
+              "economic_cost_usd": 360.0,
+              "quantity": 4800,
+              "unit": "visit"
+            },
+            {
+              "activity": "Tracking and consent maintenance",
+              "cash_outlay_usd": 0.0,
+              "economic_cost_usd": 3600.0,
+              "quantity": 40.0,
+              "unit": "reviewer_hour"
+            }
+          ],
+          "economic_cost_usd": 8960.0,
+          "expected_incidents": 288.0,
+          "feasible": false,
+          "option": "Complex personalized tracking stack",
+          "reviewer_hours": 40.0,
+          "risk_gate_pass": false,
+          "scenario_loss_usd": 0.0,
+          "volume": 4800
+        }
+      ],
+      "recommended_if_assumptions_hold": null,
+      "risk_factor": 4,
+      "volume_factor": 2
+    }
+  ]
+}
