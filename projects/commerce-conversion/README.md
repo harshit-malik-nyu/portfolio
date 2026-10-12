@@ -62,3 +62,7 @@ The full source is excluded from Git. CI runs the counterexamples, calculator ch
 The initial design considered Google's GA4 sample. Direct access required a Google Cloud project unavailable in this session. Retailrocket's original public event file was accessible without credentials, so the analysis uses its actual recorded stages and available fields. No GA4 data or copied third-party analysis is represented as this project's source.
 
 Source: [Retailrocket recommender system dataset](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset), published by Retailrocket, retrieved October 12, 2026. Source data, redistributed subset, and derived data/report adaptations are attributed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Changes are documented above. This is a noncommercial educational portfolio case study, not a client engagement. Original project code is MIT licensed; see LICENSE.
+
+## Executable experiment review
+
+The [decision lab](experiment/README.md) extends the planning brief into six explicitly synthetic readouts with validity gates, economic uncertainty and a harm ceiling. No real trial or impact is claimed. [Open the lab](https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/experiment).

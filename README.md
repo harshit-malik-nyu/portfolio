@@ -1,3 +1,9 @@
+## Inspect the decision-making evidence
+
+- [Evidence map](https://portfolio-lac-five-10.vercel.app/evidence): role-specific paths from question to source, decision and limits.
+- [Experiment decision lab](https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/experiment): six synthetic scenarios with validity, economic and harm gates; 13 regression tests and independent numerical references.
+- [Evidence index](analysis/output/evidence-index.json): checked aggregate claims and source hashes. CI verifies these committed outputs and the offline fixture; it does not rebuild the full historical dataset.
+
 # harshit-malik-nyu.github.io — portfolio
 
 **Decision study:** [Executive recommendation](analysis/output/decision_lab/executive-summary.md) · [Cost, cohort and experiment methods](analysis/README.md#decision-laboratory). Behavioral results are synthetic QA; economics are explicit planning assumptions.
