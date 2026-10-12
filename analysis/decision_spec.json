@@ -2,7 +2,7 @@
   "project": "portfolio",
   "title": "Help a reviewer find defensible evidence with minimal maintenance burden",
   "decision_owner": "Portfolio owner",
-  "observed_evidence": "Ten self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.",
+  "observed_evidence": "Eleven self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.",
   "executive_recommendation": "Prioritize role-specific navigation and short decision summaries. Judge the site by evidence discoverability and correctness, not invented interview conversions or visitor counts.",
   "priorities": [
     "Lead each role path with three relevant projects and their actual evidence limits.",

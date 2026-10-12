@@ -1,0 +1,15 @@
+{
+  "adaptations": "Exact duplicate collapse; session reconstruction; ordered session funnels; visitor cohorts; aggregated static dashboard. No source outcomes are synthesized.",
+  "bytes": 94237913,
+  "dataset": "Retailrocket recommender system dataset",
+  "download_url": "https://www.kaggle.com/api/v1/datasets/download/retailrocket/ecommerce-dataset",
+  "file": "events.csv",
+  "license": "CC BY-NC-SA 4.0",
+  "publisher": "Retailrocket",
+  "raw_rows": 2756101,
+  "retrieved_utc_date": "2026-10-12",
+  "sample_rule": "visitorid % 1000 == 0, retaining complete visitor histories; deterministic convenience subset, not a probability sample",
+  "sample_sha256": "ffb69aace147fb16cb569460b766127ea9b05b2e51d63a31ba81942aa692a44d",
+  "sha256": "3745aa83238b1e6d44d8fda209807899f420084398f94ddf745f3cbcfecbf9e7",
+  "url": "https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset"
+}

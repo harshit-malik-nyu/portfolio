@@ -1,0 +1,450 @@
+{
+  "cart_trial_baseline": {
+    "cart_visitors": 39,
+    "converted_visitors": 12,
+    "mature_visitors": 37,
+    "rate": 0.32432432432432434,
+    "wilson95": [
+      0.19633266528144183,
+      0.48536332758027806
+    ]
+  },
+  "cohorts": [
+    {
+      "cohort": "2015-04-27",
+      "mature30": 6,
+      "mature7": 6,
+      "rate30": 0.16666666666666666,
+      "rate7": 0.16666666666666666,
+      "return30": 1,
+      "return7": 1,
+      "visitors": 6
+    },
+    {
+      "cohort": "2015-05-04",
+      "mature30": 73,
+      "mature7": 73,
+      "rate30": 0.0547945205479452,
+      "rate7": 0.0,
+      "return30": 4,
+      "return7": 0,
+      "visitors": 73
+    },
+    {
+      "cohort": "2015-05-11",
+      "mature30": 69,
+      "mature7": 69,
+      "rate30": 0.057971014492753624,
+      "rate7": 0.0,
+      "return30": 4,
+      "return7": 0,
+      "visitors": 69
+    },
+    {
+      "cohort": "2015-05-18",
+      "mature30": 77,
+      "mature7": 77,
+      "rate30": 0.03896103896103896,
+      "rate7": 0.012987012987012988,
+      "return30": 3,
+      "return7": 1,
+      "visitors": 77
+    },
+    {
+      "cohort": "2015-05-25",
+      "mature30": 68,
+      "mature7": 68,
+      "rate30": 0.04411764705882353,
+      "rate7": 0.0,
+      "return30": 3,
+      "return7": 0,
+      "visitors": 68
+    },
+    {
+      "cohort": "2015-06-01",
+      "mature30": 79,
+      "mature7": 79,
+      "rate30": 0.06329113924050633,
+      "rate7": 0.0379746835443038,
+      "return30": 5,
+      "return7": 3,
+      "visitors": 79
+    },
+    {
+      "cohort": "2015-06-08",
+      "mature30": 61,
+      "mature7": 61,
+      "rate30": 0.08196721311475409,
+      "rate7": 0.01639344262295082,
+      "return30": 5,
+      "return7": 1,
+      "visitors": 61
+    },
+    {
+      "cohort": "2015-06-15",
+      "mature30": 69,
+      "mature7": 69,
+      "rate30": 0.08695652173913043,
+      "rate7": 0.07246376811594203,
+      "return30": 6,
+      "return7": 5,
+      "visitors": 69
+    },
+    {
+      "cohort": "2015-06-22",
+      "mature30": 62,
+      "mature7": 62,
+      "rate30": 0.14516129032258066,
+      "rate7": 0.06451612903225806,
+      "return30": 9,
+      "return7": 4,
+      "visitors": 62
+    },
+    {
+      "cohort": "2015-06-29",
+      "mature30": 69,
+      "mature7": 69,
+      "rate30": 0.043478260869565216,
+      "rate7": 0.014492753623188406,
+      "return30": 3,
+      "return7": 1,
+      "visitors": 69
+    },
+    {
+      "cohort": "2015-07-06",
+      "mature30": 95,
+      "mature7": 95,
+      "rate30": 0.05263157894736842,
+      "rate7": 0.042105263157894736,
+      "return30": 5,
+      "return7": 4,
+      "visitors": 95
+    },
+    {
+      "cohort": "2015-07-13",
+      "mature30": 83,
+      "mature7": 83,
+      "rate30": 0.04819277108433735,
+      "rate7": 0.024096385542168676,
+      "return30": 4,
+      "return7": 2,
+      "visitors": 83
+    },
+    {
+      "cohort": "2015-07-20",
+      "mature30": 94,
+      "mature7": 94,
+      "rate30": 0.031914893617021274,
+      "rate7": 0.010638297872340425,
+      "return30": 3,
+      "return7": 1,
+      "visitors": 94
+    },
+    {
+      "cohort": "2015-07-27",
+      "mature30": 74,
+      "mature7": 74,
+      "rate30": 0.05405405405405406,
+      "rate7": 0.04054054054054054,
+      "return30": 4,
+      "return7": 3,
+      "visitors": 74
+    },
+    {
+      "cohort": "2015-08-03",
+      "mature30": 77,
+      "mature7": 77,
+      "rate30": 0.025974025974025976,
+      "rate7": 0.012987012987012988,
+      "return30": 2,
+      "return7": 1,
+      "visitors": 77
+    },
+    {
+      "cohort": "2015-08-10",
+      "mature30": 60,
+      "mature7": 60,
+      "rate30": 0.05,
+      "rate7": 0.03333333333333333,
+      "return30": 3,
+      "return7": 2,
+      "visitors": 60
+    },
+    {
+      "cohort": "2015-08-17",
+      "mature30": 17,
+      "mature7": 53,
+      "rate30": 0.058823529411764705,
+      "rate7": 0.03773584905660377,
+      "return30": 1,
+      "return7": 2,
+      "visitors": 53
+    },
+    {
+      "cohort": "2015-08-24",
+      "mature30": 0,
+      "mature7": 63,
+      "rate30": null,
+      "rate7": 0.0,
+      "return30": 0,
+      "return7": 0,
+      "visitors": 63
+    },
+    {
+      "cohort": "2015-08-31",
+      "mature30": 0,
+      "mature7": 81,
+      "rate30": null,
+      "rate7": 0.037037037037037035,
+      "return30": 0,
+      "return7": 3,
+      "visitors": 81
+    },
+    {
+      "cohort": "2015-09-07",
+      "mature30": 0,
+      "mature7": 36,
+      "rate30": null,
+      "rate7": 0.05555555555555555,
+      "return30": 0,
+      "return7": 2,
+      "visitors": 62
+    },
+    {
+      "cohort": "2015-09-14",
+      "mature30": 0,
+      "mature7": 0,
+      "rate30": null,
+      "rate7": null,
+      "return30": 0,
+      "return7": 0,
+      "visitors": 33
+    }
+  ],
+  "dataset_label": "Deterministic visitor-ID modulo 1000 sample; not representative by design",
+  "definitions": {
+    "funnel": "Strictly increasing event timestamps within a visitor session. Different items may occur at each stage. No checkout or payment-attempt events exist.",
+    "inference": "Historical single-site descriptive associations. Session records from the same visitor are dependent; no causal treatment estimate is reported.",
+    "repeat": "A distinct order more than 24 hours and at most 30 days after first observed purchase, among buyers with full follow-up.",
+    "retention": "Any recorded activity more than 24 hours and at most 7/30 days after first observed event; only fully observable windows. First observed is not first-ever.",
+    "revenue": "No price, currency, margin, refund or actual revenue fields. Financial scenarios are assumptions only.",
+    "session": "New session after a gap greater than the selected minutes. No device or acquisition segmentation is available."
+  },
+  "distinct_events": 2575,
+  "event_counts": {
+    "addtocart": 66,
+    "transaction": 21,
+    "view": 2488
+  },
+  "funnel": {
+    "any_cart": 44,
+    "cart_after_view": 37,
+    "cart_to_purchase": 0.2702702702702703,
+    "direct_cart_purchase": 11,
+    "purchase_after_cart": 10,
+    "purchase_session_rate": 0.008191925102399064,
+    "purchase_sessions": 14,
+    "sessions": 1709,
+    "view_to_cart": 0.021739130434782608,
+    "viewed": 1702
+  },
+  "orders": 15,
+  "period_end": "2015-09-17T17:43:15.625000+00:00",
+  "period_start": "2015-05-03T03:00:49.851000+00:00",
+  "quality": {
+    "identical_rows_collapsed": 0,
+    "nontransaction_rows_with_id": 0,
+    "transaction_ids_shared_by_visitors": 0,
+    "transaction_rows_missing_id": 0,
+    "visitor_timestamp_groups_with_multiple_event_types": 0
+  },
+  "raw_rows": 2575,
+  "repeat_purchase": {
+    "buyers": 14,
+    "mature_buyers": 11,
+    "rate": 0.0,
+    "repeat_buyers": 0,
+    "wilson95": [
+      0,
+      0.2588329669680317
+    ]
+  },
+  "segments": {
+    "First observed session": {
+      "any_cart": 34,
+      "cart_after_view": 30,
+      "cart_to_purchase": 0.23333333333333334,
+      "direct_cart_purchase": 8,
+      "purchase_after_cart": 7,
+      "purchase_session_rate": 0.007102272727272727,
+      "purchase_sessions": 10,
+      "sessions": 1408,
+      "view_to_cart": 0.021367521367521368,
+      "viewed": 1404
+    },
+    "Later observed session": {
+      "any_cart": 10,
+      "cart_after_view": 7,
+      "cart_to_purchase": 0.42857142857142855,
+      "direct_cart_purchase": 3,
+      "purchase_after_cart": 3,
+      "purchase_session_rate": 0.013289036544850499,
+      "purchase_sessions": 4,
+      "sessions": 301,
+      "view_to_cart": 0.02348993288590604,
+      "viewed": 298
+    }
+  },
+  "session_gap_minutes": 30,
+  "source_sha256": "ffb69aace147fb16cb569460b766127ea9b05b2e51d63a31ba81942aa692a44d",
+  "visitors": 1408,
+  "weeks": [
+    {
+      "carts": 0,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 7,
+      "week": "2015-04-27"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 0,
+      "purchase_sessions": 1,
+      "sessions": 79,
+      "week": "2015-05-04"
+    },
+    {
+      "carts": 2,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 71,
+      "week": "2015-05-11"
+    },
+    {
+      "carts": 3,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 87,
+      "week": "2015-05-18"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 1,
+      "purchase_sessions": 1,
+      "sessions": 73,
+      "week": "2015-05-25"
+    },
+    {
+      "carts": 2,
+      "ordered_purchases": 1,
+      "purchase_sessions": 1,
+      "sessions": 92,
+      "week": "2015-06-01"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 0,
+      "purchase_sessions": 1,
+      "sessions": 69,
+      "week": "2015-06-08"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 93,
+      "week": "2015-06-15"
+    },
+    {
+      "carts": 3,
+      "ordered_purchases": 2,
+      "purchase_sessions": 2,
+      "sessions": 81,
+      "week": "2015-06-22"
+    },
+    {
+      "carts": 3,
+      "ordered_purchases": 2,
+      "purchase_sessions": 2,
+      "sessions": 80,
+      "week": "2015-06-29"
+    },
+    {
+      "carts": 3,
+      "ordered_purchases": 2,
+      "purchase_sessions": 2,
+      "sessions": 121,
+      "week": "2015-07-06"
+    },
+    {
+      "carts": 2,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 114,
+      "week": "2015-07-13"
+    },
+    {
+      "carts": 3,
+      "ordered_purchases": 0,
+      "purchase_sessions": 1,
+      "sessions": 108,
+      "week": "2015-07-20"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 90,
+      "week": "2015-07-27"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 96,
+      "week": "2015-08-03"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 70,
+      "week": "2015-08-10"
+    },
+    {
+      "carts": 2,
+      "ordered_purchases": 0,
+      "purchase_sessions": 1,
+      "sessions": 80,
+      "week": "2015-08-17"
+    },
+    {
+      "carts": 1,
+      "ordered_purchases": 1,
+      "purchase_sessions": 1,
+      "sessions": 83,
+      "week": "2015-08-24"
+    },
+    {
+      "carts": 4,
+      "ordered_purchases": 1,
+      "purchase_sessions": 1,
+      "sessions": 100,
+      "week": "2015-08-31"
+    },
+    {
+      "carts": 0,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 75,
+      "week": "2015-09-07"
+    },
+    {
+      "carts": 2,
+      "ordered_purchases": 0,
+      "purchase_sessions": 0,
+      "sessions": 40,
+      "week": "2015-09-14"
+    }
+  ]
+}

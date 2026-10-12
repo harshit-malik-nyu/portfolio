@@ -1,6 +1,6 @@
 # Can a reviewer find and evaluate the relevant evidence quickly?
 
-**Recommendation:** Present ten self-directed case studies and the portfolio separately; make claims and limitations visible beside results.
+**Recommendation:** Present eleven self-directed case studies and the portfolio separately; make claims and limitations visible beside results.
 
 This is an independent analytical case study. No client engagement, deployment, stakeholder acceptance or realized financial outcome is asserted.
 

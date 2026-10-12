@@ -15,10 +15,11 @@ assert len(p.ids)==len(set(p.ids)),'duplicate HTML IDs'
 for link in p.links:
  if link.startswith('#'):assert link[1:] in p.ids,link
  elif not re.match(r'\w+:|//',link):assert (ROOT/link.split('?')[0].split('#')[0]).exists(),link
-repos=['abstain','agentcost','citeaudit','evaldrift','floodcheck','knowing-when-to-doubt','lineage','ranksafe','sanctions-triage','underdetermined']
+repos=['commerce-conversion','abstain','agentcost','citeaudit','evaldrift','floodcheck','knowing-when-to-doubt','lineage','ranksafe','sanctions-triage','underdetermined']
 db=sqlite3.connect(':memory:');db.execute('CREATE TABLE projects (repository TEXT PRIMARY KEY,links INTEGER CHECK(links>0))')
 for name in repos:
- links=sum(link.rstrip('/')=='https://github.com/harshit-malik-nyu/'+name for link in p.links)
+ target='https://github.com/harshit-malik-nyu/portfolio/tree/main/projects/commerce-conversion' if name=='commerce-conversion' else 'https://github.com/harshit-malik-nyu/'+name
+ links=sum(link.rstrip('/')==target for link in p.links)
  db.execute('INSERT INTO projects VALUES (?,?)',(name,links))
 query=(ROOT/'analysis/questions.sql').read_text();cursor=db.execute(query)
 with (OUT/'query_1.csv').open('w',newline='') as f:

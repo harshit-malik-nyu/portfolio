@@ -2,7 +2,7 @@
 
 Prioritize role-specific navigation and short decision summaries. Judge the site by evidence discoverability and correctness, not invented interview conversions or visitor counts.
 
-**Evidence:** Ten self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.
+**Evidence:** Eleven self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.
 
 **Uncertainty:** Synthetic repeat visits cannot measure recruiter interest. The site creates presentation value; avoided reviewer minutes are not cash revenue.
 

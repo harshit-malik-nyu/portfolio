@@ -17,4 +17,8 @@ jobs:
       - run: python analysis/decision_lab.py
       - run: python analysis/test_assurance.py
       - run: python analysis/assurance.py
-      - run: git diff --exit-code -- analysis/output
+      - run: python projects/commerce-conversion/tests/test_analysis.py
+      - run: node --test projects/commerce-conversion/tests/calculator.test.cjs
+      - run: python projects/commerce-conversion/analyze.py
+      - run: python projects/commerce-conversion/build_site.py
+      - run: git diff --exit-code -- analysis/output projects/commerce-conversion/output projects/commerce-conversion/data.js projects/commerce-conversion/data/provenance.json

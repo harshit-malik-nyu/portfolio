@@ -1,0 +1,450 @@
+{
+  "cart_trial_baseline": {
+    "cart_visitors": 37722,
+    "converted_visitors": 9927,
+    "mature_visitors": 36141,
+    "rate": 0.27467419274508176,
+    "wilson95": [
+      0.2700965674113923,
+      0.2792997131462206
+    ]
+  },
+  "cohorts": [
+    {
+      "cohort": "2015-04-27",
+      "mature30": 7865,
+      "mature7": 7865,
+      "rate30": 0.11633820724729815,
+      "rate7": 0.07247298156389065,
+      "return30": 915,
+      "return7": 570,
+      "visitors": 7865
+    },
+    {
+      "cohort": "2015-05-04",
+      "mature30": 71389,
+      "mature7": 71389,
+      "rate30": 0.10199050273851713,
+      "rate7": 0.05505049797587864,
+      "return30": 7281,
+      "return7": 3930,
+      "visitors": 71389
+    },
+    {
+      "cohort": "2015-05-11",
+      "mature30": 76662,
+      "mature7": 76662,
+      "rate30": 0.09031854112859043,
+      "rate7": 0.05279016983642482,
+      "return30": 6924,
+      "return7": 4047,
+      "visitors": 76662
+    },
+    {
+      "cohort": "2015-05-18",
+      "mature30": 78427,
+      "mature7": 78427,
+      "rate30": 0.08168105371874482,
+      "rate7": 0.044946255753758275,
+      "return30": 6406,
+      "return7": 3525,
+      "visitors": 78427
+    },
+    {
+      "cohort": "2015-05-25",
+      "mature30": 73231,
+      "mature7": 73231,
+      "rate30": 0.07578757629965452,
+      "rate7": 0.043164779942920346,
+      "return30": 5550,
+      "return7": 3161,
+      "visitors": 73231
+    },
+    {
+      "cohort": "2015-06-01",
+      "mature30": 72714,
+      "mature7": 72714,
+      "rate30": 0.07793547322386335,
+      "rate7": 0.044365596721401654,
+      "return30": 5667,
+      "return7": 3226,
+      "visitors": 72714
+    },
+    {
+      "cohort": "2015-06-08",
+      "mature30": 66586,
+      "mature7": 66586,
+      "rate30": 0.07483555101673024,
+      "rate7": 0.04196077253476707,
+      "return30": 4983,
+      "return7": 2794,
+      "visitors": 66586
+    },
+    {
+      "cohort": "2015-06-15",
+      "mature30": 69757,
+      "mature7": 69757,
+      "rate30": 0.0777843083848216,
+      "rate7": 0.04340783003856244,
+      "return30": 5426,
+      "return7": 3028,
+      "visitors": 69757
+    },
+    {
+      "cohort": "2015-06-22",
+      "mature30": 68400,
+      "mature7": 68400,
+      "rate30": 0.07713450292397661,
+      "rate7": 0.043450292397660815,
+      "return30": 5276,
+      "return7": 2972,
+      "visitors": 68400
+    },
+    {
+      "cohort": "2015-06-29",
+      "mature30": 68147,
+      "mature7": 68147,
+      "rate30": 0.07583606028145039,
+      "rate7": 0.04192407589475692,
+      "return30": 5168,
+      "return7": 2857,
+      "visitors": 68147
+    },
+    {
+      "cohort": "2015-07-06",
+      "mature30": 83944,
+      "mature7": 83944,
+      "rate30": 0.0638163537596493,
+      "rate7": 0.03673877823310778,
+      "return30": 5357,
+      "return7": 3084,
+      "visitors": 83944
+    },
+    {
+      "cohort": "2015-07-13",
+      "mature30": 80563,
+      "mature7": 80563,
+      "rate30": 0.06229907029281432,
+      "rate7": 0.036604893065054676,
+      "return30": 5019,
+      "return7": 2949,
+      "visitors": 80563
+    },
+    {
+      "cohort": "2015-07-20",
+      "mature30": 88261,
+      "mature7": 88261,
+      "rate30": 0.0627797101777682,
+      "rate7": 0.03822752971301028,
+      "return30": 5541,
+      "return7": 3374,
+      "visitors": 88261
+    },
+    {
+      "cohort": "2015-07-27",
+      "mature30": 73190,
+      "mature7": 73190,
+      "rate30": 0.06097827572072687,
+      "rate7": 0.0363710889465774,
+      "return30": 4463,
+      "return7": 2662,
+      "visitors": 73190
+    },
+    {
+      "cohort": "2015-08-03",
+      "mature30": 67081,
+      "mature7": 67081,
+      "rate30": 0.06226800435294644,
+      "rate7": 0.03695532266960838,
+      "return30": 4177,
+      "return7": 2479,
+      "visitors": 67081
+    },
+    {
+      "cohort": "2015-08-10",
+      "mature30": 64291,
+      "mature7": 64291,
+      "rate30": 0.0641769454511518,
+      "rate7": 0.03742358961596491,
+      "return30": 4126,
+      "return7": 2406,
+      "visitors": 64291
+    },
+    {
+      "cohort": "2015-08-17",
+      "mature30": 22914,
+      "mature7": 65264,
+      "rate30": 0.07000087282883827,
+      "rate7": 0.04029786712429517,
+      "return30": 1604,
+      "return7": 2630,
+      "visitors": 65264
+    },
+    {
+      "cohort": "2015-08-24",
+      "mature30": 0,
+      "mature7": 65333,
+      "rate30": null,
+      "rate7": 0.03800529594538748,
+      "return30": 0,
+      "return7": 2483,
+      "visitors": 65333
+    },
+    {
+      "cohort": "2015-08-31",
+      "mature30": 0,
+      "mature7": 62329,
+      "rate30": null,
+      "rate7": 0.03914710648333841,
+      "return30": 0,
+      "return7": 2440,
+      "visitors": 62329
+    },
+    {
+      "cohort": "2015-09-07",
+      "mature30": 0,
+      "mature7": 44839,
+      "rate30": null,
+      "rate7": 0.040701175316131044,
+      "return30": 0,
+      "return7": 1825,
+      "visitors": 71205
+    },
+    {
+      "cohort": "2015-09-14",
+      "mature30": 0,
+      "mature7": 0,
+      "rate30": null,
+      "rate7": null,
+      "return30": 0,
+      "return7": 0,
+      "visitors": 32941
+    }
+  ],
+  "dataset_label": "Full Retailrocket public events file; session-gap sensitivity",
+  "definitions": {
+    "funnel": "Strictly increasing event timestamps within a visitor session. Different items may occur at each stage. No checkout or payment-attempt events exist.",
+    "inference": "Historical single-site descriptive associations. Session records from the same visitor are dependent; no causal treatment estimate is reported.",
+    "repeat": "A distinct order more than 24 hours and at most 30 days after first observed purchase, among buyers with full follow-up.",
+    "retention": "Any recorded activity more than 24 hours and at most 7/30 days after first observed event; only fully observable windows. First observed is not first-ever.",
+    "revenue": "No price, currency, margin, refund or actual revenue fields. Financial scenarios are assumptions only.",
+    "session": "New session after a gap greater than the selected minutes. No device or acquisition segmentation is available."
+  },
+  "distinct_events": 2755641,
+  "event_counts": {
+    "addtocart": 68966,
+    "transaction": 22457,
+    "view": 2664218
+  },
+  "funnel": {
+    "any_cart": 42539,
+    "cart_after_view": 35887,
+    "cart_to_purchase": 0.289882130019227,
+    "direct_cart_purchase": 11382,
+    "purchase_after_cart": 10403,
+    "purchase_session_rate": 0.007787045219995899,
+    "purchase_sessions": 13446,
+    "sessions": 1726714,
+    "view_to_cart": 0.02084589477548564,
+    "viewed": 1721538
+  },
+  "orders": 17672,
+  "period_end": "2015-09-18T02:59:47.788000+00:00",
+  "period_start": "2015-05-03T03:00:04.384000+00:00",
+  "quality": {
+    "identical_rows_collapsed": 460,
+    "nontransaction_rows_with_id": 0,
+    "transaction_ids_shared_by_visitors": 0,
+    "transaction_rows_missing_id": 0,
+    "visitor_timestamp_groups_with_multiple_event_types": 12
+  },
+  "raw_rows": 2756101,
+  "repeat_purchase": {
+    "buyers": 11719,
+    "mature_buyers": 9445,
+    "rate": 0.03663313922710429,
+    "repeat_buyers": 346,
+    "wilson95": [
+      0.033029000095897494,
+      0.04061404512327182
+    ]
+  },
+  "segments": {
+    "First observed session": {
+      "any_cart": 30729,
+      "cart_after_view": 25777,
+      "cart_to_purchase": 0.25701206501920315,
+      "direct_cart_purchase": 7168,
+      "purchase_after_cart": 6625,
+      "purchase_session_rate": 0.005783685474360249,
+      "purchase_sessions": 8141,
+      "sessions": 1407580,
+      "view_to_cart": 0.018362563934519655,
+      "viewed": 1403780
+    },
+    "Later observed session": {
+      "any_cart": 11810,
+      "cart_after_view": 10110,
+      "cart_to_purchase": 0.37368941641938674,
+      "direct_cart_purchase": 4214,
+      "purchase_after_cart": 3778,
+      "purchase_session_rate": 0.016623111294941935,
+      "purchase_sessions": 5305,
+      "sessions": 319134,
+      "view_to_cart": 0.0318166655127487,
+      "viewed": 317758
+    }
+  },
+  "session_gap_minutes": 60,
+  "source_sha256": "3745aa83238b1e6d44d8fda209807899f420084398f94ddf745f3cbcfecbf9e7",
+  "visitors": 1407580,
+  "weeks": [
+    {
+      "carts": 186,
+      "ordered_purchases": 42,
+      "purchase_sessions": 55,
+      "sessions": 8192,
+      "week": "2015-04-27"
+    },
+    {
+      "carts": 1822,
+      "ordered_purchases": 551,
+      "purchase_sessions": 708,
+      "sessions": 80958,
+      "week": "2015-05-04"
+    },
+    {
+      "carts": 1984,
+      "ordered_purchases": 587,
+      "purchase_sessions": 767,
+      "sessions": 90243,
+      "week": "2015-05-11"
+    },
+    {
+      "carts": 1757,
+      "ordered_purchases": 520,
+      "purchase_sessions": 668,
+      "sessions": 93992,
+      "week": "2015-05-18"
+    },
+    {
+      "carts": 1878,
+      "ordered_purchases": 541,
+      "purchase_sessions": 699,
+      "sessions": 88348,
+      "week": "2015-05-25"
+    },
+    {
+      "carts": 1902,
+      "ordered_purchases": 537,
+      "purchase_sessions": 692,
+      "sessions": 88603,
+      "week": "2015-06-01"
+    },
+    {
+      "carts": 1703,
+      "ordered_purchases": 452,
+      "purchase_sessions": 570,
+      "sessions": 81346,
+      "week": "2015-06-08"
+    },
+    {
+      "carts": 2138,
+      "ordered_purchases": 611,
+      "purchase_sessions": 776,
+      "sessions": 86487,
+      "week": "2015-06-15"
+    },
+    {
+      "carts": 1965,
+      "ordered_purchases": 599,
+      "purchase_sessions": 756,
+      "sessions": 85012,
+      "week": "2015-06-22"
+    },
+    {
+      "carts": 1741,
+      "ordered_purchases": 522,
+      "purchase_sessions": 668,
+      "sessions": 84762,
+      "week": "2015-06-29"
+    },
+    {
+      "carts": 2064,
+      "ordered_purchases": 583,
+      "purchase_sessions": 749,
+      "sessions": 102404,
+      "week": "2015-07-06"
+    },
+    {
+      "carts": 1864,
+      "ordered_purchases": 533,
+      "purchase_sessions": 693,
+      "sessions": 98082,
+      "week": "2015-07-13"
+    },
+    {
+      "carts": 2092,
+      "ordered_purchases": 593,
+      "purchase_sessions": 744,
+      "sessions": 108472,
+      "week": "2015-07-20"
+    },
+    {
+      "carts": 1971,
+      "ordered_purchases": 585,
+      "purchase_sessions": 776,
+      "sessions": 91385,
+      "week": "2015-07-27"
+    },
+    {
+      "carts": 1752,
+      "ordered_purchases": 501,
+      "purchase_sessions": 661,
+      "sessions": 83954,
+      "week": "2015-08-03"
+    },
+    {
+      "carts": 1539,
+      "ordered_purchases": 400,
+      "purchase_sessions": 539,
+      "sessions": 79741,
+      "week": "2015-08-10"
+    },
+    {
+      "carts": 1735,
+      "ordered_purchases": 547,
+      "purchase_sessions": 688,
+      "sessions": 82092,
+      "week": "2015-08-17"
+    },
+    {
+      "carts": 1803,
+      "ordered_purchases": 519,
+      "purchase_sessions": 688,
+      "sessions": 82466,
+      "week": "2015-08-24"
+    },
+    {
+      "carts": 1467,
+      "ordered_purchases": 432,
+      "purchase_sessions": 565,
+      "sessions": 78428,
+      "week": "2015-08-31"
+    },
+    {
+      "carts": 1758,
+      "ordered_purchases": 522,
+      "purchase_sessions": 687,
+      "sessions": 89835,
+      "week": "2015-09-07"
+    },
+    {
+      "carts": 766,
+      "ordered_purchases": 226,
+      "purchase_sessions": 297,
+      "sessions": 41912,
+      "week": "2015-09-14"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 Prioritize role-specific navigation and short decision summaries. Judge the site by evidence discoverability and correctness, not invented interview conversions or visitor counts.
 
-**Observed evidence:** Ten self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.
+**Observed evidence:** Eleven self-directed case studies are linked with interactive tools and validated calculations. Local optional events are in-memory only; there is no production visitor-retention dataset.
 
 **Decision owner:** Portfolio owner (proposed role, not a client).
 
