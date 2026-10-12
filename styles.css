@@ -442,3 +442,6 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px;
 .role-evidence-note { margin-top: 1.5rem; font-size: .85rem; max-width: 80ch; }
 .role-paths a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 @media (max-width: 760px) { .role-path-grid { grid-template-columns: 1fr; gap: 1rem; } }
+
+/* Value-first introduction; evidence remains one click away. */
+.value-intro{max-width:820px;font-size:clamp(19px,2vw,24px);line-height:1.55;margin:28px 0 18px}.value-context{max-width:800px;line-height:1.65}.value-actions{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:28px 0 40px}.value-actions a.btn{text-decoration:none}.value-grid .sum-figure{font-size:23px;line-height:1.25}.value-grid{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){.value-grid{grid-template-columns:1fr}.value-actions{align-items:flex-start;flex-direction:column}}

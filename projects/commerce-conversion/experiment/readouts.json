@@ -1,0 +1,252 @@
+{
+  "evidence": "Synthetic fixtures only; no real randomized trial was conducted.",
+  "method": "Four Bonferroni-adjusted Wilson intervals; approximate joint 95% coverage.",
+  "scenarios": {
+    "Clear economic gate": {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "result": {
+        "decision": "ELIGIBLE FOR REVIEW",
+        "blockers": [],
+        "srmP": 1,
+        "lift": 0.034999999999999976,
+        "liftInterval": [
+          0.023643075601631314,
+          0.04634600866870747
+        ],
+        "harm": 0,
+        "harmInterval": [
+          -0.002489686371117055,
+          0.002489686371117055
+        ],
+        "breakEven": 0.007378508250094537,
+        "economicPass": true,
+        "guardrailPass": true,
+        "netPoint": 29948.049999999974,
+        "netLower": 17634.53185955672
+      }
+    },
+    "Positive lift, weak economics": {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 11400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "result": {
+        "decision": "HOLD: ECONOMICS",
+        "blockers": [],
+        "srmP": 1,
+        "lift": 0.009999999999999953,
+        "liftInterval": [
+          -0.0012147025243832155,
+          0.02121158374448001
+        ],
+        "harm": 0,
+        "harmInterval": [
+          -0.002489686371117055,
+          0.002489686371117055
+        ],
+        "breakEven": 0.007378508250094537,
+        "economicPass": false,
+        "guardrailPass": true,
+        "netPoint": 2842.29999999995,
+        "netLower": -9317.016918012014
+      }
+    },
+    "Conversion up, harm up": {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 1000,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "result": {
+        "decision": "HOLD: GUARDRAIL",
+        "blockers": [],
+        "srmP": 1,
+        "lift": 0.034999999999999976,
+        "liftInterval": [
+          0.023643075601631314,
+          0.04634600866870747
+        ],
+        "harm": 0.015000000000000001,
+        "harmInterval": [
+          0.011801792480208398,
+          0.01819352934993681
+        ],
+        "breakEven": 0.007378508250094537,
+        "economicPass": true,
+        "guardrailPass": false,
+        "netPoint": 29948.049999999974,
+        "netLower": 17634.53185955672
+      }
+    },
+    "Broken randomization ratio": {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 38000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 38000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "result": {
+        "decision": "INVALID / NOT READY",
+        "blockers": [
+          "Sample ratio mismatch: inspect assignment and exposure logging."
+        ],
+        "srmP": 8.056758800526073e-13,
+        "lift": 0.051315789473684204,
+        "liftInterval": [
+          0.03972611685180871,
+          0.06289230832453441
+        ],
+        "harm": 0.0005263157894736838,
+        "harmInterval": [
+          -0.002024596365470392,
+          0.0030850970092239725
+        ],
+        "breakEven": 0.007378508250094537,
+        "economicPass": true,
+        "guardrailPass": true,
+        "netPoint": 47638.118421052626,
+        "netLower": 35072.247674236554
+      }
+    },
+    "Incomplete follow-up": {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 37000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "result": {
+        "decision": "INVALID / NOT READY",
+        "blockers": [
+          "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+        ],
+        "srmP": 1,
+        "lift": 0.034999999999999976,
+        "liftInterval": [
+          0.023643075601631314,
+          0.04634600866870747
+        ],
+        "harm": 0,
+        "harmInterval": [
+          -0.002489686371117055,
+          0.002489686371117055
+        ],
+        "breakEven": 0.007378508250094537,
+        "economicPass": true,
+        "guardrailPass": true,
+        "netPoint": 29948.049999999974,
+        "netLower": 17634.53185955672
+      }
+    },
+    "Early peek": {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": false,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "result": {
+        "decision": "INVALID / NOT READY",
+        "blockers": [
+          "The predeclared fixed analysis horizon has not been reached."
+        ],
+        "srmP": 1,
+        "lift": 0.034999999999999976,
+        "liftInterval": [
+          0.023643075601631314,
+          0.04634600866870747
+        ],
+        "harm": 0,
+        "harmInterval": [
+          -0.002489686371117055,
+          0.002489686371117055
+        ],
+        "breakEven": 0.007378508250094537,
+        "economicPass": true,
+        "guardrailPass": true,
+        "netPoint": 29948.049999999974,
+        "netLower": 17634.53185955672
+      }
+    }
+  }
+}

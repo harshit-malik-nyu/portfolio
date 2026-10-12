@@ -1,0 +1,23 @@
+{
+  "claims": {
+    "distinct_events": 2755641,
+    "distinct_orders": 17672,
+    "raw_events": 2756101,
+    "synthetic_decision_scenarios": 6,
+    "visitors": 1407580
+  },
+  "input_sha256": {
+    "projects/commerce-conversion/experiment/decision.js": "e738453d3b66fd810fc08f3e5e6e09cbc585c600be37991943222da90d403a03",
+    "projects/commerce-conversion/experiment/readouts.json": "451ee8b1f193e21dd66bf7d84afe7a7d4b1473bd97cfd29d7269b6c97c928877",
+    "projects/commerce-conversion/output/full/metrics.json": "eb905cc7af3e5fbea5c9939a877bc8b5c35ad5e911fa410b2cba6a847b41616a"
+  },
+  "scenario_decisions": {
+    "Broken randomization ratio": "INVALID / NOT READY",
+    "Clear economic gate": "ELIGIBLE FOR REVIEW",
+    "Conversion up, harm up": "HOLD: GUARDRAIL",
+    "Early peek": "INVALID / NOT READY",
+    "Incomplete follow-up": "INVALID / NOT READY",
+    "Positive lift, weak economics": "HOLD: ECONOMICS"
+  },
+  "scope": "Cross-checks committed aggregates and scenario decisions, not a fresh raw-data rebuild or employer verification."
+}
