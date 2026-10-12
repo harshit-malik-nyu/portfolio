@@ -1,0 +1,8 @@
+{
+  "inputs": {
+    "analyze.py": "a5cbba739ddebfa84a5c27bb41f10df6ddd55ccb2a6963036968b72f319830e2",
+    "sql/model.sql": "108074073a39704ccba8a30eb8a795de9a17a0971b08b0c13839751f9a949784"
+  },
+  "metrics_sha256": "eb905cc7af3e5fbea5c9939a877bc8b5c35ad5e911fa410b2cba6a847b41616a",
+  "source_sha256": "3745aa83238b1e6d44d8fda209807899f420084398f94ddf745f3cbcfecbf9e7"
+}

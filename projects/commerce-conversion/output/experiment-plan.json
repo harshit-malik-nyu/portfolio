@@ -1,0 +1,8 @@
+{
+  "approximate_n_per_arm": 20064,
+  "baseline": 0.27467419274508176,
+  "meaningful_margin": 0.007378508250094537,
+  "note": "Illustrative primary-only planning: a 2.00 pp alternative versus a 0.74 pp economic margin needs approximately 20,064 independent visitors per arm (80% power, normal approximation with a 95% lower-interval criterion). This exceeds the historical mature cart audience of 36,141 across both arms. Re-estimate on current traffic; do not weaken the gate to fit the dataset. Guardrail power, identity clustering, allocation losses and a seven-day follow-up add requirements.",
+  "planning_alternative": 0.02,
+  "total_n": 40128
+}
