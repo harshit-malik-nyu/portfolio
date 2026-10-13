@@ -1,0 +1,34 @@
+{
+  "batch_id": "baseline",
+  "complete_through": "2026-01-02T00:00:00Z",
+  "events": [
+    {
+      "event_id": "v1-view",
+      "occurred_at": "2026-01-01T10:00:00Z",
+      "visitor_id": "v1",
+      "event": "view",
+      "order_id": null
+    },
+    {
+      "event_id": "v2-view",
+      "occurred_at": "2026-01-01T10:00:00Z",
+      "visitor_id": "v2",
+      "event": "view",
+      "order_id": null
+    },
+    {
+      "event_id": "v1-cart",
+      "occurred_at": "2026-01-01T10:00:00Z",
+      "visitor_id": "v1",
+      "event": "addtocart",
+      "order_id": null
+    },
+    {
+      "event_id": "v1-buy",
+      "occurred_at": "2026-01-01T10:00:00Z",
+      "visitor_id": "v1",
+      "event": "transaction",
+      "order_id": "order-1"
+    }
+  ]
+}

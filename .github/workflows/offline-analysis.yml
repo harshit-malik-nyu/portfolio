@@ -27,4 +27,7 @@ jobs:
       - run: python projects/commerce-conversion/build_site.py
       - run: node projects/commerce-conversion/experiment/build.cjs
       - run: python analysis/build_evidence.py
+      - run: python projects/commerce-conversion/operations/test_pipeline.py
+      - run: python projects/commerce-conversion/operations/build_demo.py
+      - run: git diff --exit-code -- projects/commerce-conversion/operations/demo.json projects/commerce-conversion/operations/demo-data.js projects/commerce-conversion/operations/baseline.json
       - run: git diff --exit-code -- analysis/output projects/commerce-conversion/output projects/commerce-conversion/data.js projects/commerce-conversion/data/provenance.json projects/commerce-conversion/experiment/readouts.json

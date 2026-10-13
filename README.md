@@ -1,3 +1,12 @@
+## Product and commercial analytics
+
+I focus on conversion, retention and decision quality. These independent studies expose methods, assumptions and limitations for review.
+
+- [Reliable reporting walkthrough](https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/operations/): executable replay, late-data, rejection and recovery scenarios.
+- [Operational source and runbook](projects/commerce-conversion/operations/README.md).
+- [Business requirements and acceptance tests](projects/commerce-conversion/operations/requirements.md).
+- [Ownership review guide](projects/commerce-conversion/operations/ownership-review.md): a practical assessment, with no unearned claim of having passed.
+
 ## Inspect the decision-making evidence
 
 - [Evidence map](https://portfolio-lac-five-10.vercel.app/evidence): role-specific paths from question to source, decision and limits.
