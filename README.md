@@ -1,5 +1,7 @@
 ## Product and commercial analytics
 
+[Start with the two-minute decision readout](https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/readout) · [Full-source reporting and BI handoff](projects/commerce-conversion/reporting/README.md) · [Employer requirement mapping](docs/employer-evidence-map.md)
+
 I focus on conversion, retention and decision quality. These independent studies expose methods, assumptions and limitations for review.
 
 - [Reliable reporting walkthrough](https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/operations/): executable replay, late-data, rejection and recovery scenarios.

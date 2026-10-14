@@ -355,6 +355,9 @@ function initNav() {
       const target = document.querySelector(link.getAttribute("href"));
       if (!target) return;
       e.preventDefault();
+      for (let parent = target.parentElement; parent; parent = parent.parentElement) {
+        if (parent.tagName === "DETAILS") parent.open = true;
+      }
       const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       window.scrollTo({
         top: target.getBoundingClientRect().top + window.scrollY - offset,
@@ -377,6 +380,15 @@ function normaliseEntry() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Open collapsed supporting studies for an existing direct case-study link.
+  let id = window.location.hash.slice(1);
+  try { id = decodeURIComponent(id); } catch (_) { /* Ignore malformed encoding. */ }
+  const linked = id ? document.getElementById(id) : null;
+  if (linked) {
+    for (let parent = linked.parentElement; parent; parent = parent.parentElement) {
+      if (parent.tagName === "DETAILS") parent.open = true;
+    }
+  }
   // Preserve deep links so reviewers can share an exact case study.
   initNav();
   initHero();
