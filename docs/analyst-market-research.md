@@ -78,6 +78,12 @@ Further exclusions: CLEAR Senior Product Analyst 7580028 redirects to the job bo
 
 Implementation: extend the existing ownership review with a seed-varied synthetic case, independent set-based expected results, role-specific prompts and a blank behavior-anchored rubric. This lowers review effort. It does **not** manufacture a completed interview, reference, stakeholder adoption or employer demand.
 
-### Evidence needed before claiming exceptional demand
+### Narrow problem hypothesis: trustworthy reporting and measurement
+
+An additional primary-source check, [YipitData Data Product Analyst, Corporate, 7998077](https://job-boards.greenhouse.io/yipitdata/jobs/7998077), explicitly describes end-to-end data quality, investigation, workflow automation and communicating methodology limits. It requires 4–6 years of experience and excludes current/future sponsorship needs. Therefore it supports the **problem hypothesis**, not candidate eligibility or an application recommendation. The Amazon IDC Analytics 10518507 result returned 404 and Fiserv R-10401129 yielded no readable body; neither was counted as a verified opening.
+
+The controllable product improvement is to make the existing event-contract diagnostic usable in repeatable local workflows, not only a browser demonstration. Its Node CLI uses the same engine, bounds file reads, rejects malformed UTF-8 and returns separate statuses for passed checks, review, blocked data and input errors. Tests check browser-engine parity and that raw IDs do not appear in the report. This addresses a specific workflow requirement without claiming a production deployment, adoption, commercial licensing permission, or a representative majority of employer demand.
+
+### Measuring demand separately
 
 Keep a private, consent-aware record of the role, eligibility confirmation, evidence actually reviewed, substantive response and subsequent interview progression. Distinguish a generic recruiter message from explicit interest in a work sample. One employer's positive feedback is not broad demand; views, clicks, automated acknowledgments and self-generated scores are not substitutes. Public claims should be permissioned and supported by actual correspondence or outcomes. There is no statistically calibrated 10/10 threshold here.
