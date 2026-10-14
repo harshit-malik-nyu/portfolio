@@ -34,3 +34,17 @@ Lead with one coherent commerce decision system: diagnosis → investment questi
 A job description is evidence of a requested capability. A recruiter screen, hiring-manager discussion of the work, technical-stage progression, final round or offer is evidence of a response to the candidate. Track those stages separately. Do not treat site visits, test counts, GitHub commits, synthetic users or an AI-generated rating as hiring demand.
 
 No numerical interview probability is estimated from this source sample. Eligibility, experience level, geography and authorization must be checked for each actual requisition.
+
+## October 14: a reusable measurement diagnostic
+
+An additional [Weather Company Product Analyst, Subscriptions description](https://job-boards.greenhouse.io/theweathercompany/jobs/5223871007) explicitly requests tracking audits, event taxonomy and measurement plans. This vacancy is in Atlanta with hybrid attendance and requests 3+ years plus behavioral analytics platform experience. It is a requirements source, not a claimed NYC match or confirmed sponsorship opportunity. Finch's NYC/SF description continues to emphasize operational metrics, root-cause investigation and trusted reporting.
+
+The selected niche is **product measurement and reporting reliability**. The new `tools/event-audit` turns part of that skill set into a reusable, local CSV diagnostic. A reviewer can bring a small approved export, inspect specific failures, and download aggregate findings. It complements the historical commerce analysis rather than claiming employer impact from it.
+
+### From a useful tool to evidence of demand
+
+The portfolio now offers a concrete invitation to discuss a measurement problem. This is an inbound email link, not a fabricated testimonial, automated outreach or an offer of guaranteed services. No employer has been contacted by this change.
+
+Evidence should progress through separately recorded stages: tool feedback → a specific business problem shared → technical discussion → qualified interview → advancing process → offer. Tool use alone does not establish hiring intent. Count unique organizations, record dates and source evidence privately, and separate employer-initiated interest from solicited feedback. Do not publish personal contact details, confidential exports or unapproved endorsements. There is no invented baseline, conversion target, claim of users or automatic 10/10 score.
+
+If reviewers engage but identify a missing capability, prioritize that capability. If qualified employers view the work without advancing, investigate role level, authorization compatibility, personal demonstration and relevance before adding another project. If no qualified reviewers see it, the portfolio has not yet been market-tested. More code cannot resolve that measurement gap.
