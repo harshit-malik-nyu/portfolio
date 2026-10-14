@@ -1,0 +1,46 @@
+{
+  "batch_size_limit": 50000,
+  "builder_sha256": "b265a46a9ff3259dcf9741182573d414c98cc3599ac7f93cba94c3990d7f9e5a",
+  "checks": {
+    "baseline_distinct_events": true,
+    "baseline_event_counts": true,
+    "baseline_orders": true,
+    "baseline_raw_rows": true,
+    "baseline_visitors": true,
+    "buyers_never_exceed_visitors": true,
+    "daily_events_reconcile": true,
+    "daily_orders_reconcile": true,
+    "event_components_reconcile": true,
+    "replayed_first_batch_inserts_zero": true,
+    "same_raw_source_hash": true,
+    "transaction_id_contract": true
+  },
+  "daily_csv_sha256": "d1b7fcb3136b27ad58115a2117da8b3cf69c86e8ee277f26c42b6003e278988f",
+  "duplicates_collapsed": 0,
+  "evidence_type": "Historical Retailrocket event backfill; no live customer or employer deployment",
+  "first_day": "2015-05-03",
+  "input_batches": 1,
+  "last_day": "2015-09-17",
+  "limits": [
+    "Batch boundaries simulate file delivery, not observed arrival times.",
+    "Source maximum timestamp is not a producer completeness guarantee.",
+    "First and last days may be partial; no freshness claim.",
+    "Daily visitors are nonadditive; global visitors are computed separately.",
+    "Orders are visitor/transaction pairs attributed to earliest observed date.",
+    "Agreement with the earlier analysis is cross-implementation reconciliation, not external validation."
+  ],
+  "observed": {
+    "distinct_events": 2575,
+    "event_counts": {
+      "addtocart": 66,
+      "transaction": 21,
+      "view": 2488
+    },
+    "orders": 15,
+    "raw_rows": 2575,
+    "visitors": 1408
+  },
+  "reference_sha256": "5210ab667a0242a94cdeeb881ffc605b618e8f617a0b1f7940823c1cb639909d",
+  "reporting_days": 138,
+  "source_sha256": "ffb69aace147fb16cb569460b766127ea9b05b2e51d63a31ba81942aa692a44d"
+}
