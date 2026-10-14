@@ -14,7 +14,27 @@ Every ID must identify one immutable event. Identical retries require review and
 
 A `CHECKS_PASSED` result means only these declared checks passed. Source completeness, identity stitching, consent, freshness, assignment, revenue reconciliation and missing-event detection remain untested. Do not treat the report as a cleaned dataset.
 
-## Privacy and implementation
+## Repeatable local workflow
+
+The same engine can run without a browser using Node.js 22 (the CI-tested version). No packages or credentials are required:
+
+```sh
+node tools/event-audit/cli.cjs tools/event-audit/sample-broken.csv --events view,addtocart,transaction
+node --test tests/event-audit*.test.cjs
+```
+
+The example deliberately returns **exit code 2**, not success. For an approved local export, replace the file path and declare its event taxonomy. The CLI prints the aggregate JSON report to stdout; it does not change or upload the input. It reads at most 5 MiB plus one byte, rejects invalid UTF-8, and does not print raw rows or identifiers. Event names remain in reports and should be reviewed before sharing. Run only with data your organization permits you to process locally.
+
+| Exit code | Meaning | Workflow response |
+|---|---|---|
+| 0 | Declared checks passed | Continue only if separate completeness, governance and business checks also pass |
+| 1 | Review required, including identical retries | Investigate; do not automatically treat as passed |
+| 2 | Blocking contract findings | Resolve upstream issues before relying on the metrics |
+| 3 | Usage, file, encoding or input-format error | No report exists; correct the input and rerun |
+
+Do not add `|| true` to a quality gate: it would hide review, blocked and input-error states. The CLI is a diagnostic interface, not a scheduler, hosted service, cleaned-data exporter, production certification or proof of adoption. The browser and CLI share the analytical engine; CLI regression tests verify report parity and exit-code semantics.
+
+## Privacy and implementation details
 
 CSV contents are processed in memory in the browser. There is no upload endpoint, persistence, analytics or third-party script. A restrictive CSP blocks network connections from the tool. Page delivery still involves normal hosting requests and logs. JSON exports contain aggregate counts, event taxonomy and finding record numbers, without raw records or user/event IDs. Follow your organization's data policies even for local processing. Review the report before sharing it.
 
