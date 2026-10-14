@@ -91,9 +91,9 @@
     <p class="exhibit">Choose a reading path</p>
     <h2 id="role-paths-heading" class="section-title">Start with the decision you need to assess.</h2>
     <div class="role-path-grid">
-      <div><h3>Data analysis</h3><p>Check the denominator, uncertainty, and reproducibility.</p><p><a href="projects/commerce-conversion/reporting/output/full/manifest.json">Full-source reconciliation</a> · <a href="projects/commerce-conversion/operations/">Reporting reliability</a> · <a href="#commerce-conversion">Commerce SQL and cohorts</a> · <a href="#abstain">Calibrated stopping</a></p></div>
-      <div><h3>Business analysis</h3><p>Compare alternatives, costs, capacity, and the conditions that change the recommendation.</p><p><a href="projects/commerce-conversion/readout.html">Commerce decision readout</a> · <a href="https://github.com/harshit-malik-nyu/portfolio/blob/main/projects/commerce-conversion/operations/requirements.md">Requirements and acceptance</a> · <a href="#sanctions-triage">Review operations</a> · <a href="#lineage">Review prioritization</a></p></div>
-      <div><h3>Product analysis</h3><p>Inspect workflow funnels, cohort denominators, and a launch decision that respects quality.</p><p><a href="projects/commerce-conversion/experiment/">Experiment decision lab</a> · <a href="#commerce-conversion">Purchase funnel and retention</a> · <a href="#agentcost">Human review workflow</a> · <a href="#evaldrift">Release decisions</a></p></div>
+      <div><h3>Data analysis</h3><p>Check the denominator, uncertainty, and reproducibility.</p><p><a href="projects/commerce-conversion/reporting/output/full/manifest.json">Full-source reconciliation</a> · <a href="projects/commerce-conversion/operations/">Reporting reliability</a> · <a href="#commerce-conversion">Commerce SQL and cohorts</a> · <a href="#abstain" onclick="document.getElementById('supporting-studies').open = true">Calibrated stopping</a></p></div>
+      <div><h3>Business analysis</h3><p>Compare alternatives, costs, capacity, and the conditions that change the recommendation.</p><p><a href="projects/commerce-conversion/readout.html">Commerce decision readout</a> · <a href="https://github.com/harshit-malik-nyu/portfolio/blob/main/projects/commerce-conversion/operations/requirements.md">Requirements and acceptance</a> · <a href="#sanctions-triage" onclick="document.getElementById('supporting-studies').open = true">Review operations</a> · <a href="#lineage" onclick="document.getElementById('supporting-studies').open = true">Review prioritization</a></p></div>
+      <div><h3>Product analysis</h3><p>Inspect workflow funnels, cohort denominators, and a launch decision that respects quality.</p><p><a href="projects/commerce-conversion/experiment/">Experiment decision lab</a> · <a href="#commerce-conversion">Purchase funnel and retention</a> · <a href="#agentcost" onclick="document.getElementById('supporting-studies').open = true">Human review workflow</a> · <a href="#evaldrift" onclick="document.getElementById('supporting-studies').open = true">Release decisions</a></p></div>
     </div>
     <p class="role-evidence-note">Self-directed studies. Domain evidence, illustrative economics, and synthetic product QA are labeled separately. Synthetic journeys demonstrate analysis methods, not real adoption or business impact.</p>
   </div>
@@ -606,6 +606,15 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var id = location.hash.slice(1);
+  try { id = decodeURIComponent(id); } catch (_) {}
+  var target = document.getElementById(id);
+  var section = document.getElementById("supporting-studies");
+  if (target && section && section.contains(target)) section.open = true;
+})();
+</script>
 <script src="app.js?v=7ba87e550080"></script>
 </body>
 </html>
