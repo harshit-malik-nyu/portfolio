@@ -52,3 +52,32 @@ Excluded from current-vacancy evidence: NYC ACS Data Analyst jid-35015 (expired,
 ## Demand is a different measurement
 
 Requirements describe market demand for capabilities. Employer use, discussion, interview progression and offers describe responses to a candidate. A useful artifact can create a reason to engage, but it cannot establish those responses in advance. Maintain role eligibility, reviewer exposure, substantive response and hiring progression as separate observations. No score or conversion rate is fabricated here.
+
+## Deeper evidence: what can legitimately be called a majority?
+
+The [NACE Job Outlook 2026 Spring Update](https://www.naceweb.org/docs/default-source/default-document-library/2026/publication/research-report/2026-job-outlook-report-spring-update.pdf) surveyed 185 organizations February 12–March 17, 2026; question-level samples differ. On the skills-presentation question (161 responses), 59% preferred specific skills accompanied by examples. The report identifies communication, teamwork and critical thinking as leading career-readiness priorities. These findings describe participating college recruiters, **not a census or representative majority of all US employers, analyst hiring managers, NYC employers or OPT-compatible openings**. They support inspectable examples, not a claim of universal hiring fit.
+
+[NACE's January 12, 2026 summary](https://www.naceweb.org/job-market/trends-and-predictions/employer-use-of-skills-based-hiring-practices-grows) reports that 70% of its Job Outlook survey participants use skills-based hiring. That is a majority within the survey population. It does not mean 70% will inspect a GitHub repository or waive experience requirements.
+
+The [2026 internship survey](https://www.naceweb.org/talent-acquisition/internships/intern-conversion-rate-hits-highest-mark-in-five-years) reports 63.1% conversion for 2024–25 interns, with 284 participating organizations. This is evidence about an observed-work hiring pathway, not the probability that a particular OPT candidate will get hired. Selection into internships and participating employers limits generalization.
+
+### Additional employer check
+
+[Amazon Business Analyst I, Verification Services, 10554911](https://amazon.jobs/en/jobs/10554911/business-analyst-i-verification-services) was readable on October 14, 2026, with Seattle as location. It calls for SQL/ETL, requirements definition, stakeholder work, automated reporting and root-cause analysis. Its basic qualifications include 1+ year of relevant analytical experience **and 2+ years writing complex Excel VBA macros**. The existing formula workbook does not meet that VBA requirement. Sponsorship for this requisition has not been established. This is a requirements example, not a verified candidate match.
+
+Further exclusions: CLEAR Senior Product Analyst 7580028 redirects to the job board and is not treated as a live vacancy. Headout Product Analyst 4621320006 is in Bengaluru, so it is excluded from US role-demand inference. These checks illustrate why search-result counts are not reliable job-market sample counts.
+
+### Requirements translated into observable behavior
+
+| Domain | Artifact evidence | What a live review must still establish |
+|---|---|---|
+| Data | SQL reconciliation, workbook, rollback/replay tests | Independently choose grain, diagnose a changed input, write and test a correction |
+| Business | Conditional economics, requirements and actual defect records | Clarify conflicting needs, negotiate scope, communicate recommendation and owner |
+| Product | Cohorts, event contract, experiment gates | Separate logging effects from product effects; specify credible assignment, exposure and outcome checks |
+| Shared | Runnable, documented three-role review kit | Clear communication, adaptation and collaboration under an unfamiliar change |
+
+Implementation: extend the existing ownership review with a seed-varied synthetic case, independent set-based expected results, role-specific prompts and a blank behavior-anchored rubric. This lowers review effort. It does **not** manufacture a completed interview, reference, stakeholder adoption or employer demand.
+
+### Evidence needed before claiming exceptional demand
+
+Keep a private, consent-aware record of the role, eligibility confirmation, evidence actually reviewed, substantive response and subsequent interview progression. Distinguish a generic recruiter message from explicit interest in a work sample. One employer's positive feedback is not broad demand; views, clicks, automated acknowledgments and self-generated scores are not substitutes. Public claims should be permissioned and supported by actual correspondence or outcomes. There is no statistically calibrated 10/10 threshold here.
