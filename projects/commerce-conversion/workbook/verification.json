@@ -1,0 +1,18 @@
+{
+  "sourceRows": 139,
+  "events": 2755641,
+  "orders": 17672,
+  "reconciliationDifferences": [
+    0,
+    0
+  ],
+  "tested": [
+    "full window",
+    "single-day window",
+    "reversed dates",
+    "outside coverage",
+    "blank date"
+  ],
+  "engine": "Artifact Tool calculation; Microsoft Excel desktop not available for native verification",
+  "limits": "No native pivot table, Power Query, Power BI or Tableau proficiency is established."
+}
