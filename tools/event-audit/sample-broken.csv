@@ -1,0 +1,10 @@
+event_id,user_id,event,timestamp
+e1,u1,view,2026-01-01T12:00:00Z
+e2,u1,addtocart,2026-01-01T12:01:00Z
+e3,u1,transaction,2026-01-01T12:02:00Z
+e4,u2,view,2026-01-01T12:03:00Z
+e3,u1,transaction,2026-01-01T12:02:00Z
+e2,u9,addtocart,2026-01-01T12:01:00Z
+e5,,view,2026-01-01T12:03:00Z
+e6,u2,purchase,2026-01-01T12:04:00Z
+e7,u3,view,2026-02-30T12:00:00Z
