@@ -42,7 +42,7 @@
     <a class="masthead-name" href="/">Harshit Malik</a>
     <nav class="masthead-nav" aria-label="Main navigation">
       <a href="#work">Work</a>
-      <a href="#guide">AI workflow</a>
+      <a href="#guide">Workbench</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -69,6 +69,7 @@
 <main id="work">
 <section class="selected-work"><div class="wrap">
   <div class="section-heading"><div><p class="micro-label">Selected work / three ways in</p><h2>Choose a problem.<br>Inspect the answer.</h2></div><a href="/role-evidence">Full evidence by role ↗</a></div>
+  <div class="discovery"><label for="project-search">Find evidence by topic</label><input id="project-search" type="search" placeholder="Try SQL, experiments, AI, risk…" autocomplete="off" aria-controls="project-results"><p id="search-count" role="status"></p><ul id="project-results" hidden></ul></div>
   <div class="work-cards">
     <a class="work-card" href="/projects/commerce-conversion/"><div class="card-art art-funnel" aria-hidden="true"><span style="--w:100%"></span><span style="--w:78%"></span><span style="--w:48%"></span><span style="--w:25%"></span><small>JOURNEY → DECISION</small></div><div class="card-copy"><p class="micro-label">01 / Data + business</p><h3>Where should we invest?</h3><p>Explore historical purchase journeys and change the assumptions behind a funding decision.</p><span class="card-link">Explore commerce analytics ↗</span></div></a>
     <a class="work-card" href="/tools/event-audit/"><div class="card-art art-audit" aria-hidden="true"><span>01 <b>Identity</b><i>CHECK</i></span><span>02 <b>Timestamp</b><i>CHECK</i></span><span>03 <b>Taxonomy</b><i>CHECK</i></span><small>LOCAL INPUT → AUDIT</small></div><div class="card-copy"><p class="micro-label">02 / Data + product</p><h3>Can we trust the events?</h3><p>Audit a CSV locally for conflicting identities, invalid timestamps and unexpected event names.</p><span class="card-link">Try the event audit ↗</span></div></a>
@@ -76,12 +77,15 @@
   </div><p class="work-scope">One connected commerce study, practical tools, and ten supporting research studies. Historical observations and synthetic examples are labeled at the source.</p>
 </div></section>
 <section class="guide-section" id="guide"><div class="wrap guide-layout">
-  <div><p class="micro-label">Agentic AI / inspect the workflow</p><h2>A guide that shows<br>its work.</h2><p>Choose your goal. This demo creates a review plan, runs the event-audit tool on a synthetic sample, and adjusts the next step to the result.</p><p class="guide-disclosure"><strong>Local, rule-based demonstration.</strong> No language model, chat service or autonomous outreach. It illustrates planning, tool execution and a safety gate; it does not claim to be an AI model.</p><a href="#agentcost" data-open-study="agentcost">Explore the AI workflow research ↗</a></div>
-  <div class="guide-panel"><form id="guide-form"><div class="guide-fields"><label>Review perspective<select id="guide-role"><option value="data">Data analyst</option><option value="business">Business analyst</option><option value="product">Product analyst</option></select></label><label>Business question<select id="guide-goal"><option value="reliability">Can I trust the reporting?</option><option value="investment">Is a change worth funding?</option><option value="measurement">Did the product change work?</option></select></label><label>Test the tool on<select id="guide-sample"><option value="clean">Valid synthetic records</option><option value="conflict">Conflicting event identity</option></select></label></div><button class="primary-action" type="submit">Run the review workflow <span aria-hidden="true">→</span></button></form>
+  <div><p class="micro-label">Interactive workbench / inspect the workflow</p><h2>A guide that shows<br>its work.</h2><p>Choose your goal. This demo creates a review plan, runs the event-audit tool on a sample or your own CSV, and adjusts the next step to the result.</p><p class="guide-disclosure"><strong>Local, rule-based demonstration.</strong> No language model, chat service or autonomous outreach. It illustrates planning, tool execution and a safety gate; it does not claim to be an AI model.</p><a href="#agentcost" data-open-study="agentcost">Explore the AI workflow research ↗</a></div>
+  <div class="guide-panel"><form id="guide-form"><div class="guide-fields"><label>Review perspective<select id="guide-role"><option value="data">Data analyst</option><option value="business">Business analyst</option><option value="product">Product analyst</option></select></label><label>Business question<select id="guide-goal"><option value="reliability">Can I trust the reporting?</option><option value="investment">Is a change worth funding?</option><option value="measurement">Did the product change work?</option></select></label><label>Test the tool on<select id="guide-sample"><option value="clean">Valid synthetic records</option><option value="conflict">Conflicting event identity</option><option value="custom">Paste my own CSV</option></select></label></div><div id="guide-custom" hidden><label for="guide-csv">Event CSV · stays in your browser</label><textarea id="guide-csv" rows="6" maxlength="50000" spellcheck="false" aria-describedby="csv-help">event_id,user_id,event,timestamp
+a,u1,view,2026-01-01T00:00:00Z
+b,u1,transaction,2026-01-01T00:01:00Z</textarea><p id="csv-help">Up to 50 KB. Allowed events: view, addtocart, transaction. The downloaded report contains findings, not raw records.</p></div><button class="primary-action" type="submit">Run the review workflow <span aria-hidden="true">→</span></button></form>
     <div id="guide-output" aria-live="polite" aria-atomic="true"><p class="guide-empty">Your plan, tool result and recommended evidence will appear here. All processing happens in this tab.</p></div><button type="button" id="guide-export" class="text-button" disabled>Download this review plan ↓</button><noscript><p>This guide needs JavaScript. You can still <a href="/role-evidence">browse the role evidence directly</a>.</p></noscript>
   </div>
 </div></section>
 
+<section id="ai-assistant" class="guide-section" hidden><div class="wrap guide-layout"><div><p class="micro-label">AI evidence assistant</p><h2>Ask a question.<br>Inspect the sources.</h2><p>A language model chooses read-only evidence and calculation tools. Every completed answer includes retrieved sources and its tool results.</p><p class="guide-disclosure">Questions are sent to the AI provider through Vercel AI Gateway. Use public portfolio questions only; do not submit personal or confidential information. AI answers can be wrong.</p></div><div class="guide-panel"><form id="ai-form"><label for="ai-question">What would you like to investigate?</label><textarea id="ai-question" maxlength="1500" rows="3" required placeholder="Why does the experiment case recommend holding the rollout?"></textarea><button class="primary-action" id="ai-submit">Investigate question →</button><button class="text-button" type="button" id="ai-cancel" hidden>Cancel</button></form><div id="ai-result" role="status" aria-live="polite"></div></div></div></section>
 <details class="technical-details"><summary>Go deeper: commerce findings, methods and source limitations</summary>
 <article class="project" id="commerce-conversion">
   <div class="wrap">
@@ -602,6 +606,7 @@
 </script>
 <script src="app.js?v=7ba87e550080"></script>
 <script src="/tools/event-audit/audit.js"></script>
-<script src="/guide.js?v=20261015"></script>
+<script src="/guide.js?v=20261015b"></script>
+<script src="/discovery.js?v=20261015"></script>
 </body>
 </html>

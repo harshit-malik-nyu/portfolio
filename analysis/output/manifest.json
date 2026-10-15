@@ -2,10 +2,13 @@
   "case_studies": 11,
   "input_sha256": {
     "analysis/questions.sql": "67c1349dd91bd50c9f17a02805cb6fb68295b63d879a3a328c3547f48f2d7908",
+    "api/portfolio-agent.js": "69ee6db53674c5f340e07cbeb4f5e448305e12e2600682559537e38664075b52",
     "app.js": "7ba87e5500801bbd2b63faccf2203c3bd4374f1d01095d8d30b37f49ad145817",
-    "guide.js": "6c776beb9b45b442687fd834d4a864d54205eaf4672d0c990c95cc5bc4385dd8",
-    "index.html": "189ef296c9adce4a98b1f44e3bdc9b92db453929be906642b59891796509f12a",
-    "ux.css": "ebeef5986abb2d2aca6da7de3d2e7521f32dcf0fe6b9f5b0da83001e26b1cf6f"
+    "discovery.js": "891a9c3156198716a8e45f9ef2706349fd6c2244c2e060e39fc17f51914ade02",
+    "guide.js": "540f6d40aacf9de5ee0eab4dc2f91ab9b898c72696fecbc712dd5635db04ad59",
+    "index.html": "e530ec67de48acf1c79d81dcf566b5754ddd162a2b64517688a86efb01bff104",
+    "server/portfolio-agent.cjs": "79a1e66a2b28ebe7d750476819cc2520a0e2ec21c47ab98562ba40bafed611d2",
+    "ux.css": "999e520508ac25192fd9435ef69ee2ef08030cb0b7cff16a8d6f9164b4e26825"
   },
   "output_sha256": "c53d6060a74cab373ce8f2a956d5217abd7398a158930fc02328719e785098a3",
   "portfolio_is_separate_project": true,

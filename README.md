@@ -22,7 +22,7 @@ I focus on conversion, retention and decision quality. These independent studies
 > **Validation update (2026-10-10):** Unicode name comparison preserves non-Latin letters; self-directed work is labeled and the missing abstain case study is added. See the [current decision brief](docs/decision-brief.md) and [reproducible analysis](analysis/README.md). Historical evidence and figures retain their original run context; this update supersedes conflicting claims below.
 
 
-Static site. No build step, no dependencies, no framework.
+Static-first portfolio. No frontend build step or framework. An optional Vercel Node function implements a bounded AI evidence assistant; it is disabled until model access, spending controls and live evaluations are complete. See [activation and verification requirements](docs/ai-assistant-release.md).
 
 ## Deploying
 
