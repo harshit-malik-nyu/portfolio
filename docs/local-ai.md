@@ -6,8 +6,10 @@ The model selects JSON actions, real shared tools run, and results are fed back 
 
 Questions are not sent to a hosted inference provider. Initial model/runtime downloads contact jsDelivr, Hugging Face and the upstream MLC model-library host, which receive ordinary request metadata. Optional caching is controlled by WebLLM/browser. Stop terminates the worker and releases its GPU resources; downloaded cache may persist. No custom CSV is sent to the model.
 
-Compatibility: secure context, WebGPU, shader-f16 and sufficient memory. The page checks required GPU features before downloading. Setup times out at ten minutes and inference at three minutes. The portfolio and deterministic workbench remain usable without the model.
+Compatibility: secure context, WebGPU and sufficient memory. Devices without shader-f16 use the upstream q4f32_1 variant (catalog estimate 1888.97 MB). The page checks required GPU features before downloading. Setup times out at ten minutes and inference at three minutes. The portfolio and deterministic workbench remain usable without the model.
 
 Validation: Node contract tests cover real tool execution, citation provenance, unknown actions, cancellation, malformed output and bounded looping. Model responses in those tests are injected fixtures, not live inference. Actual model quality requires compatible-hardware testing and is not established by passing contract tests.
 
 Primary references: https://webllm.mlc.ai/docs/user/basic_usage.html and https://webllm.mlc.ai/docs/user/advanced_usage.html .
+
+Live release check: Vercel deployment succeeded. Prompt buttons and no-download initial state were verified in the live UI. The cloud test browser returned no usable WebGPU adapter; real-model inference could not be validated in that environment. This is an experimental feature, not a verified cross-device AI release.
