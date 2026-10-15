@@ -1,0 +1,54 @@
+{
+  "arms": {
+    "control": {
+      "assigned": 1000,
+      "buyers": 200,
+      "exposed": 900,
+      "exposed_buyers": 200,
+      "exposed_only_rate": 0.2222222222222222,
+      "harmed": 20,
+      "itt_purchase_rate": 0.2,
+      "mature": 1000
+    },
+    "treatment": {
+      "assigned": 1000,
+      "buyers": 260,
+      "exposed": 600,
+      "exposed_buyers": 260,
+      "exposed_only_rate": 0.43333333333333335,
+      "harmed": 20,
+      "itt_purchase_rate": 0.26,
+      "mature": 1000
+    }
+  },
+  "as_of": "2026-01-09T00:00:00Z",
+  "causal_readiness": "UNCONFIRMED",
+  "contract_status": "PASSED",
+  "diagnostics": {
+    "duplicate_assignments": 1,
+    "duplicate_events": 1,
+    "events_outside_outcome_window": 1,
+    "outcome_events_without_prior_exposure": 0
+  },
+  "evidence": "synthetic",
+  "exposed_only_lift": 0.21111111111111114,
+  "gate_counts": {
+    "controlBuy": 200,
+    "controlHarm": 20,
+    "controlMature": 1000,
+    "controlN": 1000,
+    "treatmentBuy": 260,
+    "treatmentHarm": 20,
+    "treatmentMature": 1000,
+    "treatmentN": 1000
+  },
+  "itt_lift": 0.06,
+  "schema_version": 1,
+  "unverified": [
+    "Independent randomized assignment and stable real-person identity",
+    "Source completeness and outcome capture",
+    "Preregistered horizon and absence of optional stopping",
+    "No interference or contamination beyond the supplied logs",
+    "Business-owner approval of economic assumptions and harm ceiling"
+  ]
+}

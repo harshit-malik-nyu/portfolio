@@ -1,0 +1,13 @@
+{
+  "evidence": "synthetic",
+  "files": {
+    "decision.js": "e738453d3b66fd810fc08f3e5e6e09cbc585c600be37991943222da90d403a03",
+    "ledger/analyze.py": "f86d1bbb5be4e54c1ce35820c1d514f7659519b08d1dfefc4310bcf1092361c6",
+    "ledger/build.py": "377ce45823ab47fc1be2b8e41f0503d08bd2c99c0a7d01216bf1ad63a85bccfd",
+    "ledger/index.html": "c1bd1d2aed46ba867ae4575840c9731e2906348a005b6c710264aaa8542af243",
+    "ledger/metrics.sql": "7e25a2426bafd432288ea4040a78c3c7b8c180773759aa2dcb0ba0d01edf1b6f",
+    "ledger/output/audit.json": "7e71464baabcea6e6efdb8ea80dfd2861b55a548e6bfef598f8f3133615eb22e",
+    "ledger/output/decision.json": "181e704df853ff00cb9a5edbfd171e7da222633c17baf6668f82fea6b3e0b352",
+    "ledger/output/fixture.synthetic.json": "7780147967ebf0f2b598d6d74898b3e231aec55773028f4dcded2a33fd9944b8"
+  }
+}
