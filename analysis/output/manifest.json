@@ -3,7 +3,9 @@
   "input_sha256": {
     "analysis/questions.sql": "67c1349dd91bd50c9f17a02805cb6fb68295b63d879a3a328c3547f48f2d7908",
     "app.js": "7ba87e5500801bbd2b63faccf2203c3bd4374f1d01095d8d30b37f49ad145817",
-    "index.html": "aebaa053d576b85d17083c98fb7a05207e94add5a818284e67d98aa1479827d7"
+    "guide.js": "6c776beb9b45b442687fd834d4a864d54205eaf4672d0c990c95cc5bc4385dd8",
+    "index.html": "189ef296c9adce4a98b1f44e3bdc9b92db453929be906642b59891796509f12a",
+    "ux.css": "ebeef5986abb2d2aca6da7de3d2e7521f32dcf0fe6b9f5b0da83001e26b1cf6f"
   },
   "output_sha256": "c53d6060a74cab373ce8f2a956d5217abd7398a158930fc02328719e785098a3",
   "portfolio_is_separate_project": true,
