@@ -16,6 +16,7 @@ function plan(input,audit){
     approval:'Human review required. No launch, funding, outreach or hiring action is performed.'};
 }
 function population(mode){if(!['assigned','exposed'].includes(mode))throw Error('Unknown population.');const c=200/(mode==='assigned'?1000:900),t=260/(mode==='assigned'?1000:600);return {control:c,treatment:t,difference:t-c};}
+root.PortfolioGuide={population};
 if(typeof module!=='undefined'&&module.exports){module.exports={plan,population,goals};return;}
 const form=document.getElementById('guide-form');if(!form)return;
 const output=document.getElementById('guide-output'),exportButton=document.getElementById('guide-export');let current=null;

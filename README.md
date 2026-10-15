@@ -53,3 +53,9 @@ The [decision-assurance review](analysis/output/assurance/decision-assurance.md)
 ## Featured commerce study
 
 [Commerce conversion and investment decisions](projects/commerce-conversion/README.md) analyzes the full Retailrocket event file with an interactive dashboard, ordered funnels, mature cohorts, and a conditional funding/experiment specification. [Live dashboard](https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/).
+
+## Free on-device AI experiment
+
+The optional AI lab uses WebLLM 0.2.86 and Qwen2.5-1.5B-Instruct-q4f16_1-MLC. It downloads only after explicit opt-in and uses the visitor GPU, with no paid API calls. `evidence-tools.js` shares real read-only tools between browser and server; `local-agent.js` implements the five-step model-directed loop. The site no longer calls the server AI availability endpoint. The gated server integration remains disabled.
+
+See [local AI verification and limitations](docs/local-ai.md).
