@@ -1,5 +1,6 @@
 // No external imports or model downloads occur until the visitor opts in.
 const MODEL='Qwen2.5-1.5B-Instruct-q4f16_1-MLC';
+const COMPAT_MODEL='Qwen2.5-1.5B-Instruct-q4f32_1-MLC';
 const $=id=>document.getElementById(id),load=$('local-ai-load'),stop=$('local-ai-stop'),submit=$('local-ai-submit'),status=$('local-ai-status'),result=$('local-ai-result'),question=$('local-ai-question');
 let engine=null,worker=null,controller=null,epoch=0,busy=false,timer;
 const node=(tag,text)=>{const n=document.createElement(tag);n.textContent=text;return n;};
@@ -11,13 +12,14 @@ load.addEventListener('click',async()=>{
   status.textContent='Checking WebGPU support…';
   if(!navigator.gpu)throw Error('This browser does not expose WebGPU. Use the instant workbench or a compatible browser.');
   const adapter=await navigator.gpu.requestAdapter();if(ticket!==epoch)return;
-  if(!adapter||!adapter.features.has('shader-f16'))throw Error('This device does not expose the GPU features required by this model. The instant workbench remains available.');
+  if(!adapter)throw Error('No usable WebGPU adapter is available in this browser. The instant workbench remains available.');
+  const selectedModel=adapter.features.has('shader-f16')?MODEL:COMPAT_MODEL;
   status.textContent='Downloading model runtime, then weights. This can take several minutes…';
   timer=setTimeout(()=>{if(ticket===epoch)reset('Setup timed out after ten minutes. Retry on a compatible device or use the workbench.');},600000);
   const {CreateWebWorkerMLCEngine}=await import('https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.86/lib/index.js');if(ticket!==epoch)return;
   worker=new Worker('/local-ai-worker.js',{type:'module'});
   worker.addEventListener('error',()=>{if(ticket===epoch)reset('Model worker could not start. Check network and browser compatibility; the workbench is available.');});
-  const loaded=await CreateWebWorkerMLCEngine(worker,MODEL,{initProgressCallback:progress=>{if(ticket===epoch)status.textContent=progress.text;}},{context_window_size:4096});
+  const loaded=await CreateWebWorkerMLCEngine(worker,selectedModel,{initProgressCallback:progress=>{if(ticket===epoch)status.textContent=progress.text;}},{context_window_size:4096});
   if(ticket!==epoch)return;engine=loaded;clearTimeout(timer);busy=false;load.hidden=true;submit.disabled=false;status.textContent='Model ready on this device. Questions are processed locally. Choose a prompt or write your own.';
  }catch(error){if(ticket===epoch)reset('Local AI unavailable: '+error.message);}
 });

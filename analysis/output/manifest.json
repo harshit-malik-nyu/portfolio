@@ -10,7 +10,7 @@
     "index.html": "efba1469c86173f7a47fa4ebb18a9c202fa2cb8762e1ed01a2a7a80f7d16608f",
     "local-agent.js": "68af8390f20f8188b4798831b0f1811c45c168b329a356d0abd69ee42abb1ed1",
     "local-ai-worker.js": "1045331355c31fe252a40e2f60bf1d15b26774091b921cdf4cbf868149b0af92",
-    "local-ai.js": "5bad63c867afc6821c155634cb3790c21cb99c13675856e1b1b09a0ed1317f20",
+    "local-ai.js": "24af2e4f750d767bf3ddad3ce2424f5caecadcb3205aed11074a639a357475ea",
     "server/portfolio-agent.cjs": "1dd48551c5ea508e5cf7b3094f3aeb98852d7b9eac8921a9b4604336071e3ef6",
     "ux.css": "a8615be830c81a0673349529cbb8778d7052a990cf755f96a55751776bc2c0eb"
   },
