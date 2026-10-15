@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=1bdef0cc29fc">
+<link rel="stylesheet" href="/ux.css?v=20261015">
 <script>
   /* Runs before paint: stops the browser restoring an old scroll position and
      stops a fragment in the URL jumping the page before the stylesheet lands. */
@@ -38,68 +39,50 @@
 
 <header class="masthead">
   <div class="wrap masthead-inner">
-    <span class="masthead-name">Harshit Malik</span>
-    <nav class="masthead-nav">
+    <a class="masthead-name" href="/">Harshit Malik</a>
+    <nav class="masthead-nav" aria-label="Main navigation">
       <a href="#work">Work</a>
-      <a href="evidence.html">Evidence</a>
-      <a href="#leadership">Leadership</a>
+      <a href="#guide">AI workflow</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ============================ HERO ============================ -->
-<section class="hero">
-  <div class="wrap">
-
-    <div class="identity">
-      <div class="identity-who">
-        <img class="portrait" src="harshit.jpg" width="96" height="96"
-             alt="Harshit Malik" loading="eager" decoding="async">
-        <div>
-          <h1 class="hero-name">Harshit Malik</h1>
-          <p class="hero-role">Product &amp; commercial analytics · SQL, Python · New York</p>
-        </div>
-      </div>
-    </div>
-
-
-
-    <h2 class="hero-title">Understand conversion.<br>Make the next decision defensible.</h2>
-    <p class="value-intro">I connect SQL and Python analysis to product and business decisions: where customers drop off, which changes justify their cost, and when the evidence is too weak to act.</p>
-    <p class="value-context">At Evovance, I automated weekly cohort reporting from 10 hours to 6 and standardized A/B workflows, reducing setup-to-readout time by 35%. My independent portfolio makes the analytical methods available to inspect.</p>
-    <div class="value-actions"><a class="btn" href="role-evidence.html">Review evidence for your role</a><a href="projects/commerce-conversion/readout.html">Read the decision in two minutes</a><a class="btn" href="tools/event-audit/">Try the event audit on your data</a><a href="evidence.html">Inspect the evidence</a><a class="btn" href="projects/commerce-conversion/">Explore commerce analytics</a><a href="projects/commerce-conversion/operations/">Inspect reporting reliability</a><a href="#experience">See experience</a></div>
-    <div class="summary">
-      <p class="summary-lead">Three questions I can help a team answer.</p>
-      <div class="summary-grid value-grid">
-        <div class="sum-item"><p class="sum-figure">Where is the opportunity?</p><p class="sum-text">Trace 2.76 million recorded commerce events into purchase funnels and mature return cohorts.</p></div>
-        <div class="sum-item"><p class="sum-figure">Is it worth funding?</p><p class="sum-text">Compare alternatives, contribution margin, fixed cost and the lift needed to break even.</p></div>
-        <div class="sum-item"><p class="sum-figure">Can we trust the result?</p><p class="sum-text">Challenge six synthetic experiments with assignment, follow-up, economic and harm gates.</p></div>
-      </div>
-      <p class="summary-foot">One featured commerce decision system and ten supporting research studies with source code, methods and decision briefs. Observed data, synthetic demonstrations and financial assumptions are labeled separately.</p>
-    </div>
-
+<!-- A concise introduction and three visual entry points. -->
+<section class="hero hero-v2"><div class="wrap hero-layout">
+  <div class="hero-copy">
+    <div class="identity-who"><img class="portrait" src="harshit.jpg" width="64" height="64" alt="Harshit Malik" loading="eager" decoding="async"><div><p class="hero-name">Harshit Malik</p><p class="hero-role">Data · Business · Product / New York</p></div></div>
+    <h1 class="hero-title">Better decisions.<br><em>Traceable evidence.</em></h1>
+    <p class="hero-deck">I turn messy data into clear product and business decisions. Explore the analysis, change an assumption, and inspect what holds up.</p>
+    <div class="hero-actions"><a class="primary-action" href="#work">Explore selected work <span aria-hidden="true">↗</span></a><a href="#guide">Build a guided review →</a></div>
+    <p class="hero-proof">SQL &amp; Python · Editable models · Reproducible methods</p>
   </div>
-</section>
-
-<!-- ============================ WORK ============================ -->
+  <aside class="decision-preview" aria-labelledby="preview-title">
+    <p class="micro-label">A 20-second analytical challenge</p><h2 id="preview-title">Same purchases.<br>Different conclusion?</h2>
+    <div class="preview-switch" aria-label="Comparison population"><button type="button" data-population="assigned" aria-pressed="true">All assigned</button><button type="button" data-population="exposed" aria-pressed="false">Exposed only</button></div>
+    <div id="population-result" aria-live="polite" aria-atomic="true"><div class="preview-number">6.00<span>percentage points</span></div><p>20.00% control → 26.00% treatment. Every assigned visitor stays in the denominator.</p></div>
+    <div class="preview-bars" aria-hidden="true"><i id="preview-control" style="--bar:20%"></i><i id="preview-treatment" style="--bar:26%"></i></div>
+    <p class="preview-caption">Synthetic selection example. Descriptive differences, not a proven treatment effect.</p><a href="/projects/commerce-conversion/experiment/ledger/">Trace the result to SQL →</a>
+  </aside>
+</div></section>
 <main id="work">
-
-<section class="role-paths" aria-labelledby="role-paths-heading">
-  <div class="wrap">
-    <p class="exhibit">Choose a reading path</p>
-    <h2 id="role-paths-heading" class="section-title">Start with the decision you need to assess.</h2>
-    <div class="role-path-grid">
-      <div><h3>Data analysis</h3><p>Check the denominator, uncertainty, and reproducibility.</p><p><a href="projects/commerce-conversion/reporting/output/full/manifest.json">Full-source reconciliation</a> · <a href="projects/commerce-conversion/operations/">Reporting reliability</a> · <a href="#commerce-conversion">Commerce SQL and cohorts</a> · <a href="#abstain" onclick="document.getElementById('supporting-studies').open = true">Calibrated stopping</a></p></div>
-      <div><h3>Business analysis</h3><p>Compare alternatives, costs, capacity, and the conditions that change the recommendation.</p><p><a href="projects/commerce-conversion/readout.html">Commerce decision readout</a> · <a href="https://github.com/harshit-malik-nyu/portfolio/blob/main/projects/commerce-conversion/operations/requirements.md">Requirements and acceptance</a> · <a href="#sanctions-triage" onclick="document.getElementById('supporting-studies').open = true">Review operations</a> · <a href="#lineage" onclick="document.getElementById('supporting-studies').open = true">Review prioritization</a></p></div>
-      <div><h3>Product analysis</h3><p>Inspect workflow funnels, cohort denominators, and a launch decision that respects quality.</p><p><a href="projects/commerce-conversion/experiment/">Experiment decision lab</a> · <a href="#commerce-conversion">Purchase funnel and retention</a> · <a href="#agentcost" onclick="document.getElementById('supporting-studies').open = true">Human review workflow</a> · <a href="#evaldrift" onclick="document.getElementById('supporting-studies').open = true">Release decisions</a></p></div>
-    </div>
-    <p class="role-evidence-note">Self-directed studies. Domain evidence, illustrative economics, and synthetic product QA are labeled separately. Synthetic journeys demonstrate analysis methods, not real adoption or business impact.</p>
+<section class="selected-work"><div class="wrap">
+  <div class="section-heading"><div><p class="micro-label">Selected work / three ways in</p><h2>Choose a problem.<br>Inspect the answer.</h2></div><a href="/role-evidence">Full evidence by role ↗</a></div>
+  <div class="work-cards">
+    <a class="work-card" href="/projects/commerce-conversion/"><div class="card-art art-funnel" aria-hidden="true"><span style="--w:100%"></span><span style="--w:78%"></span><span style="--w:48%"></span><span style="--w:25%"></span><small>JOURNEY → DECISION</small></div><div class="card-copy"><p class="micro-label">01 / Data + business</p><h3>Where should we invest?</h3><p>Explore historical purchase journeys and change the assumptions behind a funding decision.</p><span class="card-link">Explore commerce analytics ↗</span></div></a>
+    <a class="work-card" href="/tools/event-audit/"><div class="card-art art-audit" aria-hidden="true"><span>01 <b>Identity</b><i>CHECK</i></span><span>02 <b>Timestamp</b><i>CHECK</i></span><span>03 <b>Taxonomy</b><i>CHECK</i></span><small>LOCAL INPUT → AUDIT</small></div><div class="card-copy"><p class="micro-label">02 / Data + product</p><h3>Can we trust the events?</h3><p>Audit a CSV locally for conflicting identities, invalid timestamps and unexpected event names.</p><span class="card-link">Try the event audit ↗</span></div></a>
+    <a class="work-card" href="/projects/commerce-conversion/experiment/ledger/"><div class="card-art art-decision" aria-hidden="true"><strong>6.00<span>vs</span>21.11</strong><p>Same source. Different denominator.</p><small>SYNTHETIC MEASUREMENT CASE</small></div><div class="card-copy"><p class="micro-label">03 / Product + business</p><h3>Does the result justify rollout?</h3><p>See how selection changes the answer, then trace a hold decision through SQL and business criteria.</p><span class="card-link">Inspect the decision case ↗</span></div></a>
+  </div><p class="work-scope">One connected commerce study, practical tools, and ten supporting research studies. Historical observations and synthetic examples are labeled at the source.</p>
+</div></section>
+<section class="guide-section" id="guide"><div class="wrap guide-layout">
+  <div><p class="micro-label">Agentic AI / inspect the workflow</p><h2>A guide that shows<br>its work.</h2><p>Choose your goal. This demo creates a review plan, runs the event-audit tool on a synthetic sample, and adjusts the next step to the result.</p><p class="guide-disclosure"><strong>Local, rule-based demonstration.</strong> No language model, chat service or autonomous outreach. It illustrates planning, tool execution and a safety gate; it does not claim to be an AI model.</p><a href="#agentcost" data-open-study="agentcost">Explore the AI workflow research ↗</a></div>
+  <div class="guide-panel"><form id="guide-form"><div class="guide-fields"><label>Review perspective<select id="guide-role"><option value="data">Data analyst</option><option value="business">Business analyst</option><option value="product">Product analyst</option></select></label><label>Business question<select id="guide-goal"><option value="reliability">Can I trust the reporting?</option><option value="investment">Is a change worth funding?</option><option value="measurement">Did the product change work?</option></select></label><label>Test the tool on<select id="guide-sample"><option value="clean">Valid synthetic records</option><option value="conflict">Conflicting event identity</option></select></label></div><button class="primary-action" type="submit">Run the review workflow <span aria-hidden="true">→</span></button></form>
+    <div id="guide-output" aria-live="polite" aria-atomic="true"><p class="guide-empty">Your plan, tool result and recommended evidence will appear here. All processing happens in this tab.</p></div><button type="button" id="guide-export" class="text-button" disabled>Download this review plan ↓</button><noscript><p>This guide needs JavaScript. You can still <a href="/role-evidence">browse the role evidence directly</a>.</p></noscript>
   </div>
-</section>
+</div></section>
 
-
+<details class="technical-details"><summary>Go deeper: commerce findings, methods and source limitations</summary>
 <article class="project" id="commerce-conversion">
   <div class="wrap">
     <header class="project-head">
@@ -114,6 +97,7 @@
   </div>
 </article>
 
+</details>
 <details class="supporting-studies" id="supporting-studies"><summary><span>Supporting research</span><strong>Explore ten studies in AI evaluation, risk and decision quality</strong><span>Expand for source code, interactive tools and methods.</span></summary>
 <article class="project project-alt" id="abstain">
   <div class="wrap">
@@ -466,13 +450,14 @@
 </article>
 
 </details>
+<details class="technical-details"><summary>Developer tools: optional local interaction QA</summary>
 <section class="project" aria-labelledby="metrics-heading"><div class="wrap">
 <h2 id="metrics-heading">Inspect the tools locally</h2>
 <p>Optional QA recording counts calculation interactions in this tab only. Nothing is sent or saved automatically. Input values and names are never recorded. These events measure tool renders, not hiring interest or comprehension.</p>
 <button class="btn" id="metrics-enable" type="button">Enable local QA recording</button>
 <button class="btn" id="metrics-export" type="button">Export local events</button>
 <button class="btn" id="metrics-clear" type="button">Clear and stop</button>
-</div></section>
+</div></section></details>
 </main>
 
 <!-- ============================ EXPERIENCE ============================ -->
@@ -612,9 +597,11 @@
   try { id = decodeURIComponent(id); } catch (_) {}
   var target = document.getElementById(id);
   var section = document.getElementById("supporting-studies");
-  if (target && section && section.contains(target)) section.open = true;
+  if (target) { var parent = target.parentElement; while (parent) { if (parent.tagName === 'DETAILS') parent.open = true; parent = parent.parentElement; } }
 })();
 </script>
 <script src="app.js?v=7ba87e550080"></script>
+<script src="/tools/event-audit/audit.js"></script>
+<script src="/guide.js?v=20261015"></script>
 </body>
 </html>
