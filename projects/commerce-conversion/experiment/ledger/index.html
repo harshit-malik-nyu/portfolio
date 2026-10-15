@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>When the denominator changes the decision · Harshit Malik</title>
+<meta name="description" content="Inspect a synthetic assignment ledger, SQL metric audit and business decision about exposure filtering.">
+<link rel="stylesheet" href="/tools/event-audit/style.css">
+<style>table{width:100%;border-collapse:collapse}th,td{padding:12px;text-align:left;border-bottom:1px solid #cbd7d8}.scroll{overflow:auto}th{white-space:nowrap}</style></head>
+<body><main><nav><a href="/role-evidence">Three-role evidence</a><a href="/projects/commerce-conversion/experiment/">Experiment decision lab</a></nav>
+<p class="eyebrow">DATA + BUSINESS + PRODUCT / SYNTHETIC CASE</p>
+<h1>Same purchases.<br>A very different recommendation.</h1>
+<p class="lead">Filtering to exposed visitors makes the observed purchase-rate difference look like 21.11 percentage points. Keeping every assigned visitor gives 6.00 points.</p>
+<p><strong>Recommendation: hold rollout.</strong> Retain all assignments in the primary analysis, investigate the exposure difference, and establish design and logging validity before interpreting an effect.</p>
+<p class="hint">All people, assignments and outcomes here are invented. This is a deliberately constructed selection example, not a randomized trial or an estimate of a real treatment effect.</p>
+<section id="data"><h2>1. Trace the denominator</h2><div class="scroll"><table><thead><tr><th>Measure</th><th>Control</th><th>Treatment</th></tr></thead><tbody>
+<tr><td>Assigned visitors</td><td>1,000</td><td>1,000</td></tr>
+<tr><td>Visitors with logged exposure</td><td>900</td><td>600</td></tr>
+<tr><td>Purchasers within seven days</td><td>200</td><td>260</td></tr>
+<tr><td>All-assigned purchase rate</td><td>20.00%</td><td>26.00%</td></tr>
+<tr><td>Exposed-only purchase rate</td><td>22.22%</td><td>43.33%</td></tr>
+</tbody></table></div>
+<p>Every purchaser in this constructed example has exposure. The difference comes from excluding nonpurchasers unequally. Exposure is a post-assignment condition, so the exposed-only populations are not interchangeable with the assigned populations.</p>
+<p><a href="/projects/commerce-conversion/experiment/ledger/output/audit.json">Inspect aggregate audit</a> · <a href="https://github.com/harshit-malik-nyu/portfolio/blob/main/projects/commerce-conversion/experiment/ledger/metrics.sql">Read the SQL</a> · <a href="/projects/commerce-conversion/experiment/ledger/output/fixture.synthetic.json" download>Download synthetic source</a></p></section>
+<section id="business"><h2>2. Explain the business consequence</h2>
+<p>Assume 10,000 future eligible visitors, $80 per incremental order, 35% contribution margin, $1,000 fixed cost and one incremental order per additional buyer. Applying the all-assigned descriptive difference produces $15,800 modeled net contribution. Applying the selected-population difference produces $58,111.</p>
+<p><strong>The $42,311 gap is an illustration of model sensitivity, not money earned or lost.</strong> Neither projection is approved: causal validity, future audience comparability, costs and the harm ceiling remain unverified.</p>
+<p><a href="https://github.com/harshit-malik-nyu/portfolio/blob/main/projects/commerce-conversion/experiment/ledger/decision-record.md">Read alternatives, change request and acceptance responsibilities</a></p></section>
+<section id="product"><h2>3. Separate a passing data check from permission to ship</h2>
+<p>Log contract: <strong>PASSED</strong>. Decision engine: <strong>INVALID / NOT READY</strong>.</p>
+<p>The pipeline checks assignment consistency, event identity, cross-arm records, timestamps, duplicate delivery and the seven-day window. It keeps unexposed and immature assignments. It cannot prove that missing events were captured, people were independently randomized, or an analysis plan existed before results were seen.</p>
+<p><a href="/projects/commerce-conversion/experiment/ledger/output/decision.json">Inspect the exact gate handoff</a> · <a href="/projects/commerce-conversion/experiment/ledger/output/manifest.json">Verify artifact hashes</a></p></section>
+<section><h2>Challenge the work</h2><p>Move a purchase to exactly day seven, replay an event, insert an event in the other arm, or analyze before follow-up ends. Inspect whether the output excludes the boundary event, preserves counts, rejects contamination, and retains immature assignments.</p>
+<p><a href="https://github.com/harshit-malik-nyu/portfolio/tree/main/projects/commerce-conversion/experiment/ledger">Runbook and regression tests</a></p></section>
+<footer>Independent, AI-assisted work sample. Synthetic validation demonstrates methods, not employer adoption or candidate interview performance.</footer>
+</main></body></html>

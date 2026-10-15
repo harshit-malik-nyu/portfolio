@@ -4,6 +4,10 @@ A runnable review of six **synthetic** fixed-horizon experiments, connecting dat
 
 Live: https://portfolio-lac-five-10.vercel.app/projects/commerce-conversion/experiment
 
+## Start below the aggregate counts
+
+The [assignment-to-decision case](ledger/README.md) adds a row-level synthetic source, SQL population audit, adversarial regression checks and a [business change record](ledger/decision-record.md). Its [browser readout](ledger/index.html) shows why exposure selection changes a descriptive difference from 6 to 21.11 percentage points. Audited counts feed this decision engine with design assertions deliberately unconfirmed. Passing a log contract does not establish experiment validity.
+
 ## Decision contract
 
 - Unit: independently randomized visitor, assigned once to one arm, 50:50 allocation. Purchase and harm are binary visitor outcomes within seven days of assignment; retain all assigned visitors (intention to treat).

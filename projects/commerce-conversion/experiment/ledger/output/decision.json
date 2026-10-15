@@ -1,0 +1,45 @@
+{
+  "evidence": "synthetic; assumed economics; unverified design",
+  "inputs": {
+    "aov": 80,
+    "controlBuy": 200,
+    "controlHarm": 20,
+    "controlMature": 1000,
+    "controlN": 1000,
+    "cost": 1000,
+    "fixedHorizon": false,
+    "futureVisitors": 10000,
+    "identityChecked": false,
+    "instrumentationChecked": false,
+    "margin": 0.35,
+    "maxHarm": 0.005,
+    "treatmentBuy": 260,
+    "treatmentHarm": 20,
+    "treatmentMature": 1000,
+    "treatmentN": 1000
+  },
+  "result": {
+    "blockers": [
+      "The predeclared fixed analysis horizon has not been reached.",
+      "Independent visitor identity and no arm crossover are unconfirmed.",
+      "Assignment and outcome instrumentation checks are unconfirmed."
+    ],
+    "breakEven": 0.0035714285714285713,
+    "decision": "INVALID / NOT READY",
+    "economicPass": false,
+    "guardrailPass": false,
+    "harm": 0,
+    "harmInterval": [
+      -0.022836226631584237,
+      0.022836226631584237
+    ],
+    "lift": 0.06,
+    "liftInterval": [
+      -0.00649225273529952,
+      0.1257482701783333
+    ],
+    "netLower": -2817.8307658838653,
+    "netPoint": 15800,
+    "srmP": 1
+  }
+}

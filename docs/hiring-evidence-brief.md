@@ -16,6 +16,8 @@ When reports disagree, teams can prioritize the wrong change. When an experiment
 
 ## A result a reviewer can trace
 
+The [assignment-to-decision investigation](../projects/commerce-conversion/experiment/ledger/index.html) adds an integrated three-role exercise. SQL retains every assigned visitor; the product analysis diagnoses selection from unequal exposure; the business record evaluates a denominator change and its conditional financial consequence. Inputs are explicitly synthetic. The technical contract passes while the release decision remains blocked by unverified design. This distinction demonstrates evidence handling rather than inventing a successful experiment.
+
 The [historical manifest](../projects/commerce-conversion/reporting/output/full/manifest.json) records 2,756,101 raw rows, 460 collapsed duplicates, 2,755,641 distinct events, 22,457 transaction item rows and 17,672 orders. Twelve reconciliation checks pass in that recorded run. The report covers 139 observed UTC dates in 2015. Source and output hashes support reproducibility; they are not external validation.
 
 The distinction between item rows and orders is a concrete analytical decision. So is refusing to sum daily visitors into period-unique visitors. Neither finding demonstrates financial savings: the source has no prices or margins. The Retailrocket-derived artifacts retain their documented noncommercial/share-alike licensing limits.

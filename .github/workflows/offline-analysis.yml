@@ -26,6 +26,9 @@ jobs:
       - run: python projects/commerce-conversion/analyze.py
       - run: python projects/commerce-conversion/build_site.py
       - run: node projects/commerce-conversion/experiment/build.cjs
+      - run: python projects/commerce-conversion/experiment/ledger/test_ledger.py
+      - run: python projects/commerce-conversion/experiment/ledger/build.py
+      - run: git diff --exit-code -- projects/commerce-conversion/experiment/ledger/output projects/commerce-conversion/experiment/ledger/index.html
       - run: python projects/commerce-conversion/reporting/test_reporting.py
       - run: python projects/commerce-conversion/reporting/build.py
       - run: python projects/commerce-conversion/reporting/verify.py
