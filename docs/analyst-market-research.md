@@ -2,6 +2,18 @@
 
 Reviewed October 14, 2026. Purpose: distinguish broad skills demand from a few selected job descriptions, and choose inspectable work samples. This is not an estimate of interview odds, a candidate ranking, or evidence of employer interest in this candidate.
 
+## October 14 extension: broader employer evidence and its implications
+
+[NACE's April 20 skills article](https://www.naceweb.org/talent-acquisition/candidate-selection/the-key-skills-employers-seek-on-college-students-resumes) identifies teamwork, problem solving and communication as leading priorities. More than half of respondents cited more than ten skills. Its spring survey had 185 organizations, including 142 members (19.9% of eligible member respondents) and 43 nonmembers. This supports a majority **among responding college recruiters**, not a majority of all employers. Examples and interview explanations matter; a longer skills list does not establish proficiency.
+
+The [GMAC 2026 Corporate Recruiters Survey](https://www.gmac.com/-/media/files/gmac/research/employment-outlook/2026-corporate-recruiters-survey/report.pdf?rev=393c8c8d983f401cb3e97638717b7ed3), surveyed January–May, adds a different population: 621 recruiters across 39 countries recruiting MBA/business master's graduates. Global results are GDP-weighted. Its narrative ranks communication and problem solving highest, adaptability third and data interpretation fourth. AI-tool skills rank fourteenth, despite growth. It also reports reduced US openness to international hiring. These findings are not analyst-only, OPT-specific or a hiring probability for this candidate. The practical inference is to show judgment about outputs and adaptation, rather than treating AI-generated artifact volume as employability.
+
+[GitLab's Product Analyst framework](https://handbook.gitlab.com/job-description-library/product/product-analyst/) adds task-level specificity: KPI ownership, adoption/retention/monetization analysis, experiment evaluation, caveat communication and discoverable documentation. It is a role framework, not a verified vacancy. Attentive 4118958009 redirected to the general board when checked and is excluded from current-vacancy evidence.
+
+**Implementation decision:** add a short problem-first route to the role evidence page and a linked [hiring evidence brief](hiring-evidence-brief.md). Give reviewers a concrete reconciled result, direct paths to three responsibilities, and a live ownership review. This changes how evidence is presented, not the underlying analytical results. No reduction in review time or improvement in hiring conversion has been measured.
+
+**Remaining gaps cannot be closed by relabeling:** a custom dashboard is not native BI-platform experience; a synthetic experiment is not a shipped experiment; documented acceptance criteria are not stakeholder acceptance; an assistant-authored answer is not observed candidate execution. A stronger artifact can reduce evaluation effort, but it cannot independently produce an employer's decision. Additional autonomous development should target a verified missing capability, not an arbitrary requirement to make a self-assigned score equal ten.
+
 ## Population evidence: software mentioned in US postings
 
 O*NET publishes Lightcast-derived percentages of unique US postings mapped to an occupational category. The current tables cover **January–December 2025**, not October 2026 vacancies. Percentages measure explicit mentions, not proficiency levels or the percentage of all employers requiring a skill. A posting can mention several tools. Do not add percentages to infer a union.
