@@ -20,7 +20,9 @@ if(typeof module!=='undefined'&&module.exports){module.exports={plan,population,
 const form=document.getElementById('guide-form');if(!form)return;
 const output=document.getElementById('guide-output'),exportButton=document.getElementById('guide-export');let current=null;
 function el(tag,text){const node=document.createElement(tag);node.textContent=text;return node;}
-function invalidate(){current=null;exportButton.disabled=true;output.replaceChildren(el('p','Settings changed. Run the workflow to generate a new review plan.'));document.getElementById('guide-custom').hidden=document.getElementById('guide-sample').value!=='custom';}
+function settingsKey(){return ['guide-role','guide-goal','guide-sample','guide-csv'].map(id=>document.getElementById(id).value).join('\u0000');}
+let lastSettings=settingsKey();
+function invalidate(){const key=settingsKey();if(key===lastSettings)return;lastSettings=key;current=null;exportButton.disabled=true;output.replaceChildren(el('p','Settings changed. Run the workflow to generate a new review plan.'));document.getElementById('guide-custom').hidden=document.getElementById('guide-sample').value!=='custom';}
 form.addEventListener('change',invalidate);form.addEventListener('input',invalidate);
 form.addEventListener('submit',event=>{event.preventDefault();current=null;exportButton.disabled=true;try{
   if(!root.EventAudit)throw Error('The local audit tool is unavailable. Use the direct project links instead.');
