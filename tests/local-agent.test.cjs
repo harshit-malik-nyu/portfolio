@@ -29,3 +29,6 @@ test('synthetic audit cannot stand in for attached CSV',async()=>{
 test('invalid input and multibyte CSV over the byte budget are rejected before model calls',async()=>{
  for(const csv of ['',null,'é'.repeat(25001)])await assert.rejects(investigate('Audit',()=>{throw Error('Model must not run');},{csv}),/50,000/);
 });
+test('malformed attached CSV reports an actionable parse failure without another inference',async()=>{
+ let calls=0;await assert.rejects(investigate('Check rows',async()=>{calls++;return action('audit_input');},{csv:'wrong,header\na,b'}),/Missing required column: event_id/);assert.equal(calls,1);
+});

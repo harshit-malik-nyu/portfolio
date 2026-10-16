@@ -43,7 +43,7 @@ $('local-ai-form').addEventListener('submit',async event=>{
  let completedTools=0;const trace=node('details','');trace.open=true;trace.append(node('summary','Live tool results'));result.append(trace);
  timer=setTimeout(()=>{if(ticket===epoch)reset('Investigation stopped after three minutes. Tool results remain available.');},180000);
  try{
-  const answer=await window.LocalAgent.investigate(submittedQuestion,async payload=>{const reply=await engine.chat.completions.create(payload);return {content:reply.choices?.[0]?.message?.content,origin:reply.decisionOrigin};},{signal,csv:attachedCsv,onStep:step=>{const detail=node('details','');detail.append(node('summary',step.tool+' · '+step.decisionOrigin),node('pre',JSON.stringify(step,null,2)));trace.append(detail);completedTools++;status.textContent='Completed '+completedTools+' tool steps. Continuing the local investigation…';}});
+  const answer=await window.LocalAgent.investigate(submittedQuestion,async payload=>{const reply=await engine.chat.completions.create(payload);return {content:reply.choices?.[0]?.message?.content,origin:reply.decisionOrigin||(modelLabel.includes('GPU')?'model-selected':'model-output')};},{signal,csv:attachedCsv,onStep:step=>{const detail=node('details','');detail.append(node('summary',step.tool+' · '+step.decisionOrigin),node('pre',JSON.stringify(step,null,2)));trace.append(detail);completedTools++;status.textContent='Completed '+completedTools+' tool steps. Continuing the local investigation…';}});
   if(ticket!==epoch)return;
   const cpu=modelLabel.includes('CPU'),explanation=node('div','');
   const metrics=node('div','');metrics.className='investigation-metrics';
