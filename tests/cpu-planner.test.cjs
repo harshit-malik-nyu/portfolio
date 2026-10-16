@@ -45,7 +45,7 @@ test('input audit allows a model-selected follow-up and preserves provenance',as
  const csv='event_id,user_id,event,timestamp\na,u1,view,2026-01-01T00:00:00Z\na,u2,view,2026-01-01T00:00:00Z';
  const result=await investigate('Check this input and identify recovery evidence',async({messages})=>{
   const options=p.allowedSelections(messages);let choice=options[0];
-  if(options.length>1){assert.deepEqual(options,[0,4,5]);choice=5;followups++;assert.match(p.decisionPrompt(messages)[1].content,/BLOCKED/);}
+  if(options.length>1){assert.deepEqual(options,[4,5]);choice=5;followups++;assert.match(p.decisionPrompt(messages)[1].content,/BLOCKED/);}
   return {content:choice===0?JSON.stringify({action:'answer',argument:'',answer:p.evidenceBrief(messages),sourceIds:p.sourceIds(messages)}):p.toolAction(choice),origin:options.length>1?'model-selected':'application-required'};
  },{csv});
  assert.equal(followups,1);assert.equal(result.trace[2].decisionOrigin,'model-selected');assert.equal(result.trace[2].arguments.id,'operations');

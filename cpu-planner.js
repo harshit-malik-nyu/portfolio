@@ -21,7 +21,7 @@ function allowedSelections(messages){
  if(ids.includes('ledger')&&!done.has(7))return [7];
  if(ids.includes('audit')&&!done.has(8)&&!done.has(9)&&!done.has(10))return [8,9];
  // After a real input audit, the model may choose one useful follow-up evidence read.
- if(done.has(10)&&done.size===2)return [0,4,5];
+ if(done.has(10)&&done.size===2)return /\b(recovery|acceptance|reporting|follow.up|next step)\b/i.test(messages[1].content)?[4,5]:[0,4,5];
  // At most two voluntary tool choices; required validation tools above still run.
  if(done.size>=2)return [0];
  return [0,1,2,3,4,5,6,7,8,9].filter(i=>!done.has(i));
