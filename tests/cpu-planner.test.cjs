@@ -40,3 +40,15 @@ test('combined experiment and audit retains final executed findings without trun
  assert.match(result.answer,/0 provisionally valid unique records/);
  assert.deepEqual(result.sources.map(s=>s.id),['ledger','audit']);
 });
+test('input audit allows a model-selected follow-up and preserves provenance',async()=>{
+ const {investigate}=require('../local-agent.js');let followups=0;
+ const csv='event_id,user_id,event,timestamp\na,u1,view,2026-01-01T00:00:00Z\na,u2,view,2026-01-01T00:00:00Z';
+ const result=await investigate('Check this input and identify recovery evidence',async({messages})=>{
+  const options=p.allowedSelections(messages);let choice=options[0];
+  if(options.length>1){assert.deepEqual(options,[0,4,5]);choice=5;followups++;assert.match(p.decisionPrompt(messages)[1].content,/BLOCKED/);}
+  return {content:choice===0?JSON.stringify({action:'answer',argument:'',answer:p.evidenceBrief(messages),sourceIds:p.sourceIds(messages)}):p.toolAction(choice),origin:options.length>1?'model-selected':'application-required'};
+ },{csv});
+ assert.equal(followups,1);assert.equal(result.trace[2].decisionOrigin,'model-selected');assert.equal(result.trace[2].arguments.id,'operations');
+ assert.match(result.answer,/Executed visitor-input audit: BLOCKED/);assert.doesNotMatch(result.answer,/Executed synthetic audit/);
+ assert.equal(p.parseSelection('A'),10);assert.equal(p.selectionToken(10),'A');
+});

@@ -26,6 +26,10 @@ function execute(name,args){
   }
   throw Error('Tool is not permitted.');
 }
-const api={evidence,execute};
+function auditInput(csv){
+ if(typeof csv!=='string'||!csv.trim()||new TextEncoder().encode(csv).length>50000)throw Error('Attach CSV text of 1–50,000 bytes.');
+ return {provenance:'Visitor-supplied CSV; source authenticity not verified',...audit(csv,['view','addtocart','transaction'])};
+}
+const api={evidence,execute,auditInput};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.EvidenceTools=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
