@@ -4,7 +4,8 @@ const COMPAT_MODEL='Qwen2.5-1.5B-Instruct-q4f32_1-MLC';
 const $=id=>document.getElementById(id),load=$('local-ai-load'),stop=$('local-ai-stop'),submit=$('local-ai-submit'),status=$('local-ai-status'),result=$('local-ai-result'),question=$('local-ai-question');
 let engine=null,worker=null,controller=null,epoch=0,busy=false,timer;
 const node=(tag,text)=>{const n=document.createElement(tag);n.textContent=text;return n;};
-function reset(message){epoch++;controller?.abort();controller=null;worker?.terminate();worker=null;engine=null;busy=false;clearTimeout(timer);load.disabled=false;load.hidden=false;stop.hidden=true;submit.disabled=true;result.removeAttribute('aria-busy');status.textContent=message;}
+function lockQuestion(locked){question.disabled=locked;for(const b of document.querySelectorAll('[data-ai-question]'))b.disabled=locked;}
+function reset(message){epoch++;controller?.abort();controller=null;worker?.terminate();worker=null;engine=null;busy=false;clearTimeout(timer);load.disabled=false;load.hidden=false;stop.hidden=true;submit.disabled=true;lockQuestion(false);result.removeAttribute('aria-busy');status.textContent=message;}
 stop.addEventListener('click',()=>reset('Stopped. GPU memory released. Downloaded files may remain in your browser cache.'));
 load.addEventListener('click',async()=>{
  if(busy)return;busy=true;const ticket=++epoch;load.disabled=true;stop.hidden=false;
@@ -26,13 +27,14 @@ load.addEventListener('click',async()=>{
 for(const button of document.querySelectorAll('[data-ai-question]'))button.addEventListener('click',()=>{question.value=button.dataset.aiQuestion;question.focus();});
 $('local-ai-form').addEventListener('submit',async event=>{
  event.preventDefault();if(!engine||busy)return;busy=true;submit.disabled=true;controller=new AbortController();const ticket=epoch;const signal=controller.signal;
- result.replaceChildren();result.setAttribute('aria-busy','true');status.textContent='Investigating locally. Tool results appear as they run…';
+ const submittedQuestion=question.value;
+ lockQuestion(true);result.replaceChildren(node('h3','Investigating'),node('p',submittedQuestion));result.setAttribute('aria-busy','true');status.textContent='Investigating locally. Tool results appear as they run…';
  const trace=node('details','');trace.open=true;trace.append(node('summary','Live tool results'));result.append(trace);
  timer=setTimeout(()=>{if(ticket===epoch)reset('Investigation stopped after three minutes. Tool results remain available.');},180000);
  try{
-  const answer=await window.LocalAgent.investigate(question.value,async payload=>{const reply=await engine.chat.completions.create(payload);return reply.choices?.[0]?.message?.content;},{signal,onStep:step=>{const detail=node('details','');detail.append(node('summary',step.tool),node('pre',JSON.stringify(step,null,2)));trace.append(detail);}});
+  const answer=await window.LocalAgent.investigate(submittedQuestion,async payload=>{const reply=await engine.chat.completions.create(payload);return reply.choices?.[0]?.message?.content;},{signal,onStep:step=>{const detail=node('details','');detail.append(node('summary',step.tool),node('pre',JSON.stringify(step,null,2)));trace.append(detail);}});
   if(ticket!==epoch)return;
   const explanation=node('div','');explanation.append(node('h3','AI interpretation'),node('p',answer.answer));const sources=node('ul','');for(const source of answer.sources){const li=node('li',''),a=node('a',source.title);a.href=source.url;li.append(a);sources.append(li);}explanation.append(sources,node('p','Generated locally by Qwen 2.5 1.5B. Source links verify provenance, not the accuracy of every generated claim. Check the evidence before acting.'));result.prepend(explanation);trace.open=false;status.textContent='Investigation complete. Review the sources and expand the tool results.';
  }catch(error){if(ticket===epoch){result.prepend(node('p',error.message));status.textContent='No completed AI answer. Available tool results are shown below.';}}
- finally{if(ticket===epoch){clearTimeout(timer);controller=null;busy=false;submit.disabled=false;result.removeAttribute('aria-busy');}}
+ finally{if(ticket===epoch){clearTimeout(timer);controller=null;busy=false;submit.disabled=false;lockQuestion(false);result.removeAttribute('aria-busy');}}
 });
