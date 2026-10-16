@@ -33,6 +33,16 @@ After replacing CPU prose with evidence compilation, the business-evidence quest
 
 The subsequent explicit experiment request initially selected only `roles` and missed its requested calculation: task-coverage failure. CPU policy now recognizes the explicit words experiment/assigned/exposed/rollout and audit/conflict/conflicting and requires the corresponding evidence/checks. Singleton required actions and final stopping are executed directly by code, without an unnecessary model call. These specific paths are deterministic checks within a hybrid workflow, not proof of model reasoning. Open-ended business evidence selection remains model-driven. The keyword policy is deliberately narrow and is not a universal intent classifier.
 
+## Verified live paths after the fixes
+
+| Request | Observed result | Scope of verification |
+| --- | --- | --- |
+| Business evidence and limits | Model chose roles and operations; brief preserved requirements, assumptions, acceptance criteria and work-sample limitations | Real CPU model-directed retrieval plus source-based rendering |
+| Compare assigned/exposed conversion; explain blocked rollout | Ledger retrieved; actual calculator returned 6.00 vs 21.11 percentage points; brief retained INVALID design gates and no causal/rollout claim | Application-required checks; not autonomous model reasoning |
+| Run conflict audit | Real checker returned BLOCKED, two input records, zero provisionally valid unique records, conflicting event ID finding | Application-required checks and accurate result rendering |
+
+All three were exercised in the deployed browser on 2026-10-16. GPU inference, mobile performance, broad paraphrase coverage, and the remaining evaluation questions are not established by these runs. The current automated suite has 58 passing tests. No universal pass rate or 10/10 score is claimed.
+
 1. What business analyst evidence is available and what are its limits?
 2. Compare assigned and exposed conversion. Why is rollout blocked?
 3. Run the conflict audit sample and explain what fails.
