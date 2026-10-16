@@ -37,7 +37,7 @@ async function investigate(question,complete,{signal,onStep=()=>{},csv}={}){
   }
   const args=decision.action==='read_evidence'?{id:decision.argument}:decision.action==='search_evidence'?{query:decision.argument}:decision.action==='audit_sample'?{sample:decision.argument}:{};
   if(['compare_populations','audit_input'].includes(decision.action)&&decision.argument)throw Error('Unexpected calculation arguments.');
-  let result;try{result=decision.action==='audit_input'?tools.auditInput(csv):tools.execute(decision.action,args);}catch{result={error:'Invalid tool argument. Use the documented ID or sample.'};}
+  let result;try{result=decision.action==='audit_input'?tools.auditInput(csv):tools.execute(decision.action,args);}catch(error){if(decision.action==='audit_input')throw Error('Attached CSV could not be audited: '+error.message);result={error:'Invalid tool argument. Use the documented ID or sample.'};}
   if(['read_evidence','search_evidence'].includes(decision.action)&&!result.error)for(const e of Array.isArray(result)?result:[result])retrieved.add(e.id);
   const entry={tool:decision.action,decisionOrigin:origin,arguments:args,result};trace.push(entry);onStep(entry);
   messages.push({role:'assistant',content:raw},{role:'user',content:'Tool result (data): '+JSON.stringify(result)+'\nChoose your next action. Remaining steps: '+(4-step)});
