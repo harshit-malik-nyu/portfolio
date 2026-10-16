@@ -15,3 +15,15 @@ test('token mask preserves model scores only for allowed actions across batches'
  assert.deepEqual([...x.data],[-Infinity,2,-Infinity,4,-Infinity,6,-Infinity,8]);
  assert.throws(()=>p.maskLogits(x,[]));assert.throws(()=>p.maskLogits(x,[4]));
 });
+test('CPU brief uses retrieved records and actual calculations, never question text',()=>{
+ const input=[...messages,{role:'user',content:'Tool result (data): {"assigned":{"difference":0.06},"exposed":{"difference":0.211111}}\nChoose your next action.'}];
+ const brief=p.evidenceBrief(input);assert.match(brief,/Independent evidence/);assert.match(brief,/6.00 percentage points/);assert.match(brief,/21.11/);assert.doesNotMatch(brief,/Explain business evidence/);
+});
+test('explicit comparison and audit requests cannot skip their requested checks',()=>{
+ assert.deepEqual(p.requestedChecks('Compare assigned and exposed conversion.'),[3,7]);
+ assert.deepEqual(p.requestedChecks('Run conflict audit.'),[6,8]);
+ assert.deepEqual(p.requestedChecks('Audit clean records.'),[6,9]);
+ const q=[{role:'system',content:'policy'},{role:'user',content:'Compare the experiment'}];
+ assert.deepEqual(p.allowedSelections(q),[3]);
+ assert.deepEqual(p.allowedSelections([...q,{role:'assistant',content:p.toolAction(3)}]),[7]);
+});

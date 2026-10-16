@@ -25,6 +25,14 @@
 
 ## Evaluation questions
 
+## Constrained CPU decoding follow-up
+
+On 2026-10-16, constrained action-token decoding selected `roles` and `operations` for the business-evidence question and executed both real catalog reads. The subsequent free-form explanation changed the question and added unsupported material; that run failed answer-quality review despite successful tool use. CPU free-form prose has therefore been removed. CPU mode now returns an explicitly labeled brief assembled from actual retrieved records and executed results. It remains model-directed tool selection within application-enforced limits; it is not autonomous general reasoning or model-written synthesis. GPU prose remains separately labeled and unverified on this test browser.
+
+After replacing CPU prose with evidence compilation, the business-evidence question completed end to end in the live browser. The model selected `roles` and `operations`; the rendered brief accurately reproduced the requirements, assumptions, alternatives, acceptance criteria, recovery examples and independent-work-sample limitations from those records. This verifies that particular bounded retrieval workflow, not general answer quality or cross-device reliability.
+
+The subsequent explicit experiment request initially selected only `roles` and missed its requested calculation: task-coverage failure. CPU policy now recognizes the explicit words experiment/assigned/exposed/rollout and audit/conflict/conflicting and requires the corresponding evidence/checks. Singleton required actions and final stopping are executed directly by code, without an unnecessary model call. These specific paths are deterministic checks within a hybrid workflow, not proof of model reasoning. Open-ended business evidence selection remains model-driven. The keyword policy is deliberately narrow and is not a universal intent classifier.
+
 1. What business analyst evidence is available and what are its limits?
 2. Compare assigned and exposed conversion. Why is rollout blocked?
 3. Run the conflict audit sample and explain what fails.

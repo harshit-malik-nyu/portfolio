@@ -29,11 +29,12 @@ self.onmessage = async ({data}) => {
       const tokens=permitted.map(n=>{const ids=generator.tokenizer.encode(String(n),{add_special_tokens:false});if(ids.length!==1)throw Error('Action digit must encode to one token.');return Number(ids[0]);});
       class ActionMenu extends LogitsProcessor {_call(inputIds,logits){return planner.maskLogits(logits,tokens);}}
       const processors=new LogitsProcessorList();processors.push(new ActionMenu());
-      const selection=planner.parseSelection(await generate(planner.decisionPrompt(messages),1,{logits_processor:processors}));
+      // A singleton is an application requirement, not a discretionary model choice.
+      const selection=permitted.length===1?permitted[0]:planner.parseSelection(await generate(planner.decisionPrompt(messages),1,{logits_processor:processors}));
       let content;
       if(selection===0){
         const sourceIds=planner.sourceIds(messages);if(!sourceIds.length)throw Error('CPU model tried to answer without evidence.');
-        content=JSON.stringify({action:'answer',argument:'',answer:await generate(planner.answerPrompt(messages),180),sourceIds});
+        content=JSON.stringify({action:'answer',argument:'',answer:planner.evidenceBrief(messages),sourceIds});
       }else content=planner.toolAction(selection);
       self.postMessage({id, result:content});
     } else throw Error('The CPU model is not ready.');

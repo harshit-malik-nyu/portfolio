@@ -3,9 +3,17 @@
 const menu=[null,['read_evidence','roles'],['read_evidence','commerce'],['read_evidence','ledger'],['read_evidence','reporting'],['read_evidence','operations'],['read_evidence','audit'],['compare_populations',''],['audit_sample','conflict'],['audit_sample','clean']];
 function observations(messages){return messages.filter(m=>m.role==='user'&&m.content.startsWith('Tool result (data): ')).map(m=>{try{return JSON.parse(m.content.slice(20).split('\nChoose your next action.')[0]);}catch{return null;}}).filter(Boolean);}
 function sourceIds(messages){const allowed=['roles','commerce','ledger','reporting','operations','audit'];return [...new Set(observations(messages).flatMap(r=>(Array.isArray(r)?r:[r]).map(x=>x.id)).filter(id=>allowed.includes(id)))];}
+function requestedChecks(question){
+ const q=question.toLowerCase(),required=[];
+ if(/\b(experiment|assigned|exposed|rollout)\b/.test(q))required.push(3,7);
+ if(/\b(audit|conflict|conflicting)\b/.test(q))required.push(6,/\bclean\b/.test(q)&&! /\b(conflict|conflicting)\b/.test(q)?9:8);
+ return required;
+}
 function allowedSelections(messages){
  const ids=sourceIds(messages),done=new Set();
  for(const m of messages.filter(m=>m.role==='assistant')){try{const a=JSON.parse(m.content);menu.forEach((entry,i)=>{if(entry&&entry[0]===a.action&&entry[1]===a.argument)done.add(i);});}catch{}}
+ const mandatory=requestedChecks(messages[1].content).find(i=>!done.has(i));
+ if(mandatory!==undefined)return [mandatory];
  if(!ids.length)return [1,2,3,4,5,6].filter(i=>!done.has(i));
  if(ids.includes('ledger')&&!done.has(7))return [7];
  if(ids.includes('audit')&&!done.has(8)&&!done.has(9))return [8,9];
@@ -27,5 +35,14 @@ function decisionPrompt(messages){
 function parseSelection(text){const match=String(text).trim().match(/^([0-9])[.)]?$/);if(!match)throw Error('CPU model did not select a valid tool.');return Number(match[1]);}
 function toolAction(selection){if(!menu[selection])throw Error('Unknown CPU tool selection.');const [action,argument]=menu[selection];return JSON.stringify({action,argument,answer:'',sourceIds:[]});}
 function answerPrompt(messages){return [{role:'system',content:'Explain the supplied portfolio evidence in at most 3 short sentences. Answer only the question. Do not invent facts. These are independent work samples, not proof of employer adoption. Synthetic experiment differences do not prove causality or justify rollout. State important limitations. Do not include markdown or URLs.'},{role:'user',content:'Question: '+messages[1].content+'\nActual retrieved evidence and tool results: '+JSON.stringify(observations(messages))}];}
-const api={decisionPrompt,parseSelection,toolAction,answerPrompt,sourceIds,allowedSelections,maskLogits};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.CpuPlanner=api;
+function evidenceBrief(messages){
+ const results=observations(messages),ids=sourceIds(messages),sections=[];
+ for(const id of ids){const record=results.flatMap(r=>Array.isArray(r)?r:[r]).find(r=>r.id===id);sections.push(record.title+': '+record.text);}
+ for(const r of results){
+  if(r.assigned&&r.exposed)sections.push('Executed population comparison: '+(r.assigned.difference*100).toFixed(2)+' percentage points for all assigned visitors; '+(r.exposed.difference*100).toFixed(2)+' for exposed-only visitors. Synthetic fixture; descriptive differences are not a treatment effect.');
+  if(r.summary&&r.status)sections.push('Executed synthetic audit: '+r.status+'. '+r.summary.inputRows+' records checked; '+r.summary.provisionallyValidUniqueRows+' provisionally valid unique records. '+(r.findings||[]).map(f=>f.message).join(' '));
+ }
+ return sections.join('\n\n').slice(0,1800);
+}
+const api={decisionPrompt,parseSelection,toolAction,answerPrompt,sourceIds,allowedSelections,maskLogits,evidenceBrief,requestedChecks};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.CpuPlanner=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
