@@ -65,3 +65,10 @@ test('a mismatched model follow-up is repaired with the requested source within 
  assert.equal(turns,5);assert.deepEqual(result.sources.map(s=>s.id),['audit','reporting','operations']);
  assert.equal(result.trace[2].decisionOrigin,'model-selected');assert.equal(result.trace[3].decisionOrigin,'application-required');assert.equal(result.trace[3].arguments.id,'operations');
 });
+test('combined input audit, experiment calculation and recovery fit the attached-input budget',async()=>{
+ const {investigate}=require('../local-agent.js');
+ const result=await investigate('Audit input, compare the experiment, then show recovery evidence.',async({messages})=>{
+  const choice=p.allowedSelections(messages)[0];return choice===0?JSON.stringify({action:'answer',argument:'',answer:p.evidenceBrief(messages),sourceIds:p.sourceIds(messages)}):p.toolAction(choice);
+ },{csv:'event_id,user_id,event,timestamp\na,u1,view,2026-01-01T00:00:00Z'});
+ assert.equal(result.trace.length,5);assert.match(result.answer,/6.00 percentage points/);assert.match(result.answer,/CHECKS_PASSED/);assert.ok(result.sources.some(s=>s.id==='operations'));
+});

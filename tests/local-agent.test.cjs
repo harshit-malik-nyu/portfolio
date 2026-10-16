@@ -24,7 +24,7 @@ test('attached CSV is actually audited and raw identifiers never reach model or 
  assert.doesNotMatch(JSON.stringify(result),/private-user|secret-record/);
 });
 test('synthetic audit cannot stand in for attached CSV',async()=>{
- let n=0;await assert.rejects(investigate('Check my rows',async()=>++n===1?action('read_evidence','audit'):n===2?action('audit_sample','clean'):action('answer','','Everything passed.',['audit']),{csv:privateCsv}),/Five-step/);
+ let n=0;await assert.rejects(investigate('Check my rows',async()=>++n===1?action('read_evidence','audit'):n===2?action('audit_sample','clean'):action('answer','','Everything passed.',['audit']),{csv:privateCsv}),/Seven-step/);
 });
 test('invalid input and multibyte CSV over the byte budget are rejected before model calls',async()=>{
  for(const csv of ['',null,'é'.repeat(25001)])await assert.rejects(investigate('Audit',()=>{throw Error('Model must not run');},{csv}),/50,000/);
