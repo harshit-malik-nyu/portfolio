@@ -27,5 +27,14 @@ function decisionPrompt(messages){
 function parseSelection(text){const match=String(text).trim().match(/^([0-9])[.)]?$/);if(!match)throw Error('CPU model did not select a valid tool.');return Number(match[1]);}
 function toolAction(selection){if(!menu[selection])throw Error('Unknown CPU tool selection.');const [action,argument]=menu[selection];return JSON.stringify({action,argument,answer:'',sourceIds:[]});}
 function answerPrompt(messages){return [{role:'system',content:'Explain the supplied portfolio evidence in at most 3 short sentences. Answer only the question. Do not invent facts. These are independent work samples, not proof of employer adoption. Synthetic experiment differences do not prove causality or justify rollout. State important limitations. Do not include markdown or URLs.'},{role:'user',content:'Question: '+messages[1].content+'\nActual retrieved evidence and tool results: '+JSON.stringify(observations(messages))}];}
-const api={decisionPrompt,parseSelection,toolAction,answerPrompt,sourceIds,allowedSelections,maskLogits};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.CpuPlanner=api;
+function evidenceBrief(messages){
+ const results=observations(messages),ids=sourceIds(messages),sections=[];
+ for(const id of ids){const record=results.flatMap(r=>Array.isArray(r)?r:[r]).find(r=>r.id===id);sections.push(record.title+': '+record.text);}
+ for(const r of results){
+  if(r.assigned&&r.exposed)sections.push('Executed population comparison: '+(r.assigned.difference*100).toFixed(2)+' percentage points for all assigned visitors; '+(r.exposed.difference*100).toFixed(2)+' for exposed-only visitors. Synthetic fixture; descriptive differences are not a treatment effect.');
+  if(r.summary&&r.status)sections.push('Executed synthetic audit: '+r.status+'. '+r.summary.inputRows+' records checked; '+r.summary.provisionallyValidUniqueRows+' provisionally valid unique records. '+(r.findings||[]).map(f=>f.message).join(' '));
+ }
+ return sections.join('\n\n').slice(0,1800);
+}
+const api={decisionPrompt,parseSelection,toolAction,answerPrompt,sourceIds,allowedSelections,maskLogits,evidenceBrief};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.CpuPlanner=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

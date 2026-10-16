@@ -33,7 +33,7 @@ self.onmessage = async ({data}) => {
       let content;
       if(selection===0){
         const sourceIds=planner.sourceIds(messages);if(!sourceIds.length)throw Error('CPU model tried to answer without evidence.');
-        content=JSON.stringify({action:'answer',argument:'',answer:await generate(planner.answerPrompt(messages),180),sourceIds});
+        content=JSON.stringify({action:'answer',argument:'',answer:planner.evidenceBrief(messages),sourceIds});
       }else content=planner.toolAction(selection);
       self.postMessage({id, result:content});
     } else throw Error('The CPU model is not ready.');
