@@ -1,7 +1,7 @@
 (function(root){
 'use strict';
 const menu=[null,['read_evidence','roles'],['read_evidence','commerce'],['read_evidence','ledger'],['read_evidence','reporting'],['read_evidence','operations'],['read_evidence','audit'],['compare_populations',''],['audit_sample','conflict'],['audit_sample','clean'],['audit_input','']];
-function observations(messages){return messages.filter(m=>m.role==='user'&&m.content.startsWith('Tool result (data): ')).map(m=>{try{return JSON.parse(m.content.slice(20).split('\nChoose your next action.')[0]);}catch{return null;}}).filter(Boolean);}
+function observations(messages){return messages.filter((m,i)=>i>1&&m.role==='user'&&m.content.startsWith('Tool result (data): ')).map(m=>{try{return JSON.parse(m.content.slice(20).split('\nChoose your next action.')[0]);}catch{return null;}}).filter(Boolean);}
 function sourceIds(messages){const allowed=['roles','commerce','ledger','reporting','operations','audit'];return [...new Set(observations(messages).flatMap(r=>(Array.isArray(r)?r:[r]).map(x=>x.id)).filter(id=>allowed.includes(id)))];}
 function requestedChecks(question){
  const q=question.toLowerCase(),required=[];
@@ -20,6 +20,13 @@ function allowedSelections(messages){
  if(!ids.length)return [1,2,3,4,5,6].filter(i=>!done.has(i));
  if(ids.includes('ledger')&&!done.has(7))return [7];
  if(ids.includes('audit')&&!done.has(8)&&!done.has(9)&&!done.has(10))return [8,9];
+ // Verify explicit follow-up coverage after the model choice; repair missing sources.
+ if(done.has(10)&&done.size>=3){
+  const q=messages[1].content,wanted=[];
+  if(/\b(recovery|acceptance|rollback|late arrivals)\b/i.test(q))wanted.push(5);
+  if(/\b(reporting|reconciliation|excel|dashboard|BI)\b/i.test(q))wanted.push(4);
+  const missing=wanted.find(i=>!done.has(i));if(missing!==undefined)return [missing];
+ }
  // After a real input audit, the model may choose one useful follow-up evidence read.
  if(done.has(10)&&done.size===2)return /\b(recovery|acceptance|reporting|follow.up|next step)\b/i.test(messages[1].content)?[4,5]:[0,4,5];
  // At most two voluntary tool choices; required validation tools above still run.
