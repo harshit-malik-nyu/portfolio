@@ -13,7 +13,7 @@
     "local-ai-cpu-worker.js": "13cdc76e78f02f51003ec320dbc242115ef5fb855723d8d14255cb0a68e8ef2a",
     "local-ai-cpu.js": "b16efa334daf2de1812fed9591046d26f78f174b8cc2e73cf513a7817618b2a2",
     "local-ai-worker.js": "1045331355c31fe252a40e2f60bf1d15b26774091b921cdf4cbf868149b0af92",
-    "local-ai.js": "533cc3b8ca2644eab75c4b061c0f851ed49f8891c1d4aa433ccdcbe249e8ef0a",
+    "local-ai.js": "8ea2f3ec7091b654928a33b0142a79f9963d328d61a642dbedeaf147ceb3e2d4",
     "server/portfolio-agent.cjs": "1dd48551c5ea508e5cf7b3094f3aeb98852d7b9eac8921a9b4604336071e3ef6",
     "ux.css": "578b8845b27a23eae2a74843f32eda30bf9e7ece9c7cde8b34ac71c0556a28c4"
   },
