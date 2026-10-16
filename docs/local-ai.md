@@ -1,5 +1,7 @@
 # Free local AI lab
 
+CPU compatibility mode: Transformers.js 3.8.1, onnx-community/Qwen2.5-0.5B-Instruct, q8 weights (512,096,557 bytes plus runtime/tokenizer, approximately 550 MB total). Uses single-thread WASM in a worker without SharedArrayBuffer or WebGPU. The model generates JSON text, which is validated by the same bounded agent loop; unlike WebLLM, this mode does not constrain decoding with a JSON grammar. A smaller model has weaker instruction following. CPU inference is experimental pending real-browser verification; automated tests alone do not establish quality.
+
 Runtime: WebLLM 0.2.86 from version-pinned jsDelivr. Model: Qwen2.5-1.5B-Instruct-q4f16_1-MLC from the upstream MLC model catalog. GPU requirement in that catalog is 1629.75 MB; UI recommends 2 GB available. Download is approximately 1 GB. Actual memory and transfer vary. No billing service is used. Browser storage, bandwidth and electricity are still used.
 
 The model selects JSON actions, real shared tools run, and results are fed back into subsequent model turns. This is a bounded agent loop, not native function-call support or a deterministic routing script labelled AI. Actions: evidence search/read, population comparison, synthetic event audit. Maximum five model turns; 500 tokens per turn; 800-character question. Evidence IDs must have been retrieved; this verifies provenance, not semantic accuracy. A small model may still reason incorrectly or fail to finish. Failed outputs are not replaced with canned AI answers.
