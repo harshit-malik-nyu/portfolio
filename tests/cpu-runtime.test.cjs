@@ -16,3 +16,10 @@ test('CPU adapter routes actual worker replies and rejects failed generations',a
  assert.equal((await engine.chat.completions.create({messages:[]})).choices[0].message.content,'model text');
  fail=true;await assert.rejects(engine.chat.completions.create({messages:[]}),/Inference failed/);
 });
+test('CPU setup cancellation rejects a pending load without waiting for download',async()=>{
+ const source=fs.readFileSync(path.join(__dirname,'../local-ai-cpu.js'),'utf8');
+ const {createCpuEngine}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+ const c=new AbortController(),worker={addEventListener:()=>{},postMessage:()=>{}};
+ const loading=createCpuEngine(worker,()=>{},c.signal);c.abort();
+ await assert.rejects(loading,/stopped/);
+});

@@ -1,5 +1,5 @@
 // Browser CPU inference; loaded only after an explicit visitor download action.
-import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/dist/transformers.min.js';
+import { pipeline, env, TextStreamer } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/dist/transformers.min.js';
 env.allowLocalModels = false;
 // Single-thread WASM works without cross-origin isolation or SharedArrayBuffer.
 env.backends.onnx.wasm.numThreads = 1;
@@ -14,7 +14,11 @@ self.onmessage = async ({data}) => {
       });
       self.postMessage({id, result: true});
     } else if (type === 'complete' && generator) {
-      const output = await generator(messages, {max_new_tokens: 360, do_sample: false, return_full_text: false});
+      let characters=0;
+      const streamer=new TextStreamer(generator.tokenizer,{skip_prompt:true,skip_special_tokens:true,callback_function:text=>{
+        characters+=text.length;self.postMessage({type:'progress',text:`Generating locally · ${characters} characters decoded…`});
+      }});
+      const output = await generator(messages, {max_new_tokens: 260, do_sample: false, return_full_text: false, streamer});
       const text = output[0]?.generated_text;
       const content = typeof text === 'string' ? text : text?.at(-1)?.content;
       if (typeof content !== 'string') throw Error('Unexpected model output.');

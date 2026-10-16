@@ -7,10 +7,16 @@ const instructions=`You investigate this portfolio using tools. Return one JSON 
 async function investigate(question,complete,{signal,onStep=()=>{}}={}){
  if(typeof question!=='string'||!question.trim()||question.length>800)throw Error('Ask a portfolio question of 1–800 characters.');
  const messages=[{role:'system',content:instructions},{role:'user',content:question.trim()}],trace=[],retrieved=new Set();
+ let repairs=0;
  const check=()=>{if(signal?.aborted)throw Error('Investigation stopped.');};
  for(let step=0;step<5;step++){
   check();const raw=await complete({messages,response_format:{type:'json_object',schema:JSON.stringify(schema)},temperature:0,max_tokens:500});check();
-  let decision;try{decision=JSON.parse(raw);}catch{throw Error('The model returned an unreadable response. Try a narrower question.');}
+  let decision;try{decision=JSON.parse(typeof raw==='string'?raw.trim().replace(/^```(?:json)?\s*\n([\s\S]*?)\n```$/i,'$1'):raw);}catch{
+   if(repairs++===0&&typeof raw==='string'){
+    messages.push({role:'assistant',content:raw},{role:'user',content:'Return exactly one JSON object, no prose. Example tool action: {"action":"read_evidence","argument":"roles","answer":"","sourceIds":[]}. Choose an appropriate action for the question.'});continue;
+   }
+   const error=Error('The model returned an unreadable response. Try a narrower question.');error.modelOutput=String(raw).slice(0,2000);throw error;
+  }
   if(!decision||Array.isArray(decision)||Object.keys(decision).sort().join(',')!=='action,answer,argument,sourceIds'||!actions.includes(decision.action)||typeof decision.argument!=='string'||decision.argument.length>200||typeof decision.answer!=='string'||decision.answer.length>1800||!Array.isArray(decision.sourceIds))throw Error('The model returned an invalid action.');
   if(decision.action==='answer'){
    if(!decision.answer.trim()||!decision.sourceIds.length||decision.sourceIds.some(id=>!retrieved.has(id)))throw Error('The answer lacks retrieved evidence. No unsupported answer was displayed.');

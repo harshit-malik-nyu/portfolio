@@ -8,7 +8,7 @@ function lockQuestion(locked){question.disabled=locked;for(const b of document.q
 function reset(message){epoch++;controller?.abort();controller=null;engine?.dispose?.();worker?.terminate();worker=null;engine=null;busy=false;clearTimeout(timer);load.disabled=false;load.hidden=false;stop.hidden=true;submit.disabled=true;$('local-ai-mode').disabled=false;lockQuestion(false);result.removeAttribute('aria-busy');status.textContent=message;}
 stop.addEventListener('click',()=>reset('Stopped. Model worker released. Downloaded files may remain in your browser cache.'));
 load.addEventListener('click',async()=>{
- if(busy)return;busy=true;const ticket=++epoch;load.disabled=true;stop.hidden=false;const mode=$('local-ai-mode').value;$('local-ai-mode').disabled=true;
+ if(busy)return;busy=true;controller=new AbortController();const ticket=++epoch;load.disabled=true;stop.hidden=false;const mode=$('local-ai-mode').value;$('local-ai-mode').disabled=true;
  try{
   const progressCallback=progress=>{if(ticket===epoch)status.textContent=progress.text;};
   timer=setTimeout(()=>{if(ticket===epoch)reset('Setup timed out after ten minutes. Retry or use the instant workbench.');},600000);
@@ -16,7 +16,7 @@ load.addEventListener('click',async()=>{
    status.textContent='Loading CPU runtime and downloading the smaller model. First setup may take several minutes…';
    const {createCpuEngine}=await import('/local-ai-cpu.js');if(ticket!==epoch)return;
    worker=new Worker('/local-ai-cpu-worker.js',{type:'module'});
-   const loaded=await createCpuEngine(worker,progressCallback);if(ticket!==epoch)return;
+   const loaded=await createCpuEngine(worker,progressCallback,controller.signal);if(ticket!==epoch)return;
    engine=loaded;modelLabel='Qwen 2.5 0.5B · CPU';
   }else{
   status.textContent='Checking WebGPU support…';
@@ -45,6 +45,6 @@ $('local-ai-form').addEventListener('submit',async event=>{
   const answer=await window.LocalAgent.investigate(submittedQuestion,async payload=>{const reply=await engine.chat.completions.create(payload);return reply.choices?.[0]?.message?.content;},{signal,onStep:step=>{const detail=node('details','');detail.append(node('summary',step.tool),node('pre',JSON.stringify(step,null,2)));trace.append(detail);}});
   if(ticket!==epoch)return;
   const explanation=node('div','');explanation.append(node('h3','AI interpretation'),node('p',answer.answer));const sources=node('ul','');for(const source of answer.sources){const li=node('li',''),a=node('a',source.title);a.href=source.url;li.append(a);sources.append(li);}explanation.append(sources,node('p','Generated locally by '+modelLabel+'. Source links verify provenance, not the accuracy of every generated claim. Check the evidence before acting.'));result.prepend(explanation);trace.open=false;status.textContent='Investigation complete. Review the sources and expand the tool results.';
- }catch(error){if(ticket===epoch){result.prepend(node('p',error.message));status.textContent='No completed AI answer. Available tool results are shown below.';}}
+ }catch(error){if(ticket===epoch){result.prepend(node('p',error.message));if(error.modelOutput){const rejected=node('details','');rejected.append(node('summary','Rejected model output · not a verified answer'),node('pre',error.modelOutput));result.append(rejected);}status.textContent='No completed AI answer. Available tool results are shown below.';}}
  finally{if(ticket===epoch){clearTimeout(timer);controller=null;busy=false;submit.disabled=false;lockQuestion(false);result.removeAttribute('aria-busy');}}
 });
