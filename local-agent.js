@@ -17,7 +17,7 @@ async function investigate(question,complete,{signal,onStep=()=>{}}={}){
    }
    const error=Error('The model returned an unreadable response. Try a narrower question.');error.modelOutput=String(raw).slice(0,2000);throw error;
   }
-  if(!decision||Array.isArray(decision)||Object.keys(decision).sort().join(',')!=='action,answer,argument,sourceIds'||!actions.includes(decision.action)||typeof decision.argument!=='string'||decision.argument.length>200||typeof decision.answer!=='string'||decision.answer.length>1800||!Array.isArray(decision.sourceIds))throw Error('The model returned an invalid action.');
+  if(!decision||Array.isArray(decision)||Object.keys(decision).sort().join(',')!=='action,answer,argument,sourceIds'||!actions.includes(decision.action)||typeof decision.argument!=='string'||decision.argument.length>200||typeof decision.answer!=='string'||decision.answer.length>6000||!Array.isArray(decision.sourceIds))throw Error('The model returned an invalid action.');
   if(decision.action==='answer'){
    if(!decision.answer.trim()||!decision.sourceIds.length||decision.sourceIds.some(id=>!retrieved.has(id)))throw Error('The answer lacks retrieved evidence. No unsupported answer was displayed.');
    const required=[];

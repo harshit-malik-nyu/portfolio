@@ -42,7 +42,7 @@ function evidenceBrief(messages){
   if(r.assigned&&r.exposed)sections.push('Executed population comparison: '+(r.assigned.difference*100).toFixed(2)+' percentage points for all assigned visitors; '+(r.exposed.difference*100).toFixed(2)+' for exposed-only visitors. Synthetic fixture; descriptive differences are not a treatment effect.');
   if(r.summary&&r.status)sections.push('Executed synthetic audit: '+r.status+'. '+r.summary.inputRows+' records checked; '+r.summary.provisionallyValidUniqueRows+' provisionally valid unique records. '+(r.findings||[]).map(f=>f.message).join(' '));
  }
- return sections.join('\n\n').slice(0,1800);
+ return sections.join('\n\n');
 }
 const api={decisionPrompt,parseSelection,toolAction,answerPrompt,sourceIds,allowedSelections,maskLogits,evidenceBrief,requestedChecks};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.CpuPlanner=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

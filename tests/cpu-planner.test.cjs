@@ -27,3 +27,16 @@ test('explicit comparison and audit requests cannot skip their requested checks'
  assert.deepEqual(p.allowedSelections(q),[3]);
  assert.deepEqual(p.allowedSelections([...q,{role:'assistant',content:p.toolAction(3)}]),[7]);
 });
+test('combined experiment and audit retains final executed findings without truncation',async()=>{
+ const {investigate}=require('../local-agent.js');
+ const result=await investigate('Compare the experiment and run the conflict audit.',async ({messages})=>{
+  const choices=p.allowedSelections(messages);assert.equal(choices.length,1);
+  return choices[0]===0?JSON.stringify({action:'answer',argument:'',answer:p.evidenceBrief(messages),sourceIds:p.sourceIds(messages)}):p.toolAction(choices[0]);
+ });
+ assert.equal(result.trace.length,4);
+ assert.match(result.answer,/6.00 percentage points/);
+ assert.match(result.answer,/21.11/);
+ assert.match(result.answer,/BLOCKED/);
+ assert.match(result.answer,/0 provisionally valid unique records/);
+ assert.deepEqual(result.sources.map(s=>s.id),['ledger','audit']);
+});
