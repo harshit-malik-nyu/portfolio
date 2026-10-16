@@ -24,6 +24,6 @@ for name in repos:
 query=(ROOT/'analysis/questions.sql').read_text();cursor=db.execute(query)
 with (OUT/'query_1.csv').open('w',newline='') as f:
  w=csv.writer(f,lineterminator="\n");w.writerow([d[0] for d in cursor.description]);w.writerows(cursor.fetchall())
-manifest={'project':'portfolio','case_studies':len(repos),'portfolio_is_separate_project':True,'scope':'static link and asset audit, not visitor behavior or browser rendering','input_sha256':{f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in ['index.html','app.js','guide.js','discovery.js','evidence-tools.js','local-agent.js','local-ai.js','local-ai-worker.js','ux.css','server/portfolio-agent.cjs','api/portfolio-agent.js','analysis/questions.sql']},'output_sha256':hashlib.sha256((OUT/'query_1.csv').read_bytes()).hexdigest()}
+manifest={'project':'portfolio','case_studies':len(repos),'portfolio_is_separate_project':True,'scope':'static link and asset audit, not visitor behavior or browser rendering','input_sha256':{f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in ['index.html','app.js','guide.js','discovery.js','evidence-tools.js','local-agent.js','local-ai.js','local-ai-worker.js','local-ai-cpu.js','local-ai-cpu-worker.js','ux.css','server/portfolio-agent.cjs','api/portfolio-agent.js','analysis/questions.sql']},'output_sha256':hashlib.sha256((OUT/'query_1.csv').read_bytes()).hexdigest()}
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
 print(json.dumps({'case_studies':len(repos),'local_assets_and_anchors':'valid'}))
