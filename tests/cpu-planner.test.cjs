@@ -4,3 +4,14 @@ const messages=[{role:'system',content:'policy'},{role:'user',content:'Explain b
 test('CPU planner receives tool observations and original question',()=>{assert.deepEqual(p.sourceIds(messages),['roles']);assert.match(p.decisionPrompt(messages)[1].content,/Independent evidence/);assert.match(p.answerPrompt(messages)[1].content,/Explain business evidence/);});
 test('CPU selections only map to allowed fixed tools',()=>{assert.equal(JSON.parse(p.toolAction(p.parseSelection('7'))).action,'compare_populations');assert.equal(JSON.parse(p.toolAction(p.parseSelection('8.'))).argument,'conflict');for(const bad of ['run code','10','1 and 2','<script>'])assert.throws(()=>p.parseSelection(bad));});
 test('CPU source IDs cannot be introduced from the original question',()=>{assert.deepEqual(p.sourceIds(messages.slice(0,2)),[]);assert.throws(()=>p.toolAction(0));});
+test('action constraints require evidence and required calculation before answering',()=>{
+ assert.deepEqual(p.allowedSelections(messages.slice(0,2)),[1,2,3,4,5,6]);
+ const ledger=[...messages.slice(0,2),{role:'assistant',content:p.toolAction(3)},{role:'user',content:'Tool result (data): {"id":"ledger"}\nChoose your next action.'}];
+ assert.deepEqual(p.allowedSelections(ledger),[7]);
+ assert.deepEqual(p.allowedSelections([...ledger,{role:'assistant',content:p.toolAction(7)}]),[0]);
+});
+test('token mask preserves model scores only for allowed actions across batches',()=>{
+ const x={dims:[2,4],data:new Float32Array([1,2,3,4,5,6,7,8])};p.maskLogits(x,[1,3]);
+ assert.deepEqual([...x.data],[-Infinity,2,-Infinity,4,-Infinity,6,-Infinity,8]);
+ assert.throws(()=>p.maskLogits(x,[]));assert.throws(()=>p.maskLogits(x,[4]));
+});
