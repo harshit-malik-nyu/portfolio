@@ -15,5 +15,5 @@ export async function createCpuEngine(worker, onProgress, signal) {
     const id = ++sequence; pending.set(id, {resolve, reject}); worker.postMessage({id, type, messages});
   });
   await request('load');
-  return {dispose, chat:{completions:{create:async ({messages})=>({choices:[{message:{content:await request('complete',messages)}}]})}}};
+  return {dispose, chat:{completions:{create:async ({messages})=>{const reply=await request('complete',messages);return {choices:[{message:{content:typeof reply==='string'?reply:reply.content}}],decisionOrigin:reply?.origin};}}}};
 }

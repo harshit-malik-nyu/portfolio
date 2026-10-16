@@ -56,3 +56,9 @@ For each run, record the runtime/model, visible tool trace, answer or failure, u
 The CPU brief no longer truncates at 1,800 characters: combined experiment/audit investigations retain the final actual audit findings. The response validator remains bounded at 6,000 characters. A deterministic integration regression executes all four required tools and checks both population differences and the final BLOCKED/zero-valid result; this is not a model-reasoning benchmark. The suite now contains 59 passing tests.
 
 Completed investigations can be exported locally as JSON containing the submitted question, model, workflow disclosure, answer, source records, and actual tool trace. No data is sent by this export. Three role-specific review routes provide direct evidence links without downloading a model.
+
+## Visitor input and observable follow-up selection
+
+The AI lab now accepts opt-in event CSV (50,000 bytes maximum), executes the real contract auditor locally, and returns only the audit report to the model. No raw rows or identifiers are passed to inference or exported. Attached input must actually be audited before answering: a successful synthetic sample cannot satisfy that requirement.
+
+After the required input audit, CPU mode lets the model choose between finishing, reporting evidence, and recovery evidence. This is a constrained discretionary follow-up; it does not modify or clean the supplied records. Tool trace entries disclose whether each action was application-required or model-selected. The 63-test contract suite covers private identifier exclusion, byte limits, sample-substitution rejection, and an injected-model follow-up path. These tests establish mechanics, not live model selection quality.
