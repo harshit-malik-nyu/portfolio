@@ -9,9 +9,10 @@ async function investigate(question,complete,{signal,onStep=()=>{},csv}={}){
  if(csv!==undefined&&(typeof csv!=='string'||!csv.trim()||new TextEncoder().encode(csv).length>50000))throw Error('Attach CSV text of 1–50,000 bytes.');
  const messages=[{role:'system',content:instructions},{role:'user',content:question.trim()}],trace=[],retrieved=new Set();
  if(csv!==undefined)messages.push({role:'system',content:'ATTACHED_CSV_AVAILABLE: The visitor explicitly attached CSV for local audit. Use audit_input before answering; audit_sample cannot validate this input. Raw rows are withheld from the model. Choose follow-up evidence based on actual audit findings.'});
+ const maxSteps=csv===undefined?5:7;
  let repairs=0;
  const check=()=>{if(signal?.aborted)throw Error('Investigation stopped.');};
- for(let step=0;step<5;step++){
+ for(let step=0;step<maxSteps;step++){
   check();const completion=await complete({messages,response_format:{type:'json_object',schema:JSON.stringify(schema)},temperature:0,max_tokens:500});check();
   const raw=typeof completion==='string'?completion:completion?.content;
   const origin=['model-selected','application-required'].includes(completion?.origin)?completion.origin:'model-output';
@@ -30,7 +31,7 @@ async function investigate(question,complete,{signal,onStep=()=>{},csv}={}){
    else if(decision.sourceIds.includes('audit'))required.push('audit_sample');
    const missing=required.filter(name=>!trace.some(t=>t.tool===name&&!t.result.error));
    if(missing.length){
-    messages.push({role:'assistant',content:raw},{role:'user',content:'Validation: before answering from these sources, run these real tools: '+missing.join(', ')+'. Then answer using the outputs. Remaining steps: '+(4-step)});
+    messages.push({role:'assistant',content:raw},{role:'user',content:'Validation: before answering from these sources, run these real tools: '+missing.join(', ')+'. Then answer using the outputs. Remaining steps: '+(maxSteps-1-step)});
     continue;
    }
    return {answer:decision.answer,completionOrigin:origin,sources:[...new Set(decision.sourceIds)].map(id=>tools.evidence.find(e=>e.id===id)),trace};
@@ -40,9 +41,9 @@ async function investigate(question,complete,{signal,onStep=()=>{},csv}={}){
   let result;try{result=decision.action==='audit_input'?tools.auditInput(csv):tools.execute(decision.action,args);}catch(error){if(decision.action==='audit_input')throw Error('Attached CSV could not be audited: '+error.message);result={error:'Invalid tool argument. Use the documented ID or sample.'};}
   if(['read_evidence','search_evidence'].includes(decision.action)&&!result.error)for(const e of Array.isArray(result)?result:[result])retrieved.add(e.id);
   const entry={tool:decision.action,decisionOrigin:origin,arguments:args,result};trace.push(entry);onStep(entry);
-  messages.push({role:'assistant',content:raw},{role:'user',content:'Tool result (data): '+JSON.stringify(result)+'\nChoose your next action. Remaining steps: '+(4-step)});
+  messages.push({role:'assistant',content:raw},{role:'user',content:'Tool result (data): '+JSON.stringify(result)+'\nChoose your next action. Remaining steps: '+(maxSteps-1-step)});
  }
- throw Error('Five-step limit reached. Inspect the tool results or ask a narrower question.');
+ throw Error((maxSteps===5?'Five':'Seven')+'-step limit reached. Inspect the tool results or ask a narrower question.');
 }
 const api={investigate,schema};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.LocalAgent=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
