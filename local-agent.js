@@ -14,6 +14,14 @@ async function investigate(question,complete,{signal,onStep=()=>{}}={}){
   if(!decision||Array.isArray(decision)||Object.keys(decision).sort().join(',')!=='action,answer,argument,sourceIds'||!actions.includes(decision.action)||typeof decision.argument!=='string'||decision.argument.length>200||typeof decision.answer!=='string'||decision.answer.length>1800||!Array.isArray(decision.sourceIds))throw Error('The model returned an invalid action.');
   if(decision.action==='answer'){
    if(!decision.answer.trim()||!decision.sourceIds.length||decision.sourceIds.some(id=>!retrieved.has(id)))throw Error('The answer lacks retrieved evidence. No unsupported answer was displayed.');
+   const required=[];
+   if(decision.sourceIds.includes('ledger'))required.push('compare_populations');
+   if(decision.sourceIds.includes('audit'))required.push('audit_sample');
+   const missing=required.filter(name=>!trace.some(t=>t.tool===name&&!t.result.error));
+   if(missing.length){
+    messages.push({role:'assistant',content:raw},{role:'user',content:'Validation: before answering from these sources, run these real tools: '+missing.join(', ')+'. Then answer using the outputs. Remaining steps: '+(4-step)});
+    continue;
+   }
    return {answer:decision.answer,sources:[...new Set(decision.sourceIds)].map(id=>tools.evidence.find(e=>e.id===id)),trace};
   }
   const args=decision.action==='read_evidence'?{id:decision.argument}:decision.action==='search_evidence'?{query:decision.argument}:decision.action==='audit_sample'?{sample:decision.argument}:{};

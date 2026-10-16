@@ -13,3 +13,5 @@ Validation: Node contract tests cover real tool execution, citation provenance, 
 Primary references: https://webllm.mlc.ai/docs/user/basic_usage.html and https://webllm.mlc.ai/docs/user/advanced_usage.html .
 
 Live release check: Vercel deployment succeeded. Prompt buttons and no-download initial state were verified in the live UI. The cloud test browser returned no usable WebGPU adapter; real-model inference could not be validated in that environment. This is an experimental feature, not a verified cross-device AI release.
+
+Follow-up safeguards: answers citing the ledger must first execute the population calculator; answers citing the event audit must first execute a valid synthetic audit. An early answer is sent back to the model for correction within the same five-step budget. These gates establish execution, not the semantic correctness of generated text. During inference the submitted question and prompt controls are locked, and the original question remains visible with its results. Contract suite: 46 passing tests, including repair and failed-audit cases.
