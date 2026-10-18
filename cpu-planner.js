@@ -10,7 +10,7 @@ function requestedChecks(question){
  return required;
 }
 function hasInput(messages){return messages.some(m=>m.role==='system'&&m.content.startsWith('ATTACHED_CSV_AVAILABLE:'));}
-function selectionToken(n){return n===10?'A':String(n);}
+function selectionToken(n){return ({4:'R',5:'O',10:'A'})[n]||String(n);}
 function allowedSelections(messages){
  const ids=sourceIds(messages),done=new Set();
  for(const m of messages.filter(m=>m.role==='assistant')){try{const a=JSON.parse(m.content);menu.forEach((entry,i)=>{if(entry&&entry[0]===a.action&&entry[1]===a.argument)done.add(i);});}catch{}}
@@ -43,10 +43,10 @@ function decisionPrompt(messages){
  const results=observations(messages),ids=sourceIds(messages);
  const labels=['finish with the retrieved evidence','read analyst role evidence','read historical commerce and cohort analysis','read experiment assignment and rollout evidence','read Excel, BI reporting and reconciliation evidence','read recovery, rollback, late arrivals and business acceptance criteria','read event-contract audit evidence','calculate assigned versus exposed conversion','test conflicting sample records','test clean sample records','audit visitor-supplied CSV'];
  const choices=allowedSelections(messages).map(i=>selectionToken(i)+' = '+labels[i]).join('\n');
- const compact=results.map(r=>r.summary?{status:r.status,summary:r.summary,findings:r.findings.map(f=>({message:f.message,action:f.action}))}:r);
- return [{role:'system',content:'Select the next tool that best answers the visitor question. Reply with exactly ONE action token. Completed tools must not be repeated. Choose a follow-up source matching the requested subject. Available actions:\n'+choices},{role:'user',content:'Completed evidence IDs: '+ids.join(', ')+'\nActual tool findings: '+JSON.stringify(compact)+'\nVisitor question: '+messages[1].content+'\nNext action token:'}];
+ const compact=results.map(r=>r.summary?{status:r.status,summary:r.summary}:Array.isArray(r)?r.map(x=>({id:x.id,title:x.title})):{id:r.id,title:r.title});
+ return [{role:'system',content:'Choose the most relevant source or tool for the visitor request. Output only its action token. R means reporting (Excel, dashboards, reconciliation). O means operations (recovery, rollback, acceptance criteria). Never repeat completed tools.'},{role:'user',content:'Visitor request: '+messages[1].content+'\nCompleted evidence: '+ids.join(', ')+'\nCompleted checks: '+JSON.stringify(compact)+'\nAvailable actions:\n'+choices+'\nBest action token:'}];
 }
-function parseSelection(text){const match=String(text).trim().match(/^([0-9A])[.)]?$/);if(!match)throw Error('CPU model did not select a valid tool.');return match[1]==='A'?10:Number(match[1]);}
+function parseSelection(text){const match=String(text).trim().match(/^([0-9ARO])[.)]?$/);if(!match)throw Error('CPU model did not select a valid tool.');return ({A:10,R:4,O:5})[match[1]]??Number(match[1]);}
 function toolAction(selection){if(!menu[selection])throw Error('Unknown CPU tool selection.');const [action,argument]=menu[selection];return JSON.stringify({action,argument,answer:'',sourceIds:[]});}
 function answerPrompt(messages){return [{role:'system',content:'Explain the supplied portfolio evidence in at most 3 short sentences. Answer only the question. Do not invent facts. These are independent work samples, not proof of employer adoption. Synthetic experiment differences do not prove causality or justify rollout. State important limitations. Do not include markdown or URLs.'},{role:'user',content:'Question: '+messages[1].content+'\nActual retrieved evidence and tool results: '+JSON.stringify(observations(messages))}];}
 function evidenceBrief(messages){
