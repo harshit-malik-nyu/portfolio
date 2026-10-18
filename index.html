@@ -40,7 +40,8 @@
 <header class="masthead">
   <div class="wrap masthead-inner">
     <a class="masthead-name" href="/">Harshit Malik</a>
-    <nav class="masthead-nav" aria-label="Main navigation">
+    <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" hidden>Menu <span aria-hidden="true">＋</span></button>
+    <nav id="main-navigation" class="masthead-nav" aria-label="Main navigation">
       <a href="#work">Work</a>
       <a href="#guide">Workbench</a>
       <a href="#ai-assistant">AI lab</a>
@@ -608,6 +609,7 @@ a,u2,view,2026-01-01T00:00:00Z</textarea><p id="local-ai-csv-help">50 KB maximum
   if (target) { var parent = target.parentElement; while (parent) { if (parent.tagName === 'DETAILS') parent.open = true; parent = parent.parentElement; } }
 })();
 </script>
+<script src="/navigation.js"></script>
 <script src="app.js?v=7ba87e550080"></script>
 <script src="/tools/event-audit/audit.js"></script>
 <script src="/guide.js?v=20261015c"></script>

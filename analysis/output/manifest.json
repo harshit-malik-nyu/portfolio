@@ -3,19 +3,19 @@
   "input_sha256": {
     "analysis/questions.sql": "67c1349dd91bd50c9f17a02805cb6fb68295b63d879a3a328c3547f48f2d7908",
     "api/portfolio-agent.js": "69ee6db53674c5f340e07cbeb4f5e448305e12e2600682559537e38664075b52",
-    "app.js": "7ba87e5500801bbd2b63faccf2203c3bd4374f1d01095d8d30b37f49ad145817",
+    "app.js": "f4fbba5f2a0e69d38380f8f3729b8d5f9a9bc8978410c3ddbcc3d1814a3154f8",
     "cpu-planner.js": "6e58fbb557abc2e4c7af69217e5e1843d719ce5d2af0752fc7ff118a1ed14ebf",
     "discovery.js": "4d6e43d8b73ac93aa13c51afeb0a65116fb978f027f8795b3efd35fe0cd83bf6",
     "evidence-tools.js": "2aa060ea675af4c0bb0e29161cf7bb615e8a07a813a959fd41a45bab3ec39d79",
     "guide.js": "3b748f6b77f347d86a62d76427b9f171024400710b4aa63736166bb5685303ad",
-    "index.html": "9985385a7d02ad430bc05db8408e874ca75b9910fed2382e3864be2724d3ec95",
+    "index.html": "56e12ac7a7ce9133f88a3f68690a3466f11925659a478f6c087182e5ef7b5fba",
     "local-agent.js": "4c1e5f6b982fda2eb7453a28722dbfaab1ab13416bab688b2a7725d033f2e118",
     "local-ai-cpu-worker.js": "13cdc76e78f02f51003ec320dbc242115ef5fb855723d8d14255cb0a68e8ef2a",
     "local-ai-cpu.js": "b16efa334daf2de1812fed9591046d26f78f174b8cc2e73cf513a7817618b2a2",
     "local-ai-worker.js": "1045331355c31fe252a40e2f60bf1d15b26774091b921cdf4cbf868149b0af92",
     "local-ai.js": "8ea2f3ec7091b654928a33b0142a79f9963d328d61a642dbedeaf147ceb3e2d4",
     "server/portfolio-agent.cjs": "1dd48551c5ea508e5cf7b3094f3aeb98852d7b9eac8921a9b4604336071e3ef6",
-    "ux.css": "578b8845b27a23eae2a74843f32eda30bf9e7ece9c7cde8b34ac71c0556a28c4"
+    "ux.css": "47a6429b756f7bd9274229dc1c8a03d237a86357f25fe7c3486f94c33432b9f3"
   },
   "output_sha256": "c53d6060a74cab373ce8f2a956d5217abd7398a158930fc02328719e785098a3",
   "portfolio_is_separate_project": true,

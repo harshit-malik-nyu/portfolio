@@ -348,13 +348,13 @@ function initCitations() {
    always the plain address. */
 function initNav() {
   const header = document.querySelector(".masthead");
-  const offset = header ? header.offsetHeight + 8 : 64;
 
   document.querySelectorAll('.masthead-nav a[href^="#"], .role-paths a[href^="#"]').forEach(link => {
     link.addEventListener("click", e => {
       const target = document.querySelector(link.getAttribute("href"));
       if (!target) return;
       e.preventDefault();
+      const offset = header ? header.offsetHeight + 8 : 64;
       for (let parent = target.parentElement; parent; parent = parent.parentElement) {
         if (parent.tagName === "DETAILS") parent.open = true;
       }
