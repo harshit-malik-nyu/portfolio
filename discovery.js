@@ -2,7 +2,8 @@
 'use strict';
 function node(tag,text){const n=document.createElement(tag);n.textContent=text;return n;}
 const search=document.getElementById('project-search'),results=document.getElementById('project-results'),count=document.getElementById('search-count');
-const studies=[...document.querySelectorAll('article.project[id]')].map(article=>({id:article.id,title:article.querySelector('h2')?.textContent||article.id,text:article.textContent.toLowerCase()}));
+const topics={'commerce-conversion':'sql python cohorts funnel commerce experiment reporting business product analytics'};
+const studies=[...document.querySelectorAll('article.project[id]')].map(article=>({id:article.id,title:article.querySelector('h2')?.textContent||article.id,text:(article.textContent+' '+(topics[article.id]||'')).toLowerCase()}));
 search.addEventListener('input',()=>{
   const query=search.value.trim().toLowerCase();results.replaceChildren();results.hidden=!query;
   if(!query){count.textContent='';return;}
