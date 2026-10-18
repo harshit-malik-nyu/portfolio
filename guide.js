@@ -31,7 +31,7 @@ form.addEventListener('submit',event=>{event.preventDefault();current=null;expor
   current=plan(input,root.EventAudit.audit);output.replaceChildren(el('h3',current.role+' review'));
   const badge=el('p',current.audit.status.replaceAll('_',' '));badge.className='guide-status';output.append(badge);
   const list=document.createElement('ol');for(const step of current.steps)list.append(el('li',step.result));output.append(list);
-  const summary=current.audit.summary;output.append(el('p',`${summary.inputRows} ${input.sample==='custom'?'submitted':'synthetic'} records checked; ${summary.provisionallyValidUniqueRows} provisionally valid unique records. ${current.audit.findings.length} finding categories.`));
+  const summary=current.audit.summary;output.append(el('p',`${summary.inputRows} ${input.sample==='custom'?'submitted':'synthetic'} records checked; ${summary.provisionallyValidUniqueRows} provisionally valid unique records. ${current.audit.findings.length} finding ${current.audit.findings.length===1?'category':'categories'}.`));
   for(const finding of current.audit.findings)output.append(el('p',finding.message+' '+finding.action));
   const link=el('a',current.next.title+' →');link.href=current.next.url;output.append(link,el('p',current.approval));exportButton.disabled=false;
 }catch(error){output.replaceChildren(el('p',error.message));}});
