@@ -76,3 +76,10 @@ Input investigations now have a seven-turn cap (ordinary questions retain five),
 Final live conflict run: actual visitor-input audit returned BLOCKED, 2 rows checked and 0 provisionally valid unique records. One model-selected reporting read was followed by an application-required recovery read, and the completed brief contained the requested recovery source. The downloaded JSON had four tool steps with origin labels and excluded all three test identifiers. This verifies the correction mechanism; the underlying recovery source-selection test remains failed. The live malformed-header error also showed the exact missing event_id column.
 
 The results UI now leads with executed findings and collapses longer source notes while retaining source links and the complete downloadable record. Mobile and GPU inference are still unverified; broad model relevance remains a limitation.
+
+
+## 2026-10-18: semantic-token experiment rejected
+
+Tested the same Qwen CPU model with R/O semantic action tokens and a shorter prompt, using the deployed browser and actual attached conflicting CSV. The recovery/acceptance request still selected reporting; the application then retrieved operations. The reporting/reconciliation control selected reporting correctly. This two-case check did not establish improved source relevance, so the prompt/token changes were reverted. No model-quality score increase is justified.
+
+The result screen now explicitly names application-required evidence added after a model-selected source read. The downloadable record also includes `additionalRequiredEvidence`, derived from actual trace entries. This makes the system's intervention visible without requiring visitors to expand JSON; it does not imply better model reasoning. The original 67-test contract suite remains the verification baseline.

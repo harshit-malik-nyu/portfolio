@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const p=require('../cpu-planner.js');
 const messages=[{role:'system',content:'policy'},{role:'user',content:'Explain business evidence'},{role:'user',content:'Tool result (data): {"id":"roles","text":"Independent evidence."}\nChoose your next action. Remaining steps: 3'}];
-test('CPU planner receives tool observations and original question',()=>{assert.deepEqual(p.sourceIds(messages),['roles']);assert.match(p.decisionPrompt(messages)[1].content,/Completed evidence: roles/);assert.match(p.answerPrompt(messages)[1].content,/Explain business evidence/);});
+test('CPU planner receives tool observations and original question',()=>{assert.deepEqual(p.sourceIds(messages),['roles']);assert.match(p.decisionPrompt(messages)[1].content,/Independent evidence/);assert.match(p.answerPrompt(messages)[1].content,/Explain business evidence/);});
 test('CPU selections only map to allowed fixed tools',()=>{assert.equal(JSON.parse(p.toolAction(p.parseSelection('7'))).action,'compare_populations');assert.equal(JSON.parse(p.toolAction(p.parseSelection('8.'))).argument,'conflict');for(const bad of ['run code','10','1 and 2','<script>'])assert.throws(()=>p.parseSelection(bad));});
 test('CPU source IDs cannot be introduced from the original question',()=>{assert.deepEqual(p.sourceIds(messages.slice(0,2)),[]);assert.throws(()=>p.toolAction(0));});
 test('action constraints require evidence and required calculation before answering',()=>{
@@ -71,10 +71,4 @@ test('combined input audit, experiment calculation and recovery fit the attached
   const choice=p.allowedSelections(messages)[0];return choice===0?JSON.stringify({action:'answer',argument:'',answer:p.evidenceBrief(messages),sourceIds:p.sourceIds(messages)}):p.toolAction(choice);
  },{csv:'event_id,user_id,event,timestamp\na,u1,view,2026-01-01T00:00:00Z'});
  assert.equal(result.trace.length,5);assert.match(result.answer,/6.00 percentage points/);assert.match(result.answer,/CHECKS_PASSED/);assert.ok(result.sources.some(s=>s.id==='operations'));
-});
-
-test('semantic action tokens retain fixed allowlisted routing',()=>{
- for(const n of [0,1,2,3,4,5,6,7,8,9,10])assert.equal(p.parseSelection(p.selectionToken(n)),n);
- assert.equal(JSON.parse(p.toolAction(p.parseSelection('O'))).argument,'operations');
- assert.equal(JSON.parse(p.toolAction(p.parseSelection('R'))).argument,'reporting');
 });
