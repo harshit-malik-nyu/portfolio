@@ -1,6 +1,8 @@
 // Browser CPU inference; loaded only after an explicit visitor download action.
 import { pipeline, env, TextStreamer, LogitsProcessor, LogitsProcessorList } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/dist/transformers.min.js';
 import './cpu-planner.js';
+import './verification/contrast-planner.js';
+const contrast=new URL(self.location.href).searchParams.get('strategy')==='contrast';
 env.allowLocalModels = false;
 // Single-thread WASM works without cross-origin isolation or SharedArrayBuffer.
 env.backends.onnx.wasm.numThreads = 1;
@@ -30,7 +32,7 @@ self.onmessage = async ({data}) => {
       class ActionMenu extends LogitsProcessor {_call(inputIds,logits){return planner.maskLogits(logits,tokens);}}
       const processors=new LogitsProcessorList();processors.push(new ActionMenu());
       // A singleton is an application requirement, not a discretionary model choice.
-      const selection=permitted.length===1?permitted[0]:planner.parseSelection(await generate(planner.decisionPrompt(messages),1,{logits_processor:processors}));
+      const selection=permitted.length===1?permitted[0]:planner.parseSelection(await generate(contrast?self.ContrastPlanner.prompt(messages,planner):planner.decisionPrompt(messages),1,{logits_processor:processors}));
       let content;
       if(selection===0){
         const sourceIds=planner.sourceIds(messages);if(!sourceIds.length)throw Error('CPU model tried to answer without evidence.');
