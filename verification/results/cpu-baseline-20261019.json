@@ -1,0 +1,553 @@
+{
+  "model": "Qwen2.5-0.5B-Instruct q8",
+  "cases": [
+    {
+      "question": "Audit my attached rows, then find recovery and acceptance evidence.",
+      "expected": "operations",
+      "selected": "reporting",
+      "pass": false,
+      "elapsedMs": 7584,
+      "strategy": "baseline",
+      "trace": [
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "audit"
+          },
+          "result": {
+            "id": "audit",
+            "title": "Local event-contract audit",
+            "url": "/tools/event-audit/",
+            "text": "CSV tool checks event identity, timestamp, taxonomy and duplicates. Conflicting IDs exclude every affected record from provisional counts. A passing contract is not proof of complete instrumentation or business approval. Inputs can be processed locally in the visitor browser."
+          }
+        },
+        {
+          "tool": "audit_input",
+          "decisionOrigin": "application-required",
+          "arguments": {},
+          "result": {
+            "provenance": "Visitor-supplied CSV; source authenticity not verified",
+            "version": "1.0.0",
+            "contract": {
+              "required": [
+                "event_id",
+                "user_id",
+                "event",
+                "timestamp"
+              ],
+              "allowedEvents": [
+                "view",
+                "addtocart",
+                "transaction"
+              ],
+              "timestamp": "UTC ISO; seconds or exactly three fractional digits",
+              "identity": "event_id must uniquely identify an immutable event"
+            },
+            "status": "BLOCKED",
+            "summary": {
+              "inputRows": 2,
+              "provisionallyValidUniqueRows": 0,
+              "identicalDuplicateRows": 0,
+              "usersInProvisionalRows": 0,
+              "eventCounts": {}
+            },
+            "findings": [
+              {
+                "code": "conflicting_id",
+                "severity": "block",
+                "message": "One event ID has conflicting payloads.",
+                "action": "Resolve the identity collision upstream; do not silently keep the first row.",
+                "count": 1,
+                "records": [
+                  2
+                ]
+              }
+            ],
+            "limitations": [
+              "Passing these checks is not a release approval or proof of complete instrumentation.",
+              "Counts are provisional. All rows sharing a conflicting ID are excluded from provisional counts; do not use this report as a cleaned dataset.",
+              "No checks for missing events, identity stitching, consent, revenue reconciliation, freshness, or treatment assignment.",
+              "Record numbers count non-empty CSV data records, not physical lines. Findings may overlap; counts must not be added as a rejected-row total.",
+              "No raw records or user/event IDs are included in this report. Event taxonomy names remain included."
+            ]
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "model-selected",
+          "arguments": {
+            "id": "reporting"
+          },
+          "result": {
+            "id": "reporting",
+            "title": "Reporting and BI handoff",
+            "url": "/projects/commerce-conversion/reporting/",
+            "text": "Reproducible reporting with reconciliation and a generated Excel handoff. Workbook generation and rendering are checked; native desktop Excel and native Power BI/Tableau execution have not been verified."
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "operations"
+          },
+          "result": {
+            "id": "operations",
+            "title": "Reporting recovery and business requirements",
+            "url": "/projects/commerce-conversion/operations/",
+            "text": "Executable examples cover replay, late arrivals, rejected data, rollback and restatement. Linked business requirements and acceptance criteria. These are independent work samples, not production client operations."
+          }
+        }
+      ]
+    },
+    {
+      "question": "Audit my attached rows, then find Excel reporting and reconciliation evidence.",
+      "expected": "reporting",
+      "selected": "reporting",
+      "pass": true,
+      "elapsedMs": 7380,
+      "strategy": "baseline",
+      "trace": [
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "audit"
+          },
+          "result": {
+            "id": "audit",
+            "title": "Local event-contract audit",
+            "url": "/tools/event-audit/",
+            "text": "CSV tool checks event identity, timestamp, taxonomy and duplicates. Conflicting IDs exclude every affected record from provisional counts. A passing contract is not proof of complete instrumentation or business approval. Inputs can be processed locally in the visitor browser."
+          }
+        },
+        {
+          "tool": "audit_input",
+          "decisionOrigin": "application-required",
+          "arguments": {},
+          "result": {
+            "provenance": "Visitor-supplied CSV; source authenticity not verified",
+            "version": "1.0.0",
+            "contract": {
+              "required": [
+                "event_id",
+                "user_id",
+                "event",
+                "timestamp"
+              ],
+              "allowedEvents": [
+                "view",
+                "addtocart",
+                "transaction"
+              ],
+              "timestamp": "UTC ISO; seconds or exactly three fractional digits",
+              "identity": "event_id must uniquely identify an immutable event"
+            },
+            "status": "BLOCKED",
+            "summary": {
+              "inputRows": 2,
+              "provisionallyValidUniqueRows": 0,
+              "identicalDuplicateRows": 0,
+              "usersInProvisionalRows": 0,
+              "eventCounts": {}
+            },
+            "findings": [
+              {
+                "code": "conflicting_id",
+                "severity": "block",
+                "message": "One event ID has conflicting payloads.",
+                "action": "Resolve the identity collision upstream; do not silently keep the first row.",
+                "count": 1,
+                "records": [
+                  2
+                ]
+              }
+            ],
+            "limitations": [
+              "Passing these checks is not a release approval or proof of complete instrumentation.",
+              "Counts are provisional. All rows sharing a conflicting ID are excluded from provisional counts; do not use this report as a cleaned dataset.",
+              "No checks for missing events, identity stitching, consent, revenue reconciliation, freshness, or treatment assignment.",
+              "Record numbers count non-empty CSV data records, not physical lines. Findings may overlap; counts must not be added as a rejected-row total.",
+              "No raw records or user/event IDs are included in this report. Event taxonomy names remain included."
+            ]
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "model-selected",
+          "arguments": {
+            "id": "reporting"
+          },
+          "result": {
+            "id": "reporting",
+            "title": "Reporting and BI handoff",
+            "url": "/projects/commerce-conversion/reporting/",
+            "text": "Reproducible reporting with reconciliation and a generated Excel handoff. Workbook generation and rendering are checked; native desktop Excel and native Power BI/Tableau execution have not been verified."
+          }
+        }
+      ]
+    },
+    {
+      "question": "Check these rows. As a follow-up, show how interrupted processing can resume without double counting.",
+      "expected": "operations",
+      "selected": "reporting",
+      "pass": false,
+      "elapsedMs": 6685,
+      "strategy": "baseline",
+      "trace": [
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "audit"
+          },
+          "result": {
+            "id": "audit",
+            "title": "Local event-contract audit",
+            "url": "/tools/event-audit/",
+            "text": "CSV tool checks event identity, timestamp, taxonomy and duplicates. Conflicting IDs exclude every affected record from provisional counts. A passing contract is not proof of complete instrumentation or business approval. Inputs can be processed locally in the visitor browser."
+          }
+        },
+        {
+          "tool": "audit_input",
+          "decisionOrigin": "application-required",
+          "arguments": {},
+          "result": {
+            "provenance": "Visitor-supplied CSV; source authenticity not verified",
+            "version": "1.0.0",
+            "contract": {
+              "required": [
+                "event_id",
+                "user_id",
+                "event",
+                "timestamp"
+              ],
+              "allowedEvents": [
+                "view",
+                "addtocart",
+                "transaction"
+              ],
+              "timestamp": "UTC ISO; seconds or exactly three fractional digits",
+              "identity": "event_id must uniquely identify an immutable event"
+            },
+            "status": "BLOCKED",
+            "summary": {
+              "inputRows": 2,
+              "provisionallyValidUniqueRows": 0,
+              "identicalDuplicateRows": 0,
+              "usersInProvisionalRows": 0,
+              "eventCounts": {}
+            },
+            "findings": [
+              {
+                "code": "conflicting_id",
+                "severity": "block",
+                "message": "One event ID has conflicting payloads.",
+                "action": "Resolve the identity collision upstream; do not silently keep the first row.",
+                "count": 1,
+                "records": [
+                  2
+                ]
+              }
+            ],
+            "limitations": [
+              "Passing these checks is not a release approval or proof of complete instrumentation.",
+              "Counts are provisional. All rows sharing a conflicting ID are excluded from provisional counts; do not use this report as a cleaned dataset.",
+              "No checks for missing events, identity stitching, consent, revenue reconciliation, freshness, or treatment assignment.",
+              "Record numbers count non-empty CSV data records, not physical lines. Findings may overlap; counts must not be added as a rejected-row total.",
+              "No raw records or user/event IDs are included in this report. Event taxonomy names remain included."
+            ]
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "model-selected",
+          "arguments": {
+            "id": "reporting"
+          },
+          "result": {
+            "id": "reporting",
+            "title": "Reporting and BI handoff",
+            "url": "/projects/commerce-conversion/reporting/",
+            "text": "Reproducible reporting with reconciliation and a generated Excel handoff. Workbook generation and rendering are checked; native desktop Excel and native Power BI/Tableau execution have not been verified."
+          }
+        }
+      ]
+    },
+    {
+      "question": "Check these rows. As a follow-up, show the spreadsheet deliverable for a manager.",
+      "expected": "reporting",
+      "selected": "reporting",
+      "pass": true,
+      "elapsedMs": 7031,
+      "strategy": "baseline",
+      "trace": [
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "audit"
+          },
+          "result": {
+            "id": "audit",
+            "title": "Local event-contract audit",
+            "url": "/tools/event-audit/",
+            "text": "CSV tool checks event identity, timestamp, taxonomy and duplicates. Conflicting IDs exclude every affected record from provisional counts. A passing contract is not proof of complete instrumentation or business approval. Inputs can be processed locally in the visitor browser."
+          }
+        },
+        {
+          "tool": "audit_input",
+          "decisionOrigin": "application-required",
+          "arguments": {},
+          "result": {
+            "provenance": "Visitor-supplied CSV; source authenticity not verified",
+            "version": "1.0.0",
+            "contract": {
+              "required": [
+                "event_id",
+                "user_id",
+                "event",
+                "timestamp"
+              ],
+              "allowedEvents": [
+                "view",
+                "addtocart",
+                "transaction"
+              ],
+              "timestamp": "UTC ISO; seconds or exactly three fractional digits",
+              "identity": "event_id must uniquely identify an immutable event"
+            },
+            "status": "BLOCKED",
+            "summary": {
+              "inputRows": 2,
+              "provisionallyValidUniqueRows": 0,
+              "identicalDuplicateRows": 0,
+              "usersInProvisionalRows": 0,
+              "eventCounts": {}
+            },
+            "findings": [
+              {
+                "code": "conflicting_id",
+                "severity": "block",
+                "message": "One event ID has conflicting payloads.",
+                "action": "Resolve the identity collision upstream; do not silently keep the first row.",
+                "count": 1,
+                "records": [
+                  2
+                ]
+              }
+            ],
+            "limitations": [
+              "Passing these checks is not a release approval or proof of complete instrumentation.",
+              "Counts are provisional. All rows sharing a conflicting ID are excluded from provisional counts; do not use this report as a cleaned dataset.",
+              "No checks for missing events, identity stitching, consent, revenue reconciliation, freshness, or treatment assignment.",
+              "Record numbers count non-empty CSV data records, not physical lines. Findings may overlap; counts must not be added as a rejected-row total.",
+              "No raw records or user/event IDs are included in this report. Event taxonomy names remain included."
+            ]
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "model-selected",
+          "arguments": {
+            "id": "reporting"
+          },
+          "result": {
+            "id": "reporting",
+            "title": "Reporting and BI handoff",
+            "url": "/projects/commerce-conversion/reporting/",
+            "text": "Reproducible reporting with reconciliation and a generated Excel handoff. Workbook generation and rendering are checked; native desktop Excel and native Power BI/Tableau execution have not been verified."
+          }
+        }
+      ]
+    },
+    {
+      "question": "Audit the input. For the next step, inspect replay, late arrivals and rollback.",
+      "expected": "operations",
+      "selected": "reporting",
+      "pass": false,
+      "elapsedMs": 6946,
+      "strategy": "baseline",
+      "trace": [
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "audit"
+          },
+          "result": {
+            "id": "audit",
+            "title": "Local event-contract audit",
+            "url": "/tools/event-audit/",
+            "text": "CSV tool checks event identity, timestamp, taxonomy and duplicates. Conflicting IDs exclude every affected record from provisional counts. A passing contract is not proof of complete instrumentation or business approval. Inputs can be processed locally in the visitor browser."
+          }
+        },
+        {
+          "tool": "audit_input",
+          "decisionOrigin": "application-required",
+          "arguments": {},
+          "result": {
+            "provenance": "Visitor-supplied CSV; source authenticity not verified",
+            "version": "1.0.0",
+            "contract": {
+              "required": [
+                "event_id",
+                "user_id",
+                "event",
+                "timestamp"
+              ],
+              "allowedEvents": [
+                "view",
+                "addtocart",
+                "transaction"
+              ],
+              "timestamp": "UTC ISO; seconds or exactly three fractional digits",
+              "identity": "event_id must uniquely identify an immutable event"
+            },
+            "status": "BLOCKED",
+            "summary": {
+              "inputRows": 2,
+              "provisionallyValidUniqueRows": 0,
+              "identicalDuplicateRows": 0,
+              "usersInProvisionalRows": 0,
+              "eventCounts": {}
+            },
+            "findings": [
+              {
+                "code": "conflicting_id",
+                "severity": "block",
+                "message": "One event ID has conflicting payloads.",
+                "action": "Resolve the identity collision upstream; do not silently keep the first row.",
+                "count": 1,
+                "records": [
+                  2
+                ]
+              }
+            ],
+            "limitations": [
+              "Passing these checks is not a release approval or proof of complete instrumentation.",
+              "Counts are provisional. All rows sharing a conflicting ID are excluded from provisional counts; do not use this report as a cleaned dataset.",
+              "No checks for missing events, identity stitching, consent, revenue reconciliation, freshness, or treatment assignment.",
+              "Record numbers count non-empty CSV data records, not physical lines. Findings may overlap; counts must not be added as a rejected-row total.",
+              "No raw records or user/event IDs are included in this report. Event taxonomy names remain included."
+            ]
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "model-selected",
+          "arguments": {
+            "id": "reporting"
+          },
+          "result": {
+            "id": "reporting",
+            "title": "Reporting and BI handoff",
+            "url": "/projects/commerce-conversion/reporting/",
+            "text": "Reproducible reporting with reconciliation and a generated Excel handoff. Workbook generation and rendering are checked; native desktop Excel and native Power BI/Tableau execution have not been verified."
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "operations"
+          },
+          "result": {
+            "id": "operations",
+            "title": "Reporting recovery and business requirements",
+            "url": "/projects/commerce-conversion/operations/",
+            "text": "Executable examples cover replay, late arrivals, rejected data, rollback and restatement. Linked business requirements and acceptance criteria. These are independent work samples, not production client operations."
+          }
+        }
+      ]
+    },
+    {
+      "question": "Audit the input. For the next step, inspect dashboard reconciliation and the BI handoff.",
+      "expected": "reporting",
+      "selected": "reporting",
+      "pass": true,
+      "elapsedMs": 6783,
+      "strategy": "baseline",
+      "trace": [
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "application-required",
+          "arguments": {
+            "id": "audit"
+          },
+          "result": {
+            "id": "audit",
+            "title": "Local event-contract audit",
+            "url": "/tools/event-audit/",
+            "text": "CSV tool checks event identity, timestamp, taxonomy and duplicates. Conflicting IDs exclude every affected record from provisional counts. A passing contract is not proof of complete instrumentation or business approval. Inputs can be processed locally in the visitor browser."
+          }
+        },
+        {
+          "tool": "audit_input",
+          "decisionOrigin": "application-required",
+          "arguments": {},
+          "result": {
+            "provenance": "Visitor-supplied CSV; source authenticity not verified",
+            "version": "1.0.0",
+            "contract": {
+              "required": [
+                "event_id",
+                "user_id",
+                "event",
+                "timestamp"
+              ],
+              "allowedEvents": [
+                "view",
+                "addtocart",
+                "transaction"
+              ],
+              "timestamp": "UTC ISO; seconds or exactly three fractional digits",
+              "identity": "event_id must uniquely identify an immutable event"
+            },
+            "status": "BLOCKED",
+            "summary": {
+              "inputRows": 2,
+              "provisionallyValidUniqueRows": 0,
+              "identicalDuplicateRows": 0,
+              "usersInProvisionalRows": 0,
+              "eventCounts": {}
+            },
+            "findings": [
+              {
+                "code": "conflicting_id",
+                "severity": "block",
+                "message": "One event ID has conflicting payloads.",
+                "action": "Resolve the identity collision upstream; do not silently keep the first row.",
+                "count": 1,
+                "records": [
+                  2
+                ]
+              }
+            ],
+            "limitations": [
+              "Passing these checks is not a release approval or proof of complete instrumentation.",
+              "Counts are provisional. All rows sharing a conflicting ID are excluded from provisional counts; do not use this report as a cleaned dataset.",
+              "No checks for missing events, identity stitching, consent, revenue reconciliation, freshness, or treatment assignment.",
+              "Record numbers count non-empty CSV data records, not physical lines. Findings may overlap; counts must not be added as a rejected-row total.",
+              "No raw records or user/event IDs are included in this report. Event taxonomy names remain included."
+            ]
+          }
+        },
+        {
+          "tool": "read_evidence",
+          "decisionOrigin": "model-selected",
+          "arguments": {
+            "id": "reporting"
+          },
+          "result": {
+            "id": "reporting",
+            "title": "Reporting and BI handoff",
+            "url": "/projects/commerce-conversion/reporting/",
+            "text": "Reproducible reporting with reconciliation and a generated Excel handoff. Workbook generation and rendering are checked; native desktop Excel and native Power BI/Tableau execution have not been verified."
+          }
+        }
+      ]
+    }
+  ]
+}
