@@ -83,3 +83,18 @@ The results UI now leads with executed findings and collapses longer source note
 Tested the same Qwen CPU model with R/O semantic action tokens and a shorter prompt, using the deployed browser and actual attached conflicting CSV. The recovery/acceptance request still selected reporting; the application then retrieved operations. The reporting/reconciliation control selected reporting correctly. This two-case check did not establish improved source relevance, so the prompt/token changes were reverted. No model-quality score increase is justified.
 
 The result screen now explicitly names application-required evidence added after a model-selected source read. The downloadable record also includes `additionalRequiredEvidence`, derived from actual trace entries. This makes the system's intervention visible without requiring visitors to expand JSON; it does not imply better model reasoning. The original 67-test contract suite remains the verification baseline.
+
+
+## 2026-10-19: six-case real-inference comparison
+
+The unlisted `/verification/ai-evaluation` page runs six fixed questions through the real browser CPU model and actual audit tools. It records the first model-selected source **before** any application correction, elapsed time, and the full tool trace. Its expected answers are a narrow, manually specified diagnostic, not independent or general validation.
+
+| Strategy | Correct model source choices | Result |
+| --- | --- | --- |
+| Production constrained menu | 3/6 | Selected reporting for all six requests |
+| Contrast examples, constrained digit | 3/6 | Fixed explicit recovery; still missed two operational requests and regressed a reporting request |
+| Contrast examples, unconstrained output (8-token cap) | No completed cases | First case failed strict action-token parsing |
+
+Neither candidate was promoted. The production default remains unchanged. Saved baseline and contrast traces are under `verification/results/`; no raw visitor CSV is included. The evaluation uses only synthetic test records. It releases its worker on completion, stop, error, or timeout. Experimental strategies require the explicit verification-page selection; normal portfolio loading uses the original planner.
+
+These results show that prompt tuning alone has not established reliable source selection in this model. The system's application checks remain valuable, but they must not be counted as correct model decisions. The previous 7/10 AI review was a subjective capability assessment, not a measured 70% reliability score. No 10/10 claim follows from this diagnostic.
