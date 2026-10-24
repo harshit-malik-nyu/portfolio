@@ -98,3 +98,12 @@ The unlisted `/verification/ai-evaluation` page runs six fixed questions through
 Neither candidate was promoted. The production default remains unchanged. Saved baseline and contrast traces are under `verification/results/`; no raw visitor CSV is included. The evaluation uses only synthetic test records. It releases its worker on completion, stop, error, or timeout. Experimental strategies require the explicit verification-page selection; normal portfolio loading uses the original planner.
 
 These results show that prompt tuning alone has not established reliable source selection in this model. The system's application checks remain valuable, but they must not be counted as correct model decisions. The previous 7/10 AI review was a subjective capability assessment, not a measured 70% reliability score. No 10/10 claim follows from this diagnostic.
+
+
+## 2026-10-24: Qwen 3 model comparison
+
+Completed the same six-case diagnostic using onnx-community/Qwen3-0.6B-ONNX q8 on WASM, with the production prompt and thinking explicitly disabled in the chat template. Result: **4/6**, versus the previously recorded Qwen 2.5 result of **3/6**. Qwen 3 fixed explicit recovery and replay/rollback requests, still missed the interrupted-processing paraphrase, and regressed the explicit Excel/reconciliation request. This is insufficient evidence for a reliable general improvement, so Qwen 3 remains an evaluation-only option. The visitor-facing default is unchanged.
+
+The complete downloaded trace is `verification/results/qwen3-baseline-20261024.json`. Model choices are scored before application corrections. Different run dates and hardware conditions mean timings should not be interpreted as a controlled speed comparison.
+
+The site now also supports shareable Data, Business and Product reviews through an allowlisted `review` query parameter. The Product shared landing and role switching were verified live; the copy control reported success. A selected-link fallback is provided when clipboard writing is unavailable. No analytics or model download is required for sharing.
