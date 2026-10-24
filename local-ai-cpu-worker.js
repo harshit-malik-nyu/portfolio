@@ -5,7 +5,8 @@ import './verification/contrast-planner.js';
 const strategy=new URL(self.location.href).searchParams.get('strategy');
 const contrast=['contrast','free'].includes(strategy);
 const qwen3=new URL(self.location.href).searchParams.get('model')==='qwen3';
-const modelId=qwen3?'onnx-community/Qwen3-0.6B-ONNX':'onnx-community/Qwen2.5-0.5B-Instruct';
+const nli=new URL(self.location.href).searchParams.get('model')==='nli';
+const modelId=nli?'Xenova/nli-deberta-v3-xsmall':qwen3?'onnx-community/Qwen3-0.6B-ONNX':'onnx-community/Qwen2.5-0.5B-Instruct';
 env.allowLocalModels = false;
 // Single-thread WASM works without cross-origin isolation or SharedArrayBuffer.
 env.backends.onnx.wasm.numThreads = 1;
@@ -14,7 +15,7 @@ self.onmessage = async ({data}) => {
   const {id, type, messages} = data;
   try {
     if (type === 'load') {
-      generator = await pipeline('text-generation', modelId, {
+      generator = await pipeline(nli?'zero-shot-classification':'text-generation', modelId, {
         device: 'wasm', dtype: 'q8',
         progress_callback: p => self.postMessage({type:'progress', text: p.status === 'progress' ? `${p.file}: ${Math.round(p.progress)}%` : `${p.status}: ${p.file || 'model runtime'}`})
       });
@@ -32,11 +33,18 @@ self.onmessage = async ({data}) => {
       };
       const planner=self.CpuPlanner;
       const permitted=planner.allowedSelections(messages);
-      const tokens=permitted.map(n=>{const ids=generator.tokenizer.encode(planner.selectionToken(n),{add_special_tokens:false});if(ids.length!==1)throw Error('Action digit must encode to one token.');return Number(ids[0]);});
-      class ActionMenu extends LogitsProcessor {_call(inputIds,logits){return planner.maskLogits(logits,tokens);}}
-      const processors=new LogitsProcessorList();processors.push(new ActionMenu());
-      // A singleton is an application requirement, not a discretionary model choice.
-      const selection=permitted.length===1?permitted[0]:planner.parseSelection(await generate(contrast?self.ContrastPlanner.prompt(messages,planner):planner.decisionPrompt(messages),strategy==='free'?8:1,strategy==='free'?{}:{logits_processor:processors}));
+      let selection=permitted[0];
+      if(permitted.length>1&&nli){
+        const labels=['finishing the review without further evidence','analyst role skills and responsibilities','historical commerce journeys and purchase cohorts','experiment assignment, exposure and launch decisions','Excel workbook deliverables, dashboards and report reconciliation','restarting failed data processing, replay, rollback and operational acceptance','event identity, timestamps and data contract validation','calculating assigned versus exposed conversion','testing conflicting event records','testing valid event records','auditing visitor-supplied CSV'];
+        const options=permitted.map(i=>labels[i]);
+        const ranked=await generator(messages[1].content,options,{hypothesis_template:'The visitor wants evidence about {}.',multi_label:false});
+        selection=permitted[options.indexOf(ranked.labels[0])];
+      }else if(permitted.length>1){
+        const tokens=permitted.map(n=>{const ids=generator.tokenizer.encode(planner.selectionToken(n),{add_special_tokens:false});if(ids.length!==1)throw Error('Action digit must encode to one token.');return Number(ids[0]);});
+        class ActionMenu extends LogitsProcessor {_call(inputIds,logits){return planner.maskLogits(logits,tokens);}}
+        const processors=new LogitsProcessorList();processors.push(new ActionMenu());
+        selection=planner.parseSelection(await generate(contrast?self.ContrastPlanner.prompt(messages,planner):planner.decisionPrompt(messages),strategy==='free'?8:1,strategy==='free'?{}:{logits_processor:processors}));
+      }
       if(!permitted.includes(selection))throw Error('Model selected an unavailable action.');
       let content;
       if(selection===0){
