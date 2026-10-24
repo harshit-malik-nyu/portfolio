@@ -10,12 +10,12 @@
     "guide.js": "a74e73423ef987ddeffd586288f9de19a8180b18c372a3a8e2fb60eea4dc10ff",
     "index.html": "1c51ff24d90808bc26ceee08e943457434a507a44570cbdb75dfc34eaebcf933",
     "local-agent.js": "4c1e5f6b982fda2eb7453a28722dbfaab1ab13416bab688b2a7725d033f2e118",
-    "local-ai-cpu-worker.js": "404b7759f3a28e17fddacd5b3ea05c3d6560024d0e73b5054338a637b3922185",
+    "local-ai-cpu-worker.js": "ccc9b9aadc593be20adb3945b62a95effe97157031df1f43cde26e7a94275a65",
     "local-ai-cpu.js": "b16efa334daf2de1812fed9591046d26f78f174b8cc2e73cf513a7817618b2a2",
     "local-ai-worker.js": "1045331355c31fe252a40e2f60bf1d15b26774091b921cdf4cbf868149b0af92",
     "local-ai.js": "efe31e4c7bb39ece4d2b586f9b54049eb216f50fcb24829e7d7fecd7eb419e72",
     "server/portfolio-agent.cjs": "1dd48551c5ea508e5cf7b3094f3aeb98852d7b9eac8921a9b4604336071e3ef6",
-    "ux.css": "3fd8f6f35916db7c0f8f11f06efd48366c3cb755ec6fb5201bfaaddcc5171e92"
+    "ux.css": "5865a31af2a970cc452b8acf473565a9a6a41ffda497d932d55fe275c046be64"
   },
   "output_sha256": "c53d6060a74cab373ce8f2a956d5217abd7398a158930fc02328719e785098a3",
   "portfolio_is_separate_project": true,
