@@ -12,18 +12,22 @@
  const status=document.createElement('span');status.setAttribute('role','status');
  const fallback=document.createElement('input');fallback.type='url';fallback.readOnly=true;fallback.hidden=true;fallback.setAttribute('aria-label','Review link to copy');
  controls.append(copy,status,fallback);output.after(controls);
- function select(role){
- const route=routes[role];if(!route)return;selected=role;status.textContent='';fallback.hidden=true;
+ function select(role,updateHistory=false){
+ if(!Object.hasOwn(routes,role))return;
+ const route=routes[role];
+ if(updateHistory&&role!==selected){const url=new URL(location.href);url.searchParams.set('review',role);history.pushState(null,'',url.href);}
+ selected=role;status.textContent='';fallback.hidden=true;
  for(const b of document.querySelectorAll('[data-review-role]'))b.setAttribute('aria-pressed',String(b.dataset.reviewRole===role));
  const p=document.createElement('p'),strong=document.createElement('strong');strong.textContent=route.title;p.append(strong,' '+route.text);
  const list=document.createElement('ol');for(const [label,url] of route.links){const li=document.createElement('li'),a=document.createElement('a');a.textContent=label;a.href=url;li.append(a);list.append(li);}
  const limit=document.createElement('p');limit.className='review-limit';limit.textContent='Historical data and synthetic fixtures; no production-client impact is claimed.';output.replaceChildren(p,list,limit);
  }
- for(const button of document.querySelectorAll('[data-review-role]'))button.addEventListener('click',()=>select(button.dataset.reviewRole));
- const requested=new URLSearchParams(location.search).get('review');if(Object.hasOwn(routes,requested))select(requested);
+ for(const button of document.querySelectorAll('[data-review-role]'))button.addEventListener('click',()=>select(button.dataset.reviewRole,true));
+ function restoreRole(){const requested=new URLSearchParams(location.search).get('review');select(Object.hasOwn(routes,requested)?requested:'data');}
+ restoreRole();window.addEventListener('popstate',restoreRole);
  copy.addEventListener('click',async()=>{
- const url=new URL('/',location.href);url.searchParams.set('review',selected);url.hash='work';
- try{await navigator.clipboard.writeText(url.href);status.textContent='Review link copied.';}
- catch{fallback.value=url.href;fallback.hidden=false;fallback.focus();fallback.select();status.textContent='Copy the selected link below.';}
+ const copiedRole=selected;const url=new URL('/',location.href);url.searchParams.set('review',copiedRole);url.hash='work';
+ try{await navigator.clipboard.writeText(url.href);if(selected!==copiedRole)return;status.textContent='Review link copied.';}
+ catch{if(selected!==copiedRole)return;fallback.value=url.href;fallback.hidden=false;fallback.focus();fallback.select();status.textContent='Copy the selected link below.';}
  });
 })();
