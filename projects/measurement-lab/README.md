@@ -47,3 +47,14 @@ Fixture expectations: 3 started, 2 viewed, 1 carted, 1 completed, 2 failed attem
 ## Ownership and limitations
 
 This is an AI-assisted, self-directed portfolio implementation. Reproducible artifacts demonstrate system behavior, not independent candidate performance. No observed stakeholder elicitation, business sign-off, real revenue, production SLA, or employer validation is implied. See [acceptance.md](acceptance.md) for a proposed delivery process and explicit approval boundaries.
+
+## Browser review and exported decision record
+
+The page accepts a local file or pasted JSON. `review.js` independently aggregates validated sessions in JavaScript; it does not run SQL in the browser. `verify_review.py` compares 100 seeded populations against Python/SQLite and confirms that both reject eight invalid cases. `review-verification.json` binds the results to source hashes. Native JSON duplicate-key overwrite is prevented by a bounded parser that checks decoded property names. Its maximum nesting depth is 12.
+
+A reviewer can load the synthetic fixture, alter it and rerun. Editing the input clears the previous result and disables its download. Async file and fixture reads use an epoch so an older result cannot replace a newer edit. Clear removes the review input and result. Uploaded content stays in the page; only loading the public fixture makes a network request. Exported decision records contain aggregates, source type, calculation method and the explicit boundary against rollout approval, with no session or event IDs.
+
+```sh
+node --test tests/measurement-review.test.cjs
+python projects/measurement-lab/verify_review.py
+```

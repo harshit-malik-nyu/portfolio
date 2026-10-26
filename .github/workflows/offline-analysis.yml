@@ -46,3 +46,5 @@ jobs:
       - run: python projects/measurement-lab/test_handoff.py
       - run: python projects/measurement-lab/build.py
       - run: git diff --exit-code -- projects/measurement-lab/fixture.json projects/measurement-lab/results.json
+      - run: python projects/measurement-lab/verify_review.py
+      - run: git diff --exit-code -- projects/measurement-lab/review-verification.json
