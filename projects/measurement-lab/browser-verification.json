@@ -1,0 +1,80 @@
+{
+  "provenance": "Agent-operated live browser demonstration; not customer activity or independent candidate assessment.",
+  "url": "https://portfolio-lac-five-10.vercel.app/projects/measurement-lab",
+  "input_sha256": "46cdb0959222ed245d404b0bbb384f49c94b32995405502dd1626390638d1081",
+  "exported_log": {
+    "schema_version": 1,
+    "source": "local_demo",
+    "state": "completed",
+    "events": [
+      {
+        "event_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727-1",
+        "session_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727",
+        "sequence": 1,
+        "event": "session_started",
+        "occurred_at": "2026-10-26T01:59:45.736Z"
+      },
+      {
+        "event_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727-2",
+        "session_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727",
+        "sequence": 2,
+        "event": "product_viewed",
+        "occurred_at": "2026-10-26T01:59:53.072Z"
+      },
+      {
+        "event_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727-3",
+        "session_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727",
+        "sequence": 3,
+        "event": "cart_added",
+        "occurred_at": "2026-10-26T01:59:53.348Z"
+      },
+      {
+        "event_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727-4",
+        "session_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727",
+        "sequence": 4,
+        "event": "checkout_failed",
+        "occurred_at": "2026-10-26T01:59:54.359Z"
+      },
+      {
+        "event_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727-5",
+        "session_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727",
+        "sequence": 5,
+        "event": "checkout_failed",
+        "occurred_at": "2026-10-26T01:59:55.373Z"
+      },
+      {
+        "event_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727-6",
+        "session_id": "s-a03e4cb8-e50a-4b62-a5a2-e3b990a98727",
+        "sequence": 6,
+        "event": "order_completed",
+        "occurred_at": "2026-10-26T01:59:56.391Z"
+      }
+    ]
+  },
+  "independent_sql_result": {
+    "source": "local_demo",
+    "metrics": {
+      "started_sessions": 1,
+      "viewed_sessions": 1,
+      "carted_sessions": 1,
+      "completed_sessions": 1,
+      "failed_attempts": 2,
+      "recovered_sessions": 1
+    },
+    "completion_per_started": 1.0,
+    "completion_per_viewed": 1.0,
+    "exact_session_redeliveries": 0,
+    "interpretation": "Descriptive demo session counts; not people, real orders, or a causal effect."
+  },
+  "browser_checks": {
+    "before_start_no_events": true,
+    "two_failures_then_one_completion": true,
+    "second_completion_disabled": true,
+    "clear_removes_memory_and_disables_export": true
+  },
+  "source_sha256": {
+    "events.js": "b7e1c11f6a09fb5a574d062fad9ddd88ad9666cd203962c1e0d0d92948c52ed1",
+    "ui.js": "053de64c25e3a2321c81693aba1b7e9786a25378bffdd30d13107e667635106f",
+    "analyze.py": "171dae33fb7a69d5907d8d9802ad1c11a15da83f775e0a9b88967e96403b7992"
+  }
+}
