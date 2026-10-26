@@ -42,3 +42,7 @@ jobs:
       - run: python verification/work-samples/verify.py
       - run: python verification/work-samples/build.py
       - run: git diff --exit-code -- verification/work-samples/results.json verification/work-samples/index.html
+      - run: node projects/measurement-lab/build.cjs
+      - run: python projects/measurement-lab/test_handoff.py
+      - run: python projects/measurement-lab/build.py
+      - run: git diff --exit-code -- projects/measurement-lab/fixture.json projects/measurement-lab/results.json

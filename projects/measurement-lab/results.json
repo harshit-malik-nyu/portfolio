@@ -1,0 +1,20 @@
+{
+  "source": "synthetic_fixture",
+  "metrics": {
+    "started_sessions": 3,
+    "viewed_sessions": 2,
+    "carted_sessions": 1,
+    "completed_sessions": 1,
+    "failed_attempts": 2,
+    "recovered_sessions": 1
+  },
+  "completion_per_started": 0.3333333333333333,
+  "completion_per_viewed": 0.5,
+  "exact_session_redeliveries": 0,
+  "interpretation": "Descriptive demo session counts; not people, real orders, or a causal effect.",
+  "sha256": {
+    "events.js": "b7e1c11f6a09fb5a574d062fad9ddd88ad9666cd203962c1e0d0d92948c52ed1",
+    "analyze.py": "171dae33fb7a69d5907d8d9802ad1c11a15da83f775e0a9b88967e96403b7992",
+    "fixture.json": "b5087a320341d0518dfcb4a7010ada2bace135c8cdb92f11ed131fc5263d177a"
+  }
+}
