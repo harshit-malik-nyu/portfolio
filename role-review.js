@@ -20,7 +20,7 @@
  for(const b of document.querySelectorAll('[data-review-role]'))b.setAttribute('aria-pressed',String(b.dataset.reviewRole===role));
  const p=document.createElement('p'),strong=document.createElement('strong');strong.textContent=route.title;p.append(strong,' '+route.text);
  const list=document.createElement('ol');for(const [label,url] of route.links){const li=document.createElement('li'),a=document.createElement('a');a.textContent=label;a.href=url;li.append(a);list.append(li);}
- const limit=document.createElement('p');limit.className='review-limit';limit.textContent='Historical data and synthetic fixtures; no production-client impact is claimed.';output.replaceChildren(p,list,limit);
+ const limit=document.createElement('p');limit.className='review-limit';limit.textContent='Historical data and synthetic fixtures; no production-client impact is claimed.';const evidence=document.createElement('a');evidence.href='/verification/work-samples/#'+role;evidence.textContent='Review deliverables and verified failure cases →';output.replaceChildren(p,list,evidence,limit);
  }
  for(const button of document.querySelectorAll('[data-review-role]'))button.addEventListener('click',()=>select(button.dataset.reviewRole,true));
  function restoreRole(){const requested=new URLSearchParams(location.search).get('review');select(Object.hasOwn(routes,requested)?requested:'data');}

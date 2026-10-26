@@ -1,0 +1,88 @@
+{
+  "scope": "Seven selected, deliberately injected defects; not exhaustive mutation coverage, independent certification, or an assessment of candidate performance.",
+  "baseline_suites": "all passed",
+  "source_sha256": {
+    "projects/commerce-conversion/experiment/ledger/metrics.sql": "7e25a2426bafd432288ea4040a78c3c7b8c180773759aa2dcb0ba0d01edf1b6f",
+    "projects/commerce-conversion/operations/pipeline.py": "edfac4a1ca6c22d8d71984c1005f679b6a21a93afe9a5ea2e68dbe5603fba920",
+    "projects/commerce-conversion/experiment/decision.js": "e738453d3b66fd810fc08f3e5e6e09cbc585c600be37991943222da90d403a03"
+  },
+  "mutations": [
+    {
+      "id": "D1",
+      "domain": "data",
+      "defect": "Exclude people with no events",
+      "source": "projects/commerce-conversion/experiment/ledger/metrics.sql",
+      "expected_test": "test_population_retained_when_both_arms_have_events",
+      "detected": true,
+      "assertion_failures": [
+        "test_population_retained_when_both_arms_have_events"
+      ]
+    },
+    {
+      "id": "D2",
+      "domain": "data",
+      "defect": "Count purchases instead of distinct buyers",
+      "source": "projects/commerce-conversion/experiment/ledger/metrics.sql",
+      "expected_test": "test_retries_and_multiple_purchases_do_not_inflate",
+      "detected": true,
+      "assertion_failures": [
+        "test_retries_and_multiple_purchases_do_not_inflate"
+      ]
+    },
+    {
+      "id": "P1",
+      "domain": "product",
+      "defect": "Include outcomes at the excluded window boundary",
+      "source": "projects/commerce-conversion/experiment/ledger/metrics.sql",
+      "expected_test": "test_window_end_excluded_and_maturity_inclusive",
+      "detected": true,
+      "assertion_failures": [
+        "test_window_end_excluded_and_maturity_inclusive"
+      ]
+    },
+    {
+      "id": "D3",
+      "domain": "data",
+      "defect": "Count item rows as orders",
+      "source": "projects/commerce-conversion/operations/pipeline.py",
+      "expected_test": "test_multirow_order_is_one_order",
+      "detected": true,
+      "assertion_failures": [
+        "test_multirow_order_is_one_order"
+      ]
+    },
+    {
+      "id": "B1",
+      "domain": "business",
+      "defect": "Approve economics using only the point estimate",
+      "source": "projects/commerce-conversion/experiment/decision.js",
+      "expected_test": "positive lift is insufficient when its lower bound cannot pay back cost",
+      "detected": true,
+      "assertion_failures": [
+        "positive lift is insufficient when its lower bound cannot pay back cost"
+      ]
+    },
+    {
+      "id": "B2",
+      "domain": "business",
+      "defect": "Ignore the harm ceiling",
+      "source": "projects/commerce-conversion/experiment/decision.js",
+      "expected_test": "harm blocks an otherwise profitable treatment",
+      "detected": true,
+      "assertion_failures": [
+        "harm blocks an otherwise profitable treatment"
+      ]
+    },
+    {
+      "id": "P2",
+      "domain": "product",
+      "defect": "Ignore sample ratio mismatch",
+      "source": "projects/commerce-conversion/experiment/decision.js",
+      "expected_test": "sample ratio mismatch invalidates interpretation",
+      "detected": true,
+      "assertion_failures": [
+        "sample ratio mismatch invalidates interpretation"
+      ]
+    }
+  ]
+}
