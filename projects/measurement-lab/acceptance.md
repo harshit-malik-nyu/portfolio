@@ -58,3 +58,7 @@ Automated acceptance status: inspect the CI run and reproduce the commands in RE
 - Why not call the rate customer conversion? A session can be restarted by the same person, and the completion is a demo action rather than a verified purchase.
 - Why reject a later snapshot with the same session ID? The batch contract accepts complete snapshots, not mutable incremental streams; silently selecting one would hide contradictory input. A versioned ingestion design would require a separate specification.
 - What does the fixture prove? The implementation preserves stated populations and retry semantics on the supplied data. It cannot prove customer outcomes, complete telemetry, or personal mastery of every implementation detail.
+
+## Executed browser acceptance
+
+An agent-operated live browser started a session, viewed, added to cart, failed twice and completed once. The completion button was then disabled. Its downloaded six-event log was accepted by the independent Python/SQL path: one started, viewed, carted, completed and recovered session, with two failed attempts. Clearing removed the in-memory events and disabled export. `browser-verification.json` preserves the exact exported log, its original file hash, source hashes and SQL result. This was technical UI verification, not business-owner acceptance or real customer behavior. A clean-URL relative-asset defect was found during verification and fixed with absolute asset paths before this successful run.

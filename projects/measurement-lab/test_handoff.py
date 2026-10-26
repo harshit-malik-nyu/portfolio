@@ -11,6 +11,10 @@ spec=importlib.util.spec_from_file_location('measurement_handoff',ROOT/'analyze.
 a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)
 
 class HandoffTests(unittest.TestCase):
+    def test_recorded_browser_export_matches_independent_sql(self):
+        record=json.loads((ROOT/'browser-verification.json').read_text())
+        self.assertEqual(a.analyze(record['exported_log']),record['independent_sql_result'])
+
     def fixture(self): return json.loads((ROOT/'fixture.json').read_text())
     def test_independent_sql_preserves_started_denominator(self):
         r=a.analyze(self.fixture())
