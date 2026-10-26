@@ -21,6 +21,14 @@ def fixture():
 
 
 class LedgerTests(unittest.TestCase):
+    def test_population_retained_when_both_arms_have_events(self):
+        x = fixture()
+        x['assignments'].append({**x['assignments'][0], 'visitor_id': 'no-events'})
+        x['events'].append({'event_id': 'control-view', 'visitor_id': 'c', 'kind': 'exposure', 'arm': 'control', 'occurred_at': '2026-01-02T00:00:00Z'})
+        r = audit.analyze(x)
+        self.assertEqual(r['arms']['control']['assigned'], 2)
+        self.assertEqual(r['arms']['treatment']['assigned'], 1)
+
     def test_left_join_keeps_unexposed_and_zero_event_people(self):
         result = audit.analyze(fixture())
         self.assertEqual(result["arms"]["control"]["assigned"], 1)

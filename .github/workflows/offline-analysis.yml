@@ -39,3 +39,6 @@ jobs:
       - run: python projects/commerce-conversion/operations/build_demo.py
       - run: git diff --exit-code -- projects/commerce-conversion/operations/demo.json projects/commerce-conversion/operations/demo-data.js projects/commerce-conversion/operations/baseline.json
       - run: git diff --exit-code -- analysis/output projects/commerce-conversion/output projects/commerce-conversion/data.js projects/commerce-conversion/data/provenance.json projects/commerce-conversion/experiment/readouts.json
+      - run: python verification/work-samples/verify.py
+      - run: python verification/work-samples/build.py
+      - run: git diff --exit-code -- verification/work-samples/results.json verification/work-samples/index.html

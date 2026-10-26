@@ -47,3 +47,9 @@ Actual behavioral-platform implementation, preregistered experimentation and shi
 The ledger adds row-level inspection beneath previously aggregate-only experiment inputs. Its tests challenge selection, duplicate delivery, binary outcomes, invalid identities, timestamp boundaries and immature follow-up. Fifty varied cases compare SQL aggregation against a set-based reference. Reproducible builds connect the fixture to the decision engine and browser readout. The public artifact deliberately refuses to convert passing log checks into launch authorization.
 
 This review exposes the basis for a score instead of manufacturing a perfect rating. A reviewer should assign scores after running or inspecting the evidence and state whether the target role requires capabilities outside this sample's scope.
+
+## Selected mutation challenge
+
+The [public evidence review](https://portfolio-lac-five-10.vercel.app/verification/work-samples/) maps each role to inspectable deliverables. Run `python verification/work-samples/verify.py` to execute baseline suites and seven isolated defect injections. The verifier requires a named assertion failure, not merely a nonzero process exit. It detects dropped no-event assignments, repeated purchases counted as buyers, item rows counted as orders, an included window endpoint, point-estimate-only economics, bypassed harm and bypassed allocation checks. Results include source hashes and actual failing assertions.
+
+A new denominator test includes events in both arms and a separate no-event visitor, so an inner-join defect produces an incorrect count rather than merely a missing-arm crash. Seven of seven selected defects were detected. This is not exhaustive mutation coverage and does not turn the rubric into independent certification or justify a universal 10/10 rating.
