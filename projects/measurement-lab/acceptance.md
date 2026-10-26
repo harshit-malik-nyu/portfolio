@@ -62,3 +62,13 @@ Automated acceptance status: inspect the CI run and reproduce the commands in RE
 ## Executed browser acceptance
 
 An agent-operated live browser started a session, viewed, added to cart, failed twice and completed once. The completion button was then disabled. Its downloaded six-event log was accepted by the independent Python/SQL path: one started, viewed, carted, completed and recovered session, with two failed attempts. Clearing removed the in-memory events and disabled export. `browser-verification.json` preserves the exact exported log, its original file hash, source hashes and SQL result. This was technical UI verification, not business-owner acceptance or real customer behavior. A clean-URL relative-asset defect was found during verification and fixed with absolute asset paths before this successful run.
+
+## Review requirements R8–R10
+
+| ID | Observable acceptance | Evidence |
+|---|---|---|
+| R8 | A valid multi-session export produces the same aggregates and population rates in the browser and Python/SQLite. | `verify_review.py`, 100 seeded valid populations including exact redelivery |
+| R9 | Invalid or mixed-source batches publish no result; duplicate decoded JSON fields reject before native overwrite. | `measurement-review.test.cjs` and eight cross-implementation rejection cases |
+| R10 | Editing or clearing invalidates prior results and disables decision-record download; stale async reads cannot overwrite a newer edit. | Browser interaction verification; epoch guards in `review-ui.js` |
+
+The exported decision is deliberately descriptive-only. Technical contract success does not authorize a production rollout. The record exposes both started and viewed denominators instead of accepting the simulated CR-01 denominator substitution.
