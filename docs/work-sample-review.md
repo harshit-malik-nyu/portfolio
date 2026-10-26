@@ -40,7 +40,7 @@ Stakeholder elicitation and negotiation cannot be inferred from a solo case. Pro
 | Decision quality | Economic lower bound, harm ceiling, explicit blocked handoff | Can a positive point estimate override unresolved validity or harm? |
 | Reproducibility and communication | Row-level fixture to SQL to gate to browser readout | Can a reviewer trace the recommendation and challenge a boundary case? |
 
-Actual behavioral-platform implementation, preregistered experimentation and shipped treatment effects are not demonstrated. Treat these as role-specific gaps where required, not as accomplishments implied by the simulation.
+The measurement lab now demonstrates working local instrumentation and an independent SQL handoff. Production behavioral-platform implementation, preregistered experimentation and shipped treatment effects are not demonstrated. Treat these as role-specific gaps where required, not as accomplishments implied by the simulation.
 
 ## Release evidence for this revision
 
@@ -53,3 +53,7 @@ This review exposes the basis for a score instead of manufacturing a perfect rat
 The [public evidence review](https://portfolio-lac-five-10.vercel.app/verification/work-samples/) maps each role to inspectable deliverables. Run `python verification/work-samples/verify.py` to execute baseline suites and seven isolated defect injections. The verifier requires a named assertion failure, not merely a nonzero process exit. It detects dropped no-event assignments, repeated purchases counted as buyers, item rows counted as orders, an included window endpoint, point-estimate-only economics, bypassed harm and bypassed allocation checks. Results include source hashes and actual failing assertions.
 
 A new denominator test includes events in both arms and a separate no-event visitor, so an inner-join defect produces an incorrect count rather than merely a missing-arm crash. Seven of seven selected defects were detected. This is not exhaustive mutation coverage and does not turn the rubric into independent certification or justify a universal 10/10 rating.
+
+## Instrumentation-to-handoff extension
+
+`projects/measurement-lab` adds an explicitly started browser journey, locally captured events, retry and terminal-completion semantics, strict exports, a separately implemented Python validator and SQL model, seven traceable requirements, and a simulated denominator change request. JavaScript and Python checks cover state transitions, missing views, duplicate delivery, conflicting snapshots, schema privacy boundaries, and rejection without partial output. This extends demonstrated implementation breadth without claiming real commerce outcomes or stakeholder acceptance.

@@ -1,0 +1,10 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const {createSession,validate}=require('../projects/measurement-lab/events');
+const clock=()=> '2026-01-01T00:00:00.000Z';
+const session=()=>createSession('s-test',clock);
+test('ML1 assignment is retained before any viewing',()=>{const s=session();assert.equal(s.snapshot().events.length,1);assert.equal(validate(s.snapshot()).completed,false);});
+test('ML2 invalid action cannot mutate the event log',()=>{const s=session(),before=s.snapshot();assert.throws(()=>s.act('complete'));assert.deepEqual(s.snapshot(),before);assert.throws(()=>s.act('toString'));});
+test('ML3 failures can recover without duplicate completion',()=>{const s=session();for(const a of ['view','cart','fail','fail','complete'])s.act(a);assert.deepEqual(validate(s.snapshot()),{events:6,completed:true,failedAttempts:2});const before=s.snapshot();assert.throws(()=>s.act('complete'));assert.deepEqual(s.snapshot(),before);});
+test('ML4 snapshots cannot mutate internal evidence',()=>{const s=session();const p=s.snapshot();p.events[0].event='order_completed';assert.equal(s.snapshot().events[0].event,'session_started');});
+test('ML5 unknown fields, identities and chronology reject',()=>{for(const mutate of [p=>p.email='x',p=>p.events[0].email='x',p=>p.events[0].sequence=2,p=>p.events[0].event_id='other',p=>p.events[0].occurred_at='2026-02-30T00:00:00.000Z',p=>p.state='completed']){const p=session().snapshot();mutate(p);assert.throws(()=>validate(p));}});
+test('ML6 event limit fails without partial append',()=>{const s=session();s.act('view');s.act('cart');for(let i=0;i<97;i++)s.act('fail');const before=s.snapshot();assert.throws(()=>s.act('fail'));assert.deepEqual(s.snapshot(),before);});
+test('ML7 clock regression rejects without state or event mutation',()=>{let now=clock();const s=createSession('s-clock',()=>now);now='2025-01-01T00:00:00.000Z';const before=s.snapshot();assert.throws(()=>s.act('view'));assert.deepEqual(s.snapshot(),before);});
