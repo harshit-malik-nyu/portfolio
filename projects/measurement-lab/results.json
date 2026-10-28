@@ -13,8 +13,8 @@
   "exact_session_redeliveries": 0,
   "interpretation": "Descriptive demo session counts; not people, real orders, or a causal effect.",
   "sha256": {
-    "events.js": "b7e1c11f6a09fb5a574d062fad9ddd88ad9666cd203962c1e0d0d92948c52ed1",
-    "analyze.py": "171dae33fb7a69d5907d8d9802ad1c11a15da83f775e0a9b88967e96403b7992",
+    "events.js": "98b8b52ea4f01538c033907b95d41e0b51d0efc0e56d0150c83503427e0f96a6",
+    "analyze.py": "c3cf87d3ceffdae46a38dab499e680d557f8fe97e6d4f607c9f0d9c0184f3396",
     "fixture.json": "b5087a320341d0518dfcb4a7010ada2bace135c8cdb92f11ed131fc5263d177a"
   }
 }

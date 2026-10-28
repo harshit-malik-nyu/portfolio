@@ -6,3 +6,17 @@ test('parser rejects duplicate decoded keys, malformed values and deep input',()
 test('parser matches JSON semantics including escaped punctuation',()=>{for(const x of [{a:'quote " slash \\ comma , brace }',b:[1,-.3,true,false,null]},[],{}])assert.deepEqual(JSON.parse(JSON.stringify(review.parse(JSON.stringify(x)))),x);});
 test('reserved keys cannot pollute object prototypes',()=>{const p=review.parse('{"__proto__":{"polluted":true}}');assert.equal(Object.getPrototypeOf(p),null);assert.equal({}.polluted,undefined);assert.throws(()=>review.analyze(p));});
 test('input bounds and empty batches reject',()=>{assert.throws(()=>review.parse(' '.repeat(8*1024*1024+1)));assert.throws(()=>review.analyze([]));assert.throws(()=>review.analyze(Array(1001).fill(fixture[0])));});
+
+test('portable numeric and calendar boundaries agree with the documented contract',()=>{
+ const lab=require('../projects/measurement-lab/events');
+ for(const spelling of ['1.0','1e0','1.000000']){
+  const text=JSON.stringify(fixture[2]).replace('"schema_version":1','"schema_version":'+spelling).replace('"sequence":1','"sequence":'+spelling);
+  assert.equal(review.analyze(review.parse(text)).metrics.started_sessions,1);
+ }
+ for(const stamp of ['0000-01-01T00:00:00.000Z','1900-02-29T00:00:00.000Z']){
+  assert.throws(()=>lab.createSession('s-boundary',()=>stamp),/clock/);
+  const x=clone()[2];x.events[0].occurred_at=stamp;assert.throws(()=>review.analyze(x),/clock/);
+ }
+ const session=lab.createSession('s-valid',()=> '0001-01-01T00:00:00.000Z');
+ assert.equal(lab.validate(session.snapshot()).events,1);
+});

@@ -1,16 +1,18 @@
 {
-  "scope": "100 constructed valid populations and 8 invalid inputs; cross-implementation agreement, not real-world accuracy or candidate assessment.",
-  "valid_population_matches": 100,
-  "invalid_inputs_blocked_by_both": 8,
+  "scope": "100 seeded populations, 6 valid numeric/calendar boundaries and 14 invalid inputs; cross-implementation agreement, not real-world accuracy or candidate assessment.",
+  "valid_population_matches": 106,
+  "invalid_inputs_blocked_by_both": 14,
+  "seeded_population_count": 100,
+  "valid_boundary_count": 6,
   "population_seed_range": [
     0,
     99
   ],
   "source_sha256": {
     "review.js": "0a2ff70bab979a11f6ae925503e4303b44100141e3a6b10c36d803397e91d0cd",
-    "events.js": "b7e1c11f6a09fb5a574d062fad9ddd88ad9666cd203962c1e0d0d92948c52ed1",
-    "analyze.py": "171dae33fb7a69d5907d8d9802ad1c11a15da83f775e0a9b88967e96403b7992",
+    "events.js": "98b8b52ea4f01538c033907b95d41e0b51d0efc0e56d0150c83503427e0f96a6",
+    "analyze.py": "c3cf87d3ceffdae46a38dab499e680d557f8fe97e6d4f607c9f0d9c0184f3396",
     "fixture.json": "b5087a320341d0518dfcb4a7010ada2bace135c8cdb92f11ed131fc5263d177a",
-    "verify_review.py": "dff5158935e7c95ccb9e9d97d6a4b92d6bd494ad6a78f3c2b0cb82c866514a8f"
+    "verify_review.py": "19f60ff85e350acb140d314acd1ff909f458e58fe72991818b2bdc1bc54433c5"
   }
 }
