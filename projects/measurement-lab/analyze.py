@@ -38,7 +38,7 @@ def analyze(payload):
     sessions = {}; duplicates = 0; sources = set()
     for log in logs:
         require(isinstance(log, dict) and set(log) == {'schema_version','source','state','events'}, 'Invalid envelope fields.')
-        require(type(log['schema_version']) is int and log['schema_version'] == 1, 'Unsupported schema version.')
+        require(type(log['schema_version']) in (int, float) and log['schema_version'] == 1, 'Unsupported schema version.')
         require(log['source'] in ('local_demo','synthetic_fixture'), 'Unsupported source type.')
         sources.add(log['source'])
         events = log['events']
@@ -49,7 +49,7 @@ def analyze(payload):
             require(isinstance(e['session_id'],str) and re.fullmatch(r's-[A-Za-z0-9-]{1,80}',e['session_id']), 'Invalid session ID.')
             identity=identity or e['session_id']
             require(e['session_id']==identity and e['event_id']==identity+'-'+str(i), 'Inconsistent event identity.')
-            require(type(e['sequence']) is int and e['sequence']==i, 'Invalid sequence.')
+            require(type(e['sequence']) in (int, float) and e['sequence']==i, 'Invalid sequence.')
             stamp=e['occurred_at']
             require(isinstance(stamp,str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z',stamp), 'Invalid UTC timestamp.')
             try: time=datetime.strptime(stamp,'%Y-%m-%dT%H:%M:%S.%fZ')

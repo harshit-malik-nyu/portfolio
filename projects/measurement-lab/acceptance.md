@@ -68,7 +68,13 @@ An agent-operated live browser started a session, viewed, added to cart, failed 
 | ID | Observable acceptance | Evidence |
 |---|---|---|
 | R8 | A valid multi-session export produces the same aggregates and population rates in the browser and Python/SQLite. | `verify_review.py`, 100 seeded valid populations including exact redelivery |
-| R9 | Invalid or mixed-source batches publish no result; duplicate decoded JSON fields reject before native overwrite. | `measurement-review.test.cjs` and eight cross-implementation rejection cases |
+| R9 | Invalid or mixed-source batches publish no result; duplicate decoded JSON fields reject before native overwrite. | `measurement-review.test.cjs` and fourteen cross-implementation rejection cases |
 | R10 | Editing or clearing invalidates prior results and disables decision-record download; stale async reads cannot overwrite a newer edit. | Browser interaction verification; epoch guards in `review-ui.js` |
 
 The exported decision is deliberately descriptive-only. Technical contract success does not authorize a production rollout. The record exposes both started and viewed denominators instead of accepting the simulated CR-01 denominator substitution.
+
+## Contract portability requirement R11
+
+**Acceptance:** Equivalent integer-valued JSON numbers must agree across browser and Python; invalid numeric types and calendar dates must reject in both. Evidence: `verify_review.py` tests six valid numeric/calendar boundaries and six additional invalid boundaries, alongside the original population and rejection cases. `measurement-review.test.cjs` checks the recording clock as well as imported logs.
+
+This requirement closes the observed contract discrepancy recorded in [contract-review.md](contract-review.md). It is technical acceptance of the demo, not stakeholder approval.
