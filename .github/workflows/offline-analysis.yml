@@ -48,3 +48,7 @@ jobs:
       - run: git diff --exit-code -- projects/measurement-lab/fixture.json projects/measurement-lab/results.json
       - run: python projects/measurement-lab/verify_review.py
       - run: git diff --exit-code -- projects/measurement-lab/review-verification.json
+      - run: node projects/commerce-conversion/experiment/robustness/build.cjs
+      - run: node --test projects/commerce-conversion/experiment/robustness/test.cjs
+      - run: python projects/commerce-conversion/experiment/robustness/verify.py
+      - run: git diff --exit-code -- projects/commerce-conversion/experiment/robustness/results.json

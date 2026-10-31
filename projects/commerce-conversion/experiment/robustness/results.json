@@ -1,0 +1,2178 @@
+{
+  "schemaVersion": 1,
+  "evidence": "Synthetic experiments and illustrative planning assumptions. No observed revenue, causal impact or employer endorsement.",
+  "scope": "27 equally displayed planning combinations per experiment. Counts of passing combinations are not probabilities. Missing-outcome bounds are identification bounds, not confidence intervals.",
+  "axes": {
+    "cost": [
+      4000,
+      8000,
+      16000
+    ],
+    "futureVisitors": [
+      18000,
+      36141,
+      72000
+    ],
+    "margin": [
+      0.2,
+      0.4,
+      0.6
+    ]
+  },
+  "scenarios": [
+    {
+      "name": "Clear economic gate",
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "cells": [
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 5449.999999999993,
+          "netLower": 2383.630412440455,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 14899.999999999985,
+          "netLower": 8767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 24349.999999999978,
+          "netLower": 15150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 14974.024999999987,
+          "netLower": 8817.26592977836,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.0036892541250472684,
+          "netPoint": 33948.049999999974,
+          "netLower": 21634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.0024595027500315123,
+          "netPoint": 52922.07499999995,
+          "netLower": 34451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 33799.99999999997,
+          "netLower": 21534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.001851851851851852,
+          "netPoint": 71599.99999999994,
+          "netLower": 47069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.0012345679012345679,
+          "netPoint": 109399.99999999991,
+          "netLower": 72603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 1449.9999999999927,
+          "netLower": -1616.369587559545,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 10899.999999999985,
+          "netLower": 4767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.009876543209876543,
+          "netPoint": 20349.999999999978,
+          "netLower": 11150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 10974.024999999987,
+          "netLower": 4817.265929778359,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 29948.049999999974,
+          "netLower": 17634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.004919005500063025,
+          "netPoint": 48922.07499999995,
+          "netLower": 30451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 29799.99999999997,
+          "netLower": 17534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 67599.99999999994,
+          "netLower": 43069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.0024691358024691358,
+          "netPoint": 105399.99999999991,
+          "netLower": 68603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.05925925925925926,
+          "netPoint": -6550.000000000007,
+          "netLower": -9616.369587559544,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 2899.9999999999854,
+          "netLower": -3232.73917511909,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.019753086419753086,
+          "netPoint": 12349.999999999978,
+          "netLower": 3150.8912373213643,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.029514033000378147,
+          "netPoint": 2974.024999999987,
+          "netLower": -3182.7340702216406,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 21948.049999999974,
+          "netLower": 9634.531859556719,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.00983801100012605,
+          "netPoint": 40922.07499999995,
+          "netLower": 22451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 21799.99999999997,
+          "netLower": 9534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 59599.99999999994,
+          "netLower": 35069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "ELIGIBLE FOR REVIEW",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 97399.99999999991,
+          "netLower": 60603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        }
+      ],
+      "eligible": 23,
+      "total": 27,
+      "assessment": "ASSUMPTION-SENSITIVE"
+    },
+    {
+      "name": "Positive lift, weak economics",
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 11400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "cells": [
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.014814814814814815,
+          "netPoint": -1300.0000000000127,
+          "netLower": -4327.969681583469,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 1399.9999999999745,
+          "netLower": -4655.939363166936,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 4099.999999999962,
+          "netLower": -4983.909044750404,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 1421.149999999975,
+          "netLower": -4658.508459006007,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.0036892541250472684,
+          "netPoint": 6842.29999999995,
+          "netLower": -5317.016918012014,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.0024595027500315123,
+          "netPoint": 12263.449999999924,
+          "netLower": -5975.525377018021,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 6799.999999999949,
+          "netLower": -5311.878726333873,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.001851851851851852,
+          "netPoint": 17599.999999999898,
+          "netLower": -6623.757452667745,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.0012345679012345679,
+          "netPoint": 28399.999999999847,
+          "netLower": -7935.636179001618,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.02962962962962963,
+          "netPoint": -5300.000000000013,
+          "netLower": -8327.969681583469,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.014814814814814815,
+          "netPoint": -2600.0000000000255,
+          "netLower": -8655.939363166937,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.009876543209876543,
+          "netPoint": 99.9999999999618,
+          "netLower": -8983.909044750404,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.014757016500189074,
+          "netPoint": -2578.850000000025,
+          "netLower": -8658.508459006007,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 2842.29999999995,
+          "netLower": -9317.016918012014,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.004919005500063025,
+          "netPoint": 8263.449999999924,
+          "netLower": -9975.52537701802,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 2799.999999999949,
+          "netLower": -9311.878726333873,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 13599.999999999898,
+          "netLower": -10623.757452667745,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.0024691358024691358,
+          "netPoint": 24399.999999999847,
+          "netLower": -11935.636179001618,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.05925925925925926,
+          "netPoint": -13300.000000000013,
+          "netLower": -16327.969681583469,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.02962962962962963,
+          "netPoint": -10600.000000000025,
+          "netLower": -16655.939363166937,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.019753086419753086,
+          "netPoint": -7900.000000000038,
+          "netLower": -16983.909044750406,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.029514033000378147,
+          "netPoint": -10578.850000000024,
+          "netLower": -16658.508459006007,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.014757016500189074,
+          "netPoint": -5157.70000000005,
+          "netLower": -17317.016918012014,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.00983801100012605,
+          "netPoint": 263.44999999992433,
+          "netLower": -17975.52537701802,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.014814814814814815,
+          "netPoint": -5200.000000000051,
+          "netLower": -17311.878726333875,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 5599.999999999898,
+          "netLower": -18623.757452667745,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "HOLD: ECONOMICS",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 16399.999999999847,
+          "netLower": -19935.636179001616,
+          "liftLower": -0.0012147025243832155,
+          "blockers": []
+        }
+      ],
+      "eligible": 0,
+      "total": 27,
+      "assessment": "NO GRID CASE ELIGIBLE"
+    },
+    {
+      "name": "Conversion up, harm up",
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 1000,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "cells": [
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 5449.999999999993,
+          "netLower": 2383.630412440455,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 14899.999999999985,
+          "netLower": 8767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 24349.999999999978,
+          "netLower": 15150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 14974.024999999987,
+          "netLower": 8817.26592977836,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.0036892541250472684,
+          "netPoint": 33948.049999999974,
+          "netLower": 21634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.0024595027500315123,
+          "netPoint": 52922.07499999995,
+          "netLower": 34451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 33799.99999999997,
+          "netLower": 21534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.001851851851851852,
+          "netPoint": 71599.99999999994,
+          "netLower": 47069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.0012345679012345679,
+          "netPoint": 109399.99999999991,
+          "netLower": 72603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 1449.9999999999927,
+          "netLower": -1616.369587559545,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 10899.999999999985,
+          "netLower": 4767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.009876543209876543,
+          "netPoint": 20349.999999999978,
+          "netLower": 11150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 10974.024999999987,
+          "netLower": 4817.265929778359,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 29948.049999999974,
+          "netLower": 17634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.004919005500063025,
+          "netPoint": 48922.07499999995,
+          "netLower": 30451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 29799.99999999997,
+          "netLower": 17534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 67599.99999999994,
+          "netLower": 43069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.0024691358024691358,
+          "netPoint": 105399.99999999991,
+          "netLower": 68603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.05925925925925926,
+          "netPoint": -6550.000000000007,
+          "netLower": -9616.369587559544,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 2899.9999999999854,
+          "netLower": -3232.73917511909,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.019753086419753086,
+          "netPoint": 12349.999999999978,
+          "netLower": 3150.8912373213643,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.029514033000378147,
+          "netPoint": 2974.024999999987,
+          "netLower": -3182.7340702216406,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 21948.049999999974,
+          "netLower": 9634.531859556719,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.00983801100012605,
+          "netPoint": 40922.07499999995,
+          "netLower": 22451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 21799.99999999997,
+          "netLower": 9534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 59599.99999999994,
+          "netLower": 35069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "HOLD: GUARDRAIL",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 97399.99999999991,
+          "netLower": 60603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": []
+        }
+      ],
+      "eligible": 0,
+      "total": 27,
+      "assessment": "NO GRID CASE ELIGIBLE"
+    },
+    {
+      "name": "Broken randomization ratio",
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 38000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 38000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "cells": [
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 9855.263157894735,
+          "netLower": 6726.051549988353,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 23710.52631578947,
+          "netLower": 17452.103099976706,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 37565.7894736842,
+          "netLower": 28178.154649965058,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 23819.059210526313,
+          "netLower": 17536.123837118277,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0036892541250472684,
+          "netPoint": 51638.118421052626,
+          "netLower": 39072.247674236554,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0024595027500315123,
+          "netPoint": 79457.17763157895,
+          "netLower": 60608.37151135484,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 51421.05263157894,
+          "netLower": 38904.20619995341,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.001851851851851852,
+          "netPoint": 106842.10526315788,
+          "netLower": 81808.41239990683,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0012345679012345679,
+          "netPoint": 162263.1578947368,
+          "netLower": 124712.61859986023,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 5855.263157894735,
+          "netLower": 2726.051549988353,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 19710.52631578947,
+          "netLower": 13452.103099976706,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.009876543209876543,
+          "netPoint": 33565.7894736842,
+          "netLower": 24178.154649965058,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 19819.059210526313,
+          "netLower": 13536.123837118277,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 47638.118421052626,
+          "netLower": 35072.247674236554,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.004919005500063025,
+          "netPoint": 75457.17763157895,
+          "netLower": 56608.37151135484,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 47421.05263157894,
+          "netLower": 34904.20619995341,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 102842.10526315788,
+          "netLower": 77808.41239990683,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0024691358024691358,
+          "netPoint": 158263.1578947368,
+          "netLower": 120712.61859986023,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.05925925925925926,
+          "netPoint": -2144.736842105265,
+          "netLower": -5273.948450011647,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 11710.52631578947,
+          "netLower": 5452.103099976706,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.019753086419753086,
+          "netPoint": 25565.7894736842,
+          "netLower": 16178.154649965058,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.029514033000378147,
+          "netPoint": 11819.059210526313,
+          "netLower": 5536.123837118277,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 39638.118421052626,
+          "netLower": 27072.247674236554,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.00983801100012605,
+          "netPoint": 67457.17763157895,
+          "netLower": 48608.37151135484,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 39421.05263157894,
+          "netLower": 26904.206199953413,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 94842.10526315788,
+          "netLower": 69808.41239990683,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 150263.1578947368,
+          "netLower": 112712.61859986023,
+          "liftLower": 0.03972611685180871,
+          "blockers": [
+            "Sample ratio mismatch: inspect assignment and exposure logging."
+          ]
+        }
+      ],
+      "eligible": 0,
+      "total": 27,
+      "assessment": "NO GRID CASE ELIGIBLE"
+    },
+    {
+      "name": "Incomplete follow-up",
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 37000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": true,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "cells": [
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 5449.999999999993,
+          "netLower": 2383.630412440455,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 14899.999999999985,
+          "netLower": 8767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 24349.999999999978,
+          "netLower": 15150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 14974.024999999987,
+          "netLower": 8817.26592977836,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0036892541250472684,
+          "netPoint": 33948.049999999974,
+          "netLower": 21634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0024595027500315123,
+          "netPoint": 52922.07499999995,
+          "netLower": 34451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 33799.99999999997,
+          "netLower": 21534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.001851851851851852,
+          "netPoint": 71599.99999999994,
+          "netLower": 47069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0012345679012345679,
+          "netPoint": 109399.99999999991,
+          "netLower": 72603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 1449.9999999999927,
+          "netLower": -1616.369587559545,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 10899.999999999985,
+          "netLower": 4767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.009876543209876543,
+          "netPoint": 20349.999999999978,
+          "netLower": 11150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 10974.024999999987,
+          "netLower": 4817.265929778359,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 29948.049999999974,
+          "netLower": 17634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.004919005500063025,
+          "netPoint": 48922.07499999995,
+          "netLower": 30451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 29799.99999999997,
+          "netLower": 17534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 67599.99999999994,
+          "netLower": 43069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0024691358024691358,
+          "netPoint": 105399.99999999991,
+          "netLower": 68603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.05925925925925926,
+          "netPoint": -6550.000000000007,
+          "netLower": -9616.369587559544,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 2899.9999999999854,
+          "netLower": -3232.73917511909,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.019753086419753086,
+          "netPoint": 12349.999999999978,
+          "netLower": 3150.8912373213643,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.029514033000378147,
+          "netPoint": 2974.024999999987,
+          "netLower": -3182.7340702216406,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 21948.049999999974,
+          "netLower": 9634.531859556719,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.00983801100012605,
+          "netPoint": 40922.07499999995,
+          "netLower": 22451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 21799.99999999997,
+          "netLower": 9534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 59599.99999999994,
+          "netLower": 35069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 97399.99999999991,
+          "netLower": 60603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "Not all assigned visitors have complete seven-day follow-up; do not analyze a mature subset."
+          ]
+        }
+      ],
+      "eligible": 0,
+      "total": 27,
+      "assessment": "NO GRID CASE ELIGIBLE"
+    },
+    {
+      "name": "Early peek",
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlHarm": 400,
+        "treatmentHarm": 400,
+        "controlMature": 40000,
+        "treatmentMature": 40000,
+        "futureVisitors": 36141,
+        "aov": 75,
+        "margin": 0.4,
+        "cost": 8000,
+        "maxHarm": 0.005,
+        "fixedHorizon": false,
+        "identityChecked": true,
+        "instrumentationChecked": true
+      },
+      "cells": [
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 5449.999999999993,
+          "netLower": 2383.630412440455,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 14899.999999999985,
+          "netLower": 8767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 24349.999999999978,
+          "netLower": 15150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 14974.024999999987,
+          "netLower": 8817.26592977836,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0036892541250472684,
+          "netPoint": 33948.049999999974,
+          "netLower": 21634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0024595027500315123,
+          "netPoint": 52922.07499999995,
+          "netLower": 34451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 33799.99999999997,
+          "netLower": 21534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.001851851851851852,
+          "netPoint": 71599.99999999994,
+          "netLower": 47069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 4000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0012345679012345679,
+          "netPoint": 109399.99999999991,
+          "netLower": 72603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 1449.9999999999927,
+          "netLower": -1616.369587559545,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 10899.999999999985,
+          "netLower": 4767.26082488091,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.009876543209876543,
+          "netPoint": 20349.999999999978,
+          "netLower": 11150.891237321364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 10974.024999999987,
+          "netLower": 4817.265929778359,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007378508250094537,
+          "netPoint": 29948.049999999974,
+          "netLower": 17634.53185955672,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.004919005500063025,
+          "netPoint": 48922.07499999995,
+          "netLower": 30451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 29799.99999999997,
+          "netLower": 17534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.003703703703703704,
+          "netPoint": 67599.99999999994,
+          "netLower": 43069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 8000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0024691358024691358,
+          "netPoint": 105399.99999999991,
+          "netLower": 68603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.05925925925925926,
+          "netPoint": -6550.000000000007,
+          "netLower": -9616.369587559544,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.02962962962962963,
+          "netPoint": 2899.9999999999854,
+          "netLower": -3232.73917511909,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 18000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.019753086419753086,
+          "netPoint": 12349.999999999978,
+          "netLower": 3150.8912373213643,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.029514033000378147,
+          "netPoint": 2974.024999999987,
+          "netLower": -3182.7340702216406,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014757016500189074,
+          "netPoint": 21948.049999999974,
+          "netLower": 9634.531859556719,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 36141,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.00983801100012605,
+          "netPoint": 40922.07499999995,
+          "netLower": 22451.797789335076,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.2,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.014814814814814815,
+          "netPoint": 21799.99999999997,
+          "netLower": 9534.52164976182,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.4,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.007407407407407408,
+          "netPoint": 59599.99999999994,
+          "netLower": 35069.04329952364,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        },
+        {
+          "cost": 16000,
+          "futureVisitors": 72000,
+          "margin": 0.6,
+          "decision": "INVALID / NOT READY",
+          "breakEven": 0.0049382716049382715,
+          "netPoint": 97399.99999999991,
+          "netLower": 60603.56494928546,
+          "liftLower": 0.023643075601631314,
+          "blockers": [
+            "The predeclared fixed analysis horizon has not been reached."
+          ]
+        }
+      ],
+      "eligible": 0,
+      "total": 27,
+      "assessment": "NO GRID CASE ELIGIBLE"
+    }
+  ],
+  "missing": [
+    {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlUnknown": 0,
+        "treatmentUnknown": 0
+      },
+      "result": {
+        "lower": 0.034999999999999976,
+        "upper": 0.034999999999999976,
+        "complete": true,
+        "decision": "COMPLETE COUNTS — APPLY EXPERIMENT GATES"
+      }
+    },
+    {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlUnknown": 400,
+        "treatmentUnknown": 400
+      },
+      "result": {
+        "lower": 0.025000000000000022,
+        "upper": 0.044999999999999984,
+        "complete": false,
+        "decision": "HOLD: UNKNOWN OUTCOMES"
+      }
+    },
+    {
+      "inputs": {
+        "controlN": 40000,
+        "treatmentN": 40000,
+        "controlBuy": 11000,
+        "treatmentBuy": 12400,
+        "controlUnknown": 2000,
+        "treatmentUnknown": 2000
+      },
+      "result": {
+        "lower": -0.015000000000000013,
+        "upper": 0.08499999999999996,
+        "complete": false,
+        "decision": "HOLD: UNKNOWN OUTCOMES"
+      }
+    }
+  ],
+  "sourceSha256": {
+    "model.cjs": "6251458924d87c1d74175a8e2656f158b11bb1ab99674eab92a0a244ae0857d8",
+    "../decision.js": "e738453d3b66fd810fc08f3e5e6e09cbc585c600be37991943222da90d403a03"
+  }
+}
