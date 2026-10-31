@@ -19,3 +19,7 @@ jobs:
       # Keep its tool tests and all-page link audit above; rebuild analysis on source branches.
       - if: github.ref != 'refs/heads/gh-pages'
         run: python analysis/product.py analysis/events.synthetic.jsonl
+
+      - run: python tools/event-audit/assurance/verify.py
+      - run: python tools/event-audit/assurance/build.py
+      - run: git diff --exit-code -- tools/event-audit/assurance/results.json tools/event-audit/assurance/index.html

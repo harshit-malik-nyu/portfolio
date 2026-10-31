@@ -3,7 +3,8 @@ const $=id=>document.getElementById(id);
 const header='event_id,user_id,event,timestamp\n';
 const good=header+'e1,u1,view,2026-01-01T12:00:00Z\ne2,u1,addtocart,2026-01-01T12:01:00Z\ne3,u1,transaction,2026-01-01T12:02:00Z\ne4,u2,view,2026-01-01T12:03:00Z\n';
 const bad=good+'e3,u1,transaction,2026-01-01T12:02:00Z\ne2,u9,addtocart,2026-01-01T12:01:00Z\ne5,,view,2026-01-01T12:03:00Z\ne6,u2,purchase,2026-01-01T12:04:00Z\ne7,u3,view,2026-02-30T12:00:00Z\n';
-let report=null;
+let report=null,epoch=0;
+function invalidate(message){epoch++;$('run').disabled=false;reset(message);}
 function node(tag,text,parent){const n=document.createElement(tag);n.textContent=text;if(parent)parent.append(n);return n;}
 function reset(message){report=null;$('download').hidden=true;$('results').replaceChildren();$('status').className='';$('status').textContent=message;}
 function run(text,label){
@@ -20,9 +21,22 @@ function run(text,label){
   $('download').hidden=false;
  }catch(e){reset('Could not audit: '+e.message);}
 }
-$('broken').onclick=()=>run(bad,'Synthetic broken tracking');
-$('clean').onclick=()=>run(good,'Synthetic corrected tracking');
-$('events').oninput=()=>reset('Contract changed. Run the audit again.');
-$('file').onchange=()=>reset('File selection changed. Run the audit again.');
-$('run').onclick=async()=>{const f=$('file').files[0];if(!f)return reset('Choose a CSV first.');if(f.size>EventAudit.MAX_BYTES)return reset('Use a CSV smaller than 5 MiB.');const button=$('run');button.disabled=true;try{run(await f.text(),'Selected CSV');}catch(e){reset('Could not read file: '+e.message);}finally{button.disabled=false;}};
+$('broken').onclick=()=>{invalidate('Checking…');run(bad,'Synthetic broken tracking');};
+$('clean').onclick=()=>{invalidate('Checking…');run(good,'Synthetic corrected tracking');};
+$('events').oninput=()=>invalidate('Contract changed. Run the audit again.');
+$('file').onchange=()=>invalidate('File selection changed. Run the audit again.');
+$('run').onclick=async()=>{
+ const ticket=++epoch,f=$('file').files[0],button=$('run');
+ reset('Reading file…');
+ if(!f)return reset('Choose a CSV first.');
+ if(f.size>EventAudit.MAX_BYTES)return reset('Use a CSV smaller than 5 MiB.');
+ button.disabled=true;
+ try{
+  const bytes=await f.arrayBuffer();
+  if(ticket!==epoch)return;
+  const text=new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+  run(text,'Selected CSV');
+ }catch(_){if(ticket===epoch)reset('Could not read file. Use a readable UTF-8 CSV. No report was produced.');}
+ finally{if(ticket===epoch)button.disabled=false;}
+};
 $('download').onclick=()=>{if(!report)return;const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='event-audit-report.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
