@@ -58,3 +58,9 @@ The browser and tests use the same `audit.js` engine. Tests cover failure modes,
 4. Assign remediation and define source-system reconciliation before recommending a launch.
 
 This is an independent AI-assisted portfolio tool. Personal mastery must be observed; the repository does not establish interview performance.
+
+## Independent reference and business acceptance
+
+[Inspect the review](https://portfolio-lac-five-10.vercel.app/tools/event-audit/assurance/). Run `python tools/event-audit/assurance/verify.py` for 126 deterministic synthetic comparisons against Python validation and SQLite aggregation, plus four selected semantic mutations. Browser and CLI parity remains a separate interface check. See [the decision record](assurance/decision-record.md) for process alternatives, ten traceable requirements, a proposed change request and approval boundaries. This is not exhaustive verification or stakeholder acceptance.
+
+Pending file reads are invalidated when the contract, selected file or example changes. Malformed UTF-8 rejects without a report, matching the CLI. `node --test tests/event-audit-ui.test.cjs` reproduces controlled read races and encoding acceptance.

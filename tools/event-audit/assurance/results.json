@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "caseCount": 126,
+  "matched": 126,
+  "methods": [
+    "Python standard CSV and datetime",
+    "SQLite grouping and aggregation",
+    "JavaScript production engine"
+  ],
+  "fixtures": "126 deterministic synthetic cases, including quoted CSV fields, retries, conflicting optional values, shared users, invalid dates, missing fields and taxonomy drift.",
+  "mutationChecks": [
+    {
+      "id": "E1",
+      "defect": "Keep first conflicting event",
+      "detected": true,
+      "firstWitness": "conflict-excludes-first"
+    },
+    {
+      "id": "E2",
+      "defect": "Count rows as users",
+      "detected": true,
+      "firstWitness": "shared-user"
+    },
+    {
+      "id": "E3",
+      "defect": "Ignore unknown taxonomy",
+      "detected": true,
+      "firstWitness": "mixed-000"
+    },
+    {
+      "id": "E4",
+      "defect": "Lose retry count",
+      "detected": true,
+      "firstWitness": "identical-retry"
+    }
+  ],
+  "limits": "Selected well-formed CSV cases only; no exhaustive parser, Unicode, year-zero, volume, privacy, source-completeness or production validation. Reference and implementation are AI-assisted, not third-party certification.",
+  "sha256": {
+    "audit.js": "e0cdf1df53cdeec7912e5c10cb1342d6602c081d79a310097d4eb4b1fa34e6e4",
+    "verify.py": "1e1ff0d9780b48977104e8cf5cb738549ab5a1893376952db0cca64bc262890b"
+  }
+}
