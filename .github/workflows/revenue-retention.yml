@@ -1,0 +1,20 @@
+name: Revenue retention evidence
+on: [push, pull_request]
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/revenue-retention
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m unittest -v test_analysis.py
+      - run: node --test test_engine.js
+      - run: python build.py
+      - run: git diff --exit-code -- data
