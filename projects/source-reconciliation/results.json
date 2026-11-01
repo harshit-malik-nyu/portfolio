@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": {
+    "reconcile.py": "cd54ced31ad67e8e389da49d6264584d8f2fc16d4505c9530a38b3f46adfa481",
+    "fixtures.py": "5ae76b72c0fc4fb4df3b1a6eeec66b480512b09b6973acf0496e585a499c34b5",
+    "test_reconcile.py": "37830ab16a7e5734992c98e38197dd76e9129011efec4121ebc14804ff015730",
+    "build.py": "c4b9403250a62a663d70505245591bc47e5d81979f557bd8cd87afa76ab4ba48"
+  },
+  "scenarios": [
+    {
+      "name": "Clean supplied snapshot",
+      "fixture": "fixtures/01-clean-supplied-snapshot.json",
+      "inputSha256": "3403d682d00ab19af0cba8d643b534778c3ad2662368b6fadb454f4fdb969b0a",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "RECONCILED",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 3,
+          "matchedOrders": 3,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 10000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 11000,
+            "matchedCents": 11000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Equal counts hide a missing order",
+      "fixture": "fixtures/02-equal-counts-hide-a-missing-order.json",
+      "inputSha256": "562281606ecf325aee945cf6ab7a14902665d62311539fa5fb5253270f7ea244",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "MISMATCH",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 3,
+          "matchedOrders": 1,
+          "missingOrders": 1,
+          "duplicateOrderEvents": 1,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 10000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 11000,
+            "matchedCents": 0,
+            "missingCents": 7000,
+            "exceptionCents": 4000
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Amount and currency disagree",
+      "fixture": "fixtures/03-amount-and-currency-disagree.json",
+      "inputSha256": "ef227ff83950cce341f0d6e587e159f209d325c7619faa44ef34484a79ae4135",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "MISMATCH",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 3,
+          "matchedOrders": 1,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 2,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 0,
+            "missingCents": 0,
+            "exceptionCents": 10000
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 11000,
+            "matchedCents": 7000,
+            "missingCents": 0,
+            "exceptionCents": 4000
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Transaction arrives after cutoff",
+      "fixture": "fixtures/04-transaction-arrives-after-cutoff.json",
+      "inputSha256": "bfaa8dcde4b7d2e93b61e325caab456711dfb7934331c6d06ceca64aaf6d8e46",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "MISMATCH",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 3,
+          "matchedOrders": 2,
+          "missingOrders": 1,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 1,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 10000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 11000,
+            "matchedCents": 4000,
+            "missingCents": 7000,
+            "exceptionCents": 0
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Later snapshot resolves delivery",
+      "fixture": "fixtures/05-later-snapshot-resolves-delivery.json",
+      "inputSha256": "3984946b977d820dda871f904e8e99901b642168e022b3c825bba35906dfaa3d",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "RECONCILED",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T02:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 3,
+          "matchedOrders": 3,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 10000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 11000,
+            "matchedCents": 11000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Grace period has not elapsed",
+      "fixture": "fixtures/06-grace-period-has-not-elapsed.json",
+      "inputSha256": "a6ec967ff8384a54ecd2bde7f14ab66517ddaba8f87707d235542d87a992cc47",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "PENDING",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-29T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 0,
+          "matchedOrders": 0,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 3,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Cancelled source order still emits",
+      "fixture": "fixtures/07-cancelled-source-order-still-emits.json",
+      "inputSha256": "5d6c17b628f64bcaad4376b3b0b56841717381a97e8416e5e8235d2f216a987d",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "MISMATCH",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 2,
+          "matchedOrders": 2,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 1,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 10000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 4000,
+            "matchedCents": 4000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "Exact delivery retry",
+      "fixture": "fixtures/08-exact-delivery-retry.json",
+      "inputSha256": "3c1444145a04789efa309576c74dd82463be8fe5b90fcb906c9eeb1d6081cab7",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "RECONCILED",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 3,
+          "matchedOrders": 3,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 1
+        },
+        "amounts": [
+          {
+            "currency": "EUR",
+            "expectedCents": 10000,
+            "matchedCents": 10000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          },
+          {
+            "currency": "USD",
+            "expectedCents": 11000,
+            "matchedCents": 11000,
+            "missingCents": 0,
+            "exceptionCents": 0
+          }
+        ],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    },
+    {
+      "name": "No eligible population",
+      "fixture": "fixtures/09-no-eligible-population.json",
+      "inputSha256": "f3d51f217e98f8d334195c20812d5504511cfa26605186f04ac980c73a5b506a",
+      "report": {
+        "schemaVersion": 1,
+        "evidence": "synthetic",
+        "status": "NO_ELIGIBLE_ORDERS",
+        "window": {
+          "start": "2026-10-28T00:00:00Z",
+          "end": "2026-10-29T00:00:00Z",
+          "asOf": "2026-10-30T00:00:00Z",
+          "graceHours": 24
+        },
+        "counts": {
+          "eligibleOrders": 0,
+          "matchedOrders": 0,
+          "missingOrders": 0,
+          "duplicateOrderEvents": 0,
+          "mismatchedOrders": 0,
+          "unexpectedEvents": 0,
+          "pendingOrders": 0,
+          "eventsAfterCutoff": 0,
+          "sourceRedeliveries": 0,
+          "eventRedeliveries": 0
+        },
+        "amounts": [],
+        "limits": [
+          "Reconciles only supplied records under the declared snapshot, window and grace assumptions.",
+          "RECONCILED is not source authenticity, complete production capture, accounting revenue or rollout approval.",
+          "Cancelled orders are not expected transactions. Refunds, partial payments and changing order versions are out of scope.",
+          "Currencies remain separate; integer cents are not converted or netted across exceptions.",
+          "No raw identifiers are included. Duplicate-order findings count affected orders, not excess event rows."
+        ]
+      }
+    }
+  ]
+}

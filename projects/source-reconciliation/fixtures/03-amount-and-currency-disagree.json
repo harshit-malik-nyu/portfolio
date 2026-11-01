@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "evidence": "synthetic",
+  "start": "2026-10-28T00:00:00Z",
+  "end": "2026-10-29T00:00:00Z",
+  "asOf": "2026-10-30T00:00:00Z",
+  "graceHours": 24,
+  "orders": [
+    {
+      "order_id": "o1",
+      "completed_at": "2026-10-28T10:00:00Z",
+      "status": "completed",
+      "amount_cents": 4000,
+      "currency": "USD"
+    },
+    {
+      "order_id": "o2",
+      "completed_at": "2026-10-28T10:00:00Z",
+      "status": "completed",
+      "amount_cents": 7000,
+      "currency": "USD"
+    },
+    {
+      "order_id": "o3",
+      "completed_at": "2026-10-28T10:00:00Z",
+      "status": "completed",
+      "amount_cents": 10000,
+      "currency": "EUR"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "eo1",
+      "order_id": "o1",
+      "occurred_at": "2026-10-28T10:00:00Z",
+      "received_at": "2026-10-28T11:00:00Z",
+      "amount_cents": 3999,
+      "currency": "USD"
+    },
+    {
+      "event_id": "eo2",
+      "order_id": "o2",
+      "occurred_at": "2026-10-28T10:00:00Z",
+      "received_at": "2026-10-28T11:00:00Z",
+      "amount_cents": 7000,
+      "currency": "USD"
+    },
+    {
+      "event_id": "eo3",
+      "order_id": "o3",
+      "occurred_at": "2026-10-28T10:00:00Z",
+      "received_at": "2026-10-28T11:00:00Z",
+      "amount_cents": 10000,
+      "currency": "USD"
+    }
+  ]
+}
