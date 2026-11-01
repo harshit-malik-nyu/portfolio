@@ -52,3 +52,7 @@ jobs:
       - run: node --test projects/commerce-conversion/experiment/robustness/test.cjs
       - run: python projects/commerce-conversion/experiment/robustness/verify.py
       - run: git diff --exit-code -- projects/commerce-conversion/experiment/robustness/results.json
+
+      - run: python projects/source-reconciliation/test_reconcile.py
+      - run: python projects/source-reconciliation/build.py
+      - run: git diff --exit-code -- projects/source-reconciliation/fixtures projects/source-reconciliation/results.json

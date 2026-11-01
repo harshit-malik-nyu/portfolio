@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "evidence": "synthetic",
+  "start": "2026-10-28T00:00:00Z",
+  "end": "2026-10-29T00:00:00Z",
+  "asOf": "2026-10-30T00:00:00Z",
+  "graceHours": 24,
+  "orders": [],
+  "events": []
+}
