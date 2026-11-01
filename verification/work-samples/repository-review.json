@@ -1,0 +1,325 @@
+{
+  "scope": "Local replay of existing offline analysis commands; not a full scientific or independent review",
+  "date": "2026-11-01",
+  "repositories": [
+    {
+      "repository": "harshit-malik-nyu/abstain",
+      "reviewed_baseline_commit": "a11d9de01cd631aad979ddaf3d6f3538d30ccfbe",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/citeaudit",
+      "reviewed_baseline_commit": "30abde4fd0baf0540d8ab2fde1ee60b3e0634b8e",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/evaldrift",
+      "reviewed_baseline_commit": "086bea4fec31738c7388b85701f04e613e04ce73",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/floodcheck",
+      "reviewed_baseline_commit": "69a3eb1075426c496e1ef1fe3a246fcac691fe43",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/knowing-when-to-doubt",
+      "reviewed_baseline_commit": "4d9c3c82aadd0d72e5614d912c6745cbcb23f860",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/lineage",
+      "reviewed_baseline_commit": "2aafbea6a875ebb7ddced8e3a0018522e4f15bb3",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/ranksafe",
+      "reviewed_baseline_commit": "58462a04cb193b79a3e9418375fde02a00ab9edf",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/sanctions-triage",
+      "reviewed_baseline_commit": "dadbe8b83bb584fd25743cc8669e72974a28aa76",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    },
+    {
+      "repository": "harshit-malik-nyu/underdetermined",
+      "reviewed_baseline_commit": "1a8f71f23a215136826c1a2f19ba9c5e630f4b46",
+      "commands": [
+        {
+          "command": "python analysis/build.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/business_case.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/product.py analysis/events.synthetic.jsonl",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/decision_lab.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/test_assurance.py",
+          "exit_code": 0
+        },
+        {
+          "command": "python analysis/assurance.py",
+          "exit_code": 0
+        }
+      ],
+      "tracked_files_changed_by_replay": []
+    }
+  ],
+  "corrections": {
+    "evaldrift": "a6c563fba5d3aa79939fafd351f766b518241b8d",
+    "sanctions-triage": "be1125ea8ff7ec7051e2ea7a1d0fe5cdb66bd032"
+  }
+}
