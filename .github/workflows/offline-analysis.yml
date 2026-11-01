@@ -56,3 +56,6 @@ jobs:
       - run: python projects/source-reconciliation/test_reconcile.py
       - run: python projects/source-reconciliation/build.py
       - run: git diff --exit-code -- projects/source-reconciliation/fixtures projects/source-reconciliation/results.json
+
+      - run: python projects/agentcost-review/build.py
+      - run: git diff --exit-code -- projects/agentcost-review/index.html
