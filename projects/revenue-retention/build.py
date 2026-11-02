@@ -71,7 +71,7 @@ def build():
     tables=fixture(); (ROOT/'data').mkdir(exist_ok=True)
     for name,(cols,rows) in tables.items():
         with (ROOT/'data'/f'{name}.csv').open('w',newline='') as f:
-            w=csv.writer(f); w.writerow(cols); w.writerows(rows)
+            w=csv.writer(f,lineterminator="\n"); w.writerow(cols); w.writerows(rows)
     result=analyze(tables)
     (ROOT/'data/results.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
