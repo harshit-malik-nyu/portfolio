@@ -8,7 +8,7 @@ From this directory, Python 3.10+ and Node 18+:
 
 ```sh
 python build.py
-python -m unittest -v test_analysis.py
+python -m unittest -v test_revenue_analysis.py
 node --test test_engine.js
 ```
 
@@ -27,7 +27,7 @@ node --test test_engine.js
 | Activation | Fixture flag for setup within 14 days | Association only; not a treatment effect |
 | Usage | Active days per account-month | Simulated measurement, not independently validated behavior |
 
-60 accounts begin in April (30), June (15), August (15). 270 account-month records include churned subscriptions with zero MRR. Joins aggregate invoices and payments separately before joining; split payments cannot inflate billing. Exact duplicate invoice removal is logged. `test_analysis.py` challenges every seeded exception, cutoff, bridge, cohort maturity and invalid identity handling.
+60 accounts begin in April (30), June (15), August (15). 270 account-month records include churned subscriptions with zero MRR. Joins aggregate invoices and payments separately before joining; split payments cannot inflate billing. Exact duplicate invoice removal is logged. `test_revenue_analysis.py` challenges every seeded exception, cutoff, bridge, cohort maturity and invalid identity handling.
 
 ## Decision contract
 

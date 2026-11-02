@@ -1,5 +1,9 @@
 import unittest, copy
-from build import fixture, analyze
+from pathlib import Path
+import importlib.util
+spec=importlib.util.spec_from_file_location("revenue_build",Path(__file__).with_name("build.py"))
+module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+fixture,analyze=module.fixture,module.analyze
 class RevenueTests(unittest.TestCase):
  def setUp(self): self.tables=fixture(); self.r=analyze(self.tables)
  def row(self,id): return next(r for r in self.r['rows'] if r['account_id']==id and r['month']=='2026-09')
