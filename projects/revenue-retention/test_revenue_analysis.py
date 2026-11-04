@@ -24,4 +24,42 @@ class RevenueTests(unittest.TestCase):
   t=copy.deepcopy(self.tables); t['payments'][1].append(['orphan','absent','2026-09-01',100])
   with self.assertRaises(ValueError): analyze(t)
  def test_pools(self): self.assertEqual(self.r['pools'],{'collection':120000,'onboarding':610000,'renewal':1070000})
+ def test_missing_subscription_stops_instead_of_false_churn(self):
+  t=copy.deepcopy(self.tables);t['subscriptions'][1].pop()
+  with self.assertRaisesRegex(ValueError,'coverage'): analyze(t)
+ def test_missing_usage_stops_instead_of_silent_exclusion(self):
+  t=copy.deepcopy(self.tables);t['usage'][1].pop()
+  with self.assertRaisesRegex(ValueError,'coverage'): analyze(t)
+ def test_orphan_invoice_stops(self):
+  t=copy.deepcopy(self.tables);t['invoices'][1].append(['bad','unknown','2026-09',100])
+  with self.assertRaisesRegex(ValueError,'eligible'): analyze(t)
+ def test_invalid_money_and_nulls(self):
+  for value in [-1,1.5,True,None,'100']:
+   with self.subTest(value=value):
+    t=copy.deepcopy(self.tables);t['subscriptions'][1][0][2]=value
+    with self.assertRaises(ValueError): analyze(t)
+ def test_calendar_and_date_boundaries(self):
+  for name,col,value in [('usage',2,31),('payments',2,'2026-09-31'),('accounts',3,2)]:
+   with self.subTest(name=name):
+    t=copy.deepcopy(self.tables);t[name][1][0][col]=value
+    with self.assertRaises(ValueError): analyze(t)
+ def test_duplicate_payment_is_not_extra_cash(self):
+  t=copy.deepcopy(self.tables);t['payments'][1].append(t['payments'][1][0].copy())
+  with self.assertRaisesRegex(ValueError,'Duplicate payment'): analyze(t)
+ def test_independent_python_reconciliation_oracle(self):
+  invoices={r[0]:r for r in self.tables['invoices'][1]}
+  cash={}
+  for _,iid,day,amount in self.tables['payments'][1]:
+   if day<='2026-09-30': cash[iid]=cash.get(iid,0)+amount
+  billed={};collected={}
+  for iid,aid,month,amount in invoices.values():
+   key=(aid,month);billed[key]=billed.get(key,0)+amount;collected[key]=collected.get(key,0)+cash.get(iid,0)
+  for r in self.r['rows']:
+   key=(r['account_id'],r['month'])
+   self.assertEqual(r['billed_cents'],billed.get(key,0))
+   self.assertEqual(r['collected_cents'],collected.get(key,0))
+ def test_source_order_does_not_change_result(self):
+  t=copy.deepcopy(self.tables)
+  for _,rows in t.values(): rows.reverse()
+  self.assertEqual(analyze(t),self.r)
 if __name__=='__main__': unittest.main()
