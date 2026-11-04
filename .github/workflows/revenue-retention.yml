@@ -19,4 +19,5 @@ jobs:
       - run: python build.py
       - run: python advanced.py --output data/advanced-examples.json
       - run: python robustness.py
-      - run: git diff --exit-code -- data
+      - run: python build_review.py
+      - run: git diff --exit-code -- data review.html
