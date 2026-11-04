@@ -63,3 +63,36 @@ Before SQL executes, the pipeline validates table names, column order, required 
 Twenty Python tests and seven JavaScript tests cover the financial controls and decision boundaries. A separate dictionary-based Python calculation checks invoice and cash totals against SQL, and reversed source ordering must yield identical results. These tests are authored within this project, not external certification.
 
 Remaining scope: the synthetic fixture has three plans and six months; credits, refunds, proration, expansion/contraction, production warehouse execution and measured causal effects remain outside this version. Passing these controls is not a claim of universal 10/10 work-sample quality.
+
+## Subscription and experiment extensions — November 4, 2026
+
+`advanced.py` adds three executable capabilities. These acceptance fixtures are separate from the dashboard's synthetic company; they are not represented as observations from that company.
+
+1. **MRR bridge:** opening + new + reactivation + expansion − contraction − churn = closing. Both snapshots require the same explicit account population (use zero for accounts not yet active). Historical active IDs distinguish new customers from reactivations. Gross retention excludes expansion; net retention includes expansion among accounts with positive opening MRR. New and reactivated customers are excluded from both retention numerators. Zero opening MRR returns unavailable ratios.
+2. **Experiment readout:** all assigned accounts must have complete 90-day outcomes. The primary metric is integer-cent net collected contribution per assigned account. Under complete random assignment with a fixed treatment count, enumerate all possible allocations and compare absolute treatment-control mean differences. The two-sided p-value tests the sharp no-effect null. No normal approximation is used. Reject workloads above 200,000 allocations explicitly. Missing outcomes, immature follow-up, negative effects and failure to exceed the economic threshold cannot produce REVIEW.
+3. **CSV import:** load the five source tables using the declared headers and types, apply the existing data contracts, and return reconciled results with SHA-256 source hashes. Output is replaced only after successful analysis. This is a snapshot importer, not incremental ingestion or a production warehouse connector.
+
+```sh
+python -m unittest -v test_revenue_analysis.py test_advanced.py
+node --test test_engine.js
+python advanced.py --output data/advanced-examples.json
+python advanced.py --input-dir data --output /tmp/revenue-import.json
+```
+
+[Read generated acceptance examples](data/advanced-examples.json) · [Inspect executable methods](advanced.py) · [Inspect tests](test_advanced.py)
+
+**Interpretation:** the deliberately extreme 6-vs-6 fixture has two extreme allocations out of 924, so p = 2/924. That checks the implementation against a combinatorial answer; it is not proof of a real treatment effect or adequate real-world power. The test assumes genuine random assignment and does not validate how an assignment was generated. It provides no effect confidence interval, sample-size plan or sequential monitoring correction. REVIEW means inspect uncertainty and guardrails, never automatic rollout. Missing outcomes are blocked, not imputed or silently excluded.
+
+**Verification scope:** 30 Python tests and 7 JavaScript tests cover selected financial, ingestion and decision cases. Remaining gaps include refunds/credits/proration, production-scale ingestion, uncertainty intervals and an instrumented randomized experiment.
+
+## Work-sample review rubric
+
+Five dimensions each carry 2 points: correctness, reproducibility, decision relevance, adversarial coverage and reviewer handoff. Scores describe this synthetic project only, not hiring odds or independent certification. Full marks require no material unresolved gap within the declared evaluation scope; passing a finite test suite alone does not establish that.
+
+| Domain | Correctness | Reproducibility | Decision relevance | Adversarial coverage | Handoff | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Data | 1.8 | 2.0 | 1.8 | 1.7 | 1.7 | 9.0 |
+| Business | 1.7 | 1.8 | 1.8 | 1.6 | 1.6 | 8.5 |
+| Product | 1.7 | 1.8 | 1.7 | 1.7 | 1.6 | 8.5 |
+
+Data deductions reflect limited source/accounting variants and scale evidence. Business deductions reflect unvalidated economics and limited sensitivity structure. Product deductions reflect missing effect intervals, power planning and an instrumented experiment. These are judgment-based provisional scores, not measured precision.
