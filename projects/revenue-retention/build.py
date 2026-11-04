@@ -1,5 +1,7 @@
 """Deterministic synthetic fixture + SQLite analysis. Python standard library only."""
 import csv, json, sqlite3
+from datetime import date
+from calendar import monthrange
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 MONTHS=[f'2026-{m:02d}' for m in range(4,10)]
@@ -35,7 +37,65 @@ def fixture():
             'payments':(['payment_id','invoice_id','paid_at','amount_cents'],payments),
             'usage':(['account_id','month','active_days'],usage)}
 
+def validate(tables):
+    """Enforce the closed-world snapshot contract before any lossy join."""
+    expected = fixture()
+    if set(tables) != set(expected):
+        raise ValueError('Source tables do not match contract')
+    for name, (cols, rows) in tables.items():
+        if cols != expected[name][0]:
+            raise ValueError(f'{name}: column contract mismatch')
+        for row in rows:
+            if len(row) != len(cols) or any(v is None for v in row):
+                raise ValueError(f'{name}: missing field')
+            for key, value in zip(cols, row):
+                if key.endswith('_cents') or key in ('active_days', 'activated_14d'):
+                    if type(value) is not int or value < 0:
+                        raise ValueError(f'{name}: invalid nonnegative integer {key}')
+                elif not isinstance(value, str) or not value.strip():
+                    raise ValueError(f'{name}: invalid text {key}')
+                if key in ('month', 'cohort') and value not in MONTHS:
+                    raise ValueError(f'{name}: unsupported month')
+                if key == 'paid_at':
+                    try:
+                        if date.fromisoformat(value).isoformat() != value:
+                            raise ValueError('Noncanonical date')
+                    except ValueError as exc:
+                        raise ValueError('Invalid payment date') from exc
+    accounts = {r[0]: r for r in tables['accounts'][1]}
+    if len(accounts) != len(tables['accounts'][1]) or not accounts:
+        raise ValueError('Duplicate or empty account population')
+    for aid, segment, cohort, activated in accounts.values():
+        if segment not in ('Starter', 'Growth', 'Scale') or activated not in (0, 1):
+            raise ValueError('Invalid account classification')
+    required = {(aid, month) for aid, _, cohort, _ in accounts.values()
+                for month in MONTHS[MONTHS.index(cohort):]}
+    for name in ('subscriptions', 'usage'):
+        keys = [(r[0], r[1]) for r in tables[name][1]]
+        if len(keys) != len(set(keys)) or set(keys) != required:
+            raise ValueError(f'{name}: incomplete, duplicate or unexpected account-month coverage')
+    for aid, month, days in tables['usage'][1]:
+        year, mon = map(int, month.split('-'))
+        if days > monthrange(year, mon)[1]:
+            raise ValueError('Usage exceeds calendar days')
+    invoices = {}
+    for row in tables['invoices'][1]:
+        iid, aid, month, amount = row
+        if (aid, month) not in required:
+            raise ValueError('Invoice has no eligible subscription snapshot')
+        if iid in invoices and invoices[iid] != row:
+            raise ValueError('Conflicting invoice identities')
+        invoices[iid] = row
+    payments = set()
+    for pid, iid, paid_at, amount in tables['payments'][1]:
+        if pid in payments:
+            raise ValueError('Duplicate payment identity')
+        payments.add(pid)
+        if iid not in invoices:
+            raise ValueError('Orphan payment')
+
 def analyze(tables):
+    validate(tables)
     db=sqlite3.connect(':memory:'); db.row_factory=sqlite3.Row
     schemas={'accounts':'account_id TEXT PRIMARY KEY,segment TEXT,cohort TEXT,activated_14d INTEGER',
       'subscriptions':'account_id TEXT,month TEXT,mrr_cents INTEGER,PRIMARY KEY(account_id,month)',
@@ -68,7 +128,7 @@ def analyze(tables):
       'duplicates_removed':len(tables['invoices'][1])-len(set(map(tuple,tables['invoices'][1])))}
 
 def build():
-    tables=fixture(); (ROOT/'data').mkdir(exist_ok=True)
+    tables=fixture(); validate(tables); (ROOT/'data').mkdir(exist_ok=True)
     for name,(cols,rows) in tables.items():
         with (ROOT/'data'/f'{name}.csv').open('w',newline='') as f:
             w=csv.writer(f,lineterminator="\n"); w.writerow(cols); w.writerows(rows)

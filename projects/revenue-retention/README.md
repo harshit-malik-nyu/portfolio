@@ -52,6 +52,14 @@ Assign before treatment, stratify by segment, keep an account in one experiment,
 
 ## Limits and handoff
 
-This is a designed test fixture, not a generic production ingestion service. It assumes complete contract and usage snapshots and does not implement accounting recognition, dunning execution, CRM ingestion, authentication, or causal estimation. Real deployment requires source contracts, data freshness checks, credit/refund handling and ownership with Finance/Product/RevOps. Workbook formulas and cached results are programmatically checked; native Excel compatibility is not independently certified.
+This is a designed test fixture, not a generic production ingestion service. It requires complete contract and usage snapshots and rejects incomplete coverage and does not implement accounting recognition, dunning execution, CRM ingestion, authentication, or causal estimation. Real deployment requires source contracts, data freshness checks, credit/refund handling and ownership with Finance/Product/RevOps. Workbook formulas and cached results are programmatically checked; native Excel compatibility is not independently certified.
 
 Workbook authoring: `build-workbook.mjs` requires `@oai/artifact-tool` in an authoring environment. The analysis, tests, dashboard and downloadable XLSX do not require that package. It checks base, zero-benefit and constrained-budget scenarios before export.
+
+## Data contract hardening — November 4, 2026
+
+Before SQL executes, the pipeline validates table names, column order, required values, nonnegative integer cents, canonical payment dates, supported months, account classifications and calendar-day usage bounds. Every account must have exactly one subscription and usage snapshot from cohort start through September, including zero-MRR rows after churn. Missing usage cannot silently remove revenue; missing subscriptions cannot silently appear as churn. Unknown invoice account-month keys and duplicate payment IDs stop processing. Missing invoices remain valid exceptions for investigation.
+
+Twenty Python tests and seven JavaScript tests cover the financial controls and decision boundaries. A separate dictionary-based Python calculation checks invoice and cash totals against SQL, and reversed source ordering must yield identical results. These tests are authored within this project, not external certification.
+
+Remaining scope: the synthetic fixture has three plans and six months; credits, refunds, proration, expansion/contraction, production warehouse execution and measured causal effects remain outside this version. Passing these controls is not a claim of universal 10/10 work-sample quality.
