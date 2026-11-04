@@ -96,3 +96,11 @@ Five dimensions each carry 2 points: correctness, reproducibility, decision rele
 | Product | 1.7 | 1.8 | 1.7 | 1.7 | 1.6 | 8.5 |
 
 Data deductions reflect limited source/accounting variants and scale evidence. Business deductions reflect unvalidated economics and limited sensitivity structure. Product deductions reflect missing effect intervals, power planning and an instrumented experiment. These are judgment-based provisional scores, not measured precision.
+
+## Robustness review — November 4, 2026
+
+[Read the decision review](robustness-review.md) · [Inspect computed scenarios](data/robustness.json) · [Inspect implementation](robustness.py)
+
+`python robustness.py` regenerates the report. Run `python -m unittest -v test_revenue_analysis.py test_advanced.py test_robustness.py` and `node --test test_engine.js` to reproduce 47 selected tests. These extensions are independent synthetic acceptance cases, not integrated accounting transactions or real experiment results in the main dashboard.
+
+The prior 37-test review above is historical. Current provisional ratings are Data 9/10, Business 9/10 and Product 9/10 on the same five-dimension rubric. No perfect-score or external-validation claim is made. Remaining material gaps include proration and credit reversals, end-to-end UI integration of these extensions, production-scale ingestion and empirical validation of scenario assumptions.

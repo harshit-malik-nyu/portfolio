@@ -1,0 +1,465 @@
+{
+  "synthetic": true,
+  "credit_then_refund": {
+    "net_billed_cents": 8000,
+    "net_cash_cents": 8000,
+    "receivable_cents": 0,
+    "customer_credit_cents": 0,
+    "reconciliation_difference_cents": 0
+  },
+  "credit_awaiting_refund": {
+    "net_billed_cents": 8000,
+    "net_cash_cents": 10000,
+    "receivable_cents": 0,
+    "customer_credit_cents": 2000,
+    "reconciliation_difference_cents": 0
+  },
+  "experiment_interval_cents": {
+    "effect": 10000.0,
+    "lower": -26257.523224872442,
+    "upper": 30000,
+    "confidence": 0.95,
+    "method": "Conservative bounded-outcome Hoeffding union interval",
+    "assumptions": "Prespecified potential-outcome bounds; complete random assignment; no interference; complete follow-up"
+  },
+  "decision": "HOLD: small synthetic experiment interval includes economically harmful effects despite a small sharp-null p-value.",
+  "sensitivity": {
+    "budget_usd": 1000,
+    "capacity_hours": 20,
+    "rows": [
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.6,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": -90.0,
+          "activation": -41.200000000000045,
+          "renewal": -229.60000000000002
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.6,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": -165.0,
+          "activation": -216.20000000000005,
+          "renewal": -479.6
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.6,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": -240.0,
+          "activation": -391.20000000000005,
+          "renewal": -729.6
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.8,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": -90.0,
+          "activation": 178.4000000000001,
+          "renewal": 27.200000000000045
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.8,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": -165.0,
+          "activation": 3.400000000000091,
+          "renewal": -222.79999999999995
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.8,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": -240.0,
+          "activation": -171.5999999999999,
+          "renewal": -472.79999999999995
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.9,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": -90.0,
+          "activation": 288.20000000000005,
+          "renewal": 155.60000000000014
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.9,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": -165.0,
+          "activation": 113.20000000000005,
+          "renewal": -94.39999999999986
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 0.5,
+        "margin": 0.9,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": -240.0,
+          "activation": -61.799999999999955,
+          "renewal": -344.39999999999986
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.6,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": 120.0,
+          "activation": 617.5999999999999,
+          "renewal": 540.8
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.6,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": 45.0,
+          "activation": 442.5999999999999,
+          "renewal": 290.79999999999995
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.6,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": -30.0,
+          "activation": 267.5999999999999,
+          "renewal": 40.799999999999955
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.8,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": 120.0,
+          "activation": 1056.8000000000002,
+          "renewal": 1054.4
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.8,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": 45.0,
+          "activation": 881.8000000000002,
+          "renewal": 804.4000000000001
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.8,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": -30.0,
+          "activation": 706.8000000000002,
+          "renewal": 554.4000000000001
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.9,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": 120.0,
+          "activation": 1276.4,
+          "renewal": 1311.2000000000003
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "renewal"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.9,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": 45.0,
+          "activation": 1101.4,
+          "renewal": 1061.2000000000003
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1,
+        "margin": 0.9,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": -30.0,
+          "activation": 926.4000000000001,
+          "renewal": 811.2000000000003
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "hold"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.6,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": 330.0,
+          "activation": 1276.3999999999999,
+          "renewal": 1311.1999999999998
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "renewal"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.6,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": 255.0,
+          "activation": 1101.3999999999999,
+          "renewal": 1061.1999999999998
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.6,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": 180.0,
+          "activation": 926.3999999999999,
+          "renewal": 811.1999999999998
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "recovery"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.8,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": 330.0,
+          "activation": 1935.2000000000003,
+          "renewal": 2081.6000000000004
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "renewal"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.8,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": 255.0,
+          "activation": 1760.2000000000003,
+          "renewal": 1831.6000000000004
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.8,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": 180.0,
+          "activation": 1585.2000000000003,
+          "renewal": 1581.6000000000004
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "recovery"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.9,
+        "cost_multiplier": 1,
+        "net_cash_usd": {
+          "recovery": 330.0,
+          "activation": 2264.6,
+          "renewal": 2466.8
+        },
+        "cost_usd": {
+          "recovery": 300,
+          "activation": 700,
+          "renewal": 1000
+        },
+        "candidate": "renewal"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.9,
+        "cost_multiplier": 1.25,
+        "net_cash_usd": {
+          "recovery": 255.0,
+          "activation": 2089.6,
+          "renewal": 2216.8
+        },
+        "cost_usd": {
+          "recovery": 375.0,
+          "activation": 875.0,
+          "renewal": 1250.0
+        },
+        "candidate": "activation"
+      },
+      {
+        "effect_multiplier": 1.5,
+        "margin": 0.9,
+        "cost_multiplier": 1.5,
+        "net_cash_usd": {
+          "recovery": 180.0,
+          "activation": 1914.6,
+          "renewal": 1966.8000000000002
+        },
+        "cost_usd": {
+          "recovery": 450.0,
+          "activation": 1050.0,
+          "renewal": 1500.0
+        },
+        "candidate": "recovery"
+      }
+    ],
+    "warning": "Scenario counts are not probabilities; all effect, margin and cost ranges are unvalidated assumptions."
+  }
+}
