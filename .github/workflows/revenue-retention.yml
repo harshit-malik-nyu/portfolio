@@ -14,7 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: python -m unittest -v test_revenue_analysis.py
+      - run: python -m unittest -v test_revenue_analysis.py test_advanced.py
       - run: node --test test_engine.js
       - run: python build.py
+      - run: python advanced.py --output data/advanced-examples.json
       - run: git diff --exit-code -- data

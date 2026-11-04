@@ -1,0 +1,36 @@
+{
+  "synthetic": true,
+  "scope": "Independent acceptance fixtures, not the primary dashboard dataset",
+  "mrr_bridge": {
+    "opening": 140000,
+    "new": 10000,
+    "reactivation": 30000,
+    "expansion": 20000,
+    "contraction": 20000,
+    "churn": 90000,
+    "closing": 90000,
+    "difference": 0,
+    "grr": 0.21428571428571427,
+    "nrr": 0.35714285714285715
+  },
+  "experiment_signal": {
+    "decision": "REVIEW",
+    "reason": "Review statistical signal and business threshold; never automatic rollout",
+    "assigned_treatment": 6,
+    "assigned_control": 6,
+    "effect_cents": 10000.0,
+    "p_value": 0.0021645021645021645,
+    "allocations": 924,
+    "extreme_allocations": 2,
+    "threshold_cents": 5000
+  },
+  "experiment_missing": {
+    "decision": "HOLD",
+    "reason": "Incomplete 90-day assigned-account outcomes",
+    "assigned_treatment": 6,
+    "assigned_control": 6,
+    "p_value": null,
+    "effect_cents": null
+  },
+  "limits": "Sharp-null randomization test is not a confidence interval or a powered real experiment. REVIEW never authorizes rollout."
+}
