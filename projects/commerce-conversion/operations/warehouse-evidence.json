@@ -5,8 +5,9 @@
     "visitor referential integrity",
     "daily mart reconciliation after each delivery"
   ],
+  "query_plan_note": "Normalized COVERING INDEX to INDEX for SQLite-version portability; not a covering-index or speedup claim.",
   "query_plan": [
-    "SEARCH events USING COVERING INDEX ix_events_day_type (<expr>=? AND event=?)"
+    "SEARCH events USING INDEX ix_events_day_type (<expr>=? AND event=?)"
   ],
   "scenarios": [
     {
