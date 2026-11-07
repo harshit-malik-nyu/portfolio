@@ -1,0 +1,103 @@
+{
+  "scope": "Synthetic SQLite semantic-model demonstration, not a deployed warehouse or scale benchmark. Day dimension includes observed days only; missing days are not zero activity.",
+  "checks": [
+    "event-key uniqueness",
+    "visitor referential integrity",
+    "daily mart reconciliation after each delivery"
+  ],
+  "query_plan": [
+    "SEARCH events USING COVERING INDEX ix_events_day_type (<expr>=? AND event=?)"
+  ],
+  "scenarios": [
+    {
+      "scenario": "Baseline published",
+      "status": "PUBLISHED",
+      "report_version": 1,
+      "reconciled": true,
+      "daily": [
+        {
+          "day": "2026-01-01",
+          "events": 4,
+          "visitors": 2,
+          "buyers": 1,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "scenario": "Replay is harmless",
+      "status": "REPLAY",
+      "report_version": 1,
+      "reconciled": true,
+      "daily": [
+        {
+          "day": "2026-01-01",
+          "events": 4,
+          "visitors": 2,
+          "buyers": 1,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "scenario": "Late order restates history",
+      "status": "PUBLISHED",
+      "report_version": 2,
+      "reconciled": true,
+      "daily": [
+        {
+          "day": "2026-01-01",
+          "events": 5,
+          "visitors": 2,
+          "buyers": 2,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "scenario": "Conflict blocks the batch",
+      "status": "REJECTED",
+      "report_version": 2,
+      "reconciled": true,
+      "daily": [
+        {
+          "day": "2026-01-01",
+          "events": 5,
+          "visitors": 2,
+          "buyers": 2,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "scenario": "Stale source is rejected",
+      "status": "REJECTED",
+      "report_version": 2,
+      "reconciled": true,
+      "daily": [
+        {
+          "day": "2026-01-01",
+          "events": 5,
+          "visitors": 2,
+          "buyers": 2,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "scenario": "Recovery publishes a new version",
+      "status": "PUBLISHED",
+      "report_version": 3,
+      "reconciled": true,
+      "daily": [
+        {
+          "day": "2026-01-01",
+          "events": 6,
+          "visitors": 3,
+          "buyers": 2,
+          "orders": 2
+        }
+      ]
+    }
+  ]
+}

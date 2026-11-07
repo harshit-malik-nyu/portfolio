@@ -1,0 +1,17 @@
+name: Role-specific delivery evidence
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python projects/commerce-conversion/operations/test_pipeline.py
+      - run: python projects/commerce-conversion/operations/warehouse.py
+      - run: git diff --exit-code -- projects/commerce-conversion/operations/warehouse-evidence.json
+      - run: node --check target-roles/evidence.js
+      - run: python analysis/site_audit.py
