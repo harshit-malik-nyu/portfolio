@@ -1,9 +1,9 @@
 // Navigation is local and deterministic; no tracking or model download.
 (()=>{
  const routes={
- data:{title:'From raw events to a defensible metric.',text:'Inspect the grain, challenge invalid records, then trace the calculation.',links:[['Explore historical analysis','/projects/commerce-conversion/'],['Test the data contract','/tools/event-audit/'],['Trace a metric to SQL','/projects/commerce-conversion/experiment/ledger/']]},
- business:{title:'From assumptions to an investment decision.',text:'Change the economics, inspect the recommendation, then review operational acceptance.',links:[['Change the investment assumptions','/projects/commerce-conversion/'],['Read the decision brief','/projects/commerce-conversion/readout'],['Inspect recovery and acceptance','/projects/commerce-conversion/operations/']]},
- product:{title:'From a positive number to a valid decision.',text:'Compare denominators, inspect experiment gates, then test instrumentation quality.',links:[['Explore assignment and exposure','/projects/commerce-conversion/experiment/ledger/'],['Inspect experiment requirements','/projects/commerce-conversion/experiment/'],['Challenge event quality','/tools/event-audit/']]}
+ data:{title:'From raw events to a defensible metric.',text:'Inspect the grain, challenge invalid records, then trace the calculation.',links:[['Inspect data engineering evidence','/target-roles/#engineering'],['Test the data contract','/tools/event-audit/'],['Trace a metric to SQL','/projects/commerce-conversion/experiment/ledger/']]},
+ business:{title:'From assumptions to an investment decision.',text:'Change the economics, inspect the recommendation, then review operational acceptance.',links:[['Change the investment assumptions','/projects/commerce-conversion/'],['Inspect structured workstream delivery','/target-roles/#business'],['Inspect recovery and acceptance','/projects/commerce-conversion/operations/']]},
+ product:{title:'From support issue to controlled release.',text:'Review the backlog, acceptance criteria, incident drill and measurement gates.',links:[['Inspect product operations evidence','/target-roles/#product'],['Inspect experiment requirements','/projects/commerce-conversion/experiment/'],['Challenge event quality','/tools/event-audit/']]}
  };
  const output=document.getElementById('role-review-content');if(!output)return;
  let selected='data';
