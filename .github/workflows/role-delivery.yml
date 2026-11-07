@@ -13,5 +13,11 @@ jobs:
       - run: python projects/commerce-conversion/operations/test_pipeline.py
       - run: python projects/commerce-conversion/operations/warehouse.py
       - run: git diff --exit-code -- projects/commerce-conversion/operations/warehouse-evidence.json
+      - run: python projects/commerce-conversion/operations/reliability.py --output /tmp/reliability-review.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: measured-load-and-fault-evidence
+          path: /tmp/reliability-review.json
+          retention-days: 30
       - run: node --check target-roles/evidence.js
       - run: python analysis/site_audit.py
