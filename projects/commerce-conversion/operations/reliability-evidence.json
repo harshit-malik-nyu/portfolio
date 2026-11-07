@@ -1,0 +1,99 @@
+{
+  "scope": "Single-process local SQLite load and fault experiment on synthetic events. Not distributed execution, production traffic, an uptime measurement or contracted SLA.",
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "platform": "Linux"
+  },
+  "source_sha256": {
+    "pipeline.py": "edfac4a1ca6c22d8d71984c1005f679b6a21a93afe9a5ea2e68dbe5603fba920",
+    "reliability.py": "0d8f3bb03d8d605f94320704cf7af97a2d88200659ee3de3fb887a8005826608"
+  },
+  "input_rows": 100000,
+  "batch_size": 10000,
+  "batches": [
+    {
+      "batch": "load-0",
+      "rows": 10000,
+      "seconds": 0.150206
+    },
+    {
+      "batch": "load-10000",
+      "rows": 10000,
+      "seconds": 0.163092
+    },
+    {
+      "batch": "load-20000",
+      "rows": 10000,
+      "seconds": 0.167926
+    },
+    {
+      "batch": "load-30000",
+      "rows": 10000,
+      "seconds": 0.177865
+    },
+    {
+      "batch": "load-40000",
+      "rows": 10000,
+      "seconds": 0.204469
+    },
+    {
+      "batch": "load-50000",
+      "rows": 10000,
+      "seconds": 0.194921
+    },
+    {
+      "batch": "load-60000",
+      "rows": 10000,
+      "seconds": 0.207538
+    },
+    {
+      "batch": "load-70000",
+      "rows": 10000,
+      "seconds": 0.218785
+    },
+    {
+      "batch": "load-80000",
+      "rows": 10000,
+      "seconds": 0.233891
+    },
+    {
+      "batch": "load-90000",
+      "rows": 10000,
+      "seconds": 0.253987
+    }
+  ],
+  "max_batch_seconds": 0.253987,
+  "demonstration_latency_target_seconds": 10.0,
+  "batches_within_target": 10,
+  "pre_fault_report": {
+    "as_of": "2026-01-02T01:00:00Z",
+    "complete_through": "2026-01-02T00:00:00Z",
+    "daily": [
+      {
+        "buyer_rate": 0.2,
+        "buyers": 2000,
+        "day": "2026-01-01",
+        "events": 100000,
+        "orders": 20000,
+        "status": "CLOSED",
+        "visitors": 10000
+      }
+    ],
+    "evidence_type": "SYNTHETIC_OPERATIONAL_DEMONSTRATION",
+    "metric": "same-day observed buyers / observed visitors; not attributed conversion",
+    "restated_days": [
+      "2026-01-01"
+    ],
+    "version": 10
+  },
+  "fault_checks": {
+    "exact_replay_no_new_version": true,
+    "partial_batch_rolled_back": true,
+    "stale_source_blocked": true,
+    "trusted_report_retained": true,
+    "uncommitted_writer_process_crash_rolled_back": true,
+    "recovery_new_version": true
+  },
+  "final_event_count": 100001
+}
