@@ -1,6 +1,9 @@
 import {plan,validActions,ReviewSession,toolsFor} from './engine.mjs';
 import {SessionLog} from './events.mjs';
 const $=id=>document.getElementById(id),lesson=window.LESSON,player=$('player');
+// Assets use a directory base, but section links must keep this exact document
+// path. Otherwise Vercel's slash redirect reloads the app and discards the session.
+for(const a of document.querySelectorAll('a[href^="#"]'))a.href=location.pathname+location.search+a.getAttribute('href');
 let current='intro',previous=null,previousRequest=null,generation=0,abort=null,recognition=null,busy=false,listening=false;
 const review=new ReviewSession();
 const eventLog=new SessionLog(crypto.randomUUID());
